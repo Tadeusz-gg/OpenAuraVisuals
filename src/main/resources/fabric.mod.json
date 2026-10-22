@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "id": "auravisuals",
+  "version": "0.2.0",
+  "name": "Aura Visuals",
+  "description": "PvP visuals: animated HUD, hit effects, custom sounds and post-processing on a custom SDF render engine.",
+  "authors": [
+    "maquq"
+  ],
+  "license": "ARR",
+  "icon": "assets/auravisuals/icon.png",
+  "environment": "client",
+  "entrypoints": {
+    "client": [
+      "dev.skidware.visuals.client.AuraClient"
+    ]
+  },
+  "mixins": [
+    "auravisuals.mixins.json"
+  ],
+  "accessWidener": "auravisuals.ct",
+  "depends": {
+    "fabricloader": ">=0.19",
+    "minecraft": "1.21.11",
+    "java": ">=21",
+    "fabric-api-base": "*",
+    "fabric-lifecycle-events-v1": "*",
+    "fabric-command-api-v2": "*"
+  },
+  "recommends": {
+    "fabric-api": "*"
+  }
+}
+
+ 	     	 	 	 		  	 	  		  		  	 		 			   	 		 	 						  		  		 		 		 	 			   		 			 						    	  	      		   		 				 				  		 	  		    						  			     	 			  			  	  		 	 	 	  	    	 	  				  

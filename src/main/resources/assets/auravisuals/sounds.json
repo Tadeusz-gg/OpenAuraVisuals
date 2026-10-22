@@ -1,0 +1,30 @@
+{
+  "hit.tick": {"sounds": [{"name": "auravisuals:hit_tick"}], "subtitle": "subtitles.auravisuals.hit"},
+  "hit.crit": {"sounds": [{"name": "auravisuals:hit_crit"}], "subtitle": "subtitles.auravisuals.crit"},
+  "hit.heavy": {"sounds": [{"name": "auravisuals:hit_heavy"}], "subtitle": "subtitles.auravisuals.hit"},
+  "kill.confirm": {"sounds": [{"name": "auravisuals:kill_confirm"}], "subtitle": "subtitles.auravisuals.kill"},
+  "totem.pop": {"sounds": [{"name": "auravisuals:totem_pop"}], "subtitle": "subtitles.auravisuals.totem"},
+  "ui.click": {"sounds": [{"name": "auravisuals:ui_click"}]},
+  "ui.toggle_on": {"sounds": [{"name": "auravisuals:ui_toggle_on"}]},
+  "ui.toggle_off": {"sounds": [{"name": "auravisuals:ui_toggle_off"}]},
+  "ui.open": {"sounds": [{"name": "auravisuals:ui_open"}]},
+  "ui.close": {"sounds": [{"name": "auravisuals:ui_close"}]},
+  "hit.bell": {"sounds": [{"name": "auravisuals:hit_bell"}], "subtitle": "subtitles.auravisuals.hit"},
+  "hit.bonk": {"sounds": [{"name": "auravisuals:hit_bonk"}], "subtitle": "subtitles.auravisuals.hit"},
+  "hit.bubble": {"sounds": [{"name": "auravisuals:hit_bubble"}], "subtitle": "subtitles.auravisuals.hit"},
+  "hit.pok": {"sounds": [{"name": "auravisuals:hit_pok"}], "subtitle": "subtitles.auravisuals.hit"},
+  "hit.magic": {"sounds": [{"name": "auravisuals:hit_magic"}], "subtitle": "subtitles.auravisuals.hit"},
+  "hit.get": {"sounds": [{"name": "auravisuals:hit_get"}], "subtitle": "subtitles.auravisuals.hit"},
+  "hit.custom": {"sounds": [{"name": "auravisuals:hit_custom"}], "subtitle": "subtitles.auravisuals.hit"},
+  "ui.chime_on": {"sounds": [{"name": "auravisuals:ui_chime_on"}]},
+  "ui.chime_off": {"sounds": [{"name": "auravisuals:ui_chime_off"}]},
+  "hit.custom_crit": {"sounds": [{"name": "auravisuals:hit_custom_crit"}], "subtitle": "subtitles.auravisuals.hit"},
+  "hit.custom_sweep": {"sounds": [{"name": "auravisuals:hit_custom_sweep"}], "subtitle": "subtitles.auravisuals.hit"},
+  "death.wasted": {"sounds": [{"name": "auravisuals:death_wasted"}], "subtitle": "subtitles.auravisuals.death"},
+  "death.souls": {"sounds": [{"name": "auravisuals:death_souls"}], "subtitle": "subtitles.auravisuals.death"},
+  "death.flatline": {"sounds": [{"name": "auravisuals:death_flatline"}], "subtitle": "subtitles.auravisuals.death"},
+  "death.eliminated": {"sounds": [{"name": "auravisuals:death_eliminated"}], "subtitle": "subtitles.auravisuals.death"},
+  "death.custom": {"sounds": [{"name": "auravisuals:death_custom"}], "subtitle": "subtitles.auravisuals.death"}
+}
+
+ 	     	 	 	 		  	 	  		  		  	 		 			   	 		 	 						  		  		 		 		 	 			   		 			 						    	  	      		   		 				 				  		 	  		    						  			     	 			  			  	  		 	 	 	  	    	 	  				  

@@ -1,0 +1,10 @@
+assets/auravisuals/aura/shaders/fullscreen.vsh
+assets/auravisuals/aura/shaders/kawase_down.fsh
+assets/auravisuals/aura/shaders/kawase_up.fsh
+assets/auravisuals/aura/shaders/motion_accum.fsh
+assets/auravisuals/aura/shaders/motion_frames.fsh
+assets/auravisuals/aura/shaders/motion_velocity.fsh
+assets/auravisuals/aura/shaders/screen_fx.fsh
+assets/auravisuals/aura/shaders/sdf.glsl
+assets/auravisuals/aura/shaders/shape.fsh
+assets/auravisuals/aura/shaders/shape.vsh

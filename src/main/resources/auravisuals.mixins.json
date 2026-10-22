@@ -1,0 +1,33 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "dev.skidware.visuals.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "client":[
+    "AspectRatioMixin",
+    "BossHealthOverlayMixin",
+    "FullbrightMixin",
+    "ChatScreenMixin",
+    "ClientPacketListenerMixin",
+    "CooldownInstanceAccessor",
+    "DeathScreenMixin",
+    "GameRendererMixin",
+    "HudLayerMixin",
+    "ItemActivationMixin",
+    "ItemCooldownsAccessor",
+    "ItemInHandRendererMixin",
+    "ItemTintMixin",
+    "LevelRendererMixin",
+    "LivingEntityMixin",
+    "MultiPlayerGameModeMixin",
+    "OverlayTextureAccessor",
+    "SoundBufferLibraryMixin",
+    "SoundEngineMixin",
+    "SoundManagerMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
+
+ 	     	 	 	 		  	 	  		  		  	 		 			   	 		 	 						  		  		 		 		 	 			   		 			 						    	  	      		   		 				 				  		 	  		    						  			     	 			  			  	  		 	 	 	  	    	 	  				  
