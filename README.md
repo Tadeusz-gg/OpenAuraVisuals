@@ -1,5 +1,5 @@
 # Visuals Slop client 1.21.11
-
+# Not Deobf full (but AI can read and understand everything)
 
 JAR & LICENSE -  ???? (opsec guy)
 Crack - Mevinggs
