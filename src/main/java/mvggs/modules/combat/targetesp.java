@@ -1,6 +1,7 @@
 package mvggs.modules.combat;
 
 import dev.aurap.hub.*;
+import dev.aurap.hub.Module;
 
 import dev.skidware.visuals.client.render.AuraPipeline;
 import dev.skidware.visuals.client.render.FrameContext;
@@ -17,44 +18,44 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.world.World;
 
-public final class targetesp extends Yn {
+public final class targetesp extends Module {
     private static final double BD;
     private static final int fu = 64;
     private static final int G = 72;
     private static final double i;
-    private final r_2 IL;
-    private final Uq s;
-    private final Uq z;
-    private final Uq Bl;
-    private final Uq D;
-    private final Uq Tc;
-    private final Uq t;
+    private final ModeSetting IL;
+    private final NumberSetting s;
+    private final NumberSetting z;
+    private final NumberSetting Bl;
+    private final NumberSetting D;
+    private final NumberSetting Tc;
+    private final NumberSetting t;
     private final zS aY;
-    private final JL Q;
-    private final JL Bm;
-    private final Uq OI;
+    private final BooleanSetting Q;
+    private final BooleanSetting Bm;
+    private final NumberSetting OI;
     private LivingEntity I;
     private float FM;
     private Object f;
     public static final int Fd;
 
     public targetesp() {
-        super("target_esp", "Target ESP", AJ.COMBAT);
-        AJ var1 = AJ.COMBAT;
+        super("target_esp", "Target ESP", ModuleCategory.COMBAT);
+        ModuleCategory var1 = ModuleCategory.COMBAT;
 
         BZ var2 = BZ.GHOSTS;
-        r_2 var3 = new r_2("mode", "Mode", var2);
-        xB var4 = this.vn(var3);
-        r_2 var5 = (r_2)var4;
+        ModeSetting var3 = new ModeSetting("mode", "Mode", var2);
+        Setting var4 = this.addSetting(var3);
+        ModeSetting var5 = (ModeSetting)var4;
         this.IL = var5;
-        Uq var6 = new Uq("speed", "Speed", 1.0F, 0.2F, 3.0F);
-        Uq var7 = var6.W(0.05F);
-        Uq var8 = var7.L("x");
-        xB var9 = this.vn(var8);
-        Uq var10 = (Uq)var9;
+        NumberSetting var6 = new NumberSetting("speed", "Speed", 1.0F, 0.2F, 3.0F);
+        NumberSetting var7 = var6.W(0.05F);
+        NumberSetting var8 = var7.L("x");
+        Setting var9 = this.addSetting(var8);
+        NumberSetting var10 = (NumberSetting)var9;
         this.s = var10;
-        Uq var11 = new Uq("ghosts", "Ghosts", 3.0F, 1.0F, 6.0F);
-        Uq var12 = var11.W(1.0F);
+        NumberSetting var11 = new NumberSetting("ghosts", "Ghosts", 3.0F, 1.0F, 6.0F);
+        NumberSetting var12 = var11.W(1.0F);
         BooleanSupplier var56 = () -> {
             int var1x = Fd;
             var1x ^= 631889151;
@@ -82,7 +83,7 @@ public final class targetesp extends Yn {
                         var1x ^= 504164244;
                 }
 
-                r_2 var20x = this.IL;
+                ModeSetting var20x = this.IL;
                 BZ var3x = BZ.GHOSTS;
                 return var20x.TJ(var3x);
             } else {
@@ -92,18 +93,18 @@ public final class targetesp extends Yn {
                 throw var9x;
             }
         };
-        xB var13 = var12.Pt(var56);
-        Uq var14 = (Uq)var13;
-        xB var15 = this.vn(var14);
-        Uq var16 = (Uq)var15;
+        Setting var13 = var12.Pt(var56);
+        NumberSetting var14 = (NumberSetting)var13;
+        Setting var15 = this.addSetting(var14);
+        NumberSetting var16 = (NumberSetting)var15;
         this.z = var16;
-        Uq var17 = new Uq("length", "Trail Length", 1.3F, 0.5F, 2.0F);
-        Uq var18 = var17.W(0.05F);
+        NumberSetting var17 = new NumberSetting("length", "Trail Length", 1.3F, 0.5F, 2.0F);
+        NumberSetting var18 = var17.W(0.05F);
         BooleanSupplier var57 = () -> {
             int var1x = Fd;
             var1x ^= 23592975;
             int var2x = System.identityHashCode(this);
-            r_2 var3x = this.IL;
+            ModeSetting var3x = this.IL;
             BZ var4x = BZ.GHOSTS;
             Integer var18x = var2x;
             if (var18x == null) {
@@ -133,19 +134,19 @@ public final class targetesp extends Yn {
                 }
             }
         };
-        xB var19 = var18.Pt(var57);
-        Uq var20 = (Uq)var19;
-        xB var21 = this.vn(var20);
-        Uq var22 = (Uq)var21;
+        Setting var19 = var18.Pt(var57);
+        NumberSetting var20 = (NumberSetting)var19;
+        Setting var21 = this.addSetting(var20);
+        NumberSetting var22 = (NumberSetting)var21;
         this.Bl = var22;
-        Uq var23 = new Uq("ghost_size", "Ghost Size", 0.5F, 0.2F, 1.2F);
-        Uq var24 = var23.W(0.05F);
-        Uq var25 = var24.L("m");
+        NumberSetting var23 = new NumberSetting("ghost_size", "Ghost Size", 0.5F, 0.2F, 1.2F);
+        NumberSetting var24 = var23.W(0.05F);
+        NumberSetting var25 = var24.L("m");
         BooleanSupplier var58 = () -> {
             int var1x = Fd;
             var1x ^= 842637425;
             int var2x = System.identityHashCode(this);
-            r_2 var3x = this.IL;
+            ModeSetting var3x = this.IL;
             int var4x = var2x + 1;
             var4x = var2x * var4x;
             var2x = var4x & 1;
@@ -181,21 +182,21 @@ public final class targetesp extends Yn {
             AssertionError var15x = new AssertionError();
             throw var15x;
         };
-        xB var26 = var25.Pt(var58);
-        Uq var27 = (Uq)var26;
-        xB var28 = this.vn(var27);
-        Uq var29 = (Uq)var28;
+        Setting var26 = var25.Pt(var58);
+        NumberSetting var27 = (NumberSetting)var26;
+        Setting var28 = this.addSetting(var27);
+        NumberSetting var29 = (NumberSetting)var28;
         this.D = var29;
-        Uq var30 = new Uq("marker_size", "Marker Size", 1.0F, 0.5F, 2.0F);
-        Uq var31 = var30.W(0.05F);
-        Uq var32 = var31.L("x");
+        NumberSetting var30 = new NumberSetting("marker_size", "Marker Size", 1.0F, 0.5F, 2.0F);
+        NumberSetting var31 = var30.W(0.05F);
+        NumberSetting var32 = var31.L("x");
         BooleanSupplier var59 = () -> {
             label73: {
                 int var13x;
                 var13x = Fd;
                 var13x ^= -690874699;
                 int var2x = System.identityHashCode(this);
-                r_2 var3x = this.IL;
+                ModeSetting var3x = this.IL;
                 BZ var4x = BZ.MARKER;
                 boolean var58x = var3x.TJ(var4x);
                 int var69 = var2x + 1;
@@ -345,39 +346,39 @@ public final class targetesp extends Yn {
             RuntimeException var45x = new RuntimeException();
             throw var45x;
         };
-        xB var33 = var32.Pt(var59);
-        Uq var34 = (Uq)var33;
-        xB var35 = this.vn(var34);
-        Uq var36 = (Uq)var35;
+        Setting var33 = var32.Pt(var59);
+        NumberSetting var34 = (NumberSetting)var33;
+        Setting var35 = this.addSetting(var34);
+        NumberSetting var36 = (NumberSetting)var35;
         this.Tc = var36;
-        Uq var37 = new Uq("glow", "Glow", 0.7F, 0.0F, 1.0F);
-        Uq var38 = var37.W(0.05F);
-        xB var39 = this.vn(var38);
-        Uq var40 = (Uq)var39;
+        NumberSetting var37 = new NumberSetting("glow", "Glow", 0.7F, 0.0F, 1.0F);
+        NumberSetting var38 = var37.W(0.05F);
+        Setting var39 = this.addSetting(var38);
+        NumberSetting var40 = (NumberSetting)var39;
         this.t = var40;
         Ry var60 = Ry.GRADIENT;
         zS var41 = new zS(var60, -11559425, -5870593);
         nM var42 = this.bU(var41);
         zS var43 = (zS)var42;
         this.aY = var43;
-        JL var44 = new JL("hurt_flash", "Hurt Flash", true);
-        xB var45 = this.vn(var44);
-        JL var46 = (JL)var45;
+        BooleanSetting var44 = new BooleanSetting("hurt_flash", "Hurt Flash", true);
+        Setting var45 = this.addSetting(var44);
+        BooleanSetting var46 = (BooleanSetting)var45;
         this.Q = var46;
-        JL var47 = new JL("on_look", "Show On Look", true);
-        xB var48 = this.vn(var47);
-        JL var49 = (JL)var48;
+        BooleanSetting var47 = new BooleanSetting("on_look", "Show On Look", true);
+        Setting var48 = this.addSetting(var47);
+        BooleanSetting var49 = (BooleanSetting)var48;
         this.Bm = var49;
-        Uq var50 = new Uq("range", "Range", 32.0F, 6.0F, 96.0F);
-        Uq var51 = var50.W(1.0F);
-        Uq var52 = var51.L("m");
-        xB var53 = this.vn(var52);
-        Uq var54 = (Uq)var53;
+        NumberSetting var50 = new NumberSetting("range", "Range", 32.0F, 6.0F, 96.0F);
+        NumberSetting var51 = var50.W(1.0F);
+        NumberSetting var52 = var51.L("m");
+        Setting var53 = this.addSetting(var52);
+        NumberSetting var54 = (NumberSetting)var53;
         this.OI = var54;
         this.dy("Ghost comets, a gliding ring or a reticle around the entity you fight.");
         this.fJ(true);
-        wD<T> var55 = this::aS;
-        this.iI(T.class, var55);
+        EventListener<RenderEvent> var55 = this::aS;
+        this.onEvent(RenderEvent.class, var55);
     }
 
     @Override
@@ -435,7 +436,7 @@ public final class targetesp extends Yn {
             int var86;
             label174: {
                 int var4 = System.identityHashCode(this);
-                Ud var5 = Ud.Z();
+                ClientRuntime var5 = ClientRuntime.Z();
                 V var109 = var5.bA();
                 Entity var110 = var109.i();
                 long var6 = var4;
@@ -468,7 +469,7 @@ public final class targetesp extends Yn {
                                 break label164;
                             }
 
-                            JL var124 = this.Bm;
+                            BooleanSetting var124 = this.Bm;
                             Integer var7 = var4;
                             if (var7 == null) {
                                 var86 -= 1720573736;
@@ -659,7 +660,7 @@ public final class targetesp extends Yn {
                                     break label164;
                                 }
 
-                                Uq var158 = this.OI;
+                                NumberSetting var158 = this.OI;
                                 float var159 = var158.WM();
                                 double var160 = var159;
                                 double var175 = var127.squaredDistanceTo(var1);
@@ -774,7 +775,7 @@ public final class targetesp extends Yn {
         throw var96;
     }
 
-    private void aS(T var1) {
+    private void aS(RenderEvent var1) {
         label368: {
             label367: {
                 label366: {
@@ -1344,7 +1345,7 @@ public final class targetesp extends Yn {
                                                             var13 = 2.0F * var13;
                                                             var13 = 3.0F - var13;
                                                             float var419 = var418 * var13;
-                                                            JL var423 = this.Q;
+                                                            BooleanSetting var423 = this.Q;
                                                             boolean var424 = var423.vb();
                                                             float var282;
                                                             if (var424) {
@@ -1448,14 +1449,14 @@ public final class targetesp extends Yn {
                                                             FrameContext var441 = var1.frame();
                                                             double var442 = var441.time();
                                                             Canvas var450 = var1.canvas();
-                                                            Ud var16 = Ud.Z();
+                                                            ClientRuntime var16 = ClientRuntime.Z();
                                                             AuraPipeline var451 = var16.Ul();
                                                             WorldDraw var452 = var451.world();
                                                             var450.save();
-                                                            Uq var453 = this.t;
+                                                            NumberSetting var453 = this.t;
                                                             float var454 = var453.WM();
                                                             var450.additive(var454);
-                                                            r_2 var455 = this.IL;
+                                                            ModeSetting var455 = this.IL;
                                                             Enum var456 = var455.A();
                                                             BZ var457 = (BZ)var456;
                                                             int var18 = var3 + 1;
@@ -1992,7 +1993,7 @@ public final class targetesp extends Yn {
             double var21 = 0.1;
             double var23 = var12 * 1000.0;
             var23 /= 6.0;
-            Uq var25 = this.s;
+            NumberSetting var25 = this.s;
             float var132 = var25.WM();
             double var133 = var132;
             long var27 = var16;
@@ -2534,7 +2535,7 @@ public final class targetesp extends Yn {
                         }
 
                         float var175 = var2.depth();
-                        Uq var189 = this.Tc;
+                        NumberSetting var189 = this.Tc;
                         float var190 = var189.WM();
                         float var191 = 0.6F * var190;
                         float var192 = var191 * var235;
@@ -2544,7 +2545,7 @@ public final class targetesp extends Yn {
                         float var194 = var193;
                         double var238 = i;
                         double var239 = var12 * var238;
-                        Uq var250 = this.s;
+                        NumberSetting var250 = this.s;
                         float var251 = var250.WM();
                         double var252 = var251;
                         double var240 = var239 * var252;
@@ -2583,7 +2584,7 @@ public final class targetesp extends Yn {
                         } else {
                             var68 &= 1641630651;
                             var68 ^= -127115628;
-                            r_2 var177 = this.IL;
+                            ModeSetting var177 = this.IL;
                             Enum var178 = var177.A();
                             BZ var179 = (BZ)var178;
                             BZ var180 = var179;
@@ -3017,10 +3018,10 @@ public final class targetesp extends Yn {
     private void q(Canvas var1, WorldDraw var2, LivingEntity var3, double var4, double var6, double var8, float var10, float var11, double var12, int var14) {
         label176: {
             int var16 = System.identityHashCode(this);
-            Uq var17 = this.z;
+            NumberSetting var17 = this.z;
             int var148 = var17.B();
             int var149 = var148;
-            Uq var18 = this.Bl;
+            NumberSetting var18 = this.Bl;
             float var150 = var18.WM();
             float var151 = 10.0F * var150;
             int var152 = Math.round(var151);
@@ -3043,7 +3044,7 @@ public final class targetesp extends Yn {
             var22 += 0.1;
             var22 = var22;
             double var24 = var12 * 3.0;
-            Uq var26 = this.s;
+            NumberSetting var26 = this.s;
             float var170 = var26.WM();
             double var171 = var170;
             var24 *= var171;
@@ -3565,7 +3566,7 @@ public final class targetesp extends Yn {
                     break label39;
                 }
 
-                Uq var77 = this.s;
+                NumberSetting var77 = this.s;
                 float var78 = var77.WM();
                 double var79 = var78;
                 var20 *= var79;
@@ -3789,7 +3790,7 @@ public final class targetesp extends Yn {
                     }
 
                     float var116 = var2.depth();
-                    Uq var18 = this.Tc;
+                    NumberSetting var18 = this.Tc;
                     float var132 = var18.WM();
                     float var133 = 0.55F * var132;
                     float var134 = var133 * var21;
@@ -3808,7 +3809,7 @@ public final class targetesp extends Yn {
                         float var135 = var134 * var21;
                         float var136 = var135;
                         double var180 = var12 * 1.7;
-                        Uq var23 = this.s;
+                        NumberSetting var23 = this.s;
                         float var236 = var23.WM();
                         double var237 = var236;
                         double var181 = var180 * var237;
@@ -4119,7 +4120,7 @@ public final class targetesp extends Yn {
         Lookup var0 = MethodHandles.lookup();
         Class var3 = var0.lookupClass();
         int var1 = -853735925;
-        int var2 = Yn.C;
+        int var2 = Module.C;
         int var4 = of_2.ro(var3, var1, var2);
         Fd = var4;
         double var5 = Math.toRadians(58.0);

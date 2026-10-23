@@ -11,10 +11,10 @@ import java.util.function.IntSupplier;
 
 public final class P {
     public final crosshair W;
-    public final JL NR;
-    public final r_2 jN;
-    public final cS Oq;
-    public final Fk Aj;
+    public final BooleanSetting NR;
+    public final ModeSetting jN;
+    public final ActionSetting Oq;
+    public final ColorSetting Aj;
     public final int Sc;
     public static final int O;
 
@@ -23,34 +23,34 @@ public final class P {
         this.Sc = var4;
         String var9 = var2 + "_on";
         String var10 = "On " + var3;
-        JL var8 = new JL(var9, var10, true);
-        xB var11 = var1.vn(var8);
-        var8 = (JL)var11;
+        BooleanSetting var8 = new BooleanSetting(var9, var10, true);
+        Setting var11 = var1.vn(var8);
+        var8 = (BooleanSetting)var11;
         this.NR = var8;
         var9 = var2 + "_style";
         var10 = var3 + " Crosshair";
-        r_2 var13 = new r_2(var9, var10, var5);
-        xB var14 = var1.vn(var13);
-        r_2 var15 = (r_2)var14;
+        ModeSetting var13 = new ModeSetting(var9, var10, var5);
+        Setting var14 = var1.vn(var13);
+        ModeSetting var15 = (ModeSetting)var14;
         this.jN = var15;
         var9 = var2 + "_drawing";
         var10 = var3 + " Drawing";
-        cS var16 = new cS(var9, var10, var7);
-        xB var17 = var1.vn(var16);
-        cS var18 = (cS)var17;
+        ActionSetting var16 = new ActionSetting(var9, var10, var7);
+        Setting var17 = var1.vn(var16);
+        ActionSetting var18 = (ActionSetting)var17;
         this.Oq = var18;
         var9 = var2 + "_color";
         var10 = var3 + " Color";
-        Fk var19 = new Fk(var9, var10, var6);
-        xB var20 = var1.vn(var19);
-        Fk var21 = (Fk)var20;
+        ColorSetting var19 = new ColorSetting(var9, var10, var6);
+        Setting var20 = var1.vn(var19);
+        ColorSetting var21 = (ColorSetting)var20;
         this.Aj = var21;
-        r_2 var22 = this.jN;
-        JL var36 = this.NR;
+        ModeSetting var22 = this.jN;
+        BooleanSetting var36 = this.NR;
         Objects.requireNonNull(var36);
         BooleanSupplier var37 = var36::vb;
-        xB var23 = var22.Pt(var37);
-        cS var24 = this.Oq;
+        Setting var23 = var22.Pt(var37);
+        ActionSetting var24 = this.Oq;
         BooleanSupplier var38 = () -> {
             label67: {
                 int var27x;
@@ -58,7 +58,7 @@ public final class P {
                     var27x = O;
                     var27x ^= 229714707;
                     int var2x = System.identityHashCode(this);
-                    JL var3x = this.NR;
+                    BooleanSetting var3x = this.NR;
                     boolean var55 = var3x.vb();
                     long var4x = var2x;
                     long var6x = var4x + 1L;
@@ -172,21 +172,21 @@ public final class P {
             AssertionError var47x = new AssertionError();
             throw var47x;
         };
-        xB var25 = var24.Pt(var38);
-        xB var26 = var25.q("Left click paints, right click erases.");
-        Fk var27 = this.Aj;
-        JL var39 = this.NR;
+        Setting var25 = var24.Pt(var38);
+        Setting var26 = var25.q("Left click paints, right click erases.");
+        ColorSetting var27 = this.Aj;
+        BooleanSetting var39 = this.NR;
         Objects.requireNonNull(var39);
         BooleanSupplier var40 = var39::vb;
-        xB var28 = var27.Pt(var40);
-        cS var29 = this.Oq;
+        Setting var28 = var27.Pt(var40);
+        ActionSetting var29 = this.Oq;
         Consumer var41 = var1x -> {
             int var2x = O;
             var2x ^= 779615949;
             int var3x = System.identityHashCode(this);
             crosshair var4x = this.W;
             crosshair var5x = this.W;
-            Uq var21x = var5x.pixel;
+            NumberSetting var21x = var5x.pixel;
             int var6x = var3x + 1;
             var6x = var3x * var6x;
             var3x = var6x & 1;
@@ -214,22 +214,22 @@ public final class P {
                 throw var12x;
             }
         };
-        cS var30 = var29.tZ(var41);
-        Fk var42 = this.Aj;
+        ActionSetting var30 = var29.tZ(var41);
+        ColorSetting var42 = this.Aj;
         Objects.requireNonNull(var42);
         IntSupplier var43 = var42::zz;
         IntSupplier var51 = this::B;
-        cS var31 = var30.Z(var43, var51);
-        r_2 var32 = this.jN;
+        ActionSetting var31 = var30.Z(var43, var51);
+        ModeSetting var32 = this.jN;
         nv var44 = (var1x, var2x, var3x, var4x, var5x, var6x, var7x) -> {
             int var8x = O;
             var8x ^= -15188157;
             int var9x = System.identityHashCode(this);
             crosshair var10x = this.W;
             kP_2 var11x = (kP_2)var2x;
-            cS var12x = this.Oq;
+            ActionSetting var12x = this.Oq;
             du var37x = var12x.lP();
-            Fk var13x = this.Aj;
+            ColorSetting var13x = this.Aj;
             int var38x = var13x.zz();
             long var14x = var9x;
             long var16x = var14x + 1L;
@@ -278,7 +278,7 @@ public final class P {
         int var1 = O;
         var1 ^= -1627619595;
         int var2 = System.identityHashCode(this);
-        Fk var3 = this.Aj;
+        ColorSetting var3 = this.Aj;
         int var24 = var3.zz();
         Integer var19 = var2;
         int var4 = of_2.Ik;
@@ -338,7 +338,7 @@ public final class P {
             var1 ^= 2092863236;
             var1 += -310544673;
             var1 ^= -493917051;
-            r_2 var23 = this.jN;
+            ModeSetting var23 = this.jN;
             kP_2 var29 = kP_2.DRAWN;
             return var23.TJ(var29);
         } else {

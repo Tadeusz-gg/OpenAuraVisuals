@@ -19,7 +19,7 @@ import net.fabricmc.loader.api.ModContainer;
 import net.fabricmc.loader.api.Version;
 import net.fabricmc.loader.api.metadata.ModMetadata;
 
-public final class dynamicisland extends tR_2 {
+public final class dynamicisland extends HudModule {
     private static final float mN = 17.0F;
     private static final float E = 86.0F;
     private static final float Ha = 196.0F;
@@ -52,15 +52,15 @@ public final class dynamicisland extends tR_2 {
     private static final int bv = -16777216;
     private static final int P = -1;
     private static final Paint f;
-    private final r_2 y;
-    private final JL K;
-    private final JL RQ;
-    private final JL nE;
-    private final r_2 v;
-    private final r_2 bC;
-    private final JL Z;
-    private final JL QJ;
-    private final ia mr;
+    private final ModeSetting y;
+    private final BooleanSetting K;
+    private final BooleanSetting RQ;
+    private final BooleanSetting nE;
+    private final ModeSetting v;
+    private final ModeSetting bC;
+    private final BooleanSetting Z;
+    private final BooleanSetting QJ;
+    private final KeybindSetting mr;
     private If s;
     private Zq nI;
     private final sN_2 SG;
@@ -132,46 +132,46 @@ public final class dynamicisland extends tR_2 {
         Cl_2 var1 = Cl_2.TOP_CENTER;
 
         q_2 var2 = q_2.MINIMAL;
-        r_2 var3 = new r_2("compact", "Compact View", var2);
-        xB var4 = var3.q("What the small island shows while music plays.");
-        r_2 var5 = (r_2)var4;
-        xB var6 = this.vn(var5);
-        r_2 var7 = (r_2)var6;
+        ModeSetting var3 = new ModeSetting("compact", "Compact View", var2);
+        Setting var4 = var3.q("What the small island shows while music plays.");
+        ModeSetting var5 = (ModeSetting)var4;
+        Setting var6 = this.addSetting(var5);
+        ModeSetting var7 = (ModeSetting)var6;
         this.y = var7;
-        JL var8 = new JL("lyrics", "Lyrics", true);
-        xB var9 = var8.q("Synced lyrics from lrclib.net (sends the song's title and artist).");
-        JL var10 = (JL)var9;
-        xB var11 = this.vn(var10);
-        JL var12 = (JL)var11;
+        BooleanSetting var8 = new BooleanSetting("lyrics", "Lyrics", true);
+        Setting var9 = var8.q("Synced lyrics from lrclib.net (sends the song's title and artist).");
+        BooleanSetting var10 = (BooleanSetting)var9;
+        Setting var11 = this.addSetting(var10);
+        BooleanSetting var12 = (BooleanSetting)var11;
         this.K = var12;
-        JL var13 = new JL("announce", "Track Changes", true);
-        xB var14 = var13.q("Opens for a moment with the title of every new song.");
-        JL var15 = (JL)var14;
-        xB var16 = this.vn(var15);
-        JL var17 = (JL)var16;
+        BooleanSetting var13 = new BooleanSetting("announce", "Track Changes", true);
+        Setting var14 = var13.q("Opens for a moment with the title of every new song.");
+        BooleanSetting var15 = (BooleanSetting)var14;
+        Setting var16 = this.addSetting(var15);
+        BooleanSetting var17 = (BooleanSetting)var16;
         this.RQ = var17;
-        JL var18 = new JL("hide_paused", "Hide When Paused", true);
-        xB var19 = var18.q("Tucks the island away a few seconds after you pause.");
-        JL var20 = (JL)var19;
-        xB var21 = this.vn(var20);
-        JL var22 = (JL)var21;
+        BooleanSetting var18 = new BooleanSetting("hide_paused", "Hide When Paused", true);
+        Setting var19 = var18.q("Tucks the island away a few seconds after you pause.");
+        BooleanSetting var20 = (BooleanSetting)var19;
+        Setting var21 = this.addSetting(var20);
+        BooleanSetting var22 = (BooleanSetting)var21;
         this.nE = var22;
         Rt var73 = Rt.BLACK;
-        r_2 var23 = new r_2("material", "Background", var73);
-        xB var24 = var23.q("Black like Apple's island, or the HUD theme's panel.");
-        r_2 var25 = (r_2)var24;
-        xB var26 = this.vn(var25);
-        r_2 var27 = (r_2)var26;
+        ModeSetting var23 = new ModeSetting("material", "Background", var73);
+        Setting var24 = var23.q("Black like Apple's island, or the HUD theme's panel.");
+        ModeSetting var25 = (ModeSetting)var24;
+        Setting var26 = this.addSetting(var25);
+        ModeSetting var27 = (ModeSetting)var26;
         this.v = var27;
         vU var74 = vU.COVER;
-        r_2 var28 = new r_2("accent", "Accent", var74);
-        xB var29 = var28.q("Color of the waveform: taken from the album cover, or the HUD theme's accent.");
-        r_2 var30 = (r_2)var29;
-        xB var31 = this.vn(var30);
-        r_2 var32 = (r_2)var31;
+        ModeSetting var28 = new ModeSetting("accent", "Accent", var74);
+        Setting var29 = var28.q("Color of the waveform: taken from the album cover, or the HUD theme's accent.");
+        ModeSetting var30 = (ModeSetting)var29;
+        Setting var31 = this.addSetting(var30);
+        ModeSetting var32 = (ModeSetting)var31;
         this.bC = var32;
-        JL var33 = new JL("other_players", "Other Players", true);
-        xB var34 = var33.q("Follow another player (a browser, Apple Music) when Spotify plays nothing.");
+        BooleanSetting var33 = new BooleanSetting("other_players", "Other Players", true);
+        Setting var34 = var33.q("Follow another player (a browser, Apple Music) when Spotify plays nothing.");
         BooleanSupplier var75 = () -> {
             int var0 = kS;
             var0 ^= -905225623;
@@ -243,22 +243,22 @@ public final class dynamicisland extends tR_2 {
             IllegalArgumentException var24x = new IllegalArgumentException();
             throw var24x;
         };
-        xB var35 = var34.Pt(var75);
-        JL var36 = (JL)var35;
-        xB var37 = this.vn(var36);
-        JL var38 = (JL)var37;
+        Setting var35 = var34.Pt(var75);
+        BooleanSetting var36 = (BooleanSetting)var35;
+        Setting var37 = this.addSetting(var36);
+        BooleanSetting var38 = (BooleanSetting)var37;
         this.Z = var38;
-        JL var39 = new JL("boss_bars", "Move Boss Bars", true);
-        xB var40 = var39.q("Boss bars move down under the island instead of hiding behind it.");
-        JL var41 = (JL)var40;
-        xB var42 = this.vn(var41);
-        JL var43 = (JL)var42;
+        BooleanSetting var39 = new BooleanSetting("boss_bars", "Move Boss Bars", true);
+        Setting var40 = var39.q("Boss bars move down under the island instead of hiding behind it.");
+        BooleanSetting var41 = (BooleanSetting)var40;
+        Setting var42 = this.addSetting(var41);
+        BooleanSetting var43 = (BooleanSetting)var42;
         this.QJ = var43;
-        ia var44 = new ia("peek_key", "Peek Key", -1);
-        xB var45 = var44.q("Hold to open the island with the lyrics without opening the chat.");
-        ia var46 = (ia)var45;
-        xB var47 = this.vn(var46);
-        ia var48 = (ia)var47;
+        KeybindSetting var44 = new KeybindSetting("peek_key", "Peek Key", -1);
+        Setting var45 = var44.q("Hold to open the island with the lyrics without opening the chat.");
+        KeybindSetting var46 = (KeybindSetting)var45;
+        Setting var47 = this.addSetting(var46);
+        KeybindSetting var48 = (KeybindSetting)var47;
         this.mr = var48;
         sN_2 var49 = new sN_2();
         this.SG = var49;
@@ -331,7 +331,7 @@ public final class dynamicisland extends tR_2 {
         this.pv = var70;
         this.dy("A notch at the top that shows your Spotify music: cover, waveform and, in chat, lyrics with controls.");
         this.fJ(true);
-        JL var71 = this.Z;
+        BooleanSetting var71 = this.Z;
         Runnable var87 = () -> {
             int var1x = kS;
             var1x ^= -1148720550;
@@ -367,7 +367,7 @@ public final class dynamicisland extends tR_2 {
             }
         };
         var71.k(var87);
-        r_2 var72 = this.v;
+        ModeSetting var72 = this.v;
         Runnable var88 = () -> {
             int var1x = kS;
             var1x ^= -2033263910;
@@ -526,7 +526,7 @@ public final class dynamicisland extends tR_2 {
                                 break label85;
                             }
 
-                            boolean var81 = Ud.y();
+                            boolean var81 = ClientRuntime.y();
                             if (var81) {
                                 var1 &= 1288393822;
                                 var1 >>= 13;
@@ -543,7 +543,7 @@ public final class dynamicisland extends tR_2 {
                                 }
 
                                 sN_2 var85 = this.SG;
-                                Ud var98 = Ud.Z();
+                                ClientRuntime var98 = ClientRuntime.Z();
                                 var5 = var2 + 1;
                                 var5 = var2 * var5;
                                 var2 = var5 & 1;
@@ -797,7 +797,7 @@ public final class dynamicisland extends tR_2 {
                                 break label96;
                             }
 
-                            JL var116 = this.Z;
+                            BooleanSetting var116 = this.Z;
                             boolean var117 = var116.vb();
                             int var126 = var14 >> 7;
                             var126 ^= -1916147010;
@@ -1216,7 +1216,7 @@ public final class dynamicisland extends tR_2 {
             var30 = var1;
             label36:
             if (var30 != null) {
-                r_2 var36 = this.v;
+                ModeSetting var36 = this.v;
                 Rt var3 = Rt.BLACK;
                 boolean var37 = var36.TJ(var3);
                 float var41;
@@ -1272,7 +1272,7 @@ public final class dynamicisland extends tR_2 {
                 var76 = kS;
                 var76 ^= -42349586;
                 int var3 = System.identityHashCode(this);
-                JL var4 = this.QJ;
+                BooleanSetting var4 = this.QJ;
                 boolean var97 = var4.vb();
                 int var5 = var3 + 1;
                 var5 = var3 * var5;
@@ -1554,7 +1554,7 @@ public final class dynamicisland extends tR_2 {
         int var2 = kS;
         var2 ^= 1334079152;
         int var3 = System.identityHashCode(this);
-        r_2 var4 = this.v;
+        ModeSetting var4 = this.v;
         Rt var5 = Rt.THEME;
         boolean var134 = var4.TJ(var5);
         int var141 = var3 + 1;
@@ -2869,7 +2869,7 @@ public final class dynamicisland extends tR_2 {
                                 }
                             }
 
-                            JL var1076 = this.K;
+                            BooleanSetting var1076 = this.K;
                             Integer var1230 = var3;
                             if (var1230 == null) {
                                 var28 -= -278964499;
@@ -2937,7 +2937,7 @@ public final class dynamicisland extends tR_2 {
 
                                     sN_2 var1091 = this.SG;
                                     YG var938 = var937.ZQ();
-                                    Ud var1235 = Ud.Z();
+                                    ClientRuntime var1235 = ClientRuntime.Z();
                                     AuraRenderer var1236 = var1235.ZP();
                                     var1091.Kz(var938, var1236, var671);
                                     var1021 = var3;
@@ -2988,7 +2988,7 @@ public final class dynamicisland extends tR_2 {
                                                         var28 -= 1815465344;
                                                         var28 -= 1454872547;
                                                         var28 ^= -1527430265;
-                                                        JL var945 = this.nE;
+                                                        BooleanSetting var945 = this.nE;
                                                         long var984 = var3;
                                                         long var1237 = var984 + 1L;
                                                         long var1238 = var984 * var1237;
@@ -3647,7 +3647,7 @@ public final class dynamicisland extends tR_2 {
                                                                                             break label1070;
                                                                                         }
 
-                                                                                        ia var720 = this.mr;
+                                                                                        KeybindSetting var720 = this.mr;
                                                                                         var716 = var720.JQ();
                                                                                         int var722 = (i_2.R(var716)) ? 1 : 0;
                                                                                         var1021 = var3;
@@ -4120,7 +4120,7 @@ public final class dynamicisland extends tR_2 {
                                                                             }
 
                                                                             this.pw = var736;
-                                                                            r_2 var737 = this.v;
+                                                                            ModeSetting var737 = this.v;
                                                                             long var836 = var3;
                                                                             var1021 = var836 + 1L;
                                                                             var1021 = var836 * var1021;
@@ -4765,7 +4765,7 @@ public final class dynamicisland extends tR_2 {
         float var72 = 0.0F;
         label103: {
             int var5 = System.identityHashCode(this);
-            JL var6 = this.RQ;
+            BooleanSetting var6 = this.RQ;
             boolean var65 = var6.vb();
             int var7 = var5 + 1;
             var7 = var5 * var7;
@@ -5112,7 +5112,7 @@ public final class dynamicisland extends tR_2 {
                                     break label108;
                                 }
 
-                                JL var112 = this.K;
+                                BooleanSetting var112 = this.K;
                                 var7 = var4 + 1;
                                 var7 = var4 * var7;
                                 int var8 = var4 + 2;
@@ -5544,7 +5544,7 @@ public final class dynamicisland extends tR_2 {
 
                             float var251 = 21.0F;
                             float var295 = 22.0F;
-                            r_2 var319 = this.y;
+                            ModeSetting var319 = this.y;
                             Enum var320 = var319.A();
                             q_2 var321 = (q_2)var320;
                             int var322 = var321.ordinal();
@@ -6364,7 +6364,7 @@ public final class dynamicisland extends tR_2 {
             int var66;
             label152: {
                 int var3 = System.identityHashCode(this);
-                JL var4 = this.K;
+                BooleanSetting var4 = this.K;
                 long var5 = var3;
                 long var7 = var5 + 1L;
                 var7 = var5 * var7;
@@ -6698,7 +6698,7 @@ public final class dynamicisland extends tR_2 {
             int var5 = System.identityHashCode(this);
             sN_2 var6 = this.SG;
             int var57 = var6.r();
-            r_2 var7 = this.bC;
+            ModeSetting var7 = this.bC;
             vU var8 = vU.COVER;
             boolean var59 = var7.TJ(var8);
             int var73 = var5 + 1;
@@ -10170,7 +10170,7 @@ public final class dynamicisland extends tR_2 {
         int var3 = kS;
         var3 ^= -1042016314;
         int var4 = System.identityHashCode(this);
-        r_2 var5 = this.v;
+        ModeSetting var5 = this.v;
         Rt var6 = Rt.THEME;
         Integer var7 = var4;
         if (var7 == null) {
@@ -10486,7 +10486,7 @@ public final class dynamicisland extends tR_2 {
                 float var123 = var122[4];
                 XF var165 = this.j;
                 float var166 = var165.bs();
-                r_2 var11 = this.v;
+                ModeSetting var11 = this.v;
                 Rt var12 = Rt.BLACK;
                 boolean var191 = var11.TJ(var12);
                 if (var191) {
@@ -12177,7 +12177,7 @@ public final class dynamicisland extends tR_2 {
                                 break label270;
                             }
 
-                            r_2 var212 = this.y;
+                            ModeSetting var212 = this.y;
                             int var246 = var9 + 1;
                             int var247 = var9 * var246;
                             int var248 = var247 & 1;
@@ -12265,7 +12265,7 @@ public final class dynamicisland extends tR_2 {
                                     break label270;
                                 }
 
-                                r_2 var222 = this.y;
+                                ModeSetting var222 = this.y;
                                 q_2 var260 = q_2.LYRICS;
                                 var16 = var9;
                                 var18 = var16 + 1L;
@@ -14111,7 +14111,7 @@ public final class dynamicisland extends tR_2 {
                                         Integer var456 = var9;
                                         label460:
                                         if (var456 != null) {
-                                            JL var457 = this.K;
+                                            BooleanSetting var457 = this.K;
                                             boolean var458 = var457.vb();
                                             var14 = var10;
                                             var16 = var14 + 1L;
@@ -17068,7 +17068,7 @@ public final class dynamicisland extends tR_2 {
         Lookup var0 = MethodHandles.lookup();
         Class var3 = var0.lookupClass();
         int var1 = -1512449613;
-        int var2 = tR_2.qG;
+        int var2 = HudModule.qG;
         int var4 = of_2.xF(var3, var1, var2);
         kS = var4;
         kE_2 var5 = kE_2.uY(0.5F, 0.74F);

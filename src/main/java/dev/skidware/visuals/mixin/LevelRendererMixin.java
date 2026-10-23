@@ -1,7 +1,7 @@
 package dev.skidware.visuals.mixin;
 
 import com.llamalad7.mixinextras.sugar.Local;
-import dev.aurap.hub.Ud;
+import dev.aurap.hub.ClientRuntime;
 import net.minecraft.client.render.Camera;
 import net.minecraft.client.render.WorldRenderer;
 import org.joml.Matrix4f;
@@ -28,10 +28,10 @@ public abstract class LevelRendererMixin {
         @Local(argsOnly = true,ordinal = 0) Matrix4f view,
         @Local(argsOnly = true,ordinal = 1) Matrix4f projection
     ) {
-        if (Ud.y()) {
+        if (ClientRuntime.y()) {
             view.get(VIEW);
             projection.get(PROJECTION);
-            Ud.Z().Ul().worldRendered(VIEW, PROJECTION, camera.getCameraPos().x, camera.getCameraPos().y, camera.getCameraPos().z);
+            ClientRuntime.Z().Ul().worldRendered(VIEW, PROJECTION, camera.getCameraPos().x, camera.getCameraPos().y, camera.getCameraPos().z);
         }
     }
 
@@ -40,8 +40,8 @@ public abstract class LevelRendererMixin {
         at = {@At("HEAD")}
     )
     private void aura$terrainRendered(CallbackInfo ci) {
-        if (Ud.y()) {
-            Ud.Z().Ul().terrainRendered();
+        if (ClientRuntime.y()) {
+            ClientRuntime.Z().Ul().terrainRendered();
         }
     }
 
@@ -50,8 +50,8 @@ public abstract class LevelRendererMixin {
         at = {@At("TAIL")}
     )
     private void aura$levelRendered(CallbackInfo ci) {
-        if (Ud.y()) {
-            Ud.Z().Ul().levelRendered();
+        if (ClientRuntime.y()) {
+            ClientRuntime.Z().Ul().levelRendered();
         }
     }
 }

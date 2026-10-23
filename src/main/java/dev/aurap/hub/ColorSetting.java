@@ -3,13 +3,13 @@ package dev.aurap.hub;
 import java.lang.invoke.MethodHandles;
 import java.lang.invoke.MethodHandles.Lookup;
 
-public final class Fk extends xB {
+public final class ColorSetting extends Setting {
     private final int bD;
     private final boolean ns;
     private int I;
     public static final int po;
 
-    public Fk(String var1, String var2, int var3, boolean var4) {
+    public ColorSetting(String var1, String var2, int var3, boolean var4) {
         super(var1, var2);
         this.ns = var4;
         int var5;
@@ -25,7 +25,7 @@ public final class Fk extends xB {
         this.I = var5;
     }
 
-    public Fk(String var1, String var2, int var3) {
+    public ColorSetting(String var1, String var2, int var3) {
         this(var1, var2, var3, true);
     }
 
@@ -693,7 +693,7 @@ public final class Fk extends xB {
         Lookup var0 = MethodHandles.lookup();
         Class var3 = var0.lookupClass();
         int var1 = -988110041;
-        int var2 = xB.nu;
+        int var2 = Setting.nu;
         int var4 = of_2.ro(var3, var1, var2);
         po = var4;
     }

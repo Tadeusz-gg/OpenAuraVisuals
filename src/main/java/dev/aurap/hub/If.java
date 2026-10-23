@@ -10,7 +10,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public final class If {
-    private static final Logger xB;
+    private static final Logger Setting;
     public static final long Fd = 1500L;
     private final Co tl;
     private final gM_2 C;
@@ -1026,7 +1026,7 @@ public final class If {
                                         Throwable var5 = VN(var11);
                                         var12 = (Exception)var5;
                                         var12 = var12;
-                                        var42 = xB;
+                                        var42 = Setting;
                                         var6 = new Object[3];
                                         Co var7 = this.tl;
                                         String var54 = var7.name();
@@ -1074,7 +1074,7 @@ public final class If {
                                         Throwable var44 = VN(var10);
                                         var12 = (Exception)var44;
                                         var12 = var12;
-                                        var42 = xB;
+                                        var42 = Setting;
                                         var6 = new Object[3];
                                         Co var57 = this.tl;
                                         String var58 = var57.name();
@@ -1652,7 +1652,7 @@ public final class If {
                                 }
 
                                 var4 = (Exception)var240;
-                                Logger var243 = xB;
+                                Logger var243 = Setting;
                                 String var295 = var1.title();
                                 String var192 = var4.toString();
                                 var243.debug("Artwork of {} not loaded ({})", var295, var192);
@@ -1802,7 +1802,7 @@ public final class If {
         int var4 = of_2.ro(var3, var1, var2);
         V = var4;
         Logger var5 = LoggerFactory.getLogger("auravisuals/media");
-        xB = var5;
+        Setting = var5;
     }
 
     private static Throwable VN(Throwable var0) {

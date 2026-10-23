@@ -5,7 +5,7 @@ import java.lang.invoke.MethodHandles.Lookup;
 import java.util.function.Consumer;
 import java.util.function.IntSupplier;
 
-public final class cS extends xB {
+public final class ActionSetting extends Setting {
     private final String S;
     private final du pf;
     private Consumer u;
@@ -13,7 +13,7 @@ public final class cS extends xB {
     private IntSupplier t;
     public static final int o;
 
-    public cS(String var1, String var2, du var3) {
+    public ActionSetting(String var1, String var2, du var3) {
         super(var1, var2);
         du var4 = new du();
         this.pf = var4;
@@ -272,7 +272,7 @@ public final class cS extends xB {
         throw var27;
     }
 
-    public cS tZ(Consumer var1) {
+    public ActionSetting tZ(Consumer var1) {
         int var2 = o;
         var2 ^= 1520524914;
         int var3 = System.identityHashCode(this);
@@ -301,7 +301,7 @@ public final class cS extends xB {
         }
     }
 
-    public cS Z(IntSupplier var1, IntSupplier var2) {
+    public ActionSetting Z(IntSupplier var1, IntSupplier var2) {
         int var3 = o;
         var3 ^= 1947111905;
         int var4 = System.identityHashCode(this);
@@ -1130,7 +1130,7 @@ public final class cS extends xB {
         Lookup var0 = MethodHandles.lookup();
         Class var3 = var0.lookupClass();
         int var1 = 2001162844;
-        int var2 = xB.nu;
+        int var2 = Setting.nu;
         int var4 = of_2.kj(var3, var1, var2);
         o = var4;
     }

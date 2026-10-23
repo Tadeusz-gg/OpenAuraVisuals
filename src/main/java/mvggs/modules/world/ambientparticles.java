@@ -1,6 +1,7 @@
 package mvggs.modules.world;
 
 import dev.aurap.hub.*;
+import dev.aurap.hub.Module;
 
 import dev.skidware.visuals.client.render.AuraPipeline;
 import dev.skidware.visuals.client.render.FrameContext;
@@ -15,19 +16,19 @@ import java.util.function.BooleanSupplier;
 import net.minecraft.entity.Entity;
 import net.minecraft.world.World;
 
-public final class ambientparticles extends Yn {
+public final class ambientparticles extends Module {
     private static final int N = 400;
     private static final int OF = 150;
     private static final int n = 30;
-    private final r_2 mH;
+    private final ModeSetting mH;
     private final RZ Go;
-    private final r_2 uq;
-    private final Uq h;
-    private final Uq g;
-    private final Uq DD;
-    private final Uq nN;
-    private final Uq F;
-    private final Uq DS;
+    private final ModeSetting uq;
+    private final NumberSetting h;
+    private final NumberSetting g;
+    private final NumberSetting DD;
+    private final NumberSetting nN;
+    private final NumberSetting F;
+    private final NumberSetting DS;
     private final zS Ps;
     private final double[] zv;
     private final double[] AB;
@@ -54,7 +55,7 @@ public final class ambientparticles extends Yn {
     private final int[] SB;
     private final int[] UQ;
     private final int[] I;
-    private final float[] Kl;
+    private final float[] SoundPlaybackEvent;
     private final double[][] jm;
     private final double[][] fW;
     private final double[][] az;
@@ -64,13 +65,13 @@ public final class ambientparticles extends Yn {
     public static final int w;
 
     public ambientparticles() {
-        super("ambient_particles", "Ambient Particles", AJ.WORLD);
-        AJ var1 = AJ.WORLD;
+        super("ambient_particles", "Ambient Particles", ModuleCategory.WORLD);
+        ModuleCategory var1 = ModuleCategory.WORLD;
 
         XW var2 = XW.BOTH;
-        r_2 var3 = new r_2("style", "Style", var2);
-        xB var4 = this.vn(var3);
-        r_2 var5 = (r_2)var4;
+        ModeSetting var3 = new ModeSetting("style", "Style", var2);
+        Setting var4 = this.addSetting(var3);
+        ModeSetting var5 = (ModeSetting)var4;
         this.mH = var5;
         Ru var81 = Ru.SNOWFLAKES;
         RZ var6 = new RZ(var81);
@@ -78,17 +79,17 @@ public final class ambientparticles extends Yn {
         RZ var8 = (RZ)var7;
         this.Go = var8;
         Tq var82 = Tq.DRIFT;
-        r_2 var9 = new r_2("motion", "Motion", var82);
-        xB var10 = this.vn(var9);
-        r_2 var11 = (r_2)var10;
+        ModeSetting var9 = new ModeSetting("motion", "Motion", var82);
+        Setting var10 = this.addSetting(var9);
+        ModeSetting var11 = (ModeSetting)var10;
         this.uq = var11;
-        Uq var12 = new Uq("count", "Particles", 100.0F, 10.0F, 400.0F);
-        Uq var13 = var12.W(1.0F);
+        NumberSetting var12 = new NumberSetting("count", "Particles", 100.0F, 10.0F, 400.0F);
+        NumberSetting var13 = var12.W(1.0F);
         BooleanSupplier var83 = () -> {
             int var1x = w;
             var1x ^= 1042657904;
             int var2x = System.identityHashCode(this);
-            r_2 var3x = this.mH;
+            ModeSetting var3x = this.mH;
             Integer var37x = var2x;
             if (var37x != null) {
                 var1x &= 963557320;
@@ -154,19 +155,19 @@ public final class ambientparticles extends Yn {
             IllegalStateException var30x = new IllegalStateException();
             throw var30x;
         };
-        xB var14 = var13.Pt(var83);
-        Uq var15 = (Uq)var14;
-        xB var16 = this.vn(var15);
-        Uq var17 = (Uq)var16;
+        Setting var14 = var13.Pt(var83);
+        NumberSetting var15 = (NumberSetting)var14;
+        Setting var16 = this.addSetting(var15);
+        NumberSetting var17 = (NumberSetting)var16;
         this.h = var17;
-        Uq var18 = new Uq("size", "Particle Size", 1.0F, 0.1F, 2.0F);
-        Uq var19 = var18.W(0.05F);
-        Uq var20 = var19.L("x");
+        NumberSetting var18 = new NumberSetting("size", "Particle Size", 1.0F, 0.1F, 2.0F);
+        NumberSetting var19 = var18.W(0.05F);
+        NumberSetting var20 = var19.L("x");
         BooleanSupplier var84 = () -> {
             int var1x = w;
             var1x ^= 2062473239;
             int var2x = System.identityHashCode(this);
-            r_2 var3x = this.mH;
+            ModeSetting var3x = this.mH;
             XW var4x = XW.FIREFLIES;
             boolean var47x = var3x.TJ(var4x);
             Integer var35x = var2x;
@@ -278,18 +279,18 @@ public final class ambientparticles extends Yn {
             IllegalArgumentException var34x = new IllegalArgumentException();
             throw var34x;
         };
-        xB var21 = var20.Pt(var84);
-        Uq var22 = (Uq)var21;
-        xB var23 = this.vn(var22);
-        Uq var24 = (Uq)var23;
+        Setting var21 = var20.Pt(var84);
+        NumberSetting var22 = (NumberSetting)var21;
+        Setting var23 = this.addSetting(var22);
+        NumberSetting var24 = (NumberSetting)var23;
         this.g = var24;
-        Uq var25 = new Uq("fireflies", "Fireflies", 30.0F, 10.0F, 150.0F);
-        Uq var26 = var25.W(1.0F);
+        NumberSetting var25 = new NumberSetting("fireflies", "Fireflies", 30.0F, 10.0F, 150.0F);
+        NumberSetting var26 = var25.W(1.0F);
         BooleanSupplier var85 = () -> {
             int var1x = w;
             var1x ^= -1101160550;
             int var2x = System.identityHashCode(this);
-            r_2 var3x = this.mH;
+            ModeSetting var3x = this.mH;
             long var4x = var2x;
             long var6x = var4x + 1L;
             var6x = var4x * var6x;
@@ -402,18 +403,18 @@ public final class ambientparticles extends Yn {
                 throw var16x;
             }
         };
-        xB var27 = var26.Pt(var85);
-        Uq var28 = (Uq)var27;
-        xB var29 = this.vn(var28);
-        Uq var30 = (Uq)var29;
+        Setting var27 = var26.Pt(var85);
+        NumberSetting var28 = (NumberSetting)var27;
+        Setting var29 = this.addSetting(var28);
+        NumberSetting var30 = (NumberSetting)var29;
         this.DD = var30;
-        Uq var31 = new Uq("trail", "Trail Length", 10.0F, 5.0F, 30.0F);
-        Uq var32 = var31.W(1.0F);
+        NumberSetting var31 = new NumberSetting("trail", "Trail Length", 10.0F, 5.0F, 30.0F);
+        NumberSetting var32 = var31.W(1.0F);
         BooleanSupplier var86 = () -> {
             int var1x = w;
             var1x ^= 916587191;
             int var2x = System.identityHashCode(this);
-            r_2 var3x = this.mH;
+            ModeSetting var3x = this.mH;
             long var4x = var2x;
             long var6x = var4x + 1L;
             var6x = var4x * var6x;
@@ -489,19 +490,19 @@ public final class ambientparticles extends Yn {
             UnsupportedOperationException var32x = new UnsupportedOperationException();
             throw var32x;
         };
-        xB var33 = var32.Pt(var86);
-        Uq var34 = (Uq)var33;
-        xB var35 = this.vn(var34);
-        Uq var36 = (Uq)var35;
+        Setting var33 = var32.Pt(var86);
+        NumberSetting var34 = (NumberSetting)var33;
+        Setting var35 = this.addSetting(var34);
+        NumberSetting var36 = (NumberSetting)var35;
         this.nN = var36;
-        Uq var37 = new Uq("firefly_size", "Firefly Size", 1.0F, 0.2F, 2.0F);
-        Uq var38 = var37.W(0.05F);
-        Uq var39 = var38.L("x");
+        NumberSetting var37 = new NumberSetting("firefly_size", "Firefly Size", 1.0F, 0.2F, 2.0F);
+        NumberSetting var38 = var37.W(0.05F);
+        NumberSetting var39 = var38.L("x");
         BooleanSupplier var87 = () -> {
             int var1x = w;
             var1x ^= 1012576656;
             int var2x = System.identityHashCode(this);
-            r_2 var3x = this.mH;
+            ModeSetting var3x = this.mH;
             XW var4x = XW.PARTICLES;
             boolean var31x = var3x.TJ(var4x);
             long var36x = var2x;
@@ -562,15 +563,15 @@ public final class ambientparticles extends Yn {
             RuntimeException var35x = new RuntimeException();
             throw var35x;
         };
-        xB var40 = var39.Pt(var87);
-        Uq var41 = (Uq)var40;
-        xB var42 = this.vn(var41);
-        Uq var43 = (Uq)var42;
+        Setting var40 = var39.Pt(var87);
+        NumberSetting var41 = (NumberSetting)var40;
+        Setting var42 = this.addSetting(var41);
+        NumberSetting var43 = (NumberSetting)var42;
         this.F = var43;
-        Uq var44 = new Uq("glow", "Glow", 0.8F, 0.0F, 1.0F);
-        Uq var45 = var44.W(0.05F);
-        xB var46 = this.vn(var45);
-        Uq var47 = (Uq)var46;
+        NumberSetting var44 = new NumberSetting("glow", "Glow", 0.8F, 0.0F, 1.0F);
+        NumberSetting var45 = var44.W(0.05F);
+        Setting var46 = this.addSetting(var45);
+        NumberSetting var47 = (NumberSetting)var46;
         this.DS = var47;
         Ry var88 = Ry.RAINBOW;
         zS var48 = new zS(var88, -11559425, -5870593);
@@ -626,7 +627,7 @@ public final class ambientparticles extends Yn {
         int[] var74 = new int[150];
         this.I = var74;
         float[] var75 = new float[150];
-        this.Kl = var75;
+        this.SoundPlaybackEvent = var75;
         double[][] var76 = new double[150][31];
         this.jm = var76;
         double[][] var77 = new double[150][31];
@@ -634,7 +635,7 @@ public final class ambientparticles extends Yn {
         double[][] var78 = new double[150][31];
         this.az = var78;
         this.dy("Snow, drifting stars and fireflies with glowing trails in the air around you.");
-        wD<sE> var79 = (sE var1x) -> {
+        EventListener<TickEvent> var79 = (TickEvent var1x) -> {
             int var2x = w;
             var2x ^= -504141076;
             int var3x = System.identityHashCode(this);
@@ -676,9 +677,9 @@ public final class ambientparticles extends Yn {
             RuntimeException var26x = new RuntimeException();
             throw var26x;
         };
-        this.iI(sE.class, var79);
-        wD<T> var80 = this::u;
-        this.iI(T.class, var80);
+        this.onEvent(TickEvent.class, var79);
+        EventListener<RenderEvent> var80 = this::u;
+        this.onEvent(RenderEvent.class, var80);
     }
 
     public int YR() {
@@ -860,11 +861,11 @@ public final class ambientparticles extends Yn {
                             if (var357 != null) {
                                 ThreadLocalRandom var358 = ThreadLocalRandom.current();
                                 ThreadLocalRandom var359 = var358;
-                                r_2 var379 = this.uq;
+                                ModeSetting var379 = this.uq;
                                 Tq var396 = Tq.SNOW;
                                 boolean var380 = var379.TJ(var396);
                                 boolean var381 = var380;
-                                r_2 var397 = this.mH;
+                                ModeSetting var397 = this.mH;
                                 XW var460 = XW.FIREFLIES;
                                 boolean var398 = var397.TJ(var460);
                                 var8 = var3;
@@ -918,7 +919,7 @@ public final class ambientparticles extends Yn {
                                         break label462;
                                     }
 
-                                    Uq var465 = this.h;
+                                    NumberSetting var465 = this.h;
                                       int var466 = var465.B();
                                     Integer var481 = var3;
                                     if (var481 == null) {
@@ -965,7 +966,7 @@ public final class ambientparticles extends Yn {
                                     int var475 = var474 & 1;
                                     label446:
                                     if (var475 == 0) {
-                                        r_2 var476 = this.mH;
+                                        ModeSetting var476 = this.mH;
                                         XW var484 = XW.PARTICLES;
                                         boolean var477 = var476.TJ(var484);
                                         int var478;
@@ -1001,7 +1002,7 @@ public final class ambientparticles extends Yn {
                                                 break label446;
                                             }
 
-                                            Uq var490 = this.DD;
+                                            NumberSetting var490 = this.DD;
                                             var10 = var3;
                                             long var12 = var10 + 1L;
                                             var12 = var10 * var12;
@@ -2570,7 +2571,7 @@ public final class ambientparticles extends Yn {
                 double[] var46 = this.y;
                 double var47 = var46[var6];
                 var28[0] = var47;
-                float[] var29 = this.Kl;
+                float[] var29 = this.SoundPlaybackEvent;
                 float var48 = var2.nextFloat();
                 var29[var6] = var48;
             }
@@ -2716,8 +2717,8 @@ public final class ambientparticles extends Yn {
         int[] var69 = this.I;
         int var70 = var69[var6];
         var48[var1] = var70;
-        float[] var49 = this.Kl;
-        float[] var71 = this.Kl;
+        float[] var49 = this.SoundPlaybackEvent;
+        float[] var71 = this.SoundPlaybackEvent;
         float var72 = var71[var6];
         var49[var1] = var72;
         double[][] var50 = this.jm;
@@ -2799,7 +2800,7 @@ public final class ambientparticles extends Yn {
         throw var29;
     }
 
-    private void u(T var1) {
+    private void u(RenderEvent var1) {
         label690: {
             label649: {
                 int var2 = w;
@@ -2995,7 +2996,7 @@ public final class ambientparticles extends Yn {
 
                                 Canvas var387 = var1.canvas();
                                 Canvas var388 = var387;
-                                Ud var402 = Ud.Z();
+                                ClientRuntime var402 = ClientRuntime.Z();
                                 AuraPipeline var403 = var402.Ul();
                                 WorldDraw var404 = var403.world();
                                 int var415 = var3 + 1;
@@ -3020,10 +3021,10 @@ public final class ambientparticles extends Yn {
                                 double var431 = var430.time();
                                 double var432 = var431;
                                 var387.save();
-                                Uq var443 = this.DS;
+                                NumberSetting var443 = this.DS;
                                 float var444 = var443.WM();
                                 var387.additive(var444);
-                                Uq var445 = this.g;
+                                NumberSetting var445 = this.g;
                                 float var446 = var445.WM();
                                 float var447 = 0.32F * var446;
                                 float var448 = var447;
@@ -3081,10 +3082,10 @@ public final class ambientparticles extends Yn {
                                             break label690;
                                         }
 
-                                        Uq var453 = this.nN;
+                                        NumberSetting var453 = this.nN;
                                           int var454 = var453.B();
                                         int var455 = var454;
-                                        Uq var459 = this.F;
+                                        NumberSetting var459 = this.F;
                                         float var460 = var459.WM();
                                         float var461 = 0.07F * var460;
                                         float var462 = var461;
@@ -3246,7 +3247,7 @@ public final class ambientparticles extends Yn {
                                                 }
 
                                                 zS var548 = this.Ps;
-                                                float[] var590 = this.Kl;
+                                                float[] var590 = this.SoundPlaybackEvent;
                                                 float var591 = var590[var475];
                                                 int var549 = var548.x(var591, var432);
                                                 int var550 = var549;
@@ -4357,7 +4358,7 @@ public final class ambientparticles extends Yn {
         Lookup var0 = MethodHandles.lookup();
         Class var3 = var0.lookupClass();
         int var1 = 2035918905;
-        int var2 = Yn.C;
+        int var2 = Module.C;
         int var4 = of_2.xF(var3, var1, var2);
         w = var4;
         SpriteShape[] var5 = SpriteShape.values();

@@ -1,6 +1,7 @@
 package mvggs.modules.combat;
 
 import dev.aurap.hub.*;
+import dev.aurap.hub.Module;
 
 import dev.skidware.visuals.client.render.FrameContext;
 import dev.skidware.visuals.client.render.RenderPhase;
@@ -20,17 +21,17 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.text.Text;
 import net.minecraft.world.World;
 
-public final class deatheffect extends Yn {
+public final class deatheffect extends Module {
     private static final float j = 0.4F;
     private static final long MQ = 8000L;
     private static final DateTimeFormatter l;
-    private final r_2 E;
-    private final r_2 w;
-    private final Uq V;
-    private final Uq O;
-    private final JL X;
-    private final JL Dh;
-    private final JL rk;
+    private final ModeSetting E;
+    private final ModeSetting w;
+    private final NumberSetting V;
+    private final NumberSetting O;
+    private final BooleanSetting X;
+    private final BooleanSetting Dh;
+    private final BooleanSetting rk;
     private final vS_2[] C;
     private final XK n;
     private vS_2 G;
@@ -47,28 +48,28 @@ public final class deatheffect extends Yn {
     public static final int Td;
 
     public deatheffect() {
-        super("death_effect", "Death Effect", AJ.COMBAT);
-        AJ var1 = AJ.COMBAT;
+        super("death_effect", "Death Effect", ModuleCategory.COMBAT);
+        ModuleCategory var1 = ModuleCategory.COMBAT;
 
         d_2 var2 = d_2.WASTED;
-        r_2 var3 = new r_2("style", "Style", var2);
-        xB var4 = this.vn(var3);
-        r_2 var5 = (r_2)var4;
+        ModeSetting var3 = new ModeSetting("style", "Style", var2);
+        Setting var4 = this.addSetting(var3);
+        ModeSetting var5 = (ModeSetting)var4;
         this.E = var5;
         nl_2 var46 = nl_2.STYLE;
-        r_2 var6 = new r_2("sound", "Sound", var46);
-        xB var7 = var6.q("The style's own sound, or config/auravisuals/sounds/death.ogg (Custom).");
-        r_2 var8 = (r_2)var7;
-        xB var9 = this.vn(var8);
-        r_2 var10 = (r_2)var9;
+        ModeSetting var6 = new ModeSetting("sound", "Sound", var46);
+        Setting var7 = var6.q("The style's own sound, or config/auravisuals/sounds/death.ogg (Custom).");
+        ModeSetting var8 = (ModeSetting)var7;
+        Setting var9 = this.addSetting(var8);
+        ModeSetting var10 = (ModeSetting)var9;
         this.w = var10;
-        Uq var11 = new Uq("volume", "Volume", 1.0F, 0.0F, 1.0F);
-        Uq var12 = var11.W(0.05F);
+        NumberSetting var11 = new NumberSetting("volume", "Volume", 1.0F, 0.0F, 1.0F);
+        NumberSetting var12 = var11.W(0.05F);
         BooleanSupplier var47 = () -> {
             int var1x = Td;
             var1x ^= 1975289891;
             int var2x = System.identityHashCode(this);
-            r_2 var3x = this.w;
+            ModeSetting var3x = this.w;
             nl_2 var4x = nl_2.OFF;
             boolean var37x = var3x.TJ(var4x);
             Integer var29x = var2x;
@@ -137,35 +138,35 @@ public final class deatheffect extends Yn {
             RuntimeException var28x = new RuntimeException();
             throw var28x;
         };
-        xB var13 = var12.Pt(var47);
-        Uq var14 = (Uq)var13;
-        xB var15 = this.vn(var14);
-        Uq var16 = (Uq)var15;
+        Setting var13 = var12.Pt(var47);
+        NumberSetting var14 = (NumberSetting)var13;
+        Setting var15 = this.addSetting(var14);
+        NumberSetting var16 = (NumberSetting)var15;
         this.V = var16;
-        Uq var17 = new Uq("intensity", "Screen Intensity", 1.0F, 0.0F, 1.0F);
-        Uq var18 = var17.W(0.05F);
-        xB var19 = var18.q("How strongly the world is graded (grey, dark, torn) behind the effect.");
-        Uq var20 = (Uq)var19;
-        xB var21 = this.vn(var20);
-        Uq var22 = (Uq)var21;
+        NumberSetting var17 = new NumberSetting("intensity", "Screen Intensity", 1.0F, 0.0F, 1.0F);
+        NumberSetting var18 = var17.W(0.05F);
+        Setting var19 = var18.q("How strongly the world is graded (grey, dark, torn) behind the effect.");
+        NumberSetting var20 = (NumberSetting)var19;
+        Setting var21 = this.addSetting(var20);
+        NumberSetting var22 = (NumberSetting)var21;
         this.O = var22;
-        JL var23 = new JL("cinematic", "Cinematic", true);
-        xB var24 = var23.q("Keeps the respawn buttons hidden until the effect has played. A click skips it.");
-        JL var25 = (JL)var24;
-        xB var26 = this.vn(var25);
-        JL var27 = (JL)var26;
+        BooleanSetting var23 = new BooleanSetting("cinematic", "Cinematic", true);
+        Setting var24 = var23.q("Keeps the respawn buttons hidden until the effect has played. A click skips it.");
+        BooleanSetting var25 = (BooleanSetting)var24;
+        Setting var26 = this.addSetting(var25);
+        BooleanSetting var27 = (BooleanSetting)var26;
         this.X = var27;
-        JL var28 = new JL("hide_hud", "Hide HUD", true);
-        xB var29 = var28.q("Aura's HUD panels step aside while the effect plays.");
-        JL var30 = (JL)var29;
-        xB var31 = this.vn(var30);
-        JL var32 = (JL)var31;
+        BooleanSetting var28 = new BooleanSetting("hide_hud", "Hide HUD", true);
+        Setting var29 = var28.q("Aura's HUD panels step aside while the effect plays.");
+        BooleanSetting var30 = (BooleanSetting)var29;
+        Setting var31 = this.addSetting(var30);
+        BooleanSetting var32 = (BooleanSetting)var31;
         this.Dh = var32;
-        JL var33 = new JL("death_message", "Death Message", true);
-        xB var34 = var33.q("Shows the death message (or your killer) under the title.");
-        JL var35 = (JL)var34;
-        xB var36 = this.vn(var35);
-        JL var37 = (JL)var36;
+        BooleanSetting var33 = new BooleanSetting("death_message", "Death Message", true);
+        Setting var34 = var33.q("Shows the death message (or your killer) under the title.");
+        BooleanSetting var35 = (BooleanSetting)var34;
+        Setting var36 = this.addSetting(var35);
+        BooleanSetting var37 = (BooleanSetting)var36;
         this.rk = var37;
         vS_2[] var38 = vS_2.xU();
         this.C = var38;
@@ -176,7 +177,7 @@ public final class deatheffect extends Yn {
         this.J = "";
         this.dy("A cinematic moment when you die: GTA's wasted, Souls' you died, a flatline or a kill card.");
         this.fJ(true);
-        r_2 var40 = this.E;
+        ModeSetting var40 = this.E;
         Runnable var48 = () -> {
             int var1x = Td;
             var1x ^= 1840413034;
@@ -211,7 +212,7 @@ public final class deatheffect extends Yn {
             throw var14x;
         };
         var40.k(var48);
-        r_2 var41 = this.w;
+        ModeSetting var41 = this.w;
         Runnable var49 = () -> {
             int var1x = Td;
             var1x ^= -44386604;
@@ -228,7 +229,7 @@ public final class deatheffect extends Yn {
                 var1x ^= -1441333050;
                 var1x += -1341947387;
                 var1x ^= 550594137;
-                r_2 var42x = this.w;
+                ModeSetting var42x = this.w;
                 nl_2 var3x = nl_2.CUSTOM;
                 boolean var43x = var42x.TJ(var3x);
                 if (var43x) {
@@ -287,7 +288,7 @@ public final class deatheffect extends Yn {
             }
         };
         var41.k(var49);
-        wD<tc> var42 = (tc var1x) -> {
+        EventListener<tc> var42 = (tc var1x) -> {
             int var2x = Td;
             var2x ^= -1315990733;
             int var3x = System.identityHashCode(this);
@@ -321,10 +322,10 @@ public final class deatheffect extends Yn {
                 throw var14x;
             }
         };
-        this.iI(tc.class, var42);
-        wD<PC> var43 = this::M;
-        this.iI(PC.class, var43);
-        wD<p_2> var44 = (p_2 var1x) -> {
+        this.onEvent(tc.class, var42);
+        EventListener<PC> var43 = this::M;
+        this.onEvent(PC.class, var43);
+        EventListener<p_2> var44 = (p_2 var1x) -> {
             int var2x = Td;
             var2x ^= 19232358;
             int var3x = System.identityHashCode(this);
@@ -380,16 +381,16 @@ public final class deatheffect extends Yn {
             UnsupportedOperationException var20x = new UnsupportedOperationException();
             throw var20x;
         };
-        this.iI(p_2.class, var44);
-        wD<T> var45 = this::e;
-        this.vw(T.class, -100, var45);
+        this.onEvent(p_2.class, var44);
+        EventListener<RenderEvent> var45 = this::e;
+        this.onEventAtPriority(RenderEvent.class, -100, var45);
     }
 
     public d_2 O() {
         int var1 = Td;
         var1 ^= -391023441;
         int var2 = System.identityHashCode(this);
-        r_2 var3 = this.E;
+        ModeSetting var3 = this.E;
         long var4 = var2;
         long var6 = var4 + 1L;
         var6 = var4 * var6;
@@ -460,7 +461,7 @@ public final class deatheffect extends Yn {
             long var23;
             var2 = (var23 = var12 - 0L) == 0L ? 0 : (var23 < 0L ? -1 : 1);
             if (var2 == 0) {
-                r_2 var15 = this.E;
+                ModeSetting var15 = this.E;
                 var15.UY(var1);
             } else {
                 IllegalArgumentException var14 = new IllegalArgumentException();
@@ -945,7 +946,7 @@ public final class deatheffect extends Yn {
     }
 
     private static deatheffect ST(int var0) {
-        int var2 = (Ud.y()) ? 1 : 0;
+        int var2 = (ClientRuntime.y()) ? 1 : 0;
         int var1 = var0 - -1413186591;
         var1 |= -2019204158;
         var1 ^= 1350563713;
@@ -980,12 +981,12 @@ public final class deatheffect extends Yn {
                 var2 &= 7;
                 label57:
                 if (var2 == 0) {
-                    Ud var58 = Ud.Z();
+                    ClientRuntime var58 = ClientRuntime.Z();
                     var1 -= -726986366;
                     var1 |= -2038054592;
                     var1 ^= 1186937149;
-                    NW var59 = var58.sP();
-                    Yn var60 = var59.tG(deatheffect.class);
+                    ModuleManager var59 = var58.sP();
+                    Module var60 = var59.tG(deatheffect.class);
                     deatheffect var61 = (deatheffect)var60;
                     int var72 = (var61.IU()) ? 1 : 0;
                     if (var72 != 0) {
@@ -1352,7 +1353,7 @@ Object var203 = null;
                     case 1001027458 -> var15 ^ 604248750;
                 };
                 vS_2[] var219 = this.C;
-                r_2 var8 = this.E;
+                ModeSetting var8 = this.E;
                 int var265 = var8.Bz();
                 vS_2 var220 = var219[var265];
                 this.G = var220;
@@ -1683,7 +1684,7 @@ Object var203 = null;
                                 }
 
                                 XK var251 = this.n;
-                                JL var282 = this.rk;
+                                BooleanSetting var282 = this.rk;
                                 int var338 = var5 + 1;
                                 int var339 = var5 * var338;
                                 int var340 = var339 & 1;
@@ -1760,7 +1761,7 @@ Object var203 = null;
 
                                     var251.MZ = var285;
                                     XK var252 = this.n;
-                                    JL var286 = this.rk;
+                                    BooleanSetting var286 = this.rk;
                                     boolean var287 = var286.vb();
                                     var9 = var5;
                                     var11 = var9 + 1L;
@@ -1921,7 +1922,7 @@ Object var203 = null;
                                                 XK var207 = this.n;
                                                 var207.i = 1.0F;
                                                 XK var208 = this.n;
-                                                JL var255 = this.X;
+                                                BooleanSetting var255 = this.X;
                                                 int var256 = (var255.vb()) ? 1 : 0;
                                                 if (var256 == 0) {
                                                     var15 ^= 1774553824;
@@ -2045,7 +2046,7 @@ Object var203 = null;
     private void g(int var1) {
         label140: {
             int var3 = System.identityHashCode(this);
-            r_2 var4 = this.w;
+            ModeSetting var4 = this.w;
             Enum var91 = var4.A();
             nl_2 var92 = (nl_2)var91;
             Integer var5 = var3;
@@ -2084,7 +2085,7 @@ Object var203 = null;
                     break label140;
                 }
 
-                Uq var111 = this.V;
+                NumberSetting var111 = this.V;
                 int var6 = var3 + 1;
                 var6 = var3 * var6;
                 int var144 = var3 + 2;
@@ -2270,10 +2271,10 @@ Object var203 = null;
                             break label140;
                         }
 
-                        Ud var103 = Ud.Z();
+                        ClientRuntime var103 = ClientRuntime.Z();
                         Fp var104 = var103.J();
                         HP var116 = HP.Aa();
-                        Uq var155 = this.V;
+                        NumberSetting var155 = this.V;
                         float var156 = var155.WM();
                         var8 = var3;
                         long var166 = var8 + 1L;
@@ -2386,7 +2387,7 @@ Object var203 = null;
                         var240 += 529951742;
                         var240 ^= -585449828;
                         vS_2[] var295 = this.C;
-                        r_2 var6 = this.E;
+                        ModeSetting var6 = this.E;
                         int var348 = var6.Bz();
                         int var7 = var4 + 1;
                         var7 = var4 * var7;
@@ -3244,7 +3245,7 @@ Object var203 = null;
 
                                                 label619: {
                                                     XK var332 = this.n;
-                                                    Uq var377 = this.O;
+                                                    NumberSetting var377 = this.O;
                                                     float var378 = var377.WM();
                                                     var332.mz = var378;
                                                     int var333 = (this.mL ? 1 : 0);
@@ -3294,7 +3295,7 @@ Object var203 = null;
                                                                 }
                                                                 default -> var240 ^ 166329964;
                                                             };
-                                                            JL var336 = this.X;
+                                                            BooleanSetting var336 = this.X;
                                                             var349 = var4;
                                                             var449 = var349 + 1L;
                                                             var449 = var349 * var449;
@@ -3385,7 +3386,7 @@ Object var203 = null;
                                                 }
 
                                                 vS_2 var339 = this.G;
-                                                Ud var388 = Ud.Z();
+                                                ClientRuntime var388 = ClientRuntime.Z();
                                                 AuraRenderer var389 = var388.ZP();
                                                 ScreenEffects var390 = var389.screenEffects();
                                                 int var438 = var4 + 1;
@@ -3400,7 +3401,7 @@ Object var203 = null;
                                                     var240 ^= 1517043579;
                                                     XK var443 = this.n;
                                                     var339.l(var390, var443);
-                                                    JL var340 = this.Dh;
+                                                    BooleanSetting var340 = this.Dh;
                                                     int var341 = (var340.vb()) ? 1 : 0;
                                                     if (var341 == 0) {
                                                         var240 += 483478550;
@@ -3426,7 +3427,7 @@ Object var203 = null;
                                                         break label546;
                                                     }
 
-                                                    Ud var346 = Ud.Z();
+                                                    ClientRuntime var346 = ClientRuntime.Z();
                                                     BP var347 = var346.Kx();
                                                     Integer var289 = var4;
                                                     if (var289 != null) {
@@ -3558,7 +3559,7 @@ Object var203 = null;
         }
     }
 
-    private void e(T var1) {
+    private void e(RenderEvent var1) {
         vS_2 var174 = null;
         int var2 = Td;
         var2 ^= -701205649;
@@ -3733,7 +3734,7 @@ Object var203 = null;
                             Integer var204 = var2;
                             if (var204 != null) {
                                 var164.A = var193;
-                                Ud var165 = Ud.Z();
+                                ClientRuntime var165 = ClientRuntime.Z();
                                 BP var166 = var165.Kx();
                                 Oo var167 = var166.C();
                                 var2 &= 1604598546;
@@ -3945,7 +3946,7 @@ Object var203 = null;
         Lookup var0 = MethodHandles.lookup();
         Class var3 = var0.lookupClass();
         int var1 = -959346294;
-        int var2 = Yn.C;
+        int var2 = Module.C;
         int var4 = of_2.ro(var3, var1, var2);
         Td = var4;
         DateTimeFormatter var5 = DateTimeFormatter.ofPattern("HH:mm:ss");

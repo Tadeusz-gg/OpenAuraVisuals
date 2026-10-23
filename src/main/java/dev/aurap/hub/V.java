@@ -20,7 +20,7 @@ public final class V {
     private static final long CH = 1600L;
     private static final long E = 5000L;
     private static final double Wm = 48.0;
-    private final PH TH;
+    private final EventBus TH;
     private final List j;
     private final Int2LongOpenHashMap zb;
     private final Int2LongOpenHashMap F;
@@ -37,7 +37,7 @@ public final class V {
     private long eu;
     public static final int P;
 
-    public V(PH var1) {
+    public V(EventBus var1) {
         ArrayList var2 = new ArrayList();
         this.j = var2;
         Int2LongOpenHashMap var3 = new Int2LongOpenHashMap();
@@ -51,13 +51,13 @@ public final class V {
         this.s = 1.0F;
         this.fy = -1;
         this.TH = var1;
-        wD<o_2> var7 = this::VN;
-        kf var8 = var1.DP(o_2.class, 1000, var7);
-        wD<PC> var9 = this::M;
-        kf var10 = var1.DP(PC.class, 1000, var9);
-        wD<GN> var11 = this::oF;
-        kf var12 = var1.DP(GN.class, 1000, var11);
-        wD<Yb> var13 = (Yb var1x) -> {
+        EventListener<o_2> var7 = this::VN;
+        EventSubscription var8 = var1.DP(o_2.class, 1000, var7);
+        EventListener<PC> var9 = this::M;
+        EventSubscription var10 = var1.DP(PC.class, 1000, var9);
+        EventListener<GN> var11 = this::oF;
+        EventSubscription var12 = var1.DP(GN.class, 1000, var11);
+        EventListener<Yb> var13 = (Yb var1x) -> {
             int var2x = P;
             var2x ^= -211896720;
             int var3x = System.identityHashCode(this);
@@ -104,10 +104,10 @@ public final class V {
             UnsupportedOperationException var23 = new UnsupportedOperationException();
             throw var23;
         };
-        kf var14 = var1.DP(Yb.class, 1000, var13);
-        wD<X> var15 = this::Wz;
-        kf var16 = var1.DP(X.class, 1000, var15);
-        wD<p_2> var17 = (p_2 var1x) -> {
+        EventSubscription var14 = var1.DP(Yb.class, 1000, var13);
+        EventListener<X> var15 = this::Wz;
+        EventSubscription var16 = var1.DP(X.class, 1000, var15);
+        EventListener<p_2> var17 = (p_2 var1x) -> {
             int var2x = P;
             var2x ^= -1597171962;
             int var3x = System.identityHashCode(this);
@@ -151,8 +151,8 @@ public final class V {
             AssertionError var22 = new AssertionError();
             throw var22;
         };
-        kf var18 = var1.DP(p_2.class, 1000, var17);
-        wD<sE> var19 = (sE var1x) -> {
+        EventSubscription var18 = var1.DP(p_2.class, 1000, var17);
+        EventListener<TickEvent> var19 = (TickEvent var1x) -> {
             int var2x = P;
             var2x ^= -1048375143;
             int var3x = System.identityHashCode(this);
@@ -190,7 +190,7 @@ public final class V {
                 this.o(var2x);
             }
         };
-        kf var20 = var1.DP(sE.class, 1000, var19);
+        EventSubscription var20 = var1.DP(TickEvent.class, 1000, var19);
     }
 
     public Entity i() {
@@ -571,7 +571,7 @@ public final class V {
                     var33 -= -686222966;
                     var33 += 1168493074;
                     var33 ^= -1526654691;
-                    PH var78 = this.TH;
+                    EventBus var78 = this.TH;
                     Integer var8 = var6;
                     if (var8 == null) {
                         switch (var33) {
@@ -622,7 +622,7 @@ public final class V {
                     break label87;
                 }
 
-                PH var85 = this.TH;
+                EventBus var85 = this.TH;
                 PC var100 = new PC(var1, var2, var2, true);
                 Object var86 = var85.A(var100);
                 int var87 = var33 & -1238006668;
@@ -660,7 +660,7 @@ public final class V {
                     var98 = var1.getId();
                     float var121 = var1.getHealth();
                     float var90 = var89.put(var98, var121);
-                    PH var91 = this.TH;
+                    EventBus var91 = this.TH;
                     float var122 = var1.getHealth();
                     tZ var112 = new tZ(var1, var3, var122);
                     Object var92 = var91.A(var112);
@@ -679,7 +679,7 @@ public final class V {
                         }
                         default -> var33 ^ -941073391;
                     };
-                    PH var94 = this.TH;
+                    EventBus var94 = this.TH;
                     X var113 = new X(var1);
                     var9 = var6;
                     var11 = var9 + 1L;
@@ -1938,10 +1938,10 @@ public final class V {
                                 long var247 = var246.put(var195, var161);
                                 this.uC = var193;
                                 this.m = var161;
-                                PH var196 = this.TH;
+                                EventBus var196 = this.TH;
                                 var254 = this.O;
                                 float var182 = var181.strength();
-                                Hm var248 = new Hm(var193, var214, var254, var182);
+                                HitEvent var248 = new HitEvent(var193, var214, var254, var182);
                                 long var183 = var3;
                                 long var268 = var183 + 1L;
                                 long var269 = var183 * var268;
@@ -2133,7 +2133,7 @@ public final class V {
                             LivingEntity var74 = (LivingEntity)var73;
                             Int2LongOpenHashMap var78 = this.F;
                             var6 = var78.remove(var65);
-                            PH var66 = this.TH;
+                            EventBus var66 = this.TH;
                             int var80 = var3 + 1;
                             int var81 = var3 * var80;
                             var3 = var81 & 1;
@@ -2165,7 +2165,7 @@ public final class V {
                             }
 
                             int var82 = this.O;
-                            I var62 = new I(var74, var82);
+                            KillEvent var62 = new KillEvent(var74, var82);
                             var61 = (Integer)var66.A(var62);
                             var2 *= -955114051;
                             var2 -= 397519000;
@@ -2294,7 +2294,7 @@ public final class V {
 
                     IntOpenHashSet var205 = this.Pb;
                     var205.clear();
-                    PH var206 = this.TH;
+                    EventBus var206 = this.TH;
                     int var207 = var206.l(tZ.class) ? 1 : 0;
                     var207 = (var207 != 0) ? 1 : 0;
                     long var230 = var3;
@@ -2765,7 +2765,7 @@ public final class V {
                                             if (var207 != 0) {
                                                 var92 += 1557243734;
                                                 var92 ^= -1452615815;
-                                                PH var359 = this.TH;
+                                                EventBus var359 = this.TH;
                                                 tZ var369 = new tZ(var299, var337, var319);
                                                 var15 = var3;
                                                 long var17 = var15 + 1L;

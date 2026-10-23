@@ -4,9 +4,9 @@ import com.llamalad7.mixinextras.injector.v2.WrapWithCondition;
 import dev.aurap.hub.GN;
 import mvggs.modules.combat.totempop;
 import dev.aurap.hub.PC;
-import dev.aurap.hub.PH;
-import dev.aurap.hub.Ud;
-import dev.aurap.hub.Vt;
+import dev.aurap.hub.EventBus;
+import dev.aurap.hub.ClientRuntime;
+import dev.aurap.hub.TotemPopEvent;
 import dev.aurap.hub.X;
 import dev.aurap.hub.Yb;
 import dev.aurap.hub.tc;
@@ -51,11 +51,11 @@ public abstract class ClientPacketListenerMixin {
     )
     private void aura$animate(EntityAnimationS2CPacket packet, CallbackInfo ci) {
         int action = packet.getAnimationId();
-        if (Ud.y() && aura$level() != null) {
+        if (ClientRuntime.y() && aura$level() != null) {
             if (action == 4 || action == 5) {
                 Entity entity = aura$level().getEntityById(packet.getEntityId());
                 if (entity != null) {
-                    Ud.Z().ZM().A(new Yb(entity, action == 5));
+                    ClientRuntime.Z().ZM().A(new Yb(entity, action == 5));
                 }
             }
         }
@@ -70,10 +70,10 @@ public abstract class ClientPacketListenerMixin {
         )}
     )
     private void aura$hurt(DamageTiltS2CPacket packet, CallbackInfo ci) {
-        if (Ud.y() && aura$level() != null) {
+        if (ClientRuntime.y() && aura$level() != null) {
             Entity entity = aura$level().getEntityById(packet.id());
             if (entity != null) {
-                Ud.Z().ZM().A(new GN(entity));
+                ClientRuntime.Z().ZM().A(new GN(entity));
             }
         }
     }
@@ -88,8 +88,8 @@ public abstract class ClientPacketListenerMixin {
     )
     private void aura$damage(EntityDamageS2CPacket packet, CallbackInfo ci) {
         ClientWorld level = aura$level();
-        if (Ud.y() && level != null) {
-            PH events = Ud.Z().ZM();
+        if (ClientRuntime.y() && level != null) {
+            EventBus events = ClientRuntime.Z().ZM();
             if (events.l(PC.class)) {
                 Entity victim = level.getEntityById(packet.entityId());
                 if (victim != null) {
@@ -113,10 +113,10 @@ public abstract class ClientPacketListenerMixin {
     )
     private void aura$entityEvent(EntityStatusS2CPacket packet, CallbackInfo ci) {
         byte id = packet.getStatus();
-        if (Ud.y() && aura$level() != null && (id == 3 || id == 35)) {
+        if (ClientRuntime.y() && aura$level() != null && (id == 3 || id == 35)) {
             Entity entity = packet.getEntity(aura$level());
             if (entity != null) {
-                Ud.Z().ZM().A(id == 35 ? new Vt(entity) : new X(entity));
+                ClientRuntime.Z().ZM().A(id == 35 ? new TotemPopEvent(entity) : new X(entity));
             }
         }
     }
@@ -131,8 +131,8 @@ public abstract class ClientPacketListenerMixin {
     )
     private void aura$localDeath(DeathMessageS2CPacket packet, CallbackInfo ci) {
         Entity player = MinecraftClient.getInstance().player;
-        if (Ud.y() && player != null && packet.playerId() == player.getId()) {
-            Ud.Z().ZM().A(new tc(packet.message() == null ? "" : packet.message().getString()));
+        if (ClientRuntime.y() && player != null && packet.playerId() == player.getId()) {
+            ClientRuntime.Z().ZM().A(new tc(packet.message() == null ? "" : packet.message().getString()));
         }
     }
 

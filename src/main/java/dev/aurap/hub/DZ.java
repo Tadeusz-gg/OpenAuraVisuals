@@ -6,12 +6,12 @@ import java.lang.invoke.MethodHandles;
 import java.lang.invoke.MethodHandles.Lookup;
 
 public final class DZ extends XR {
-    private final Uq Uw;
+    private final NumberSetting Uw;
     private final XF zU;
     private final XF oG;
     public static final int Y;
 
-    public DZ(Uq var1) {
+    public DZ(NumberSetting var1) {
         kE_2 var3 = kE_2.SNAPPY;
         XF var2 = new XF(0.0F, var3);
         this.oG = var2;
@@ -23,7 +23,7 @@ public final class DZ extends XR {
     }
 
     @Override
-    public xB W() {
+    public Setting W() {
         int var1 = Y;
         var1 ^= -199967367;
         int var2 = System.identityHashCode(this);
@@ -88,7 +88,7 @@ public final class DZ extends XR {
         } else {
             var2 <<= 15;
             var2 ^= 1534024860;
-            Uq var12 = this.Uw;
+            NumberSetting var12 = this.Uw;
             float var13 = var12.MU();
             float var14 = TP.S(var13);
             var4.H(var14);
@@ -286,7 +286,7 @@ public final class DZ extends XR {
                     }
 
                     var143.H(var128);
-                    Uq var129 = this.Uw;
+                    NumberSetting var129 = this.Uw;
                     String var130 = var129.Tp();
                     float var144 = this.U;
                     float var165 = this.fb;
@@ -297,7 +297,7 @@ public final class DZ extends XR {
                     int var215 = DP.nq(var214, var3);
                     var181 = var181.color(var215);
                     float var131 = var1.text(var130, var144, var166, var181);
-                    Uq var132 = this.Uw;
+                    NumberSetting var132 = this.Uw;
                     String var133 = var132.D();
                     float var145 = this.U;
                     float var167 = this.pP;
@@ -316,7 +316,7 @@ public final class DZ extends XR {
                     XF var170 = this.zU;
                     float var171 = var170.bs();
                     float var172 = TP.S(var171);
-                    Uq var185 = this.Uw;
+                    NumberSetting var185 = this.Uw;
                     float var186 = var185.g();
                     int var219 = var5 + 1;
                     int var220 = var5 * var219;
@@ -337,7 +337,7 @@ public final class DZ extends XR {
                                 var42 ^= 303903297;
                                 var42 ^= -1124834855;
                                 var42 ^= 70587544;
-                                Uq var188 = this.Uw;
+                                NumberSetting var188 = this.Uw;
                                 float var189 = var188.li();
                                 var10 = var5;
                                 var12 = var10 + 1L;
@@ -387,9 +387,9 @@ public final class DZ extends XR {
                                         break label164;
                                     }
 
-                                    Uq var196 = this.Uw;
+                                    NumberSetting var196 = this.Uw;
                                     float var197 = var196.g();
-                                    Uq var230 = this.Uw;
+                                    NumberSetting var230 = this.Uw;
                                     float var231 = var230.li();
                                     long var242 = var5;
                                     long var13 = var242 + 1L;
@@ -580,7 +580,7 @@ public final class DZ extends XR {
                     var5 >>= 5;
                     var5 ^= -1314821327;
                     var5 ^= -1228734373;
-                    Uq var63 = this.Uw;
+                    NumberSetting var63 = this.Uw;
                     var63.s();
                     Integer var64 = var7;
                     if (var64 != null) {
@@ -681,7 +681,7 @@ public final class DZ extends XR {
         int var4 = Y;
         var4 ^= -2059678632;
         int var5 = System.identityHashCode(this);
-        Uq var6 = this.Uw;
+        NumberSetting var6 = this.Uw;
         float var7 = this.U;
         var7 = var2 - var7;
         float var8 = this.pP;

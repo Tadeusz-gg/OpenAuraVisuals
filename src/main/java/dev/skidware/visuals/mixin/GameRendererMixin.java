@@ -1,6 +1,6 @@
 package dev.skidware.visuals.mixin;
 
-import dev.aurap.hub.Ud;
+import dev.aurap.hub.ClientRuntime;
 import mvggs.modules.animations.hurtcam;
 import net.minecraft.client.render.GameRenderer;
 import org.spongepowered.asm.mixin.Mixin;
@@ -23,8 +23,8 @@ public abstract class GameRendererMixin {
         at = {@At("HEAD")}
     )
     private void aura$frameStart(CallbackInfo ci) {
-        if (Ud.y()) {
-            Ud.Z().Ul().frameStart();
+        if (ClientRuntime.y()) {
+            ClientRuntime.Z().Ul().frameStart();
         }
     }
 
@@ -36,8 +36,8 @@ public abstract class GameRendererMixin {
         )}
     )
     private void aura$beforeGui(CallbackInfo ci) {
-        if (Ud.y()) {
-            Ud.Z().Ul().beforeGui();
+        if (ClientRuntime.y()) {
+            ClientRuntime.Z().Ul().beforeGui();
         }
     }
 
@@ -46,8 +46,8 @@ public abstract class GameRendererMixin {
         at = {@At("TAIL")}
     )
     private void aura$afterGui(CallbackInfo ci) {
-        if (Ud.y()) {
-            Ud.Z().Ul().afterGui();
+        if (ClientRuntime.y()) {
+            ClientRuntime.Z().Ul().afterGui();
         }
     }
 
@@ -56,8 +56,8 @@ public abstract class GameRendererMixin {
         at = {@At("TAIL")}
     )
     private void aura$sceneRendered(CallbackInfo ci) {
-        if (Ud.y()) {
-            Ud.Z().Ul().sceneRendered();
+        if (ClientRuntime.y()) {
+            ClientRuntime.Z().Ul().sceneRendered();
         }
     }
 

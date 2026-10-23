@@ -1,62 +1,63 @@
 package mvggs.modules.client;
 
 import dev.aurap.hub.*;
+import dev.aurap.hub.Module;
 
 import dev.skidware.visuals.client.render.FrameContext;
 import java.lang.invoke.MethodHandles;
 import java.lang.invoke.MethodHandles.Lookup;
 import java.util.function.BooleanSupplier;
 
-public final class clickgui extends Yn {
+public final class clickgui extends Module {
     private static final float w = 540.0F;
-    private final ia mK;
-    private final Uq SC;
-    private final JL Y;
-    private final Uq jN;
-    private final Uq kC;
-    private final JL V;
-    private final r_2 jL;
+    private final KeybindSetting mK;
+    private final NumberSetting SC;
+    private final BooleanSetting Y;
+    private final NumberSetting jN;
+    private final NumberSetting kC;
+    private final BooleanSetting V;
+    private final ModeSetting jL;
     public static final int VO;
 
     public clickgui() {
-        super("click_gui", "Click GUI", AJ.CLIENT);
-        AJ var1 = AJ.CLIENT;
+        super("click_gui", "Click GUI", ModuleCategory.CLIENT);
+        ModuleCategory var1 = ModuleCategory.CLIENT;
 
-        ia var3 = new ia("key", "Open Key", 344);
-        xB var4 = this.vn(var3);
-        ia var5 = (ia)var4;
+        KeybindSetting var3 = new KeybindSetting("key", "Open Key", 344);
+        Setting var4 = this.addSetting(var3);
+        KeybindSetting var5 = (KeybindSetting)var4;
         this.mK = var5;
-        Uq var6 = new Uq("scale", "UI Scale", 1.0F, 0.7F, 1.5F);
-        Uq var7 = var6.W(0.05F);
-        Uq var8 = var7.L("x");
-        xB var9 = this.vn(var8);
-        Uq var10 = (Uq)var9;
+        NumberSetting var6 = new NumberSetting("scale", "UI Scale", 1.0F, 0.7F, 1.5F);
+        NumberSetting var7 = var6.W(0.05F);
+        NumberSetting var8 = var7.L("x");
+        Setting var9 = this.addSetting(var8);
+        NumberSetting var10 = (NumberSetting)var9;
         this.SC = var10;
-        JL var11 = new JL("liquid_glass", "Liquid Glass", true);
-        xB var12 = this.vn(var11);
-        JL var13 = (JL)var12;
+        BooleanSetting var11 = new BooleanSetting("liquid_glass", "Liquid Glass", true);
+        Setting var12 = this.addSetting(var11);
+        BooleanSetting var13 = (BooleanSetting)var12;
         this.Y = var13;
-        Uq var14 = new Uq("blur", "Background Blur", 2.0F, 0.0F, 6.0F);
-        Uq var15 = var14.W(1.0F);
-        xB var16 = this.vn(var15);
-        Uq var17 = (Uq)var16;
+        NumberSetting var14 = new NumberSetting("blur", "Background Blur", 2.0F, 0.0F, 6.0F);
+        NumberSetting var15 = var14.W(1.0F);
+        Setting var16 = this.addSetting(var15);
+        NumberSetting var17 = (NumberSetting)var16;
         this.jN = var17;
-        Uq var18 = new Uq("dim", "Background Dim", 0.4F, 0.0F, 0.9F);
-        Uq var19 = var18.W(0.05F);
-        xB var20 = this.vn(var19);
-        Uq var21 = (Uq)var20;
+        NumberSetting var18 = new NumberSetting("dim", "Background Dim", 0.4F, 0.0F, 0.9F);
+        NumberSetting var19 = var18.W(0.05F);
+        Setting var20 = this.addSetting(var19);
+        NumberSetting var21 = (NumberSetting)var20;
         this.kC = var21;
-        JL var22 = new JL("sounds", "Interface Sounds", true);
-        xB var23 = this.vn(var22);
-        JL var24 = (JL)var23;
+        BooleanSetting var22 = new BooleanSetting("sounds", "Interface Sounds", true);
+        Setting var23 = this.addSetting(var22);
+        BooleanSetting var24 = (BooleanSetting)var23;
         this.V = var24;
         K var2 = K.BLIP;
-        r_2 var25 = new r_2("toggle_sound", "Toggle Sound", var2);
+        ModeSetting var25 = new ModeSetting("toggle_sound", "Toggle Sound", var2);
         BooleanSupplier var30 = this::cP;
-        xB var26 = var25.Pt(var30);
-        r_2 var27 = (r_2)var26;
-        xB var28 = this.vn(var27);
-        r_2 var29 = (r_2)var28;
+        Setting var26 = var25.Pt(var30);
+        ModeSetting var27 = (ModeSetting)var26;
+        Setting var28 = this.addSetting(var27);
+        ModeSetting var29 = (ModeSetting)var28;
         this.jL = var29;
         this.dy("Look and feel of this menu.");
         this.ao();
@@ -91,7 +92,7 @@ public final class clickgui extends Yn {
             long var38;
             var2 = (var38 = var25 - 0L) == 0L ? 0 : (var38 < 0L ? -1 : 1);
             if (var2 == 0) {
-                ia var27 = this.mK;
+                KeybindSetting var27 = this.mK;
                 return var27.JQ();
             }
         } else {
@@ -115,7 +116,7 @@ public final class clickgui extends Yn {
         throw var19;
     }
 
-    public ia fA() {
+    public KeybindSetting fA() {
         int var1 = VO;
         var1 ^= -1094671686;
         int var2 = System.identityHashCode(this);
@@ -157,7 +158,7 @@ public final class clickgui extends Yn {
         int var1 = VO;
         var1 ^= -1284932053;
         int var2 = System.identityHashCode(this);
-        JL var3 = this.Y;
+        BooleanSetting var3 = this.Y;
         int var4 = var2 + 1;
         var4 = var2 * var4;
         var2 = var4 & 1;
@@ -215,7 +216,7 @@ public final class clickgui extends Yn {
             var1 >>>= 18;
             var1 <<= 20;
             var1 ^= -2025066079;
-            Uq var10 = this.jN;
+            NumberSetting var10 = this.jN;
             return var10.B();
         }
     }
@@ -224,7 +225,7 @@ public final class clickgui extends Yn {
         int var1 = VO;
         var1 ^= -556961764;
         int var2 = System.identityHashCode(this);
-        Uq var3 = this.kC;
+        NumberSetting var3 = this.kC;
         Integer var22 = var2;
         if (var22 == null) {
             var1 *= 1364732631;
@@ -270,7 +271,7 @@ public final class clickgui extends Yn {
         int var1 = VO;
         var1 ^= 893040070;
         int var2 = System.identityHashCode(this);
-        JL var3 = this.V;
+        BooleanSetting var3 = this.V;
         int var4 = var2 + 1;
         var4 = var2 * var4;
         var2 = var4 & 1;
@@ -311,7 +312,7 @@ public final class clickgui extends Yn {
         int var1 = VO;
         var1 ^= 447907440;
         int var2 = System.identityHashCode(this);
-        r_2 var3 = this.jL;
+        ModeSetting var3 = this.jL;
         int var4 = var2 + 1;
         var4 = var2 * var4;
         var2 = var4 & 1;
@@ -355,7 +356,7 @@ public final class clickgui extends Yn {
         float var29 = var4;
         float var30 = Math.max(1.0F, var29);
         float var31 = var30 / 540.0F;
-        Uq var5 = this.SC;
+        NumberSetting var5 = this.SC;
         int var6 = var3 + 1;
         var6 = var3 * var6;
         int var7 = var3 + 2;
@@ -404,7 +405,7 @@ public final class clickgui extends Yn {
         Lookup var0 = MethodHandles.lookup();
         Class var3 = var0.lookupClass();
         int var1 = 264508002;
-        int var2 = Yn.C;
+        int var2 = Module.C;
         int var4 = of_2.ro(var3, var1, var2);
         VO = var4;
     }

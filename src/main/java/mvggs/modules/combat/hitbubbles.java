@@ -1,6 +1,7 @@
 package mvggs.modules.combat;
 
 import dev.aurap.hub.*;
+import dev.aurap.hub.Module;
 
 import dev.skidware.visuals.client.render.AuraPipeline;
 import dev.skidware.visuals.client.render.FrameContext;
@@ -15,20 +16,20 @@ import java.util.concurrent.ThreadLocalRandom;
 import net.minecraft.entity.Entity;
 import net.minecraft.world.World;
 
-public final class hitbubbles extends Yn {
+public final class hitbubbles extends Module {
     private static final int C = 32;
-    private final r_2 mS;
-    private final Uq aK;
-    private final Uq Gd;
-    private final Uq l;
-    private final Uq XD;
-    private final Uq h;
-    private final Uq Pl;
+    private final ModeSetting mS;
+    private final NumberSetting aK;
+    private final NumberSetting Gd;
+    private final NumberSetting l;
+    private final NumberSetting XD;
+    private final NumberSetting h;
+    private final NumberSetting Pl;
     private final zS SQ;
-    private final JL H;
+    private final BooleanSetting H;
     private final double[] Q;
     private final double[] r;
-    private final double[] NW;
+    private final double[] ModuleManager;
     private final float[] W;
     private final float[] I;
     private final float[] Tn;
@@ -46,62 +47,62 @@ public final class hitbubbles extends Yn {
     public static final int uf;
 
     public hitbubbles() {
-        super("hit_bubbles", "Hit Bubbles", AJ.COMBAT);
-        AJ var1 = AJ.COMBAT;
+        super("hit_bubbles", "Hit Bubbles", ModuleCategory.COMBAT);
+        ModuleCategory var1 = ModuleCategory.COMBAT;
 
         IH var2 = IH.PORTAL;
-        r_2 var3 = new r_2("style", "Style", var2);
-        xB var4 = this.vn(var3);
-        r_2 var5 = (r_2)var4;
+        ModeSetting var3 = new ModeSetting("style", "Style", var2);
+        Setting var4 = this.addSetting(var3);
+        ModeSetting var5 = (ModeSetting)var4;
         this.mS = var5;
-        Uq var6 = new Uq("size", "Radius", 0.5F, 0.2F, 1.2F);
-        Uq var7 = var6.W(0.05F);
-        Uq var8 = var7.L("m");
-        xB var9 = this.vn(var8);
-        Uq var10 = (Uq)var9;
+        NumberSetting var6 = new NumberSetting("size", "Radius", 0.5F, 0.2F, 1.2F);
+        NumberSetting var7 = var6.W(0.05F);
+        NumberSetting var8 = var7.L("m");
+        Setting var9 = this.addSetting(var8);
+        NumberSetting var10 = (NumberSetting)var9;
         this.aK = var10;
-        Uq var11 = new Uq("spin", "Spin", 2.0F, 0.0F, 5.0F);
-        Uq var12 = var11.W(0.1F);
-        xB var13 = this.vn(var12);
-        Uq var14 = (Uq)var13;
+        NumberSetting var11 = new NumberSetting("spin", "Spin", 2.0F, 0.0F, 5.0F);
+        NumberSetting var12 = var11.W(0.1F);
+        Setting var13 = this.addSetting(var12);
+        NumberSetting var14 = (NumberSetting)var13;
         this.Gd = var14;
-        Uq var15 = new Uq("appear", "Appear", 0.3F, 0.05F, 1.5F);
-        Uq var16 = var15.W(0.05F);
-        Uq var17 = var16.L("s");
-        xB var18 = this.vn(var17);
-        Uq var19 = (Uq)var18;
+        NumberSetting var15 = new NumberSetting("appear", "Appear", 0.3F, 0.05F, 1.5F);
+        NumberSetting var16 = var15.W(0.05F);
+        NumberSetting var17 = var16.L("s");
+        Setting var18 = this.addSetting(var17);
+        NumberSetting var19 = (NumberSetting)var18;
         this.l = var19;
-        Uq var20 = new Uq("hold", "Hold", 0.5F, 0.0F, 2.0F);
-        Uq var21 = var20.W(0.05F);
-        Uq var22 = var21.L("s");
-        xB var23 = this.vn(var22);
-        Uq var24 = (Uq)var23;
+        NumberSetting var20 = new NumberSetting("hold", "Hold", 0.5F, 0.0F, 2.0F);
+        NumberSetting var21 = var20.W(0.05F);
+        NumberSetting var22 = var21.L("s");
+        Setting var23 = this.addSetting(var22);
+        NumberSetting var24 = (NumberSetting)var23;
         this.XD = var24;
-        Uq var25 = new Uq("fade", "Fade", 0.5F, 0.1F, 2.0F);
-        Uq var26 = var25.W(0.05F);
-        Uq var27 = var26.L("s");
-        xB var28 = this.vn(var27);
-        Uq var29 = (Uq)var28;
+        NumberSetting var25 = new NumberSetting("fade", "Fade", 0.5F, 0.1F, 2.0F);
+        NumberSetting var26 = var25.W(0.05F);
+        NumberSetting var27 = var26.L("s");
+        Setting var28 = this.addSetting(var27);
+        NumberSetting var29 = (NumberSetting)var28;
         this.h = var29;
-        Uq var30 = new Uq("glow", "Glow", 0.7F, 0.0F, 1.0F);
-        Uq var31 = var30.W(0.05F);
-        xB var32 = this.vn(var31);
-        Uq var33 = (Uq)var32;
+        NumberSetting var30 = new NumberSetting("glow", "Glow", 0.7F, 0.0F, 1.0F);
+        NumberSetting var31 = var30.W(0.05F);
+        Setting var32 = this.addSetting(var31);
+        NumberSetting var33 = (NumberSetting)var32;
         this.Pl = var33;
         zS var34 = new zS();
         nM var35 = this.bU(var34);
         zS var36 = (zS)var35;
         this.SQ = var36;
-        JL var37 = new JL("crit_only", "Crits Only", false);
-        xB var38 = this.vn(var37);
-        JL var39 = (JL)var38;
+        BooleanSetting var37 = new BooleanSetting("crit_only", "Crits Only", false);
+        Setting var38 = this.addSetting(var37);
+        BooleanSetting var39 = (BooleanSetting)var38;
         this.H = var39;
         double[] var40 = new double[32];
         this.Q = var40;
         double[] var41 = new double[32];
         this.r = var41;
         double[] var42 = new double[32];
-        this.NW = var42;
+        this.ModuleManager = var42;
         float[] var43 = new float[32];
         this.W = var43;
         float[] var44 = new float[32];
@@ -128,12 +129,12 @@ public final class hitbubbles extends Yn {
         this.Tp = var54;
         this.dy("A spinning disc of light that pops open where your hit lands.");
         this.fJ(true);
-        wD<Hm> var55 = (Hm var1x) -> {
+        EventListener<HitEvent> var55 = (HitEvent var1x) -> {
             label80: {
                 int var2x = uf;
                 var2x ^= 957887425;
                 int var3x = System.identityHashCode(this);
-                JL var4x = this.H;
+                BooleanSetting var4x = this.H;
                 long var5x = var3x;
                 long var7x = var5x + 1L;
                 var7x = var5x * var7x;
@@ -306,9 +307,9 @@ public final class hitbubbles extends Yn {
             IllegalArgumentException var52x = new IllegalArgumentException();
             throw var52x;
         };
-        this.iI(Hm.class, var55);
-        wD<T> var56 = this::L;
-        this.iI(T.class, var56);
+        this.onEvent(HitEvent.class, var55);
+        EventListener<RenderEvent> var56 = this::L;
+        this.onEvent(RenderEvent.class, var56);
     }
 
     @Override
@@ -475,7 +476,7 @@ public final class hitbubbles extends Yn {
 
                     World var130 = var1.getEntityWorld();
                     this.P = var130;
-                    Ud var131 = Ud.Z();
+                    ClientRuntime var131 = ClientRuntime.Z();
                     AuraPipeline var132 = var131.Ul();
                     FrameContext var133 = var132.frame();
                     float var134 = var133.partialTick();
@@ -531,7 +532,7 @@ public final class hitbubbles extends Yn {
                             var15 = var159 * 0.08;
                             double var189 = var188 - var15;
                             var12[var127] = var189;
-                            var12 = this.NW;
+                            var12 = this.ModuleManager;
                             var13 = this.Tp;
                             double var191 = var13[2];
                             var15 = var163 * 0.08;
@@ -728,7 +729,7 @@ public final class hitbubbles extends Yn {
         throw var109;
     }
 
-    private void L(T var1) {
+    private void L(RenderEvent var1) {
         int var2 = uf;
         var2 ^= 279865144;
         int var3 = System.identityHashCode(this);
@@ -966,13 +967,13 @@ public final class hitbubbles extends Yn {
                                     float var259 = var258.dt();
                                     float var260 = Math.min(var259, 0.1F);
                                     float var261 = var260;
-                                    Uq var274 = this.l;
+                                    NumberSetting var274 = this.l;
                                     float var275 = var274.WM();
                                     float var276 = var275;
-                                    Uq var297 = this.XD;
+                                    NumberSetting var297 = this.XD;
                                     float var298 = var297.WM();
                                     float var299 = var298;
-                                    Uq var7 = this.h;
+                                    NumberSetting var7 = this.h;
                                     float var304 = var7.WM();
                                     float var305 = var304;
                                     FrameContext var319 = var1.frame();
@@ -1004,12 +1005,12 @@ public final class hitbubbles extends Yn {
                                         double var321 = var320;
                                         Canvas var330 = var1.canvas();
                                         Canvas var331 = var330;
-                                        Ud var11 = Ud.Z();
+                                        ClientRuntime var11 = ClientRuntime.Z();
                                         AuraPipeline var332 = var11.Ul();
                                         WorldDraw var333 = var332.world();
                                         WorldDraw var334 = var333;
                                         var330.save();
-                                        Uq var338 = this.Pl;
+                                        NumberSetting var338 = this.Pl;
                                         float var339 = var338.WM();
                                         var330.additive(var339);
                                         byte var340 = 0;
@@ -1390,7 +1391,7 @@ public final class hitbubbles extends Yn {
                                                     float var442 = var375[var341];
                                                     float[] var458 = this.N;
                                                     float var459 = var458[var341];
-                                                    Uq var464 = this.Gd;
+                                                    NumberSetting var464 = this.Gd;
                                                     float var465 = var464.WM();
                                                     float var460 = var459 * var465;
                                                     float var420 = var460 * var419;
@@ -1470,7 +1471,7 @@ public final class hitbubbles extends Yn {
                                                                 break;
                                                             }
 
-                                                            Uq var405 = this.aK;
+                                                            NumberSetting var405 = this.aK;
                                                             int var424 = var3 + 1;
                                                             var424 = var3 * var424;
                                                             var424 &= 1;
@@ -1585,7 +1586,7 @@ public final class hitbubbles extends Yn {
             double var157 = var156[var3];
             double[] var16 = this.r;
             double var185 = var16[var3];
-            double[] var18 = this.NW;
+            double[] var18 = this.ModuleManager;
             double var247 = var18[var3];
             float[] var20 = this.W;
             float var276 = var20[var3];
@@ -1664,7 +1665,7 @@ public final class hitbubbles extends Yn {
                         int var150 = var137 | 16777215;
                         int var151 = DP.Z(var137, var150, 0.2F);
                         float var158 = 0.6896551F;
-                        r_2 var160 = this.mS;
+                        ModeSetting var160 = this.mS;
                         Enum var161 = var160.A();
                         long var186 = var11;
                         long var248 = var186 + 1L;
@@ -2020,7 +2021,7 @@ public final class hitbubbles extends Yn {
         Lookup var0 = MethodHandles.lookup();
         Class var3 = var0.lookupClass();
         int var1 = 420243483;
-        int var2 = Yn.C;
+        int var2 = Module.C;
         int var4 = of_2.ro(var3, var1, var2);
         uf = var4;
     }

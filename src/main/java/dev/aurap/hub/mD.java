@@ -381,9 +381,9 @@ public final class mD extends Screen {
             int var65;
             label88: {
                 var65 = System.identityHashCode(this);
-                Ud var6 = Ud.Z();
-                NW var68 = var6.sP();
-                Yn var69 = var68.tG(clickgui.class);
+                ClientRuntime var6 = ClientRuntime.Z();
+                ModuleManager var68 = var6.sP();
+                Module var69 = var68.tG(clickgui.class);
                 long var7 = var65;
                 long var9 = var7 + 1L;
                 var9 = var7 * var9;

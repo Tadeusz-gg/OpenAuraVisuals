@@ -1,6 +1,7 @@
 package mvggs.modules.world;
 
 import dev.aurap.hub.*;
+import dev.aurap.hub.Module;
 
 import dev.skidware.visuals.client.render.FrameContext;
 import dev.skidware.visuals.render.AuraRenderer;
@@ -10,54 +11,54 @@ import java.lang.invoke.MethodHandles.Lookup;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 
-public final class atmosphere extends Yn {
-    private final JL fA;
-    private final Uq Ov;
-    private final Fk y;
-    private final JL M;
-    private final Uq pm;
-    private final JL T;
+public final class atmosphere extends Module {
+    private final BooleanSetting fA;
+    private final NumberSetting Ov;
+    private final ColorSetting y;
+    private final BooleanSetting M;
+    private final NumberSetting pm;
+    private final BooleanSetting T;
     private final XF t;
     private float LV;
     public static final int Ki;
 
     public atmosphere() {
-        super("atmosphere", "Atmosphere", AJ.WORLD);
-        AJ var1 = AJ.WORLD;
+        super("atmosphere", "Atmosphere", ModuleCategory.WORLD);
+        ModuleCategory var1 = ModuleCategory.WORLD;
 
-        JL var3 = new JL("low_health", "Low Health Vignette", true);
-        xB var4 = this.vn(var3);
-        JL var5 = (JL)var4;
+        BooleanSetting var3 = new BooleanSetting("low_health", "Low Health Vignette", true);
+        Setting var4 = this.addSetting(var3);
+        BooleanSetting var5 = (BooleanSetting)var4;
         this.fA = var5;
-        Uq var6 = new Uq("threshold", "Threshold", 0.4F, 0.1F, 0.8F);
-        Uq var7 = var6.W(0.05F);
-        xB var8 = this.vn(var7);
-        Uq var9 = (Uq)var8;
+        NumberSetting var6 = new NumberSetting("threshold", "Threshold", 0.4F, 0.1F, 0.8F);
+        NumberSetting var7 = var6.W(0.05F);
+        Setting var8 = this.addSetting(var7);
+        NumberSetting var9 = (NumberSetting)var8;
         this.Ov = var9;
-        Fk var10 = new Fk("vignette_color", "Vignette Color", -7729381, false);
-        xB var11 = this.vn(var10);
-        Fk var12 = (Fk)var11;
+        ColorSetting var10 = new ColorSetting("vignette_color", "Vignette Color", -7729381, false);
+        Setting var11 = this.addSetting(var10);
+        ColorSetting var12 = (ColorSetting)var11;
         this.y = var12;
-        JL var13 = new JL("hurt_aberration", "Hurt Aberration", false);
-        xB var14 = this.vn(var13);
-        JL var15 = (JL)var14;
+        BooleanSetting var13 = new BooleanSetting("hurt_aberration", "Hurt Aberration", false);
+        Setting var14 = this.addSetting(var13);
+        BooleanSetting var15 = (BooleanSetting)var14;
         this.M = var15;
-        Uq var16 = new Uq("aberration", "Aberration", 2.0F, 1.0F, 20.0F);
-        Uq var17 = var16.W(0.5F);
-        Uq var18 = var17.L("px");
-        xB var19 = this.vn(var18);
-        Uq var20 = (Uq)var19;
+        NumberSetting var16 = new NumberSetting("aberration", "Aberration", 2.0F, 1.0F, 20.0F);
+        NumberSetting var17 = var16.W(0.5F);
+        NumberSetting var18 = var17.L("px");
+        Setting var19 = this.addSetting(var18);
+        NumberSetting var20 = (NumberSetting)var19;
         this.pm = var20;
-        JL var21 = new JL("desaturate", "Desaturate", false);
-        xB var22 = this.vn(var21);
-        JL var23 = (JL)var22;
+        BooleanSetting var21 = new BooleanSetting("desaturate", "Desaturate", false);
+        Setting var22 = this.addSetting(var21);
+        BooleanSetting var23 = (BooleanSetting)var22;
         this.T = var23;
         kE_2 var2 = kE_2.uY(0.5F, 1.0F);
         XF var24 = new XF(0.0F, var2);
         this.t = var24;
         this.dy("Low-health vignette, hurt aberration and desaturation.");
         this.fJ(true);
-        wD<GN> var25 = (GN var1x) -> {
+        EventListener<GN> var25 = (GN var1x) -> {
             int var2x = Ki;
             var2x ^= -1349289164;
             int var3x = System.identityHashCode(this);
@@ -99,8 +100,8 @@ public final class atmosphere extends Yn {
             IllegalArgumentException var16x = new IllegalArgumentException();
             throw var16x;
         };
-        this.iI(GN.class, var25);
-        wD<PC> var26 = (PC var1x) -> {
+        this.onEvent(GN.class, var25);
+        EventListener<PC> var26 = (PC var1x) -> {
             int var2x = Ki;
             var2x ^= -1239977177;
             int var3x = System.identityHashCode(this);
@@ -150,8 +151,8 @@ public final class atmosphere extends Yn {
                 }
             }
         };
-        this.iI(PC.class, var26);
-        wD<p_2> var27 = (p_2 var1x) -> {
+        this.onEvent(PC.class, var26);
+        EventListener<p_2> var27 = (p_2 var1x) -> {
             int var2x = Ki;
             var2x ^= 510179138;
             int var3x = System.identityHashCode(this);
@@ -201,13 +202,13 @@ public final class atmosphere extends Yn {
                 }
             }
         };
-        this.iI(p_2.class, var27);
+        this.onEvent(p_2.class, var27);
     }
 
     private void qX(Entity var1, int var2) {
         label71: {
             int var4 = System.identityHashCode(this);
-            JL var5 = this.M;
+            BooleanSetting var5 = this.M;
             long var6 = var4;
             long var8 = var6 + 1L;
             var8 = var6 * var8;
@@ -370,7 +371,7 @@ public final class atmosphere extends Yn {
 
     private void x(float var1, int var2) {
         int var4 = System.identityHashCode(this);
-        Ud var5 = Ud.Z();
+        ClientRuntime var5 = ClientRuntime.Z();
         AuraRenderer var140 = var5.ZP();
         ScreenEffects var141 = var140.screenEffects();
         XF var6 = this.t;
@@ -414,7 +415,7 @@ public final class atmosphere extends Yn {
                         break label192;
                     }
 
-                    Uq var155 = this.pm;
+                    NumberSetting var155 = this.pm;
                     Integer var203 = var4;
                     if (var203 == null) {
                         var23 |= -1753946397;
@@ -558,7 +559,7 @@ public final class atmosphere extends Yn {
                                     float var147 = Math.max(1.0F, var146);
                                     float var148 = var170 / var147;
                                     float var149 = TP.S(var148);
-                                    Uq var171 = this.Ov;
+                                    NumberSetting var171 = this.Ov;
                                     float var172 = var171.WM();
                                     float var150 = var149 / var172;
                                     float var151 = 1.0F - var150;
@@ -616,7 +617,7 @@ public final class atmosphere extends Yn {
                                             double var181 = Math.max(0.0, var180);
                                             double var182 = Math.pow(var181, 8.0);
                                             float var183 = (float)var182;
-                                            JL var224 = this.fA;
+                                            BooleanSetting var224 = this.fA;
                                             int var225 = (var224.vb()) ? 1 : 0;
                                             if (var225 != 0) {
                                                 var23 ^= -412379885;
@@ -668,7 +669,7 @@ public final class atmosphere extends Yn {
                                                 }
 
                                                 float var186 = var228 + var185;
-                                                Fk var229 = this.y;
+                                                ColorSetting var229 = this.y;
                                                 var225 = var229.zz();
                                                 float var264 = TP.GO(0.8F, 0.65F, var152);
                                                 var141.vignette(var186, var225, var264, 1.1F);
@@ -682,7 +683,7 @@ public final class atmosphere extends Yn {
                                                 var23 ^= 925739167;
                                             }
 
-                                            JL var187 = this.T;
+                                            BooleanSetting var187 = this.T;
                                             int var188 = (var187.vb()) ? 1 : 0;
                                             var225 = var4 + 1;
                                             var225 = var4 * var225;
@@ -839,7 +840,7 @@ public final class atmosphere extends Yn {
         Lookup var0 = MethodHandles.lookup();
         Class var3 = var0.lookupClass();
         int var1 = -1729985698;
-        int var2 = Yn.C;
+        int var2 = Module.C;
         int var4 = of_2.kj(var3, var1, var2);
         Ki = var4;
     }

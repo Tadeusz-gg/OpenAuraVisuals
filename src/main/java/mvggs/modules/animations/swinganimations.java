@@ -1,6 +1,7 @@
 package mvggs.modules.animations;
 
 import dev.aurap.hub.*;
+import dev.aurap.hub.Module;
 
 import java.lang.invoke.MethodHandles;
 import java.lang.invoke.MethodHandles.Lookup;
@@ -8,57 +9,57 @@ import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.util.Arm;
 import net.minecraft.util.math.RotationAxis;
 
-public final class swinganimations extends Yn {
-    private final r_2 G;
-    private final Uq D;
-    private final Uq EC;
-    private final Uq r;
-    private final Uq RE;
-    private final Uq F;
-    private final Uq k;
+public final class swinganimations extends Module {
+    private final ModeSetting G;
+    private final NumberSetting D;
+    private final NumberSetting EC;
+    private final NumberSetting r;
+    private final NumberSetting RE;
+    private final NumberSetting F;
+    private final NumberSetting k;
     public static final int FN;
 
     public swinganimations() {
-        super("swing_animations", "Swing Animations", AJ.ANIMATIONS);
-        AJ var1 = AJ.ANIMATIONS;
+        super("swing_animations", "Swing Animations", ModuleCategory.ANIMATIONS);
+        ModuleCategory var1 = ModuleCategory.ANIMATIONS;
 
         D var2 = dev.aurap.hub.D.SMOOTH;
-        r_2 var3 = new r_2("style", "Style", var2);
-        xB var4 = this.vn(var3);
-        r_2 var5 = (r_2)var4;
+        ModeSetting var3 = new ModeSetting("style", "Style", var2);
+        Setting var4 = this.addSetting(var3);
+        ModeSetting var5 = (ModeSetting)var4;
         this.G = var5;
-        Uq var6 = new Uq("speed", "Swing Speed", 1.0F, 0.4F, 2.5F);
-        Uq var7 = var6.W(0.05F);
-        Uq var8 = var7.L("x");
-        xB var9 = this.vn(var8);
-        Uq var10 = (Uq)var9;
+        NumberSetting var6 = new NumberSetting("speed", "Swing Speed", 1.0F, 0.4F, 2.5F);
+        NumberSetting var7 = var6.W(0.05F);
+        NumberSetting var8 = var7.L("x");
+        Setting var9 = this.addSetting(var8);
+        NumberSetting var10 = (NumberSetting)var9;
         this.D = var10;
-        Uq var11 = new Uq("strength", "Swing Strength", 1.0F, 0.35F, 1.8F);
-        Uq var12 = var11.W(0.05F);
-        Uq var13 = var12.L("x");
-        xB var14 = this.vn(var13);
-        Uq var15 = (Uq)var14;
+        NumberSetting var11 = new NumberSetting("strength", "Swing Strength", 1.0F, 0.35F, 1.8F);
+        NumberSetting var12 = var11.W(0.05F);
+        NumberSetting var13 = var12.L("x");
+        Setting var14 = this.addSetting(var13);
+        NumberSetting var15 = (NumberSetting)var14;
         this.EC = var15;
-        Uq var16 = new Uq("scale", "Item Scale", 1.0F, 0.4F, 1.6F);
-        Uq var17 = var16.W(0.05F);
-        Uq var18 = var17.L("x");
-        xB var19 = this.vn(var18);
-        Uq var20 = (Uq)var19;
+        NumberSetting var16 = new NumberSetting("scale", "Item Scale", 1.0F, 0.4F, 1.6F);
+        NumberSetting var17 = var16.W(0.05F);
+        NumberSetting var18 = var17.L("x");
+        Setting var19 = this.addSetting(var18);
+        NumberSetting var20 = (NumberSetting)var19;
         this.r = var20;
-        Uq var21 = new Uq("offset_x", "Offset X", 0.0F, -1.0F, 1.0F);
-        Uq var22 = var21.W(0.02F);
-        xB var23 = this.vn(var22);
-        Uq var24 = (Uq)var23;
+        NumberSetting var21 = new NumberSetting("offset_x", "Offset X", 0.0F, -1.0F, 1.0F);
+        NumberSetting var22 = var21.W(0.02F);
+        Setting var23 = this.addSetting(var22);
+        NumberSetting var24 = (NumberSetting)var23;
         this.RE = var24;
-        Uq var25 = new Uq("offset_y", "Offset Y", 0.0F, -1.0F, 1.0F);
-        Uq var26 = var25.W(0.02F);
-        xB var27 = this.vn(var26);
-        Uq var28 = (Uq)var27;
+        NumberSetting var25 = new NumberSetting("offset_y", "Offset Y", 0.0F, -1.0F, 1.0F);
+        NumberSetting var26 = var25.W(0.02F);
+        Setting var27 = this.addSetting(var26);
+        NumberSetting var28 = (NumberSetting)var27;
         this.F = var28;
-        Uq var29 = new Uq("offset_z", "Offset Z", 0.0F, -1.0F, 1.0F);
-        Uq var30 = var29.W(0.02F);
-        xB var31 = this.vn(var30);
-        Uq var32 = (Uq)var31;
+        NumberSetting var29 = new NumberSetting("offset_z", "Offset Z", 0.0F, -1.0F, 1.0F);
+        NumberSetting var30 = var29.W(0.02F);
+        Setting var31 = this.addSetting(var30);
+        NumberSetting var32 = (NumberSetting)var31;
         this.k = var32;
         this.dy("Custom first-person swing styles, speed and item placement.");
     }
@@ -101,7 +102,7 @@ public final class swinganimations extends Yn {
             long var30;
             var2 = (var30 = var16 - 0L) == 0L ? 0 : (var30 < 0L ? -1 : 1);
             if (var2 == 0) {
-                r_2 var19 = this.G;
+                ModeSetting var19 = this.G;
                 var19.UY(var1);
                 return;
             }
@@ -112,7 +113,7 @@ public final class swinganimations extends Yn {
     }
 
     private static swinganimations s(int var0) {
-        int var2 = (Ud.y()) ? 1 : 0;
+        int var2 = (ClientRuntime.y()) ? 1 : 0;
         int var1 = var0 << 29;
         var1 *= -839813185;
         var1 >>= 10;
@@ -148,7 +149,7 @@ public final class swinganimations extends Yn {
                 };
                 Integer var39 = var1;
                 if (var39 != null) {
-                    Ud var40 = Ud.Z();
+                    ClientRuntime var40 = ClientRuntime.Z();
                     var1 *= -832207425;
                     var1 |= -1032486567;
                     var1 ^= 1959047138;
@@ -162,8 +163,8 @@ public final class swinganimations extends Yn {
                     var3 = (var69 = var50 - 0L) == 0L ? 0 : (var69 < 0L ? -1 : 1);
                     label51:
                     if (var3 == 0) {
-                        NW var41 = var40.sP();
-                        Yn var42 = var41.tG(swinganimations.class);
+                        ModuleManager var41 = var40.sP();
+                        Module var42 = var41.tG(swinganimations.class);
                         swinganimations var43 = (swinganimations)var42;
                         int var52 = (var43.IU()) ? 1 : 0;
                         swinganimations var44;
@@ -280,7 +281,7 @@ public final class swinganimations extends Yn {
             }
 
             float var38 = var0;
-            Uq var48 = var47.D;
+            NumberSetting var48 = var47.D;
             float var49 = var48.WM();
             float var39 = var38 / var49;
             var4 = var0 + 1;
@@ -450,10 +451,10 @@ public final class swinganimations extends Yn {
                         break label94;
                     }
 
-                    Uq var112 = var84.RE;
+                    NumberSetting var112 = var84.RE;
                     float var113 = var112.WM();
                     float var99 = var113 * var98;
-                    Uq var114 = var84.F;
+                    NumberSetting var114 = var84.F;
                     float var115 = var114.WM();
                     Integer var63 = var3;
                     if (var63 != null) {
@@ -468,10 +469,10 @@ public final class swinganimations extends Yn {
                             break label94;
                         }
 
-                        Uq var67 = var84.k;
+                        NumberSetting var67 = var84.k;
                         float var68 = var67.WM();
                         var0.translate(var99, var115, var68);
-                        Uq var69 = var84.r;
+                        NumberSetting var69 = var84.r;
                         float var70 = var69.WM();
                         float var121;
                         var4 = (var121 = var70 - 1.0F) == 0.0F ? 0 : (var121 < 0.0F ? -1 : 1);
@@ -579,7 +580,7 @@ public final class swinganimations extends Yn {
                             break label469;
                         }
 
-                        r_2 var349 = var291.G;
+                        ModeSetting var349 = var291.G;
                         D var365 = dev.aurap.hub.D.VANILLA;
                         int var350 = (var349.TJ(var365)) ? 1 : 0;
                         var7 = var4;
@@ -733,7 +734,7 @@ public final class swinganimations extends Yn {
                                     break label469;
                                 }
 
-                                Uq var380 = var291.EC;
+                                NumberSetting var380 = var291.EC;
                                 float var381 = var380.WM();
                                 float var393 = var351 * (float) Math.PI;
                                 double var394 = var393;
@@ -874,7 +875,7 @@ public final class swinganimations extends Yn {
                                                 break label469;
                                             }
 
-                                            r_2 var292 = var291.G;
+                                            ModeSetting var292 = var291.G;
                                             Enum var293 = var292.A();
                                             D var294 = (D)var293;
                                             int var295 = var294.ordinal();
@@ -1766,7 +1767,7 @@ public final class swinganimations extends Yn {
         Lookup var0 = MethodHandles.lookup();
         Class var3 = var0.lookupClass();
         int var1 = -1192122376;
-        int var2 = Yn.C;
+        int var2 = Module.C;
         int var4 = of_2.xF(var3, var1, var2);
         FN = var4;
     }

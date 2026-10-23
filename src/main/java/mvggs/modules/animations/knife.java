@@ -1,6 +1,7 @@
 package mvggs.modules.animations;
 
 import dev.aurap.hub.*;
+import dev.aurap.hub.Module;
 
 import dev.skidware.visuals.client.render.FrameContext;
 import dev.skidware.visuals.client.render.KnifeRenderer;
@@ -19,17 +20,17 @@ import net.minecraft.registry.tag.TagKey;
 import net.minecraft.util.Arm;
 import net.minecraft.util.Hand;
 
-public final class knife extends Yn {
-    private final r_2 c;
-    private final r_2 ie;
-    private final Uq A;
-    private final Uq s;
-    private final ia MX;
-    private final Uq BY;
-    private final JL k;
-    private final JL bT;
-    private final JL Q;
-    private final Fk j;
+public final class knife extends Module {
+    private final ModeSetting c;
+    private final ModeSetting ie;
+    private final NumberSetting A;
+    private final NumberSetting s;
+    private final KeybindSetting MX;
+    private final NumberSetting BY;
+    private final BooleanSetting k;
+    private final BooleanSetting bT;
+    private final BooleanSetting Q;
+    private final ColorSetting j;
     private final Wx Nv;
     private final KnifeRenderer iY;
     private int Ha;
@@ -46,18 +47,18 @@ public final class knife extends Yn {
     public static final int l;
 
     public knife() {
-        super("knife", "Knife", AJ.ANIMATIONS);
-        AJ var1 = AJ.ANIMATIONS;
+        super("knife", "Knife", ModuleCategory.ANIMATIONS);
+        ModuleCategory var1 = ModuleCategory.ANIMATIONS;
 
         Da var2 = Da.KARAMBIT;
-        r_2 var4 = new r_2("model", "Knife", var2);
-        xB var5 = var4.q("Which knife replaces your sword.");
-        r_2 var6 = (r_2)var5;
-        xB var7 = this.vn(var6);
-        r_2 var8 = (r_2)var7;
+        ModeSetting var4 = new ModeSetting("model", "Knife", var2);
+        Setting var5 = var4.q("Which knife replaces your sword.");
+        ModeSetting var6 = (ModeSetting)var5;
+        Setting var7 = this.addSetting(var6);
+        ModeSetting var8 = (ModeSetting)var7;
         this.c = var8;
         bT var57 = dev.aurap.hub.bT.FADE;
-        r_2 var9 = new r_2("finish", "Finish", var57);
+        ModeSetting var9 = new ModeSetting("finish", "Finish", var57);
         El var58 = (var0, var1x) -> {
             int var2x = l;
             var2x ^= -1425885800;
@@ -106,61 +107,61 @@ public final class knife extends Yn {
                 throw var16x;
             }
         };
-        r_2 var10 = var9.w(var58);
-        xB var11 = var10.q("Blade finish, generated in the game.");
-        r_2 var12 = (r_2)var11;
-        xB var13 = this.vn(var12);
-        r_2 var14 = (r_2)var13;
+        ModeSetting var10 = var9.w(var58);
+        Setting var11 = var10.q("Blade finish, generated in the game.");
+        ModeSetting var12 = (ModeSetting)var11;
+        Setting var13 = this.addSetting(var12);
+        ModeSetting var14 = (ModeSetting)var13;
         this.ie = var14;
-        Uq var15 = new Uq("pattern", "Pattern", 1.0F, 1.0F, 999.0F);
-        Uq var16 = var15.W(1.0F);
-        xB var17 = var16.q("Seed of the pattern: every number gives the finish its own look.");
-        Uq var18 = (Uq)var17;
-        xB var19 = this.vn(var18);
-        Uq var20 = (Uq)var19;
+        NumberSetting var15 = new NumberSetting("pattern", "Pattern", 1.0F, 1.0F, 999.0F);
+        NumberSetting var16 = var15.W(1.0F);
+        Setting var17 = var16.q("Seed of the pattern: every number gives the finish its own look.");
+        NumberSetting var18 = (NumberSetting)var17;
+        Setting var19 = this.addSetting(var18);
+        NumberSetting var20 = (NumberSetting)var19;
         this.A = var20;
-        Uq var21 = new Uq("size", "Size", 1.0F, 0.7F, 1.3F);
-        Uq var22 = var21.W(0.05F);
-        Uq var23 = var22.L("x");
-        xB var24 = this.vn(var23);
-        Uq var25 = (Uq)var24;
+        NumberSetting var21 = new NumberSetting("size", "Size", 1.0F, 0.7F, 1.3F);
+        NumberSetting var22 = var21.W(0.05F);
+        NumberSetting var23 = var22.L("x");
+        Setting var24 = this.addSetting(var23);
+        NumberSetting var25 = (NumberSetting)var24;
         this.s = var25;
-        ia var26 = new ia("inspect_key", "Inspect Key", 71);
-        xB var27 = var26.q("Plays the inspect animation.");
-        ia var28 = (ia)var27;
-        xB var29 = this.vn(var28);
-        ia var30 = (ia)var29;
+        KeybindSetting var26 = new KeybindSetting("inspect_key", "Inspect Key", 71);
+        Setting var27 = var26.q("Plays the inspect animation.");
+        KeybindSetting var28 = (KeybindSetting)var27;
+        Setting var29 = this.addSetting(var28);
+        KeybindSetting var30 = (KeybindSetting)var29;
         this.MX = var30;
-        Uq var31 = new Uq("swing_speed", "Swing Speed", 1.0F, 0.6F, 1.8F);
-        Uq var32 = var31.W(0.05F);
-        Uq var33 = var32.L("x");
-        xB var34 = this.vn(var33);
-        Uq var35 = (Uq)var34;
+        NumberSetting var31 = new NumberSetting("swing_speed", "Swing Speed", 1.0F, 0.6F, 1.8F);
+        NumberSetting var32 = var31.W(0.05F);
+        NumberSetting var33 = var32.L("x");
+        Setting var34 = this.addSetting(var33);
+        NumberSetting var35 = (NumberSetting)var34;
         this.BY = var35;
-        JL var36 = new JL("draw", "Draw Animation", true);
-        xB var37 = var36.q("Animate the knife coming out when you switch to it.");
-        JL var38 = (JL)var37;
-        xB var39 = this.vn(var38);
-        JL var40 = (JL)var39;
+        BooleanSetting var36 = new BooleanSetting("draw", "Draw Animation", true);
+        Setting var37 = var36.q("Animate the knife coming out when you switch to it.");
+        BooleanSetting var38 = (BooleanSetting)var37;
+        Setting var39 = this.addSetting(var38);
+        BooleanSetting var40 = (BooleanSetting)var39;
         this.k = var40;
-        JL var41 = new JL("shine", "Metal Shine", true);
-        xB var42 = var41.q("Highlights on the blade that move as it turns.");
-        JL var43 = (JL)var42;
-        xB var44 = this.vn(var43);
-        JL var45 = (JL)var44;
+        BooleanSetting var41 = new BooleanSetting("shine", "Metal Shine", true);
+        Setting var42 = var41.q("Highlights on the blade that move as it turns.");
+        BooleanSetting var43 = (BooleanSetting)var42;
+        Setting var44 = this.addSetting(var43);
+        BooleanSetting var45 = (BooleanSetting)var44;
         this.bT = var45;
-        JL var46 = new JL("trail", "Swing Trail", true);
-        xB var47 = this.vn(var46);
-        JL var48 = (JL)var47;
+        BooleanSetting var46 = new BooleanSetting("trail", "Swing Trail", true);
+        Setting var47 = this.addSetting(var46);
+        BooleanSetting var48 = (BooleanSetting)var47;
         this.Q = var48;
-        Fk var49 = new Fk("trail_color", "Trail Color", -1643265, false);
-        JL var59 = this.Q;
+        ColorSetting var49 = new ColorSetting("trail_color", "Trail Color", -1643265, false);
+        BooleanSetting var59 = this.Q;
         Object var3 = Objects.requireNonNull(var59);
         BooleanSupplier var60 = var59::vb;
-        xB var50 = var49.Pt(var60);
-        Fk var51 = (Fk)var50;
-        xB var52 = this.vn(var51);
-        Fk var53 = (Fk)var52;
+        Setting var50 = var49.Pt(var60);
+        ColorSetting var51 = (ColorSetting)var50;
+        Setting var52 = this.addSetting(var51);
+        ColorSetting var53 = (ColorSetting)var52;
         this.j = var53;
         Wx var54 = new Wx();
         this.Nv = var54;
@@ -170,7 +171,7 @@ public final class knife extends Yn {
         this.mb = -1L;
         this.O = -1L;
         this.dy("A shooter-style knife instead of your sword: draw, inspect, combo swings and finishes.");
-        wD<p_2> var56 = (p_2 var1x) -> {
+        EventListener<p_2> var56 = (p_2 var1x) -> {
             int var2x = l;
             var2x ^= 1999428785;
             int var3x = System.identityHashCode(this);
@@ -218,7 +219,7 @@ public final class knife extends Yn {
             AssertionError var26x = new AssertionError();
             throw var26x;
         };
-        this.iI(p_2.class, var56);
+        this.onEvent(p_2.class, var56);
     }
 
     @Override
@@ -342,7 +343,7 @@ public final class knife extends Yn {
                         break label458;
                     }
 
-                    r_2 var314 = this.c;
+                    ModeSetting var314 = this.c;
                     Enum var315 = var314.A();
                     Da var316 = (Da)var315;
                     Integer var9 = var6;
@@ -558,7 +559,7 @@ public final class knife extends Yn {
                                         var31 ^= -1728086847;
                                     }
 
-                                    JL var409 = this.k;
+                                    BooleanSetting var409 = this.k;
                                     boolean var410 = var409.vb();
                                     Integer var456 = var6;
                                     if (var456 == null) {
@@ -783,7 +784,7 @@ public final class knife extends Yn {
                                             int var473 = var418 + 1;
                                             this.Ha = var473;
                                             g_2 var350 = var349.cJ(var418);
-                                            Uq var419 = this.BY;
+                                            NumberSetting var419 = this.BY;
                                             var440 = var6;
                                             var13 = var440 + 1L;
                                             var13 = var440 * var13;
@@ -845,7 +846,7 @@ public final class knife extends Yn {
                                     }
 
                                     V = false;
-                                    ia var288 = this.MX;
+                                    KeybindSetting var288 = this.MX;
                                     boolean var289 = var288.r();
                                     Integer var353 = var6;
                                     if (var353 == null) {
@@ -918,7 +919,7 @@ public final class knife extends Yn {
                                                             break label458;
                                                         }
 
-                                                        ia var301 = this.MX;
+                                                        KeybindSetting var301 = this.MX;
                                                         int var302 = var301.JQ();
                                                         boolean var303 = i_2.R(var302);
                                                         Integer var362 = var6;
@@ -1277,11 +1278,11 @@ public final class knife extends Yn {
     private void E(int var1) {
         label139: {
             int var3 = System.identityHashCode(this);
-            r_2 var4 = this.c;
+            ModeSetting var4 = this.c;
             int var120 = var4.Bz();
             long var121 = var120;
             long var122 = var121 * 64L;
-            r_2 var6 = this.ie;
+            ModeSetting var6 = this.ie;
             int var130 = var6.Bz();
             long var131 = var130;
             long var123 = var122 + var131;
@@ -1314,7 +1315,7 @@ public final class knife extends Yn {
                     }
 
                     long var124 = var123 * 1000L;
-                    Uq var140 = this.A;
+                    NumberSetting var140 = this.A;
                     int var141 = var140.B();
                     long var142 = var141;
                     long var125 = var124 + var142;
@@ -1561,10 +1562,10 @@ public final class knife extends Yn {
                                         break label139;
                                     }
 
-                                    r_2 var114 = this.ie;
+                                    ModeSetting var114 = this.ie;
                                     Enum var115 = var114.A();
                                     bT var116 = (bT)var115;
-                                    Uq var188 = this.A;
+                                    NumberSetting var188 = this.A;
                                     var178 = var188.B();
                                     this.mb = var125;
                                     final int callbackSeed = var178;
@@ -1793,7 +1794,7 @@ public final class knife extends Yn {
     }
 
     private static knife W(int var0) {
-        boolean var2 = Ud.y();
+        boolean var2 = ClientRuntime.y();
         int var1 = var0 | 2079415721;
         var1 &= -950456183;
         var1 >>>= 24;
@@ -1812,9 +1813,9 @@ public final class knife extends Yn {
             var1 ^= 756296769;
             Integer var31 = var1;
             if (var31 != null) {
-                Ud var32 = Ud.Z();
-                NW var33 = var32.sP();
-                Yn var34 = var33.tG(knife.class);
+                ClientRuntime var32 = ClientRuntime.Z();
+                ModuleManager var33 = var32.sP();
+                Module var34 = var33.tG(knife.class);
                 knife var35 = (knife)var34;
                 var1 -= 1813887056;
                 var1 ^= 1208682917;
@@ -2558,7 +2559,7 @@ public final class knife extends Yn {
                                 int var168 = (var252 = var8 - 0L) == 0L ? 0 : (var252 < 0L ? -1 : 1);
                                 if (var168 == 0) {
                                     KnifeRenderer var169 = var122.iY;
-                                    r_2 var180 = var122.c;
+                                    ModeSetting var180 = var122.c;
                                     Enum var181 = var180.A();
                                     Da var182 = (Da)var181;
                                     Wx var196 = var122.Nv;
@@ -2594,18 +2595,18 @@ public final class knife extends Yn {
                                     var202 = (var253 = var209 - 0L) == 0L ? 0 : (var253 < 0L ? -1 : 1);
                                     label109:
                                     if (var202 == 0) {
-                                        Uq var211 = var122.s;
+                                        NumberSetting var211 = var122.s;
                                         float var212 = var211.WM();
-                                        JL var217 = var122.bT;
+                                        BooleanSetting var217 = var122.bT;
                                         boolean var218 = var217.vb();
-                                        JL var223 = var122.Q;
+                                        BooleanSetting var223 = var122.Q;
                                         boolean var224 = var223.vb();
                                         int var228;
                                         if (var224) {
                                             var3 |= 1499118163;
                                             var3 ^= -438876100;
                                             var3 ^= -1362748195;
-                                            Fk var225 = var122.j;
+                                            ColorSetting var225 = var122.j;
                                             int var14 = var5 + 1;
                                             var14 = var5 * var14;
                                             int var241 = var5 + 2;
@@ -2723,7 +2724,7 @@ public final class knife extends Yn {
             var1 <<= 22;
             var1 ^= 967903455;
             Wx var32 = this.Nv;
-            r_2 var33 = this.c;
+            ModeSetting var33 = this.c;
             Enum var34 = var33.A();
             Da var35 = (Da)var34;
             Integer var26 = var2;
@@ -2766,7 +2767,7 @@ public final class knife extends Yn {
         Lookup var0 = MethodHandles.lookup();
         Class var3 = var0.lookupClass();
         int var1 = -1000634642;
-        int var2 = Yn.C;
+        int var2 = Module.C;
         int var4 = of_2.ro(var3, var1, var2);
         l = var4;
     }

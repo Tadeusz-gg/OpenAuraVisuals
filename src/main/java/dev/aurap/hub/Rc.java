@@ -811,7 +811,7 @@ public final class Rc {
                                                                     long var773;
                                                                     var4 = (var773 = var414 - 0L) == 0L ? 0 : (var773 < 0L ? -1 : 1);
                                                                     if (var4 == 0) {
-                                                                        return ed.Yn(0.8F, var379, var390);
+                                                                        return ed.Module(0.8F, var379, var390);
                                                                     }
                                                                     break label519;
                                                                 }

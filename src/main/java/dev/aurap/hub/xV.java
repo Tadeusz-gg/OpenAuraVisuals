@@ -17,7 +17,7 @@ public final class xV {
     private static final float F = 0.0F;
     private static final float i = 5.0F;
     private static final float qr = 3.0F;
-    private final AJ q;
+    private final ModuleCategory q;
     private final List z;
     private final List Mm;
     private final XF SW;
@@ -28,7 +28,7 @@ public final class xV {
     private float ZO;
     public static final int TA;
 
-    public xV(AJ var1, List var2) {
+    public xV(ModuleCategory var1, List var2) {
         ArrayList var3 = new ArrayList();
         this.z = var3;
         var3 = new ArrayList();
@@ -50,7 +50,7 @@ public final class xV {
             }
 
             var4 = var11.next();
-            Yn var15 = (Yn)var4;
+            Module var15 = (Module)var4;
             boolean var5 = var15.y();
             if (!var5) {
                 List var17 = this.z;
@@ -60,7 +60,7 @@ public final class xV {
         }
     }
 
-    public AJ Uj() {
+    public ModuleCategory Uj() {
         int var1 = TA;
         var1 ^= 343141990;
         int var2 = System.identityHashCode(this);
@@ -345,7 +345,7 @@ public final class xV {
                                 break label149;
                             }
 
-                            Yn var169 = var152.JQ();
+                            Module var169 = var152.JQ();
                             String var170 = var169.UJ();
                             Locale var184 = Locale.ROOT;
                             var9 = var3;
@@ -1269,13 +1269,13 @@ public final class xV {
                 int var137 = DP.nq(-854017, var3);
                 TextStyle var138 = TextStyle.of(9.5F, var137);
                 TextStyle var139 = var138.semibold();
-                AJ var173 = this.q;
+                ModuleCategory var173 = this.q;
                 var9 = var130 + 17.0F;
                 float var237 = this.m;
                 float var238 = var237 + 16.0F;
                 var11 = DP.nq(-7684353, var3);
                 Hc.WQ(var1, var173, var9, var238, var11);
-                AJ var174 = this.q;
+                ModuleCategory var174 = this.q;
                 String var175 = var174.displayName();
                 var9 = var130 + 29.0F;
                 float var239 = this.m;

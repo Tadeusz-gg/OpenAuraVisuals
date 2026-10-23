@@ -17,23 +17,23 @@ import net.minecraft.registry.entry.RegistryEntry;
 
 public final class Y implements AutoCloseable {
     public static final long LIFETIME_MS = 150000L;
-    private final Ud h;
+    private final ClientRuntime h;
     private final LongSupplier g;
-    private final kf X;
+    private final EventSubscription X;
     private LivingEntity Z;
     private Object C;
     private long k;
     public static final int p;
 
-    public Y(Ud var1) {
+    public Y(ClientRuntime var1) {
         this(var1, System::currentTimeMillis);
     }
 
-    public Y(Ud var1, LongSupplier var2) {
+    public Y(ClientRuntime var1, LongSupplier var2) {
         this.h = var1;
         this.g = var2;
-        PH var3 = var1.ZM();
-        wD<sE> var4 = (sE var1x) -> {
+        EventBus var3 = var1.ZM();
+        EventListener<TickEvent> var4 = (TickEvent var1x) -> {
             int var2x = p;
             var2x ^= -2076029141;
             int var3x = System.identityHashCode(this);
@@ -64,7 +64,7 @@ public final class Y implements AutoCloseable {
                 }
             }
         };
-        kf var5 = var3.DP(sE.class, 100, var4);
+        EventSubscription var5 = var3.DP(TickEvent.class, 100, var4);
         this.X = var5;
     }
 
@@ -601,7 +601,7 @@ public final class Y implements AutoCloseable {
             long var40;
             var2 = (var40 = var25 - 0L) == 0L ? 0 : (var40 < 0L ? -1 : 1);
             if (var2 == 0) {
-                kf var27 = this.X;
+                EventSubscription var27 = this.X;
                 var27.unsubscribe();
                 return;
             }
@@ -1042,7 +1042,7 @@ public final class Y implements AutoCloseable {
                                                     LivingEntity var225 = this.Z;
                                                     var225.hurtTime = 10;
                                                     var145.maxHurtTime = 10;
-                                                    Ud var146 = this.h;
+                                                    ClientRuntime var146 = this.h;
                                                     V var147 = var146.bA();
                                                     LivingEntity var226 = this.Z;
                                                     var147.WS(var226, var1, var245, var174);

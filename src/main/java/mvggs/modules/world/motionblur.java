@@ -1,6 +1,7 @@
 package mvggs.modules.world;
 
 import dev.aurap.hub.*;
+import dev.aurap.hub.Module;
 
 import dev.skidware.visuals.client.render.AuraPipeline;
 import dev.skidware.visuals.client.render.FrameContext;
@@ -15,14 +16,14 @@ import java.lang.invoke.MethodHandles.Lookup;
 import java.util.function.BooleanSupplier;
 import org.joml.Matrix4f;
 
-public final class motionblur extends Yn {
+public final class motionblur extends Module {
     private static final double l = 12.0;
     private static final long bx = 1000000000L;
-    private final r_2 r;
-    private final Uq lU;
-    private final r_2 wP;
-    private final JL L;
-    private final ia w;
+    private final ModeSetting r;
+    private final NumberSetting lU;
+    private final ModeSetting wP;
+    private final BooleanSetting L;
+    private final KeybindSetting w;
     private final Matrix4f q;
     private final Matrix4f k;
     private final Matrix4f M;
@@ -59,33 +60,33 @@ public final class motionblur extends Yn {
     public static final int U;
 
     public motionblur() {
-        super("motion_blur", "Motion Blur", AJ.WORLD);
-        AJ var1 = AJ.WORLD;
+        super("motion_blur", "Motion Blur", ModuleCategory.WORLD);
+        ModuleCategory var1 = ModuleCategory.WORLD;
 
         qS var2 = qS.VELOCITY;
-        r_2 var3 = new r_2("method", "Method", var2);
-        xB var4 = var3.q(
+        ModeSetting var3 = new ModeSetting("method", "Method", var2);
+        Setting var4 = var3.q(
             "Velocity Based follows every pixel's motion with no added input lag; Frame Blending averages recent frames; Hybrid does both; Accumulation leaves trails."
         );
-        r_2 var5 = (r_2)var4;
-        xB var6 = this.vn(var5);
-        r_2 var7 = (r_2)var6;
+        ModeSetting var5 = (ModeSetting)var4;
+        Setting var6 = this.addSetting(var5);
+        ModeSetting var7 = (ModeSetting)var6;
         this.r = var7;
-        Uq var8 = new Uq("strength", "Strength", 1.0F, 0.0F, 2.0F);
-        Uq var9 = var8.W(0.01F);
-        xB var10 = var9.q("1.00 blurs exactly the motion between two shown images.");
-        Uq var11 = (Uq)var10;
-        xB var12 = this.vn(var11);
-        Uq var13 = (Uq)var12;
+        NumberSetting var8 = new NumberSetting("strength", "Strength", 1.0F, 0.0F, 2.0F);
+        NumberSetting var9 = var8.W(0.01F);
+        Setting var10 = var9.q("1.00 blurs exactly the motion between two shown images.");
+        NumberSetting var11 = (NumberSetting)var10;
+        Setting var12 = this.addSetting(var11);
+        NumberSetting var13 = (NumberSetting)var12;
         this.lU = var13;
         CX var45 = CX.UNIFORM;
-        r_2 var14 = new r_2("profile", "Blur Profile", var45);
-        xB var15 = var14.q("Uniform: classic box blur. Weighted: smoother transitions, slightly softer.");
+        ModeSetting var14 = new ModeSetting("profile", "Blur Profile", var45);
+        Setting var15 = var14.q("Uniform: classic box blur. Weighted: smoother transitions, slightly softer.");
         BooleanSupplier var46 = () -> {
             int var1x = U;
             var1x ^= 973635055;
             int var2x = System.identityHashCode(this);
-            r_2 var3x = this.r;
+            ModeSetting var3x = this.r;
             Enum var18x = var3x.A();
             int var4x = var2x + 1;
             var4x = var2x * var4x;
@@ -113,13 +114,13 @@ public final class motionblur extends Yn {
                 }
             }
         };
-        xB var16 = var15.Pt(var46);
-        r_2 var17 = (r_2)var16;
-        xB var18 = this.vn(var17);
-        r_2 var19 = (r_2)var18;
+        Setting var16 = var15.Pt(var46);
+        ModeSetting var17 = (ModeSetting)var16;
+        Setting var18 = this.addSetting(var17);
+        ModeSetting var19 = (ModeSetting)var18;
         this.wP = var19;
-        JL var20 = new JL("refresh_scaling", "Refresh Rate Scaling", true);
-        xB var21 = var20.q("Above your monitor's refresh rate the blur covers one refresh: 600 FPS on 60 Hz blurs 10x.");
+        BooleanSetting var20 = new BooleanSetting("refresh_scaling", "Refresh Rate Scaling", true);
+        Setting var21 = var20.q("Above your monitor's refresh rate the blur covers one refresh: 600 FPS on 60 Hz blurs 10x.");
         BooleanSupplier var47 = () -> {
             int var1x = U;
             var1x ^= 1721512208;
@@ -134,7 +135,7 @@ public final class motionblur extends Yn {
                 var1x += 1252226833;
                 var1x *= -645521077;
                 var1x ^= 1847677393;
-                r_2 var19x = this.r;
+                ModeSetting var19x = this.r;
                 qS var3x = qS.VELOCITY;
                 return var19x.TJ(var3x);
             } else {
@@ -147,16 +148,16 @@ public final class motionblur extends Yn {
                 throw var12x;
             }
         };
-        xB var22 = var21.Pt(var47);
-        JL var23 = (JL)var22;
-        xB var24 = this.vn(var23);
-        JL var25 = (JL)var24;
+        Setting var22 = var21.Pt(var47);
+        BooleanSetting var23 = (BooleanSetting)var22;
+        Setting var24 = this.addSetting(var23);
+        BooleanSetting var25 = (BooleanSetting)var24;
         this.L = var25;
-        ia var26 = new ia("toggle_key", "Toggle Key", -1);
-        xB var27 = var26.q("Turns motion blur on and off in game.");
-        ia var28 = (ia)var27;
-        xB var29 = this.vn(var28);
-        ia var30 = (ia)var29;
+        KeybindSetting var26 = new KeybindSetting("toggle_key", "Toggle Key", -1);
+        Setting var27 = var26.q("Turns motion blur on and off in game.");
+        KeybindSetting var28 = (KeybindSetting)var27;
+        Setting var29 = this.addSetting(var28);
+        KeybindSetting var30 = (KeybindSetting)var29;
         this.w = var30;
         Matrix4f var31 = new Matrix4f();
         this.q = var31;
@@ -190,15 +191,15 @@ public final class motionblur extends Yn {
         this.B = Long.MIN_VALUE;
         this.dy("Natural motion blur: per-pixel velocity, frame blending or accumulation trails.");
         this.fJ(true);
-        wD<pT> var44 = this::yU;
-        this.iI(pT.class, var44);
+        EventListener<pT> var44 = this::yU;
+        this.onEvent(pT.class, var44);
     }
 
     public int X() {
         int var1 = U;
         var1 ^= -800692816;
         int var2 = System.identityHashCode(this);
-        ia var3 = this.w;
+        KeybindSetting var3 = this.w;
         int var4 = var2 + 1;
         var4 = var2 * var4;
         var2 = var4 & 1;
@@ -231,7 +232,7 @@ public final class motionblur extends Yn {
         int var2 = U;
         var2 ^= -203844972;
         int var3 = System.identityHashCode(this);
-        Uq var4 = this.lU;
+        NumberSetting var4 = this.lU;
         int var5 = var3 + 1;
         var5 = var3 * var5;
         int var6 = var3 + 2;
@@ -271,7 +272,7 @@ public final class motionblur extends Yn {
         int var1 = U;
         var1 ^= 1416860825;
         int var2 = System.identityHashCode(this);
-        Uq var3 = this.lU;
+        NumberSetting var3 = this.lU;
         Integer var16 = var2;
         if (var16 == null) {
             var1 <<= 24;
@@ -442,7 +443,7 @@ public final class motionblur extends Yn {
                                     break label310;
                                 }
 
-                                r_2 var253 = this.r;
+                                ModeSetting var253 = this.r;
                                 Enum var254 = var253.A();
                                 qS var255 = (qS)var254;
                                 boolean var256 = var255.velocity();
@@ -753,7 +754,7 @@ public final class motionblur extends Yn {
                                     break label310;
                                 }
 
-                                r_2 var225 = this.r;
+                                ModeSetting var225 = this.r;
                                 Enum var226 = var225.A();
                                 qS var227 = (qS)var226;
                                 boolean var228 = var227.velocity();
@@ -1054,7 +1055,7 @@ public final class motionblur extends Yn {
 
     private boolean hH(int var1) {
         int var3 = System.identityHashCode(this);
-        Uq var4 = this.lU;
+        NumberSetting var4 = this.lU;
         float var37 = var4.WM();
         Integer var29 = var3;
         if (var29 == null) {
@@ -1382,7 +1383,7 @@ public final class motionblur extends Yn {
 
                         boolean var298 = i_2.c();
                         this.E = var298;
-                        Ud var299 = Ud.Z();
+                        ClientRuntime var299 = ClientRuntime.Z();
                         AuraPipeline var300 = var299.Ul();
                         Projection var301 = var300.projection();
                         float[] var6 = this.Y;
@@ -2350,9 +2351,9 @@ public final class motionblur extends Yn {
                     break label79;
                 }
 
-                Uq var88 = this.lU;
+                NumberSetting var88 = this.lU;
                 float var89 = var88.WM();
-                r_2 var7 = this.r;
+                ModeSetting var7 = this.r;
                 qS var112 = qS.HYBRID;
                 long var9 = var5;
                 long var11 = var9 + 1L;
@@ -2426,7 +2427,7 @@ public final class motionblur extends Yn {
                             Dx var103 = this.kl;
                             float var115 = this.Qr;
                             int var127 = this.Mx;
-                            JL var133 = this.L;
+                            BooleanSetting var133 = this.L;
                             var11 = var5;
                             long var153 = var11 + 1L;
                             var153 = var11 * var153;
@@ -2488,7 +2489,7 @@ public final class motionblur extends Yn {
                         CX var118 = CX.WEIGHTED;
                         boolean var107 = var7.TJ(var118);
                         VelocityBlur var93 = var92.weighted(var107);
-                        Ud var94 = Ud.Z();
+                        ClientRuntime var94 = ClientRuntime.Z();
                         long var108 = var5;
                         var9 = var108 + 1L;
                         var9 = var108 * var9;
@@ -2542,10 +2543,10 @@ public final class motionblur extends Yn {
         boolean var268 = false;
         boolean var311 = false;
         int var5 = System.identityHashCode(this);
-        r_2 var6 = this.r;
+        ModeSetting var6 = this.r;
         Enum var249 = var6.A();
         qS var250 = (qS)var249;
-        Ud var7 = Ud.Z();
+        ClientRuntime var7 = ClientRuntime.Z();
         AuraRenderer var255 = var7.ZP();
         Integer var8 = var5;
         if (var8 == null) {
@@ -3427,7 +3428,7 @@ public final class motionblur extends Yn {
             float var8 = this.Qr;
             var7 = cr.sS(var7, var8);
             this.d = var7;
-            Uq var197 = this.lU;
+            NumberSetting var197 = this.lU;
             Integer var201 = var6;
             int var24;
             if (var201 != null) {
@@ -4325,7 +4326,7 @@ public final class motionblur extends Yn {
                 }
 
                 this.Sp = true;
-                Uq var50 = this.lU;
+                NumberSetting var50 = this.lU;
                 Integer var38 = var7;
                 if (var38 != null) {
                     var27 |= 2050348097;
@@ -4369,7 +4370,7 @@ public final class motionblur extends Yn {
         int var1 = U;
         var1 ^= 2012333957;
         int var2 = System.identityHashCode(this);
-        Ud var3 = Ud.Z();
+        ClientRuntime var3 = ClientRuntime.Z();
         AuraRenderer var26 = var3.ZP();
         Integer var21 = var2;
         if (var21 != null) {
@@ -4434,7 +4435,7 @@ public final class motionblur extends Yn {
         Lookup var0 = MethodHandles.lookup();
         Class var3 = var0.lookupClass();
         int var1 = -546780845;
-        int var2 = Yn.C;
+        int var2 = Module.C;
         int var4 = of_2.kj(var3, var1, var2);
         U = var4;
     }

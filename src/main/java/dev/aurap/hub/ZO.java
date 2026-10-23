@@ -7,14 +7,14 @@ import java.util.Locale;
 import java.util.function.LongSupplier;
 
 public final class ZO {
-    public static final int PH;
+    public static final int EventBus;
 
     private ZO() {
     }
 
     public static boolean Wr() {
         boolean var44 = false;
-        int var0 = PH;
+        int var0 = EventBus;
         var0 ^= -564271438;
         String var1 = System.getProperty("os.name", "");
 
@@ -150,7 +150,7 @@ public final class ZO {
         label167: {
             int var71;
             label177: {
-                var71 = PH;
+                var71 = EventBus;
                 var71 ^= 394443244;
                 String var5 = System.getProperty("os.name", "");
                 Locale var6 = Locale.ROOT;
@@ -514,6 +514,6 @@ public final class ZO {
         int var1 = -465306927;
         byte var2 = 0;
         int var4 = of_2.ro(var3, var1, var2);
-        PH = var4;
+        EventBus = var4;
     }
 }

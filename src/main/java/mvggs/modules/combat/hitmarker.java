@@ -1,6 +1,7 @@
 package mvggs.modules.combat;
 
 import dev.aurap.hub.*;
+import dev.aurap.hub.Module;
 
 import dev.skidware.visuals.client.render.FrameContext;
 import dev.skidware.visuals.client.render.RenderPhase;
@@ -9,59 +10,59 @@ import dev.skidware.visuals.render.canvas.Paint;
 import java.lang.invoke.MethodHandles;
 import java.lang.invoke.MethodHandles.Lookup;
 
-public final class hitmarker extends Yn {
+public final class hitmarker extends Module {
     private static final dZ_2 V;
     private static final dZ_2 iX;
-    private final r_2 y;
-    private final Uq n;
-    private final Uq aW;
-    private final JL iO;
-    private final Fk qk;
-    private final Fk oR;
-    private final Fk C;
+    private final ModeSetting y;
+    private final NumberSetting n;
+    private final NumberSetting aW;
+    private final BooleanSetting iO;
+    private final ColorSetting qk;
+    private final ColorSetting oR;
+    private final ColorSetting C;
     private YH Tq;
     private int Ws;
     private boolean Be;
     public static final int W;
 
     public hitmarker() {
-        super("hit_marker", "Hit Marker", AJ.COMBAT);
-        AJ var1 = AJ.COMBAT;
+        super("hit_marker", "Hit Marker", ModuleCategory.COMBAT);
+        ModuleCategory var1 = ModuleCategory.COMBAT;
 
         Xo var2 = Xo.TICKS;
-        r_2 var3 = new r_2("style", "Style", var2);
-        xB var4 = this.vn(var3);
-        r_2 var5 = (r_2)var4;
+        ModeSetting var3 = new ModeSetting("style", "Style", var2);
+        Setting var4 = this.addSetting(var3);
+        ModeSetting var5 = (ModeSetting)var4;
         this.y = var5;
-        Uq var6 = new Uq("size", "Size", 3.0F, 2.0F, 10.0F);
-        Uq var7 = var6.W(0.5F);
-        xB var8 = this.vn(var7);
-        Uq var9 = (Uq)var8;
+        NumberSetting var6 = new NumberSetting("size", "Size", 3.0F, 2.0F, 10.0F);
+        NumberSetting var7 = var6.W(0.5F);
+        Setting var8 = this.addSetting(var7);
+        NumberSetting var9 = (NumberSetting)var8;
         this.n = var9;
-        Uq var10 = new Uq("thickness", "Thickness", 0.8F, 0.5F, 3.0F);
-        Uq var11 = var10.W(0.1F);
-        xB var12 = this.vn(var11);
-        Uq var13 = (Uq)var12;
+        NumberSetting var10 = new NumberSetting("thickness", "Thickness", 0.8F, 0.5F, 3.0F);
+        NumberSetting var11 = var10.W(0.1F);
+        Setting var12 = this.addSetting(var11);
+        NumberSetting var13 = (NumberSetting)var12;
         this.aW = var13;
-        JL var14 = new JL("glow", "Glow", false);
-        xB var15 = this.vn(var14);
-        JL var16 = (JL)var15;
+        BooleanSetting var14 = new BooleanSetting("glow", "Glow", false);
+        Setting var15 = this.addSetting(var14);
+        BooleanSetting var16 = (BooleanSetting)var15;
         this.iO = var16;
-        Fk var17 = new Fk("hit_color", "Hit Color", -854017);
-        xB var18 = this.vn(var17);
-        Fk var19 = (Fk)var18;
+        ColorSetting var17 = new ColorSetting("hit_color", "Hit Color", -854017);
+        Setting var18 = this.addSetting(var17);
+        ColorSetting var19 = (ColorSetting)var18;
         this.qk = var19;
-        Fk var20 = new Fk("crit_color", "Crit Color", -1850997);
-        xB var21 = this.vn(var20);
-        Fk var22 = (Fk)var21;
+        ColorSetting var20 = new ColorSetting("crit_color", "Crit Color", -1850997);
+        Setting var21 = this.addSetting(var20);
+        ColorSetting var22 = (ColorSetting)var21;
         this.oR = var22;
-        Fk var23 = new Fk("kill_color", "Kill Color", -1601135);
-        xB var24 = this.vn(var23);
-        Fk var25 = (Fk)var24;
+        ColorSetting var23 = new ColorSetting("kill_color", "Kill Color", -1601135);
+        Setting var24 = this.addSetting(var23);
+        ColorSetting var25 = (ColorSetting)var24;
         this.C = var25;
         this.dy("Animated crosshair confirmation for landed hits, crits and kills.");
         this.fJ(true);
-        wD<Hm> var26 = (Hm var1x) -> {
+        EventListener<HitEvent> var26 = (HitEvent var1x) -> {
             label75: {
                 dZ_2 var4x;
                 int var27x;
@@ -125,7 +126,7 @@ public final class hitmarker extends Yn {
                                 break label75;
                             }
 
-                            Fk var65 = this.oR;
+                            ColorSetting var65 = this.oR;
                             var5x = var65.zz();
                             var6x = var3x + 1;
                             var6x = var3x * var6x;
@@ -161,7 +162,7 @@ public final class hitmarker extends Yn {
                         } else {
                             var27x -= 506412250;
                             var27x ^= 1264239921;
-                            Fk var80 = this.qk;
+                            ColorSetting var80 = this.qk;
                             long var88 = var3x;
                             long var91 = var88 + 1L;
                             var91 = var88 * var91;
@@ -242,13 +243,13 @@ public final class hitmarker extends Yn {
             AssertionError var43 = new AssertionError();
             throw var43;
         };
-        this.iI(Hm.class, var26);
-        wD<I> var27 = (I var1x) -> {
+        this.onEvent(HitEvent.class, var26);
+        EventListener<KillEvent> var27 = (KillEvent var1x) -> {
             int var2x = W;
             var2x ^= 1307987946;
             int var3x = System.identityHashCode(this);
             dZ_2 var4x = iX;
-            Fk var5x = this.C;
+            ColorSetting var5x = this.C;
             long var6x = var3x;
             long var8x = var6x + 1L;
             var8x = var6x * var8x;
@@ -314,9 +315,9 @@ public final class hitmarker extends Yn {
             RuntimeException var23x = new RuntimeException();
             throw var23x;
         };
-        this.iI(I.class, var27);
-        wD<T> var28 = this::ee;
-        this.iI(T.class, var28);
+        this.onEvent(KillEvent.class, var27);
+        EventListener<RenderEvent> var28 = this::ee;
+        this.onEvent(RenderEvent.class, var28);
     }
 
     private void NE(dZ_2 var1, int var2, boolean var3, int var4) {
@@ -546,7 +547,7 @@ public final class hitmarker extends Yn {
         throw var70;
     }
 
-    private void ee(T var1) {
+    private void ee(RenderEvent var1) {
         label398: {
             int var105;
             Canvas var268;
@@ -810,7 +811,7 @@ public final class hitmarker extends Yn {
                                             YH var335 = this.Tq;
                                             float var336 = var335.JZ("alpha");
                                             float var337 = TP.S(var336);
-                                            Uq var344 = this.n;
+                                            NumberSetting var344 = this.n;
                                             float var345 = var344.WM();
                                             boolean var11 = this.Be;
                                             float var348;
@@ -864,7 +865,7 @@ public final class hitmarker extends Yn {
 
                                             float var346 = var345 * var348;
                                             float var347 = var346;
-                                            Uq var349 = this.aW;
+                                            NumberSetting var349 = this.aW;
                                             float var350 = var349.WM();
                                             boolean var358 = this.Be;
                                             long var13 = var3;
@@ -936,7 +937,7 @@ public final class hitmarker extends Yn {
                                                     int var339 = var338;
                                                     var268.save();
                                                     var268.scale(var315, var297, var309);
-                                                    r_2 var316 = this.y;
+                                                    ModeSetting var316 = this.y;
                                                     Enum var317 = var316.A();
                                                     Xo var318 = (Xo)var317;
                                                     int var319 = var318.ordinal();
@@ -1000,7 +1001,7 @@ public final class hitmarker extends Yn {
                                                                 }
 
                                                                 float var322 = var333 + var321;
-                                                                JL var377 = this.iO;
+                                                                BooleanSetting var377 = this.iO;
                                                                 boolean var378 = var377.vb();
                                                                 if (var378) {
                                                                     var105 -= 2136293406;
@@ -1103,7 +1104,7 @@ public final class hitmarker extends Yn {
                                                         break label398;
                                                     }
 
-                                                    r_2 var386 = this.y;
+                                                    ModeSetting var386 = this.y;
                                                     Integer var416 = var3;
                                                     if (var416 != null) {
                                                         var105 &= -548720764;
@@ -1277,7 +1278,7 @@ public final class hitmarker extends Yn {
                                                                 float var499 = var334 + var347;
                                                                 float var436 = var435 * var499;
                                                                 float var437 = var310 + var436;
-                                                                JL var500 = this.iO;
+                                                                BooleanSetting var500 = this.iO;
                                                                 boolean var501 = var500.vb();
                                                                 if (var501) {
                                                                     var105 ^= -1362756574;
@@ -1453,7 +1454,7 @@ public final class hitmarker extends Yn {
         Lookup var0 = MethodHandles.lookup();
         Class var3 = var0.lookupClass();
         int var1 = 931692743;
-        int var2 = Yn.C;
+        int var2 = Module.C;
         int var4 = of_2.ro(var3, var1, var2);
         W = var4;
         ik var5 = dZ_2.a();

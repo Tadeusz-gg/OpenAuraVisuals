@@ -26,13 +26,13 @@ public final class nP {
     private final XF Ul;
     private final Re T;
     private final XF qV;
-    private tR_2 fu;
-    private tR_2 i;
+    private HudModule fu;
+    private HudModule i;
     private boolean zz;
     private boolean Q;
     private float Rk;
     private float zA;
-    private tR_2 Bn;
+    private HudModule Bn;
     private float c;
     private float n;
     private float J;
@@ -108,7 +108,7 @@ public final class nP {
         }
     }
 
-    public boolean K(tR_2 var1) {
+    public boolean K(HudModule var1) {
         int var2 = f;
         var2 ^= 863091704;
         int var3 = System.identityHashCode(this);
@@ -145,7 +145,7 @@ public final class nP {
                 var2 += 1963767268;
                 var2 ^= 277902886;
                 var2 ^= 1744953224;
-                tR_2 var32 = this.Bn;
+                HudModule var32 = this.Bn;
                 boolean var34;
                 if (var32 == var1) {
                     var2 += 869945254;
@@ -366,7 +366,7 @@ public final class nP {
                             break label402;
                         }
 
-                        tR_2 var290 = this.Bn;
+                        HudModule var290 = this.Bn;
                         long var359 = var3;
                         long var493 = var359 + 1L;
                         long var494 = var359 * var493;
@@ -497,7 +497,7 @@ public final class nP {
                             var1.gO = var315;
                             float var316 = this.m;
                             var1.Wa = var316;
-                            tR_2 var317 = this.Bn;
+                            HudModule var317 = this.Bn;
                             label389:
                             if (var317 != null) {
                                 var2 = switch (var2) {
@@ -707,7 +707,7 @@ public final class nP {
                                         break label402;
                                     }
 
-                                    tR_2 var328 = this.Bn;
+                                    HudModule var328 = this.Bn;
                                     boolean var329 = var328.B();
                                     var384 = var3;
                                     if (var384 == null) {
@@ -796,7 +796,7 @@ public final class nP {
                                 }
                             }
 
-                            tR_2 var341 = this.Bn;
+                            HudModule var341 = this.Bn;
                             var5 = var3 + 1;
                             var5 = var3 * var5;
                             int var456 = var3 + 2;
@@ -810,7 +810,7 @@ public final class nP {
                                 var2 |= 1800505281;
                                 var2 += 1015403714;
                                 var2 ^= -1900025196;
-                                tR_2 var346;
+                                HudModule var346;
                                 if (var341 != null) {
                                     var2 *= 373467731;
                                     var2 ^= 459547540;
@@ -821,7 +821,7 @@ public final class nP {
                                         break label402;
                                     }
 
-                                    tR_2 var345 = this.Bn;
+                                    HudModule var345 = this.Bn;
                                     long var392 = var3;
                                     long var499 = var392 + 1L;
                                     long var500 = var392 * var499;
@@ -846,7 +846,7 @@ public final class nP {
                                 } else {
                                     var2 &= 1077790633;
                                     var2 ^= -1455746014;
-                                    tR_2 var395 = this.i;
+                                    HudModule var395 = this.i;
                                     long var458 = var3;
                                     var8 = var458 + 1L;
                                     var8 = var458 * var8;
@@ -892,7 +892,7 @@ public final class nP {
                                             break label402;
                                         }
 
-                                        tR_2 var397 = this.i;
+                                        HudModule var397 = this.i;
                                         var462 = var3;
                                         if (var462 == null) {
                                             switch (var2) {
@@ -945,7 +945,7 @@ public final class nP {
                                         float var464 = this.m;
                                         var7 = var2 & -488876724;
                                         var7 ^= 2009542996;
-                                        tR_2 var402 = this.dK(var401, var464, var1, var7);
+                                        HudModule var402 = this.dK(var401, var464, var1, var7);
                                         var462 = var3;
                                         if (var462 == null) {
                                             switch (var2) {
@@ -982,7 +982,7 @@ public final class nP {
                                 }
 
                                 this.fu = var346;
-                                tR_2 var347 = this.fu;
+                                HudModule var347 = this.fu;
                                 var5 = var2 ^ -86456763;
                                 var5 ^= 1216470432;
                                 var5 ^= -1344458163;
@@ -1215,7 +1215,7 @@ public final class nP {
         throw var278;
     }
 
-    private void mX(tR_2 var1, int var2) {
+    private void mX(HudModule var1, int var2) {
         XF var134 = null;
         float var152 = 0.0F;
         int var4 = System.identityHashCode(this);
@@ -1323,7 +1323,7 @@ public final class nP {
                         }
 
                         Object var119 = var110.next();
-                        tR_2 var120 = (tR_2)var119;
+                        HudModule var120 = (HudModule)var119;
                         Integer var128 = var4;
                         if (var128 == null) {
                             switch (var3) {
@@ -1569,12 +1569,12 @@ public final class nP {
         throw var103;
     }
 
-    private tR_2 dK(float var1, float var2, lH_3 var3, int var4) {
-        tR_2 var414 = null;
+    private HudModule dK(float var1, float var2, lH_3 var3, int var4) {
+        HudModule var414 = null;
         boolean var430 = false;
         label421: {
             int var6 = System.identityHashCode(this);
-            tR_2 var7 = null;
+            HudModule var7 = null;
             boolean var8 = false;
             BP var9 = this.Ie;
             List var252 = var9.TR();
@@ -1697,7 +1697,7 @@ public final class nP {
                     }
 
                     Object var263 = var254.next();
-                    tR_2 var264 = (tR_2)var263;
+                    HudModule var264 = (HudModule)var263;
                     Integer var312 = var6;
                     if (var312 == null) {
                         var48 -= -2039303169;
@@ -2555,7 +2555,7 @@ public final class nP {
                     var8 |= -61709255;
                     var8 |= -1002260624;
                     var8 ^= -910588313;
-                    tR_2 var103 = this.dK(var102, var118, var89, var8);
+                    HudModule var103 = this.dK(var102, var118, var89, var8);
                     if (var103 == null) {
                         var2 *= 1301217619;
                         var2 += -1483536228;
@@ -3070,7 +3070,7 @@ public final class nP {
                             break label151;
                         }
 
-                        tR_2 var95 = this.fu;
+                        HudModule var95 = this.fu;
                         var6 = var4 + 1;
                         var6 = var4 * var6;
                         var6 &= 1;
@@ -3158,11 +3158,11 @@ public final class nP {
                             if (var100 != 0) {
                                 var3 &= -1214169797;
                                 var3 ^= -629197563;
-                                tR_2 var101 = this.fu;
-                                tR_2 var132 = this.fu;
+                                HudModule var101 = this.fu;
+                                HudModule var132 = this.fu;
                                 float var146 = this.WF;
                                 float var133 = var132.M(var146);
-                                tR_2 var147 = this.fu;
+                                HudModule var147 = this.fu;
                                 float var156 = this.m;
                                 float var148 = var147.D(var156);
                                 int var157 = var4 + 1;
@@ -3203,7 +3203,7 @@ public final class nP {
                                         break label151;
                                     }
 
-                                    tR_2 var106 = this.fu;
+                                    HudModule var106 = this.fu;
                                     double var167;
                                     var6 = (var167 = var1 - 0.0) == 0.0 ? 0 : (var167 < 0.0 ? -1 : 1);
                                     Integer var78 = var4;
@@ -3343,15 +3343,15 @@ public final class nP {
             int var417;
             label703: {
                 int var4 = System.identityHashCode(this);
-                tR_2 var5 = this.Bn;
+                HudModule var5 = this.Bn;
                 float var442 = var5.tQ();
-                tR_2 var6 = this.Bn;
+                HudModule var6 = this.Bn;
                 float var470 = var6.Q;
                 float var443 = var442 * var470;
                 float var444 = var443;
                 var6 = this.Bn;
                 float var472 = var6.Yo();
-                tR_2 var7 = this.Bn;
+                HudModule var7 = this.Bn;
                 float var482 = var7.Q;
                 float var473 = var472 * var482;
                 float var474 = var473;
@@ -3384,7 +3384,7 @@ public final class nP {
                         var10 = this.m;
                         float var515 = this.n;
                         var10 -= var515;
-                        tR_2 var516 = this.Bn;
+                        HudModule var516 = this.Bn;
                         float var517 = var516.dj();
                         this.dL = Float.NaN;
                         this.D = Float.NaN;
@@ -4031,7 +4031,7 @@ public final class nP {
                                 var417 |= -1175244562;
                                 var417 ^= -1498452394;
                                 Object var618 = var589.next();
-                                tR_2 var619 = (tR_2)var618;
+                                HudModule var619 = (HudModule)var618;
                                 long var697 = var4;
                                 long var18 = var697 + 1L;
                                 var18 = var697 * var18;
@@ -4060,7 +4060,7 @@ public final class nP {
                                     break label677;
                                 }
 
-                                tR_2 var703 = this.Bn;
+                                HudModule var703 = this.Bn;
                                 if (var619 != var703) {
                                     var417 &= -427704424;
                                     var417 += -87549908;
@@ -5224,7 +5224,7 @@ public final class nP {
 
     private void SY(lH_3 var1, int var2) {
         int var4 = System.identityHashCode(this);
-        tR_2 var5 = this.Bn;
+        HudModule var5 = this.Bn;
         this.Bn = null;
         this.D = Float.NaN;
         this.dL = Float.NaN;
@@ -6001,7 +6001,7 @@ public final class nP {
                                             break label457;
                                         }
 
-                                        tR_2 var452 = (tR_2)var451;
+                                        HudModule var452 = (HudModule)var451;
                                         boolean var484 = var452.JK;
                                         if (var484) {
                                             var3 >>= 3;
@@ -6334,7 +6334,7 @@ public final class nP {
                             }
 
                             Object var347 = var336.next();
-                            tR_2 var348 = (tR_2)var347;
+                            HudModule var348 = (HudModule)var347;
                             var10 = var4 + 1;
                             var10 = var4 * var10;
                             int var395 = var4 + 2;

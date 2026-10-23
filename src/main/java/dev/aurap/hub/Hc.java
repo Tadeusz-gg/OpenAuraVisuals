@@ -664,7 +664,7 @@ public final class Hc {
         throw var25;
     }
 
-    public static void WQ(Canvas var0, AJ var1, float var2, float var3, int var4) {
+    public static void WQ(Canvas var0, ModuleCategory var1, float var2, float var3, int var4) {
         label192: {
             int var6;
             label203: {

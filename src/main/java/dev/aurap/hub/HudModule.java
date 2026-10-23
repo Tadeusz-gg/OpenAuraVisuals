@@ -5,13 +5,13 @@ import java.lang.invoke.MethodHandles;
 import java.lang.invoke.MethodHandles.Lookup;
 import java.util.function.BooleanSupplier;
 
-public abstract class tR_2 extends Yn {
+public abstract class HudModule extends Module {
     private static final kE_2 s;
     private static final kE_2 A;
-    private final r_2 m;
-    private final Uq Tk;
-    private final Uq d;
-    protected final Uq cm;
+    private final ModeSetting m;
+    private final NumberSetting Tk;
+    private final NumberSetting d;
+    protected final NumberSetting cm;
     private float vu = 1.0F;
     private float i = 1.0F;
     public float PC;
@@ -35,11 +35,11 @@ public abstract class tR_2 extends Yn {
     public boolean HQ;
     public static final int qG;
 
-    protected tR_2(String var1, String var2, Cl_2 var3, float var4, float var5, float var6) {
-        this(var1, var2, AJ.HUD, var3, var4, var5, var6);
+    protected HudModule(String var1, String var2, Cl_2 var3, float var4, float var5, float var6) {
+        this(var1, var2, ModuleCategory.HUD, var3, var4, var5, var6);
     }
 
-    protected tR_2(String var1, String var2, AJ var3, Cl_2 var4, float var5, float var6, float var7) {
+    protected HudModule(String var1, String var2, ModuleCategory var3, Cl_2 var4, float var5, float var6, float var7) {
         super(var1, var2, var3);
         kE_2 var9 = s;
         XF var8 = new XF(0.0F, var9);
@@ -52,34 +52,34 @@ public abstract class tR_2 extends Yn {
         Re var12 = new Re(0.0F, 0.07F);
         this.wb = var12;
         this.HQ = true;
-        r_2 var13 = new r_2("anchor", "Anchor", var4);
+        ModeSetting var13 = new ModeSetting("anchor", "Anchor", var4);
         BooleanSupplier var36 = () -> false;
-        xB var14 = var13.Pt(var36);
-        r_2 var15 = (r_2)var14;
-        xB var16 = this.vn(var15);
-        r_2 var17 = (r_2)var16;
+        Setting var14 = var13.Pt(var36);
+        ModeSetting var15 = (ModeSetting)var14;
+        Setting var16 = this.vn(var15);
+        ModeSetting var17 = (ModeSetting)var16;
         this.m = var17;
-        Uq var18 = new Uq("offset_x", "Offset X", var5, -4000.0F, 4000.0F);
-        Uq var19 = var18.W(0.5F);
+        NumberSetting var18 = new NumberSetting("offset_x", "Offset X", var5, -4000.0F, 4000.0F);
+        NumberSetting var19 = var18.W(0.5F);
         BooleanSupplier var37 = () -> false;
-        xB var20 = var19.Pt(var37);
-        Uq var21 = (Uq)var20;
-        xB var22 = this.vn(var21);
-        Uq var23 = (Uq)var22;
+        Setting var20 = var19.Pt(var37);
+        NumberSetting var21 = (NumberSetting)var20;
+        Setting var22 = this.vn(var21);
+        NumberSetting var23 = (NumberSetting)var22;
         this.Tk = var23;
-        Uq var24 = new Uq("offset_y", "Offset Y", var6, -4000.0F, 4000.0F);
-        Uq var25 = var24.W(0.5F);
+        NumberSetting var24 = new NumberSetting("offset_y", "Offset Y", var6, -4000.0F, 4000.0F);
+        NumberSetting var25 = var24.W(0.5F);
         BooleanSupplier var38 = () -> false;
-        xB var26 = var25.Pt(var38);
-        Uq var27 = (Uq)var26;
-        xB var28 = this.vn(var27);
-        Uq var29 = (Uq)var28;
+        Setting var26 = var25.Pt(var38);
+        NumberSetting var27 = (NumberSetting)var26;
+        Setting var28 = this.vn(var27);
+        NumberSetting var29 = (NumberSetting)var28;
         this.d = var29;
-        Uq var30 = new Uq("scale", "Scale", 1.0F, 0.5F, var7);
-        Uq var31 = var30.W(0.05F);
-        Uq var32 = var31.L("x");
-        xB var33 = this.vn(var32);
-        Uq var34 = (Uq)var33;
+        NumberSetting var30 = new NumberSetting("scale", "Scale", 1.0F, 0.5F, var7);
+        NumberSetting var31 = var30.W(0.05F);
+        NumberSetting var32 = var31.L("x");
+        Setting var33 = this.vn(var32);
+        NumberSetting var34 = (NumberSetting)var33;
         this.cm = var34;
     }
 
@@ -643,7 +643,7 @@ public abstract class tR_2 extends Yn {
             var1 -= 1217511966;
             var1 ^= 1859002583;
             var1 ^= -1439466139;
-            Uq var20 = this.cm;
+            NumberSetting var20 = this.cm;
             return var20.WM();
         } else {
             switch (var1) {
@@ -690,13 +690,13 @@ public abstract class tR_2 extends Yn {
             long var35;
             int var23 = (var35 = var22 - 0L) == 0L ? 0 : (var35 < 0L ? -1 : 1);
             if (var23 == 0) {
-                r_2 var25 = this.m;
+                ModeSetting var25 = this.m;
                 Enum var26 = var25.A();
                 Cl_2 var27 = (Cl_2)var26;
                 float var28 = var27.fx();
                 float var5 = var1 - var2;
                 float var29 = var28 * var5;
-                Uq var30 = this.Tk;
+                NumberSetting var30 = this.Tk;
                 var5 = var30.WM();
                 return var29 + var5;
             } else {
@@ -727,13 +727,13 @@ public abstract class tR_2 extends Yn {
         int var3 = qG;
         var3 ^= -984756232;
         int var4 = System.identityHashCode(this);
-        r_2 var5 = this.m;
+        ModeSetting var5 = this.m;
         Enum var18 = var5.A();
         Cl_2 var19 = (Cl_2)var18;
         float var20 = var19.fy();
         float var6 = var1 - var2;
         float var21 = var20 * var6;
-        Uq var22 = this.d;
+        NumberSetting var22 = this.d;
         int var7 = var4 + 1;
         var7 = var4 * var7;
         var4 = var7 & 1;
@@ -765,7 +765,7 @@ public abstract class tR_2 extends Yn {
         float var11 = Math.max(1.0F, var6);
         var10 /= var11;
         Cl_2 var27 = Cl_2.gJ(var9, var10);
-        r_2 var34 = this.m;
+        ModeSetting var34 = this.m;
         var34.UY(var27);
         Integer var20 = var8;
         if (var20 != null) {
@@ -779,13 +779,13 @@ public abstract class tR_2 extends Yn {
                 default -> var7 ^ -460790816;
             };
             if (var20 != null) {
-                Uq var23 = this.Tk;
+                NumberSetting var23 = this.Tk;
                 var10 = var27.fx();
                 var11 = var5 - var3;
                 var10 *= var11;
                 var10 = var1 - var10;
                 var23.Bi(var10);
-                Uq var24 = this.d;
+                NumberSetting var24 = this.d;
                 var9 = var27.fy();
                 var10 = var6 - var4;
                 var9 *= var10;
@@ -809,7 +809,7 @@ public abstract class tR_2 extends Yn {
         int var1 = qG;
         var1 ^= -1925150117;
         int var2 = System.identityHashCode(this);
-        r_2 var3 = this.m;
+        ModeSetting var3 = this.m;
         var3.s();
         int var26 = var2 + 1;
         int var27 = var2 * var26;
@@ -848,11 +848,11 @@ public abstract class tR_2 extends Yn {
                     var1 ^= -25777216;
             }
 
-            Uq var12 = this.Tk;
+            NumberSetting var12 = this.Tk;
             var12.s();
-            Uq var13 = this.d;
+            NumberSetting var13 = this.d;
             var13.s();
-            Uq var14 = this.cm;
+            NumberSetting var14 = this.cm;
             var14.s();
         }
     }
@@ -861,7 +861,7 @@ public abstract class tR_2 extends Yn {
         int var2 = qG;
         var2 ^= -1480930450;
         int var3 = System.identityHashCode(this);
-        Uq var4 = this.cm;
+        NumberSetting var4 = this.cm;
         Integer var18 = var3;
         if (var18 == null) {
             var2 -= 1535615393;
@@ -882,7 +882,7 @@ public abstract class tR_2 extends Yn {
             var2 &= 241407808;
             var2 |= -1462517697;
             var2 ^= 1170855327;
-            Uq var11 = this.cm;
+            NumberSetting var11 = this.cm;
             float var12 = var11.WM();
             float var13 = var12 + var1;
             var4.Bi(var13);
@@ -1102,7 +1102,7 @@ public abstract class tR_2 extends Yn {
         Lookup var0 = MethodHandles.lookup();
         Class var3 = var0.lookupClass();
         int var1 = -848905807;
-        int var2 = Yn.C;
+        int var2 = Module.C;
         int var4 = of_2.kj(var3, var1, var2);
         qG = var4;
         kE_2 var5 = kE_2.uY(0.46F, 0.74F);

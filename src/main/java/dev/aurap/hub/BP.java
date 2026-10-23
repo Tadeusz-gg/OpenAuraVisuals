@@ -20,7 +20,7 @@ import net.minecraft.item.ItemStack;
 
 public final class BP {
     public static final float Ko = 3.0F;
-    private final Ud SY;
+    private final ClientRuntime SY;
     private final List V;
     private final lH_3 xT;
     private final nP h;
@@ -43,13 +43,13 @@ public final class BP {
     private float H;
     private float C;
     private final hr WS;
-    private tR_2[] nF;
+    private HudModule[] nF;
     private Object z;
-    private tR_2 l;
+    private HudModule l;
     private final Sn I;
     public static final int aL;
 
-    public BP(Ud var1) {
+    public BP(ClientRuntime var1) {
         ArrayList var2 = new ArrayList();
         this.V = var2;
         lH_3 var5 = new lH_3();
@@ -264,12 +264,12 @@ public final class BP {
             }
         };
         this.WS = var11;
-        tR_2[] var12 = new tR_2[8];
+        HudModule[] var12 = new HudModule[8];
         this.nF = var12;
         Sn var13 = this::r;
         this.I = var13;
         this.SY = var1;
-        NW var14 = var1.sP();
+        ModuleManager var14 = var1.sP();
         List var15 = var14.dG();
         Iterator var16 = var15.iterator();
         Iterator var17 = var16;
@@ -279,17 +279,17 @@ public final class BP {
             if (!var3) {
                 nP var18 = new nP(this);
                 this.h = var18;
-                PH var19 = var1.ZM();
-                wD<T> var25 = this::x;
-                kf var20 = var19.DP(T.class, 100, var25);
+                EventBus var19 = var1.ZM();
+                EventListener<RenderEvent> var25 = this::x;
+                EventSubscription var20 = var19.DP(RenderEvent.class, 100, var25);
                 return;
             }
 
             Object var21 = var17.next();
-            Yn var22 = (Yn)var21;
-            boolean var4 = var22 instanceof tR_2;
+            Module var22 = (Module)var21;
+            boolean var4 = var22 instanceof HudModule;
             if (var4) {
-                tR_2 var23 = (tR_2)var22;
+                HudModule var23 = (HudModule)var22;
                 List var26 = this.V;
                 var3 = var26.add(var23);
             }
@@ -698,7 +698,7 @@ public final class BP {
 
                     var297.Ik = var353;
                     this.Hp = var3;
-                    Ud var222 = this.SY;
+                    ClientRuntime var222 = this.SY;
                     AuraPipeline var223 = var222.Ul();
                     FrameContext var224 = var223.frame();
                     lH_3 var4 = this.xT;
@@ -723,14 +723,14 @@ public final class BP {
                         float var225 = var224.guiHeight();
                         var4.S = var225;
                         lH_3 var226 = this.xT;
-                        Ud var250 = this.SY;
+                        ClientRuntime var250 = this.SY;
                         AuraRenderer var251 = var250.ZP();
                         FontFamily var252 = var251.fonts();
-                        var226.cS = var252;
+                        var226.ActionSetting = var252;
                         lH_3 var227 = this.xT;
-                        Ud var253 = this.SY;
-                        NW var254 = var253.sP();
-                        Yn var255 = var254.tG(hudstyle.class);
+                        ClientRuntime var253 = this.SY;
+                        ModuleManager var254 = var253.sP();
+                        Module var255 = var254.tG(hudstyle.class);
                         hudstyle var256 = (hudstyle)var255;
                         var227.eB = var256;
                         lH_3 var228 = this.xT;
@@ -910,7 +910,7 @@ public final class BP {
                                 var1 -= -1201802478;
                                 var1 ^= 1638188893;
                                 var1 ^= 2043409104;
-                                tR_2 var310 = (tR_2)var309;
+                                HudModule var310 = (HudModule)var309;
                                 var310.r(var231);
                                 var1 ^= 1745159265;
                                 var1 ^= -974875148;
@@ -1190,7 +1190,7 @@ public final class BP {
                                         var1 &= -2053051604;
                                         var1 ^= -1953180653;
                                         Object var342 = var286.next();
-                                        tR_2 var343 = (tR_2)var342;
+                                        HudModule var343 = (HudModule)var342;
                                         int var378 = var2 + 1;
                                         int var379 = var2 * var378;
                                         int var430 = var2 + 2;
@@ -1473,7 +1473,7 @@ public final class BP {
         }
     }
 
-    private void y(tR_2 var1, int var2) {
+    private void y(HudModule var1, int var2) {
         boolean var733 = false;
         float var749 = 0.0F;
         float var842 = 0.0F;
@@ -3209,7 +3209,7 @@ public final class BP {
         throw var21;
     }
 
-    private void x(T var1) {
+    private void x(RenderEvent var1) {
         label186: {
             int var2 = aL;
             var2 ^= -10227952;
@@ -3618,17 +3618,17 @@ public final class BP {
         java.util.Iterator var478 = null;
         java.util.Iterator var479 = null;
         Object var512 = null;
-        tR_2 var513 = null;
-        tR_2 var514 = null;
+        HudModule var513 = null;
+        HudModule var514 = null;
         boolean var534 = false;
         lH_3 var541 = null;
         boolean var542 = false;
         int var543 = 0;
-        tR_2[] var551 = null;
-        tR_2[] var559 = null;
-        tR_2[] var563 = null;
-        tR_2[] var588 = null;
-        tR_2 var589 = null;
+        HudModule[] var551 = null;
+        HudModule[] var559 = null;
+        HudModule[] var563 = null;
+        HudModule[] var588 = null;
+        HudModule var589 = null;
         boolean var590 = false;
         int var600 = 0;
         int var601 = 0;
@@ -3863,7 +3863,7 @@ public final class BP {
                             }
 
                             try {
-                                var513 = (tR_2)var512;
+                                var513 = (HudModule)var512;
                                 var4 |= 81184768;
                                 var4 *= 502883579;
                                 var4 ^= 906881386;
@@ -4651,7 +4651,7 @@ public final class BP {
                                                 break label570;
                                             }
 
-                                            tR_2[] var558_arr = null;
+                                            HudModule[] var558_arr = null;
                                             try {
                                                 var558_arr = Arrays.copyOf(var559, var11);
                                             } catch (Throwable var22) {
@@ -4684,7 +4684,7 @@ public final class BP {
                                             }
 
                                             try {
-                                                tR_2[] var561 = var558_arr;
+                                                HudModule[] var561 = var558_arr;
                                                 var4 ^= -1885839775;
                                                 var4 ^= -1447556762;
                                                 var4 ^= -445956161;
@@ -4948,7 +4948,7 @@ public final class BP {
                     }
 
                     this.c = null;
-                    tR_2[] var470 = this.nF;
+                    HudModule[] var470 = this.nF;
                     var4 ^= 1563300142;
                     var4 |= -1234275159;
                     var4 &= 666959361;
@@ -5064,13 +5064,13 @@ public final class BP {
                                     break label191;
                                 }
 
-                                tR_2[] var200 = this.nF;
-                                tR_2 var201 = var200[var165];
+                                HudModule[] var200 = this.nF;
+                                HudModule var201 = var200[var165];
                                 int var249 = var19 ^ -99688371;
                                 int var250 = var249 - -524492857;
                                 int var251 = var250 ^ -745386829;
                                 c(var1, var201, var251);
-                                tR_2[] var202 = this.nF;
+                                HudModule[] var202 = this.nF;
                                 var10 = var6;
                                 long var284 = var10 + 1L;
                                 var284 = var10 * var284;
@@ -5102,7 +5102,7 @@ public final class BP {
                                     break label191;
                                 }
 
-                                tR_2 var203 = var202[var165];
+                                HudModule var203 = var202[var165];
                                 hr var259 = this.s;
                                 lH_3 var272 = this.xT;
                                 var203.BO(var259, var272);
@@ -5182,8 +5182,8 @@ public final class BP {
 
                                     var19 <<= 7;
                                     var19 ^= 607610314;
-                                    tR_2[] var215 = this.nF;
-                                    tR_2 var216 = var215[var170];
+                                    HudModule[] var215 = this.nF;
+                                    HudModule var216 = var215[var170];
                                     int var217 = var19 * -567052013;
                                     int var218 = var217 * 989081871;
                                     int var219 = var218 * -698683477;
@@ -5278,8 +5278,8 @@ public final class BP {
                         break label191;
                     }
 
-                    tR_2[] var178 = this.nF;
-                    tR_2 var179 = var178[var7];
+                    HudModule[] var178 = this.nF;
+                    HudModule var179 = var178[var7];
                     int var9 = var19 << 16;
                     var9 |= -1670757041;
                     var9 -= 1008958016;
@@ -5494,7 +5494,7 @@ public final class BP {
         throw var159;
     }
 
-    private static boolean F(tR_2 var0, tR_2 var1, int var2) {
+    private static boolean F(HudModule var0, HudModule var1, int var2) {
         label115: {
             int var4 = System.identityHashCode(var0);
             float var5 = var0.Au;
@@ -5749,7 +5749,7 @@ public final class BP {
         throw var69;
     }
 
-    private static boolean P(tR_2 var0, int var1) {
+    private static boolean P(HudModule var0, int var1) {
         label74: {
             int var30;
             int var46;
@@ -5907,7 +5907,7 @@ public final class BP {
         throw var40;
     }
 
-    private static void c(Canvas var0, tR_2 var1, int var2) {
+    private static void c(Canvas var0, HudModule var1, int var2) {
         int var4 = System.identityHashCode(var0);
         var0.save();
         float var5 = var1.I;
@@ -6012,8 +6012,8 @@ public final class BP {
             int var5 = aL;
             var5 ^= 1119553124;
             int var6 = System.identityHashCode(this);
-            tR_2 var7 = this.l;
-            tR_2 var149 = var7;
+            HudModule var7 = this.l;
+            HudModule var149 = var7;
             float var8 = var7.I;
             float var9 = var7.o;
             var9 *= var2;
@@ -6174,7 +6174,7 @@ public final class BP {
                         break label226;
                     }
 
-                    tR_2 var184 = (tR_2)var176.next();
+                    HudModule var184 = (HudModule)var176.next();
 
                     int var195 = var6 + 1;
                     int var196 = var6 * var195;
@@ -6526,15 +6526,15 @@ public final class BP {
         List var206 = null;
         Iterator var208 = null;
         Throwable var219 = null;
-        tR_2 var230 = null;
-        tR_2 var231 = null;
+        HudModule var230 = null;
+        HudModule var231 = null;
         float var264 = 0.0F;
         Sn var274 = null;
         lH_3 var286 = null;
         int var2 = aL;
         var2 ^= 273989114;
         Throwable var3 = null;
-        Ud var4 = this.SY;
+        ClientRuntime var4 = this.SY;
         var2 |= -908356546;
         var2 ^= -2071412809;
         int var5 = var2 + 1;
@@ -6809,7 +6809,7 @@ public final class BP {
                                                             var2 &= -1376043698;
                                                             var2 |= -330236012;
                                                             var2 ^= -1186225679;
-                                                            var230 = (tR_2)var229;
+                                                            var230 = (HudModule)var229;
                                                         } catch (Throwable var18) {
                                                             var2 = aL;
                                                             var2 ^= -1228853905;

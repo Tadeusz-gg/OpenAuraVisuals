@@ -1,6 +1,6 @@
 package dev.aurap.hub;
 
-public interface IE {
+public interface Cancellable {
     boolean v();
 
     void fa(boolean var1);

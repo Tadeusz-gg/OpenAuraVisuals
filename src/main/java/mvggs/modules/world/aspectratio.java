@@ -1,32 +1,33 @@
 package mvggs.modules.world;
 
 import dev.aurap.hub.*;
+import dev.aurap.hub.Module;
 
 import java.lang.invoke.MethodHandles;
 import java.lang.invoke.MethodHandles.Lookup;
 import java.util.function.BooleanSupplier;
 
-public final class aspectratio extends Yn {
-    private final r_2 jo;
-    private final Uq e;
+public final class aspectratio extends Module {
+    private final ModeSetting jo;
+    private final NumberSetting e;
     public static final int H;
 
     public aspectratio() {
-        super("aspect_ratio", "Aspect Ratio", AJ.WORLD);
-        AJ var1 = AJ.WORLD;
+        super("aspect_ratio", "Aspect Ratio", ModuleCategory.WORLD);
+        ModuleCategory var1 = ModuleCategory.WORLD;
 
         rB var2 = rB.CLASSIC;
-        r_2 var3 = new r_2("preset", "Ratio", var2);
-        xB var4 = this.vn(var3);
-        r_2 var5 = (r_2)var4;
+        ModeSetting var3 = new ModeSetting("preset", "Ratio", var2);
+        Setting var4 = this.addSetting(var3);
+        ModeSetting var5 = (ModeSetting)var4;
         this.jo = var5;
-        Uq var6 = new Uq("ratio", "Custom Ratio", 1.33F, 0.75F, 3.0F);
-        Uq var7 = var6.W(0.01F);
+        NumberSetting var6 = new NumberSetting("ratio", "Custom Ratio", 1.33F, 0.75F, 3.0F);
+        NumberSetting var7 = var6.W(0.01F);
         BooleanSupplier var12 = () -> {
             int var1x = H;
             var1x ^= -181374530;
             int var2x = System.identityHashCode(this);
-            r_2 var3x = this.jo;
+            ModeSetting var3x = this.jo;
             rB var4x = rB.CUSTOM;
             long var5x = var2x;
             long var7x = var5x + 1L;
@@ -61,10 +62,10 @@ public final class aspectratio extends Yn {
             UnsupportedOperationException var18 = new UnsupportedOperationException();
             throw var18;
         };
-        xB var8 = var7.Pt(var12);
-        Uq var9 = (Uq)var8;
-        xB var10 = this.vn(var9);
-        Uq var11 = (Uq)var10;
+        Setting var8 = var7.Pt(var12);
+        NumberSetting var9 = (NumberSetting)var8;
+        Setting var10 = this.addSetting(var9);
+        NumberSetting var11 = (NumberSetting)var10;
         this.e = var11;
         this.dy("Stretch the 3D view with 4:3, 5:4, widescreen or a custom ratio. HUD stays crisp.");
     }
@@ -106,7 +107,7 @@ public final class aspectratio extends Yn {
                         break label126;
                     }
 
-                    boolean var101 = Ud.y();
+                    boolean var101 = ClientRuntime.y();
                     if (!var101) {
                         var71 ^= -1858218676;
                         var71 += 1423332108;
@@ -130,9 +131,9 @@ public final class aspectratio extends Yn {
                         }
                         default -> var71 ^ 635211181;
                     };
-                    Ud var102 = Ud.Z();
-                    NW var103 = var102.sP();
-                    Yn var104 = var103.tG(aspectratio.class);
+                    ClientRuntime var102 = ClientRuntime.Z();
+                    ModuleManager var103 = var102.sP();
+                    Module var104 = var103.tG(aspectratio.class);
                     aspectratio var105 = (aspectratio)var104;
                     Integer var4 = var2;
                     if (var4 != null) {
@@ -160,7 +161,7 @@ public final class aspectratio extends Yn {
                             break label126;
                         }
 
-                        r_2 var115 = var105.jo;
+                        ModeSetting var115 = var105.jo;
                         rB var137 = rB.NATIVE;
                         var6 = var2;
                         long var8 = var6 + 1L;
@@ -211,7 +212,7 @@ public final class aspectratio extends Yn {
                                 break label126;
                             }
 
-                            r_2 var121 = var105.jo;
+                            ModeSetting var121 = var105.jo;
                             rB var138 = rB.CUSTOM;
                             int var122 = (var121.TJ(var138)) ? 1 : 0;
                             var5 = var2;
@@ -246,7 +247,7 @@ public final class aspectratio extends Yn {
                                         break label126;
                                     }
 
-                                    Uq var127 = var105.e;
+                                    NumberSetting var127 = var105.e;
                                     int var142 = var2 + 1;
                                     int var143 = var2 * var142;
                                     int var144 = var143 & 1;
@@ -287,7 +288,7 @@ public final class aspectratio extends Yn {
                                     var71 *= -306427415;
                                     var71 += 388689124;
                                     var71 ^= -1622101475;
-                                    r_2 var106 = var105.jo;
+                                    ModeSetting var106 = var105.jo;
                                     Enum var107 = var106.A();
                                     rB var108 = (rB)var107;
                                     float var109 = var108.ratio;
@@ -372,7 +373,7 @@ public final class aspectratio extends Yn {
         Lookup var0 = MethodHandles.lookup();
         Class var3 = var0.lookupClass();
         int var1 = 1988664930;
-        int var2 = Yn.C;
+        int var2 = Module.C;
         int var4 = of_2.ro(var3, var1, var2);
         H = var4;
     }

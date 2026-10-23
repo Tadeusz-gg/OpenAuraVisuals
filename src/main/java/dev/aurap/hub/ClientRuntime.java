@@ -12,11 +12,11 @@ import java.nio.file.Path;
 import java.util.function.LongSupplier;
 import java.util.random.RandomGenerator;
 
-public final class Ud {
+public final class ClientRuntime {
     public static final String Zu = "auravisuals";
-    private static Ud FX;
-    private final PH aY;
-    private final NW o;
+    private static ClientRuntime FX;
+    private final EventBus aY;
+    private final ModuleManager o;
     private final cp k;
     private final gj Ev;
     private final Fp C;
@@ -31,11 +31,11 @@ public final class Ud {
     private final C PA;
     public static final int X;
 
-    private Ud(Path var1) {
-        PH var2 = new PH();
+    private ClientRuntime(Path var1) {
+        EventBus var2 = new EventBus();
         this.aY = var2;
-        PH var3 = this.aY;
-        NW var7 = new NW(var3);
+        EventBus var3 = this.aY;
+        ModuleManager var7 = new ModuleManager(var3);
         this.o = var7;
         cp var8 = new cp();
         this.k = var8;
@@ -44,7 +44,7 @@ public final class Ud {
         this.Ev = var9;
         FX = this;
         sx var10 = i_2.Zk();
-        ia.c(var10);
+        KeybindSetting.c(var10);
         LY var24 = new LY();
         gj var4 = this.Ev;
         RandomGenerator var5 = RandomGenerator.getDefault();
@@ -63,9 +63,9 @@ public final class Ud {
         this.Kg = var15;
         Y var16 = new Y(this);
         this.yO = var16;
-        l_2.D(this);
+        ModuleRegistry.registerModules(this);
         Path var27 = var1.resolve("auravisuals.json");
-        NW var28 = this.o;
+        ModuleManager var28 = this.o;
         Zx var17 = new Zx(var27, var28);
         this.hU = var17;
         Zx var18 = this.hU;
@@ -80,7 +80,7 @@ public final class Ud {
         this.PA = var22;
     }
 
-    public static Ud kz(Path var0) {
+    public static ClientRuntime kz(Path var0) {
         int var1 = X;
         var1 ^= -307297183;
         int var2 = System.identityHashCode(var0);
@@ -105,7 +105,7 @@ public final class Ud {
             var1 |= -1567650143;
             var1 -= 786822435;
             var1 ^= -360944475;
-            Ud var28 = FX;
+            ClientRuntime var28 = FX;
             if (var28 != null) {
                 switch (var1) {
                     case -1719245187:
@@ -129,19 +129,19 @@ public final class Ud {
                 var1 -= 1250510536;
                 var1 ^= 1241264912;
                 var1 ^= -1751826528;
-                return new Ud(var0);
+                return new ClientRuntime(var0);
             }
         }
     }
 
-    public static Ud Z() {
+    public static ClientRuntime Z() {
         return FX;
     }
 
     public static boolean y() {
         int var0 = X;
         var0 ^= -153743287;
-        Ud var1 = FX;
+        ClientRuntime var1 = FX;
         var0 >>>= 8;
         var0 *= -1250387535;
         var0 ^= 561723551;
@@ -193,7 +193,7 @@ public final class Ud {
         throw var20;
     }
 
-    public PH ZM() {
+    public EventBus ZM() {
         int var1 = X;
         var1 ^= -1307128008;
         int var2 = System.identityHashCode(this);
@@ -223,7 +223,7 @@ public final class Ud {
         }
     }
 
-    public NW sP() {
+    public ModuleManager sP() {
         int var1 = X;
         var1 ^= 364644245;
         int var2 = System.identityHashCode(this);
@@ -779,7 +779,7 @@ public final class Ud {
         throw var20;
     }
 
-    public float ia(FrameContext var1) {
+    public float KeybindSetting(FrameContext var1) {
         int var2 = X;
         var2 ^= -1792115877;
         int var3 = System.identityHashCode(this);
@@ -814,8 +814,8 @@ public final class Ud {
             var2 &= 1606657546;
             var2 |= -2137158060;
             var2 ^= -194033017;
-            NW var14 = this.o;
-            Yn var15 = var14.tG(clickgui.class);
+            ModuleManager var14 = this.o;
+            Module var15 = var14.tG(clickgui.class);
             clickgui var16 = (clickgui)var15;
             return var16.t(var1);
         }
@@ -826,7 +826,7 @@ public final class Ud {
             int var2 = X;
             var2 ^= 715270896;
             int var3 = System.identityHashCode(this);
-            NW var4 = this.o;
+            ModuleManager var4 = this.o;
             int var5 = var3 + 1;
             var5 = var3 * var5;
             int var6 = var3 + 2;
@@ -854,7 +854,7 @@ public final class Ud {
                     break label150;
                 }
 
-                Yn var109 = var4.tG(clickgui.class);
+                Module var109 = var4.tG(clickgui.class);
                 clickgui var110 = (clickgui)var109;
                 int var129 = var110.cP() ? 1 : 0;
                 if (var129 == 0) {

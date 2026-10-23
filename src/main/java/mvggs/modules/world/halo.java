@@ -1,6 +1,7 @@
 package mvggs.modules.world;
 
 import dev.aurap.hub.*;
+import dev.aurap.hub.Module;
 
 import dev.skidware.visuals.client.render.AuraPipeline;
 import dev.skidware.visuals.client.render.FrameContext;
@@ -13,71 +14,71 @@ import java.lang.invoke.MethodHandles.Lookup;
 import java.util.Iterator;
 import net.minecraft.entity.Entity;
 
-public final class halo extends Yn {
+public final class halo extends Module {
     private static final int L = 24;
     private static final double q;
-    private final Uq a;
-    private final Uq xD;
-    private final Uq M;
-    private final Uq I;
-    private final Uq qD;
-    private final Uq Y;
+    private final NumberSetting a;
+    private final NumberSetting xD;
+    private final NumberSetting M;
+    private final NumberSetting I;
+    private final NumberSetting qD;
+    private final NumberSetting Y;
     private final zS lL;
-    private final JL K;
+    private final BooleanSetting K;
     public static final int Ec;
 
     public halo() {
-        super("halo", "Halo", AJ.WORLD);
-        AJ var1 = AJ.WORLD;
+        super("halo", "Halo", ModuleCategory.WORLD);
+        ModuleCategory var1 = ModuleCategory.WORLD;
 
-        Uq var2 = new Uq("souls", "Souls", 2.0F, 1.0F, 4.0F);
-        Uq var3 = var2.W(1.0F);
-        xB var4 = this.vn(var3);
-        Uq var5 = (Uq)var4;
+        NumberSetting var2 = new NumberSetting("souls", "Souls", 2.0F, 1.0F, 4.0F);
+        NumberSetting var3 = var2.W(1.0F);
+        Setting var4 = this.addSetting(var3);
+        NumberSetting var5 = (NumberSetting)var4;
         this.a = var5;
-        Uq var6 = new Uq("radius", "Radius", 0.3F, 0.2F, 0.6F);
-        Uq var7 = var6.W(0.01F);
-        Uq var8 = var7.L("m");
-        xB var9 = this.vn(var8);
-        Uq var10 = (Uq)var9;
+        NumberSetting var6 = new NumberSetting("radius", "Radius", 0.3F, 0.2F, 0.6F);
+        NumberSetting var7 = var6.W(0.01F);
+        NumberSetting var8 = var7.L("m");
+        Setting var9 = this.addSetting(var8);
+        NumberSetting var10 = (NumberSetting)var9;
         this.xD = var10;
-        Uq var11 = new Uq("speed", "Speed", 1.0F, 0.1F, 3.0F);
-        Uq var12 = var11.W(0.05F);
-        Uq var13 = var12.L("x");
-        xB var14 = this.vn(var13);
-        Uq var15 = (Uq)var14;
+        NumberSetting var11 = new NumberSetting("speed", "Speed", 1.0F, 0.1F, 3.0F);
+        NumberSetting var12 = var11.W(0.05F);
+        NumberSetting var13 = var12.L("x");
+        Setting var14 = this.addSetting(var13);
+        NumberSetting var15 = (NumberSetting)var14;
         this.M = var15;
-        Uq var16 = new Uq("size", "Soul Size", 1.0F, 0.3F, 2.0F);
-        Uq var17 = var16.W(0.05F);
-        Uq var18 = var17.L("x");
-        xB var19 = this.vn(var18);
-        Uq var20 = (Uq)var19;
+        NumberSetting var16 = new NumberSetting("size", "Soul Size", 1.0F, 0.3F, 2.0F);
+        NumberSetting var17 = var16.W(0.05F);
+        NumberSetting var18 = var17.L("x");
+        Setting var19 = this.addSetting(var18);
+        NumberSetting var20 = (NumberSetting)var19;
         this.I = var20;
-        Uq var21 = new Uq("lift", "Height", 0.1F, -0.3F, 0.6F);
-        Uq var22 = var21.W(0.01F);
-        Uq var23 = var22.L("m");
-        xB var24 = this.vn(var23);
-        Uq var25 = (Uq)var24;
+        NumberSetting var21 = new NumberSetting("lift", "Height", 0.1F, -0.3F, 0.6F);
+        NumberSetting var22 = var21.W(0.01F);
+        NumberSetting var23 = var22.L("m");
+        Setting var24 = this.addSetting(var23);
+        NumberSetting var25 = (NumberSetting)var24;
         this.qD = var25;
-        Uq var26 = new Uq("glow", "Glow", 0.85F, 0.0F, 1.0F);
-        Uq var27 = var26.W(0.05F);
-        xB var28 = this.vn(var27);
-        Uq var29 = (Uq)var28;
+        NumberSetting var26 = new NumberSetting("glow", "Glow", 0.85F, 0.0F, 1.0F);
+        NumberSetting var27 = var26.W(0.05F);
+        Setting var28 = this.addSetting(var27);
+        NumberSetting var29 = (NumberSetting)var28;
         this.Y = var29;
         zS var30 = new zS();
         nM var31 = this.bU(var30);
         zS var32 = (zS)var31;
         this.lL = var32;
-        JL var33 = new JL("players", "Other Players", false);
-        xB var34 = this.vn(var33);
-        JL var35 = (JL)var34;
+        BooleanSetting var33 = new BooleanSetting("players", "Other Players", false);
+        Setting var34 = this.addSetting(var33);
+        BooleanSetting var35 = (BooleanSetting)var34;
         this.K = var35;
         this.dy("Two souls of light circling above the head.");
-        wD<T> var36 = this::L;
-        this.iI(T.class, var36);
+        EventListener<RenderEvent> var36 = this::L;
+        this.onEvent(RenderEvent.class, var36);
     }
 
-    private void L(T var1) {
+    private void L(RenderEvent var1) {
         int var2 = Ec;
         var2 ^= 2067178001;
         int var3 = System.identityHashCode(this);
@@ -172,7 +173,7 @@ public final class halo extends Yn {
                         if (var204 == 0) {
                             Canvas var216 = var1.canvas();
                             Canvas var217 = var216;
-                            Ud var219 = Ud.Z();
+                            ClientRuntime var219 = ClientRuntime.Z();
                             AuraPipeline var220 = var219.Ul();
                             WorldDraw var221 = var220.world();
                             WorldDraw var222 = var221;
@@ -183,7 +184,7 @@ public final class halo extends Yn {
                             double var227 = var8.time();
                             double var228 = var227;
                             var216.save();
-                            Uq var10 = this.Y;
+                            NumberSetting var10 = this.Y;
                             float var229 = var10.WM();
                             long var11 = var3;
                             long var13 = var11 + 1L;
@@ -430,7 +431,7 @@ public final class halo extends Yn {
                                             break;
                                         }
 
-                                        JL var261 = this.K;
+                                        BooleanSetting var261 = this.K;
                                         int var301 = var3 + 1;
                                         int var302 = var3 * var301;
                                         int var14 = var3 + 2;
@@ -754,18 +755,18 @@ public final class halo extends Yn {
                 float var157 = var3.getHeight();
                 var16 = var157;
                 var14 += var16;
-                Uq var159 = this.qD;
+                NumberSetting var159 = this.qD;
                 float var160 = var159.WM();
                 var16 = var160;
                 var14 += var16;
                 var14 = var14;
-                Uq var162 = this.xD;
+                NumberSetting var162 = this.xD;
                 float var163 = var162.WM();
                 var16 = var163;
                 var16 = var16;
                 var18 = Math.toRadians(320.0);
                 var18 = var5 * var18;
-                Uq var20 = this.M;
+                NumberSetting var20 = this.M;
                 float var171 = var20.WM();
                 double var172 = var171;
                 var18 *= var172;
@@ -777,11 +778,11 @@ public final class halo extends Yn {
                 var20 = this.a;
                   int var177 = var20.B();
                 int var178 = var177;
-                Uq var21 = this.I;
+                NumberSetting var21 = this.I;
                 float var179 = var21.WM();
                 float var180 = 0.17F * var179;
                 float var181 = var180;
-                Uq var22 = this.I;
+                NumberSetting var22 = this.I;
                 float var182 = var22.WM();
                 float var183 = 0.04F * var182;
                 float var184 = var183;
@@ -1163,7 +1164,7 @@ public final class halo extends Yn {
         Lookup var0 = MethodHandles.lookup();
         Class var3 = var0.lookupClass();
         int var1 = 1843805309;
-        int var2 = Yn.C;
+        int var2 = Module.C;
         int var4 = of_2.xF(var3, var1, var2);
         Ec = var4;
         double var5 = Math.toRadians(128.0);

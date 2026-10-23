@@ -1,6 +1,7 @@
 package mvggs.modules.combat;
 
 import dev.aurap.hub.*;
+import dev.aurap.hub.Module;
 
 import dev.skidware.visuals.client.render.AuraPipeline;
 import dev.skidware.visuals.client.render.FrameContext;
@@ -18,21 +19,21 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.util.math.Box;
 
-public final class hitboxcustomizer extends Yn {
+public final class hitboxcustomizer extends Module {
     private static final int[] Ob;
-    private final r_2 t;
-    private final r_2 jV;
-    private final Uq O;
-    private final Uq v;
-    private final Uq Qi;
-    private final Uq Fq;
-    private final Uq av;
+    private final ModeSetting t;
+    private final ModeSetting jV;
+    private final NumberSetting O;
+    private final NumberSetting v;
+    private final NumberSetting Qi;
+    private final NumberSetting Fq;
+    private final NumberSetting av;
     private final zS p;
-    private final JL L;
-    private final Fk T;
-    private final JL yy;
-    private final JL l;
-    private final Uq h;
+    private final BooleanSetting L;
+    private final ColorSetting T;
+    private final BooleanSetting yy;
+    private final BooleanSetting l;
+    private final NumberSetting h;
     private final double[] Lu;
     private final double[] Re;
     private final double[] G;
@@ -40,33 +41,33 @@ public final class hitboxcustomizer extends Yn {
     public static final int HZ;
 
     public hitboxcustomizer() {
-        super("hitbox_customizer", "Hitbox Customizer", AJ.COMBAT);
-        AJ var1 = AJ.COMBAT;
+        super("hitbox_customizer", "Hitbox Customizer", ModuleCategory.COMBAT);
+        ModuleCategory var1 = ModuleCategory.COMBAT;
 
         h_2 var2 = h_2.CORNERS;
-        r_2 var4 = new r_2("style", "Style", var2);
-        xB var5 = this.vn(var4);
-        r_2 var6 = (r_2)var5;
+        ModeSetting var4 = new ModeSetting("style", "Style", var2);
+        Setting var5 = this.addSetting(var4);
+        ModeSetting var6 = (ModeSetting)var5;
         this.t = var6;
         f_2 var63 = f_2.PLAYERS;
-        r_2 var7 = new r_2("targets", "Targets", var63);
-        xB var8 = this.vn(var7);
-        r_2 var9 = (r_2)var8;
+        ModeSetting var7 = new ModeSetting("targets", "Targets", var63);
+        Setting var8 = this.addSetting(var7);
+        ModeSetting var9 = (ModeSetting)var8;
         this.jV = var9;
-        Uq var10 = new Uq("line_width", "Line Width", 1.0F, 0.5F, 3.0F);
-        Uq var11 = var10.W(0.1F);
-        xB var12 = this.vn(var11);
-        Uq var13 = (Uq)var12;
+        NumberSetting var10 = new NumberSetting("line_width", "Line Width", 1.0F, 0.5F, 3.0F);
+        NumberSetting var11 = var10.W(0.1F);
+        Setting var12 = this.addSetting(var11);
+        NumberSetting var13 = (NumberSetting)var12;
         this.O = var13;
-        Uq var14 = new Uq("opacity", "Opacity", 85.0F, 10.0F, 100.0F);
-        Uq var15 = var14.W(1.0F);
-        Uq var16 = var15.L("%");
-        xB var17 = this.vn(var16);
-        Uq var18 = (Uq)var17;
+        NumberSetting var14 = new NumberSetting("opacity", "Opacity", 85.0F, 10.0F, 100.0F);
+        NumberSetting var15 = var14.W(1.0F);
+        NumberSetting var16 = var15.L("%");
+        Setting var17 = this.addSetting(var16);
+        NumberSetting var18 = (NumberSetting)var17;
         this.v = var18;
-        Uq var19 = new Uq("fill", "Fill Opacity", 12.0F, 0.0F, 40.0F);
-        Uq var20 = var19.W(1.0F);
-        Uq var21 = var20.L("%");
+        NumberSetting var19 = new NumberSetting("fill", "Fill Opacity", 12.0F, 0.0F, 40.0F);
+        NumberSetting var20 = var19.W(1.0F);
+        NumberSetting var21 = var20.L("%");
         BooleanSupplier var64 = () -> {
             label64: {
                 int var32x;
@@ -75,7 +76,7 @@ public final class hitboxcustomizer extends Yn {
                     var32x = HZ;
                     var32x ^= 1986599829;
                     var47x = System.identityHashCode(this);
-                    r_2 var3x = this.t;
+                    ModeSetting var3x = this.t;
                     h_2 var4x = h_2.GLASS;
                     int var5x = var47x + 1;
                     var5x = var47x * var5x;
@@ -223,19 +224,19 @@ public final class hitboxcustomizer extends Yn {
             IllegalStateException var43x = new IllegalStateException();
             throw var43x;
         };
-        xB var22 = var21.Pt(var64);
-        Uq var23 = (Uq)var22;
-        xB var24 = this.vn(var23);
-        Uq var25 = (Uq)var24;
+        Setting var22 = var21.Pt(var64);
+        NumberSetting var23 = (NumberSetting)var22;
+        Setting var24 = this.addSetting(var23);
+        NumberSetting var25 = (NumberSetting)var24;
         this.Qi = var25;
-        Uq var26 = new Uq("corners", "Corner Length", 25.0F, 10.0F, 45.0F);
-        Uq var27 = var26.W(1.0F);
-        Uq var28 = var27.L("%");
+        NumberSetting var26 = new NumberSetting("corners", "Corner Length", 25.0F, 10.0F, 45.0F);
+        NumberSetting var27 = var26.W(1.0F);
+        NumberSetting var28 = var27.L("%");
         BooleanSupplier var65 = () -> {
             int var1x = HZ;
             var1x ^= 1850879683;
             int var2x = System.identityHashCode(this);
-            r_2 var3x = this.t;
+            ModeSetting var3x = this.t;
             h_2 var4x = h_2.CORNERS;
             long var5x = var2x;
             long var7x = var5x + 1L;
@@ -280,46 +281,46 @@ public final class hitboxcustomizer extends Yn {
             UnsupportedOperationException var22x = new UnsupportedOperationException();
             throw var22x;
         };
-        xB var29 = var28.Pt(var65);
-        Uq var30 = (Uq)var29;
-        xB var31 = this.vn(var30);
-        Uq var32 = (Uq)var31;
+        Setting var29 = var28.Pt(var65);
+        NumberSetting var30 = (NumberSetting)var29;
+        Setting var31 = this.addSetting(var30);
+        NumberSetting var32 = (NumberSetting)var31;
         this.Fq = var32;
-        Uq var33 = new Uq("glow", "Glow", 0.35F, 0.0F, 1.0F);
-        Uq var34 = var33.W(0.05F);
-        xB var35 = this.vn(var34);
-        Uq var36 = (Uq)var35;
+        NumberSetting var33 = new NumberSetting("glow", "Glow", 0.35F, 0.0F, 1.0F);
+        NumberSetting var34 = var33.W(0.05F);
+        Setting var35 = this.addSetting(var34);
+        NumberSetting var36 = (NumberSetting)var35;
         this.av = var36;
         zS var37 = new zS();
         nM var38 = this.bU(var37);
         zS var39 = (zS)var38;
         this.p = var39;
-        JL var40 = new JL("hurt_flash", "Hurt Flash", true);
-        xB var41 = this.vn(var40);
-        JL var42 = (JL)var41;
+        BooleanSetting var40 = new BooleanSetting("hurt_flash", "Hurt Flash", true);
+        Setting var41 = this.addSetting(var40);
+        BooleanSetting var42 = (BooleanSetting)var41;
         this.L = var42;
-        Fk var43 = new Fk("hurt_color", "Hurt Color", -32357, false);
-        JL var66 = this.L;
+        ColorSetting var43 = new ColorSetting("hurt_color", "Hurt Color", -32357, false);
+        BooleanSetting var66 = this.L;
         Object var3 = Objects.requireNonNull(var66);
         BooleanSupplier var67 = var66::vb;
-        xB var44 = var43.Pt(var67);
-        Fk var45 = (Fk)var44;
-        xB var46 = this.vn(var45);
-        Fk var47 = (Fk)var46;
+        Setting var44 = var43.Pt(var67);
+        ColorSetting var45 = (ColorSetting)var44;
+        Setting var46 = this.addSetting(var45);
+        ColorSetting var47 = (ColorSetting)var46;
         this.T = var47;
-        JL var48 = new JL("eye_line", "Eye Line", false);
-        xB var49 = this.vn(var48);
-        JL var50 = (JL)var49;
+        BooleanSetting var48 = new BooleanSetting("eye_line", "Eye Line", false);
+        Setting var49 = this.addSetting(var48);
+        BooleanSetting var50 = (BooleanSetting)var49;
         this.yy = var50;
-        JL var51 = new JL("self", "Self in Third Person", false);
-        xB var52 = this.vn(var51);
-        JL var53 = (JL)var52;
+        BooleanSetting var51 = new BooleanSetting("self", "Self in Third Person", false);
+        Setting var52 = this.addSetting(var51);
+        BooleanSetting var53 = (BooleanSetting)var52;
         this.l = var53;
-        Uq var54 = new Uq("range", "Range", 32.0F, 4.0F, 96.0F);
-        Uq var55 = var54.W(1.0F);
-        Uq var56 = var55.L("m");
-        xB var57 = this.vn(var56);
-        Uq var58 = (Uq)var57;
+        NumberSetting var54 = new NumberSetting("range", "Range", 32.0F, 4.0F, 96.0F);
+        NumberSetting var55 = var54.W(1.0F);
+        NumberSetting var56 = var55.L("m");
+        Setting var57 = this.addSetting(var56);
+        NumberSetting var58 = (NumberSetting)var57;
         this.h = var58;
         double[] var59 = new double[8];
         this.Lu = var59;
@@ -328,8 +329,8 @@ public final class hitboxcustomizer extends Yn {
         double[] var61 = new double[8];
         this.G = var61;
         this.dy("Precise outlines, glowing corners, glass or scanning boxes. Theme, gradient and rainbow colors.");
-        wD<T> var62 = this::z;
-        this.iI(T.class, var62);
+        EventListener<RenderEvent> var62 = this::z;
+        this.onEvent(RenderEvent.class, var62);
     }
 
     public int h() {
@@ -354,7 +355,7 @@ public final class hitboxcustomizer extends Yn {
         }
     }
 
-    private void z(T var1) {
+    private void z(RenderEvent var1) {
         label433: {
             int var204;
             label432: {
@@ -511,20 +512,20 @@ public final class hitboxcustomizer extends Yn {
                                     break label433;
                                 }
 
-                                Ud var277 = Ud.Z();
+                                ClientRuntime var277 = ClientRuntime.Z();
                                 AuraPipeline var278 = var277.Ul();
                                 WorldDraw var279 = var278.world();
                                 WorldDraw var280 = var279;
                                 Canvas var295 = var1.canvas();
                                 Canvas var296 = var295;
-                                Uq var307 = this.h;
+                                NumberSetting var307 = this.h;
                                 float var308 = var307.WM();
-                                Uq var314 = this.h;
+                                NumberSetting var314 = this.h;
                                 float var315 = var314.WM();
                                 float var309 = var308 * var315;
                                 double var310 = var309;
                                 double var311 = var310;
-                                Ud var316 = Ud.Z();
+                                ClientRuntime var316 = ClientRuntime.Z();
                                 V var317 = var316.bA();
                                 Entity var318 = var317.i();
                                 int var10 = var3 + 1;
@@ -770,7 +771,7 @@ public final class hitboxcustomizer extends Yn {
                                                                 break label433;
                                                             }
 
-                                                            JL var373 = this.l;
+                                                            BooleanSetting var373 = this.l;
                                                             var408 = var3 + 1;
                                                             var408 = var3 * var408;
                                                             var408 &= 1;
@@ -858,7 +859,7 @@ public final class hitboxcustomizer extends Yn {
                                                             var204 ^= 1339418495;
                                                         }
 
-                                                        r_2 var377 = this.jV;
+                                                        ModeSetting var377 = this.jV;
                                                         long var418 = var3;
                                                         long var449 = var418 + 1L;
                                                         var449 = var418 * var449;
@@ -981,7 +982,7 @@ public final class hitboxcustomizer extends Yn {
                                                                 break label433;
                                                             }
 
-                                                            r_2 var383 = this.jV;
+                                                            ModeSetting var383 = this.jV;
                                                             Integer var433 = var3;
                                                             if (var433 != null) {
                                                                 var204 *= 1112583803;
@@ -1103,7 +1104,7 @@ public final class hitboxcustomizer extends Yn {
                                                                         break label433;
                                                                     }
 
-                                                                    Uq var331 = this.h;
+                                                                    NumberSetting var331 = this.h;
                                                                     float var332 = var331.WM();
                                                                     double var445 = var332;
                                                                     var330 = var3;
@@ -1276,7 +1277,7 @@ public final class hitboxcustomizer extends Yn {
         throw var248;
     }
 
-    private void D(T var1, Canvas var2, WorldDraw var3, LivingEntity var4, float var5, int var6) {
+    private void D(RenderEvent var1, Canvas var2, WorldDraw var3, LivingEntity var4, float var5, int var6) {
         float var500 = 0.0F;
         h_2 var518 = null;
         label529: {
@@ -1360,7 +1361,7 @@ public final class hitboxcustomizer extends Yn {
                             break label529;
                         }
 
-                        JL var409 = this.L;
+                        BooleanSetting var409 = this.L;
                         Integer var428 = var8;
                         if (var428 != null) {
                             var40 -= 1991511641;
@@ -1452,17 +1453,17 @@ public final class hitboxcustomizer extends Yn {
                             var11 = var438.time();
                             zS var460 = this.p;
                             int var461 = var460.x(0.0F, var11);
-                            Fk var492 = this.T;
+                            ColorSetting var492 = this.T;
                             int var493 = var492.zz();
                             int var462 = DP.Z(var461, var493, var420);
                             int var463 = var462;
                             zS var494 = this.p;
                             int var495 = var494.x(0.6F, var11);
-                            Fk var509 = this.T;
+                            ColorSetting var509 = this.T;
                             int var510 = var509.zz();
                             int var421 = DP.Z(var495, var510, var420);
                             int var422 = var421;
-                            Uq var496 = this.v;
+                            NumberSetting var496 = this.v;
                             float var497 = var496.WM();
                             float var498 = var497 / 100.0F;
                             long var511 = var8;
@@ -1482,7 +1483,7 @@ public final class hitboxcustomizer extends Yn {
                                 label536: {
                                     float var499 = var498 * var5;
                                     var500 = var499;
-                                    r_2 var515 = this.t;
+                                    ModeSetting var515 = this.t;
                                     Enum var516 = var515.A();
                                     h_2 var517 = (h_2)var516;
                                     var518 = var517;
@@ -1576,7 +1577,7 @@ public final class hitboxcustomizer extends Yn {
                                         break label529;
                                     }
 
-                                    Uq var543 = this.Qi;
+                                    NumberSetting var543 = this.Qi;
                                     int var565 = var8 + 1;
                                     int var566 = var8 * var565;
                                     int var567 = var566 & 1;
@@ -1630,7 +1631,7 @@ public final class hitboxcustomizer extends Yn {
                                     }
                                 }
 
-                                Uq var624 = this.av;
+                                NumberSetting var624 = this.av;
                                 float var625 = var624.WM();
                                 var2.additive(var625);
                                 byte var626 = 0;
@@ -1870,7 +1871,7 @@ public final class hitboxcustomizer extends Yn {
                                                         double var812 = var809[var528];
                                                         var855 = this.G;
                                                         double var858 = var855[var528];
-                                                        Uq var529 = this.O;
+                                                        NumberSetting var529 = this.O;
                                                         float var530 = var529.WM();
                                                         Paint var875 = Paint.solid(var549);
                                                         boolean var531 = var3.line(var2, var17, var11, var19, var812, var11, var858, var530, var875);
@@ -1889,7 +1890,7 @@ public final class hitboxcustomizer extends Yn {
                                                     var40 ^= 1308841916;
                                                 }
 
-                                                JL var485 = this.yy;
+                                                BooleanSetting var485 = this.yy;
                                                 long var533 = var8;
                                                 long var589 = var533 + 1L;
                                                 long var590 = var533 * var589;
@@ -1921,7 +1922,7 @@ public final class hitboxcustomizer extends Yn {
                                                         var19 = var394[1];
                                                         double[] var395 = this.G;
                                                         double var813 = var395[1];
-                                                        Uq var396 = this.O;
+                                                        NumberSetting var396 = this.O;
                                                         float var397 = var396.WM();
                                                         float var487 = var500 * 0.8F;
                                                         int var488 = DP.Y(var422, var487);
@@ -1972,7 +1973,7 @@ public final class hitboxcustomizer extends Yn {
                                                         }
 
                                                         double var383 = var402[3];
-                                                        Uq var490 = this.O;
+                                                        NumberSetting var490 = this.O;
                                                         float var491 = var490.WM();
                                                         float var501 = var500 * 0.8F;
                                                         int var423 = DP.Y(var422, var501);
@@ -2153,7 +2154,7 @@ public final class hitboxcustomizer extends Yn {
                                                     yield var40 ^ 1108156028;
                                                 }
                                             };
-                                            Uq var740 = this.Fq;
+                                            NumberSetting var740 = this.Fq;
                                             float var741 = var740.WM();
                                             var793 = var8 + 1;
                                             var793 = var8 * var793;
@@ -2950,9 +2951,9 @@ public final class hitboxcustomizer extends Yn {
                     double var149 = var6;
                     double var130 = var129 * var149;
                     double var124 = var123 + var130;
-                    Uq var131 = this.O;
+                    NumberSetting var131 = this.O;
                     float var132 = var131.WM();
-                    Uq var25 = this.av;
+                    NumberSetting var25 = this.av;
                     float var133 = var25.WM();
                     float var173;
                     int var134 = (var173 = var133 - 0.0F) == 0.0F ? 0 : (var173 < 0.0F ? -1 : 1);
@@ -3089,7 +3090,7 @@ public final class hitboxcustomizer extends Yn {
         Lookup var0 = MethodHandles.lookup();
         Class var3 = var0.lookupClass();
         int var1 = -662041884;
-        int var2 = Yn.C;
+        int var2 = Module.C;
         int var4 = of_2.xF(var3, var1, var2);
         HZ = var4;
         int[] var5 = new int[]{0, 1, 1, 3, 3, 2, 2, 0, 4, 5, 5, 7, 7, 6, 6, 4, 0, 4, 1, 5, 2, 6, 3, 7};

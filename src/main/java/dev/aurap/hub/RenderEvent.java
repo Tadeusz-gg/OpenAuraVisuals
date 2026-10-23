@@ -7,7 +7,7 @@ import java.lang.invoke.MethodHandles;
 import java.lang.invoke.MethodHandles.Lookup;
 import java.lang.runtime.ObjectMethods;
 
-public record T(RenderPhase U, Canvas T, FrameContext RD) {
+public record RenderEvent(RenderPhase U, Canvas T, FrameContext RD) {
     public static final int i;
 
 

@@ -4,7 +4,7 @@ import java.lang.invoke.MethodHandles;
 import java.lang.invoke.MethodHandles.Lookup;
 import java.lang.runtime.ObjectMethods;
 
-public record GE(String Dv, String Ud) {
+public record GE(String Dv, String ClientRuntime) {
     public static final int cz;
 
 
@@ -62,7 +62,7 @@ public record GE(String Dv, String Ud) {
         } else {
             var1 *= 1547528497;
             var1 ^= -912897821;
-            return this.Ud;
+            return this.ClientRuntime;
         }
     }
 

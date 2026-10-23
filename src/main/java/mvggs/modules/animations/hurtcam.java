@@ -1,33 +1,34 @@
 package mvggs.modules.animations;
 
 import dev.aurap.hub.*;
+import dev.aurap.hub.Module;
 
 import java.lang.invoke.MethodHandles;
 import java.lang.invoke.MethodHandles.Lookup;
 import java.util.function.BooleanSupplier;
 
-public final class hurtcam extends Yn {
-    private final r_2 AH;
-    private final Uq cD;
+public final class hurtcam extends Module {
+    private final ModeSetting AH;
+    private final NumberSetting cD;
     public static final int LN;
 
     public hurtcam() {
-        super("hurt_cam", "Hurt Cam", AJ.ANIMATIONS);
-        AJ var1 = AJ.ANIMATIONS;
+        super("hurt_cam", "Hurt Cam", ModuleCategory.ANIMATIONS);
+        ModuleCategory var1 = ModuleCategory.ANIMATIONS;
 
         XE var2 = XE.STEADY;
-        r_2 var3 = new r_2("mode", "Mode", var2);
-        xB var4 = this.vn(var3);
-        r_2 var5 = (r_2)var4;
+        ModeSetting var3 = new ModeSetting("mode", "Mode", var2);
+        Setting var4 = this.addSetting(var3);
+        ModeSetting var5 = (ModeSetting)var4;
         this.AH = var5;
-        Uq var6 = new Uq("strength", "Strength", 0.25F, 0.0F, 1.0F);
-        Uq var7 = var6.W(0.05F);
-        Uq var8 = var7.L("x");
+        NumberSetting var6 = new NumberSetting("strength", "Strength", 0.25F, 0.0F, 1.0F);
+        NumberSetting var7 = var6.W(0.05F);
+        NumberSetting var8 = var7.L("x");
         BooleanSupplier var13 = () -> {
             int var1x = LN;
             var1x ^= -593025183;
             int var2x = System.identityHashCode(this);
-            r_2 var3x = this.AH;
+            ModeSetting var3x = this.AH;
             XE var4x = XE.STEADY;
             boolean var44 = var3x.TJ(var4x);
             long var47 = var2x;
@@ -111,10 +112,10 @@ public final class hurtcam extends Yn {
                 throw var29;
             }
         };
-        xB var9 = var8.Pt(var13);
-        Uq var10 = (Uq)var9;
-        xB var11 = this.vn(var10);
-        Uq var12 = (Uq)var11;
+        Setting var9 = var8.Pt(var13);
+        NumberSetting var10 = (NumberSetting)var9;
+        Setting var11 = this.addSetting(var10);
+        NumberSetting var12 = (NumberSetting)var11;
         this.cD = var12;
         this.dy("Steady camera, reduced vanilla tilt, or a softer damage envelope.");
         this.fJ(true);
@@ -125,7 +126,7 @@ public final class hurtcam extends Yn {
             int var1 = LN;
             var1 ^= 56684598;
             int var2 = (int)var0;
-            int var3 = (Ud.y()) ? 1 : 0;
+            int var3 = (ClientRuntime.y()) ? 1 : 0;
             Integer var4 = var2;
             if (var4 != null) {
                 var1 = switch (var1) {
@@ -174,9 +175,9 @@ public final class hurtcam extends Yn {
                     break label128;
                 }
 
-                Ud var90 = Ud.Z();
-                NW var91 = var90.sP();
-                Yn var92 = var91.tG(hurtcam.class);
+                ClientRuntime var90 = ClientRuntime.Z();
+                ModuleManager var91 = var90.sP();
+                Module var92 = var91.tG(hurtcam.class);
                 hurtcam var93 = (hurtcam)var92;
                 long var102 = var2;
                 var6 = var102 + 1L;
@@ -226,7 +227,7 @@ public final class hurtcam extends Yn {
                         break label128;
                     }
 
-                    r_2 var112 = var93.AH;
+                    ModeSetting var112 = var93.AH;
                     Integer var134 = var2;
                     if (var134 != null) {
                         var1 ^= -2144550925;
@@ -259,7 +260,7 @@ public final class hurtcam extends Yn {
                             default -> var1 ^ -1175692525;
                             case 1310987545 -> var1 ^ 822479454;
                         };
-                        r_2 var114 = var93.AH;
+                        ModeSetting var114 = var93.AH;
                         XE var136 = XE.REDUCED;
                         boolean var115 = var114.TJ(var136);
                         var134 = var2;
@@ -297,7 +298,7 @@ public final class hurtcam extends Yn {
                                     break label128;
                                 }
 
-                                Uq var120 = var93.cD;
+                                NumberSetting var120 = var93.cD;
                                 float var121 = var120.WM();
                                 var138 = var2 + 1;
                                 var138 = var2 * var138;
@@ -352,7 +353,7 @@ public final class hurtcam extends Yn {
                                         float var81 = 3.0F - var80;
                                         float var82 = var126 * var81;
                                         float var83 = 14.0F * var82;
-                                        Uq var94 = var93.cD;
+                                        NumberSetting var94 = var93.cD;
                                         float var95 = var94.WM();
                                         float var84 = var83 * var95;
                                         return Math.copySign(var84, var0);
@@ -404,7 +405,7 @@ public final class hurtcam extends Yn {
         Lookup var0 = MethodHandles.lookup();
         Class var3 = var0.lookupClass();
         int var1 = 1689267092;
-        int var2 = Yn.C;
+        int var2 = Module.C;
         int var4 = of_2.ro(var3, var1, var2);
         LN = var4;
     }

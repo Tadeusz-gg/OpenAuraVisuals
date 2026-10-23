@@ -71,7 +71,7 @@ public final class ed {
         throw var20;
     }
 
-    public static int Yn(float var0, float var1, float var2) {
+    public static int Module(float var0, float var1, float var2) {
         int var3 = M;
         var3 ^= 2022584412;
         int var4 = (int)var0;

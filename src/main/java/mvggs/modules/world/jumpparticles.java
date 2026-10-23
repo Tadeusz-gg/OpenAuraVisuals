@@ -1,6 +1,7 @@
 package mvggs.modules.world;
 
 import dev.aurap.hub.*;
+import dev.aurap.hub.Module;
 
 import dev.skidware.visuals.client.render.AuraPipeline;
 import dev.skidware.visuals.client.render.FrameContext;
@@ -15,16 +16,16 @@ import net.minecraft.entity.Entity;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 
-public final class jumpparticles extends Yn {
+public final class jumpparticles extends Module {
     private static final float HD = 0.06F;
     private final RZ kA;
-    private final r_2 CD;
-    private final Uq Gy;
-    private final Uq f;
-    private final Uq Ve;
-    private final Uq eS;
-    private final r_2 I;
-    private final Uq V;
+    private final ModeSetting CD;
+    private final NumberSetting Gy;
+    private final NumberSetting f;
+    private final NumberSetting Ve;
+    private final NumberSetting eS;
+    private final ModeSetting I;
+    private final NumberSetting V;
     private final zS b;
     private final mN Jl;
     private boolean mp;
@@ -33,8 +34,8 @@ public final class jumpparticles extends Yn {
     public static final int e;
 
     public jumpparticles() {
-        super("jump_particles", "Jump Particles", AJ.WORLD);
-        AJ var1 = AJ.WORLD;
+        super("jump_particles", "Jump Particles", ModuleCategory.WORLD);
+        ModuleCategory var1 = ModuleCategory.WORLD;
 
         Ru var2 = Ru.STARS;
         RZ var3 = new RZ(var2);
@@ -42,42 +43,42 @@ public final class jumpparticles extends Yn {
         RZ var5 = (RZ)var4;
         this.kA = var5;
         gm_3 var41 = gm_3.HOP;
-        r_2 var6 = new r_2("motion", "Motion", var41);
-        xB var7 = this.vn(var6);
-        r_2 var8 = (r_2)var7;
+        ModeSetting var6 = new ModeSetting("motion", "Motion", var41);
+        Setting var7 = this.addSetting(var6);
+        ModeSetting var8 = (ModeSetting)var7;
         this.CD = var8;
-        Uq var9 = new Uq("amount", "Amount", 5.0F, 1.0F, 20.0F);
-        Uq var10 = var9.W(1.0F);
-        xB var11 = this.vn(var10);
-        Uq var12 = (Uq)var11;
+        NumberSetting var9 = new NumberSetting("amount", "Amount", 5.0F, 1.0F, 20.0F);
+        NumberSetting var10 = var9.W(1.0F);
+        Setting var11 = this.addSetting(var10);
+        NumberSetting var12 = (NumberSetting)var11;
         this.Gy = var12;
-        Uq var13 = new Uq("speed", "Speed", 1.0F, 0.2F, 3.0F);
-        Uq var14 = var13.W(0.05F);
-        Uq var15 = var14.L("x");
-        xB var16 = this.vn(var15);
-        Uq var17 = (Uq)var16;
+        NumberSetting var13 = new NumberSetting("speed", "Speed", 1.0F, 0.2F, 3.0F);
+        NumberSetting var14 = var13.W(0.05F);
+        NumberSetting var15 = var14.L("x");
+        Setting var16 = this.addSetting(var15);
+        NumberSetting var17 = (NumberSetting)var16;
         this.f = var17;
-        Uq var18 = new Uq("lifetime", "Lifetime", 2.0F, 1.0F, 10.0F);
-        Uq var19 = var18.W(0.1F);
-        Uq var20 = var19.L("s");
-        xB var21 = this.vn(var20);
-        Uq var22 = (Uq)var21;
+        NumberSetting var18 = new NumberSetting("lifetime", "Lifetime", 2.0F, 1.0F, 10.0F);
+        NumberSetting var19 = var18.W(0.1F);
+        NumberSetting var20 = var19.L("s");
+        Setting var21 = this.addSetting(var20);
+        NumberSetting var22 = (NumberSetting)var21;
         this.Ve = var22;
-        Uq var23 = new Uq("size", "Size", 1.0F, 0.4F, 3.0F);
-        Uq var24 = var23.W(0.05F);
-        Uq var25 = var24.L("x");
-        xB var26 = this.vn(var25);
-        Uq var27 = (Uq)var26;
+        NumberSetting var23 = new NumberSetting("size", "Size", 1.0F, 0.4F, 3.0F);
+        NumberSetting var24 = var23.W(0.05F);
+        NumberSetting var25 = var24.L("x");
+        Setting var26 = this.addSetting(var25);
+        NumberSetting var27 = (NumberSetting)var26;
         this.eS = var27;
         ka var42 = ka.ALPHA;
-        r_2 var28 = new r_2("fade", "Fade", var42);
-        xB var29 = this.vn(var28);
-        r_2 var30 = (r_2)var29;
+        ModeSetting var28 = new ModeSetting("fade", "Fade", var42);
+        Setting var29 = this.addSetting(var28);
+        ModeSetting var30 = (ModeSetting)var29;
         this.I = var30;
-        Uq var31 = new Uq("glow", "Glow", 0.7F, 0.0F, 1.0F);
-        Uq var32 = var31.W(0.05F);
-        xB var33 = this.vn(var32);
-        Uq var34 = (Uq)var33;
+        NumberSetting var31 = new NumberSetting("glow", "Glow", 0.7F, 0.0F, 1.0F);
+        NumberSetting var32 = var31.W(0.05F);
+        Setting var33 = this.addSetting(var32);
+        NumberSetting var34 = (NumberSetting)var33;
         this.V = var34;
         Ry var43 = Ry.RAINBOW;
         zS var35 = new zS(var43, -11559425, -5870593);
@@ -88,7 +89,7 @@ public final class jumpparticles extends Yn {
         this.Jl = var38;
         this.mp = true;
         this.dy("Light particles kicked out from under your feet when you jump.");
-        wD<sE> var39 = (sE var1x) -> {
+        EventListener<TickEvent> var39 = (TickEvent var1x) -> {
             int var2x = e;
             var2x ^= -871760753;
             int var3x = System.identityHashCode(this);
@@ -126,8 +127,8 @@ public final class jumpparticles extends Yn {
             AssertionError var16x = new AssertionError();
             throw var16x;
         };
-        this.iI(sE.class, var39);
-        wD<T> var40 = (T var1x) -> {
+        this.onEvent(TickEvent.class, var39);
+        EventListener<RenderEvent> var40 = (RenderEvent var1x) -> {
             label114: {
                 int var49;
                 label121: {
@@ -340,13 +341,13 @@ public final class jumpparticles extends Yn {
                                     }
 
                                     mN var95 = this.Jl;
-                                    r_2 var123 = this.I;
+                                    ModeSetting var123 = this.I;
                                     Enum var124 = var123.A();
                                     ka var125 = (ka)var124;
                                     var95.Vs(var125, 0.8F, true);
                                     mN var96 = this.Jl;
                                     Canvas var126 = var1x.canvas();
-                                    Ud var142 = Ud.Z();
+                                    ClientRuntime var142 = ClientRuntime.Z();
                                     int var154 = var3x + 1;
                                     int var155 = var3x * var154;
                                     var3x = var155 & 1;
@@ -363,7 +364,7 @@ public final class jumpparticles extends Yn {
                                         FrameContext var156 = var1x.frame();
                                         double var157 = var156.time();
                                         zS var166 = this.b;
-                                        Uq var167 = this.V;
+                                        NumberSetting var167 = this.V;
                                         float var168 = var167.WM();
                                         var96.h(var126, var80, var145, var157, var166, var168);
                                         return;
@@ -421,7 +422,7 @@ public final class jumpparticles extends Yn {
             UnsupportedOperationException var77 = new UnsupportedOperationException();
             throw var77;
         };
-        this.iI(T.class, var40);
+        this.onEvent(RenderEvent.class, var40);
     }
 
     public void a() {
@@ -1044,15 +1045,15 @@ public final class jumpparticles extends Yn {
                     this.d = var7;
                     var7 = ThreadLocalRandom.current();
                     var7 = (ThreadLocalRandom)var7;
-                    Uq var177 = this.f;
+                    NumberSetting var177 = this.f;
                     float var178 = var177.WM();
                     float var179 = 2.0F * var178;
                     float var180 = var179;
-                    Uq var182 = this.eS;
+                    NumberSetting var182 = this.eS;
                     float var183 = var182.WM();
                     float var184 = 0.06F * var183;
                     float var185 = var184;
-                    r_2 var189 = this.CD;
+                    ModeSetting var189 = this.CD;
                     int var11 = var6 + 1;
                     var11 = var6 * var11;
                     int var213 = var6 + 2;
@@ -1178,7 +1179,7 @@ public final class jumpparticles extends Yn {
 
                             bA_2 var197 = var196;
                             byte var211 = 0;
-                            Uq var224 = this.Gy;
+                            NumberSetting var224 = this.Gy;
                             int var230 = var6 + 1;
                             var230 = var6 * var230;
                             int var250 = var6 + 2;
@@ -1305,7 +1306,7 @@ public final class jumpparticles extends Yn {
                                     double var24 = var180;
                     double var274 = ((ThreadLocalRandom)var7).nextDouble(var273, var24);
                                     var22 = (float)var274;
-                                    Uq var284 = this.Ve;
+                                    NumberSetting var284 = this.Ve;
                                     float var285 = var284.WM();
                     var24 = ((ThreadLocalRandom)var7).nextDouble((float) (Math.PI * 2));
                                     float var287 = (float)var24;
@@ -1452,7 +1453,7 @@ public final class jumpparticles extends Yn {
         Lookup var0 = MethodHandles.lookup();
         Class var3 = var0.lookupClass();
         int var1 = -1378644192;
-        int var2 = Yn.C;
+        int var2 = Module.C;
         int var4 = of_2.ro(var3, var1, var2);
         e = var4;
     }

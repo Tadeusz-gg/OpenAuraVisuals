@@ -3,11 +3,11 @@ package dev.aurap.hub;
 import java.lang.invoke.MethodHandles;
 import java.lang.invoke.MethodHandles.Lookup;
 
-public abstract class zB implements IE {
+public abstract class CancellableEvent implements Cancellable {
     private boolean Vb;
     public static final int E;
 
-    public zB() {
+    public CancellableEvent() {
     }
 
     @Override

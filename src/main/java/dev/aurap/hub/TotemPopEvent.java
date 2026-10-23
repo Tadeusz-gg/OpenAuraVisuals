@@ -5,7 +5,7 @@ import java.lang.invoke.MethodHandles.Lookup;
 import java.lang.runtime.ObjectMethods;
 import net.minecraft.entity.Entity;
 
-public record Vt(Entity bV) {
+public record TotemPopEvent(Entity bV) {
     public static final int C;
 
 

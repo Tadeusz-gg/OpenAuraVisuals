@@ -5,7 +5,7 @@ import java.lang.invoke.MethodHandles.Lookup;
 import java.lang.runtime.ObjectMethods;
 import net.minecraft.entity.LivingEntity;
 
-public record I(LivingEntity gR, int ju) {
+public record KillEvent(LivingEntity gR, int ju) {
     public static final int lA;
 
 

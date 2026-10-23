@@ -599,7 +599,7 @@ public final class DP {
                 float var52 = var51;
                 float var35 = TP.GO(var34, var52, var6);
                 var4 = Math.round(var35);
-                var3 = ed.Yn(var43, var47, var29);
+                var3 = ed.Module(var43, var47, var29);
                 return U(var3, var4);
             }
         }

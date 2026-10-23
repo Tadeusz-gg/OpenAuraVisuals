@@ -23,7 +23,7 @@ public final class bS {
     private static final float X = 76.0F;
     private static final float P = 32.0F;
     private static final float c = 0.6F;
-    private final Ud KV;
+    private final ClientRuntime KV;
     private final List t;
     private final List T;
     private final ut we;
@@ -40,7 +40,7 @@ public final class bS {
     private float hf;
     public static final int x;
 
-    public bS(Ud var1) {
+    public bS(ClientRuntime var1) {
         ArrayList var2 = new ArrayList();
         this.t = var2;
         var2 = new ArrayList();
@@ -56,16 +56,16 @@ public final class bS {
         this.Ls = 1.0F;
         this.hf = 1.0F;
         this.KV = var1;
-        AJ[] var13 = AJ.values();
-        AJ[] var14 = var13;
+        ModuleCategory[] var13 = ModuleCategory.values();
+        ModuleCategory[] var14 = var13;
         int var17 = var13.length;
         int var18 = var17;
         int var4 = 0;
         var4 = var4;
 
         while (var4 < var18) {
-            AJ var5 = var14[var4];
-            NW var6 = var1.sP();
+            ModuleCategory var5 = var14[var4];
+            ModuleManager var6 = var1.sP();
             List var23 = var6.h(var5);
             Stream var7 = var23.stream();
             Predicate var8 = var0 -> {
@@ -92,7 +92,7 @@ public final class bS {
                     Integer var36 = var1x;
                     label50:
                     if (var36 != null) {
-                        boolean var37 = ((Yn)var0).y();
+                        boolean var37 = ((Module)var0).y();
                         boolean var42;
                         if (!var37) {
                             var1x = switch (var1x) {
@@ -183,8 +183,8 @@ public final class bS {
             var4 = var22;
         }
 
-        PH var15 = var1.ZM();
-        wD<T> var19 = (T var1x) -> {
+        EventBus var15 = var1.ZM();
+        EventListener<RenderEvent> var19 = (RenderEvent var1x) -> {
             int var2x = x;
             var2x ^= -1362223291;
             int var3x = System.identityHashCode(this);
@@ -319,14 +319,14 @@ public final class bS {
             AssertionError var50 = new AssertionError();
             throw var50;
         };
-        kf var16 = var15.o(T.class, var19);
+        EventSubscription var16 = var15.o(RenderEvent.class, var19);
     }
 
     private clickgui u(int var1) {
         int var3 = System.identityHashCode(this);
-        Ud var4 = this.KV;
-        NW var24 = var4.sP();
-        Yn var25 = var24.tG(clickgui.class);
+        ClientRuntime var4 = this.KV;
+        ModuleManager var24 = var4.sP();
+        Module var25 = var24.tG(clickgui.class);
         long var5 = var3;
         long var7 = var5 + 1L;
         var7 = var5 * var7;
@@ -1393,7 +1393,7 @@ public final class bS {
         throw var74;
     }
 
-    public void Uk(Yn var1, String var2) {
+    public void Uk(Module var1, String var2) {
         label157: {
             int var3 = x;
             var3 ^= -1667429204;
@@ -1626,7 +1626,7 @@ public final class bS {
                             break label157;
                         }
 
-                        Yn var144 = var136.JQ();
+                        Module var144 = var136.JQ();
                         boolean var145;
                         if (var144 == var1) {
                             var3 *= 794766691;
@@ -1657,7 +1657,7 @@ public final class bS {
                         }
 
                         var136.JP(var145);
-                        Yn var146 = var136.JQ();
+                        Module var146 = var136.JQ();
                         Integer var154 = var4;
                         if (var154 == null) {
                             var3 >>>= 31;
@@ -1787,8 +1787,8 @@ public final class bS {
                     break label446;
                 }
 
-                Ud var362 = this.KV;
-                float var363 = var362.ia(var2);
+                ClientRuntime var362 = this.KV;
+                float var363 = var362.KeybindSetting(var2);
                 this.hf = var363;
                 float var364 = var1.width();
                 this.O = var364;
@@ -3117,7 +3117,7 @@ public final class bS {
                                     break label127;
                                 }
 
-                                Yn var136 = var113.JQ();
+                                Module var136 = var113.JQ();
                                 String var137 = var136.Rm();
                                 Integer var150 = var5;
                                 if (var150 == null) {

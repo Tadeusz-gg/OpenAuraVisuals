@@ -5,10 +5,10 @@ import java.lang.invoke.MethodHandles.Lookup;
 import java.lang.runtime.ObjectMethods;
 import net.minecraft.entity.Entity;
 
-public record Hm(Entity A, boolean kA, int h, float g) {
+public record HitEvent(Entity A, boolean kA, int h, float g) {
     public static final int o;
 
-    public Hm(Entity var1, boolean var2, int var3) {
+    public HitEvent(Entity var1, boolean var2, int var3) {
         this(var1, var2, var3, 1.0F);
     }
 

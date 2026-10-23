@@ -1,6 +1,7 @@
 package mvggs.modules.world;
 
 import dev.aurap.hub.*;
+import dev.aurap.hub.Module;
 
 import dev.skidware.visuals.client.render.AuraPipeline;
 import dev.skidware.visuals.client.render.FrameContext;
@@ -18,48 +19,48 @@ import java.util.function.BooleanSupplier;
 import net.minecraft.entity.Entity;
 import net.minecraft.world.World;
 
-public final class trails extends Yn {
+public final class trails extends Module {
     private static final int zO = 32;
     private static final double oc = 0.001;
-    private final r_2 l;
-    private final Uq c;
-    private final Uq n;
-    private final Uq Ax;
-    private final JL CF;
-    private final Uq Lx;
-    private final Uq X;
+    private final ModeSetting l;
+    private final NumberSetting c;
+    private final NumberSetting n;
+    private final NumberSetting Ax;
+    private final BooleanSetting CF;
+    private final NumberSetting Lx;
+    private final NumberSetting X;
     private final zS H;
-    private final JL Pn;
-    private final JL kl;
-    private final JL Iu;
+    private final BooleanSetting Pn;
+    private final BooleanSetting kl;
+    private final BooleanSetting Iu;
     private final Int2ObjectMap pn;
     private long i;
     private Object S;
     public static final int p;
 
     public trails() {
-        super("trails", "Trails", AJ.WORLD);
-        AJ var1 = AJ.WORLD;
+        super("trails", "Trails", ModuleCategory.WORLD);
+        ModuleCategory var1 = ModuleCategory.WORLD;
 
         Qq var2 = Qq.FADED;
-        r_2 var3 = new r_2("style", "Style", var2);
-        xB var4 = this.vn(var3);
-        r_2 var5 = (r_2)var4;
+        ModeSetting var3 = new ModeSetting("style", "Style", var2);
+        Setting var4 = this.addSetting(var3);
+        ModeSetting var5 = (ModeSetting)var4;
         this.l = var5;
-        Uq var6 = new Uq("length", "Length", 20.0F, 2.0F, 30.0F);
-        Uq var7 = var6.W(1.0F);
-        Uq var8 = var7.L(" ticks");
-        xB var9 = this.vn(var8);
-        Uq var10 = (Uq)var9;
+        NumberSetting var6 = new NumberSetting("length", "Length", 20.0F, 2.0F, 30.0F);
+        NumberSetting var7 = var6.W(1.0F);
+        NumberSetting var8 = var7.L(" ticks");
+        Setting var9 = this.addSetting(var8);
+        NumberSetting var10 = (NumberSetting)var9;
         this.c = var10;
-        Uq var11 = new Uq("height", "Height", 1.0F, 0.1F, 1.0F);
-        Uq var12 = var11.W(0.05F);
-        Uq var13 = var12.L("x");
-        xB var14 = this.vn(var13);
-        Uq var15 = (Uq)var14;
+        NumberSetting var11 = new NumberSetting("height", "Height", 1.0F, 0.1F, 1.0F);
+        NumberSetting var12 = var11.W(0.05F);
+        NumberSetting var13 = var12.L("x");
+        Setting var14 = this.addSetting(var13);
+        NumberSetting var15 = (NumberSetting)var14;
         this.n = var15;
-        Uq var16 = new Uq("edge", "Edge Opacity", 0.35F, 0.1F, 1.0F);
-        Uq var17 = var16.W(0.05F);
+        NumberSetting var16 = new NumberSetting("edge", "Edge Opacity", 0.35F, 0.1F, 1.0F);
+        NumberSetting var17 = var16.W(0.05F);
         BooleanSupplier var48 = () -> {
             int var1x = p;
             var1x ^= 1963698073;
@@ -79,7 +80,7 @@ public final class trails extends Yn {
                 var1x -= -1364267230;
                 var1x &= -2031927103;
                 var1x ^= 1084033922;
-                r_2 var29x = this.l;
+                ModeSetting var29x = this.l;
                 Qq var30x = Qq.INVERT;
                 return var29x.TJ(var30x);
             } else {
@@ -103,46 +104,46 @@ public final class trails extends Yn {
                 }
             }
         };
-        xB var18 = var17.Pt(var48);
-        Uq var19 = (Uq)var18;
-        xB var20 = this.vn(var19);
-        Uq var21 = (Uq)var20;
+        Setting var18 = var17.Pt(var48);
+        NumberSetting var19 = (NumberSetting)var18;
+        Setting var20 = this.addSetting(var19);
+        NumberSetting var21 = (NumberSetting)var20;
         this.Ax = var21;
-        JL var22 = new JL("half", "Lower Half Only", false);
-        xB var23 = this.vn(var22);
-        JL var24 = (JL)var23;
+        BooleanSetting var22 = new BooleanSetting("half", "Lower Half Only", false);
+        Setting var23 = this.addSetting(var22);
+        BooleanSetting var24 = (BooleanSetting)var23;
         this.CF = var24;
-        Uq var25 = new Uq("opacity", "Opacity", 0.8F, 0.1F, 1.0F);
-        Uq var26 = var25.W(0.05F);
-        xB var27 = this.vn(var26);
-        Uq var28 = (Uq)var27;
+        NumberSetting var25 = new NumberSetting("opacity", "Opacity", 0.8F, 0.1F, 1.0F);
+        NumberSetting var26 = var25.W(0.05F);
+        Setting var27 = this.addSetting(var26);
+        NumberSetting var28 = (NumberSetting)var27;
         this.Lx = var28;
-        Uq var29 = new Uq("glow", "Glow", 0.4F, 0.0F, 1.0F);
-        Uq var30 = var29.W(0.05F);
-        xB var31 = this.vn(var30);
-        Uq var32 = (Uq)var31;
+        NumberSetting var29 = new NumberSetting("glow", "Glow", 0.4F, 0.0F, 1.0F);
+        NumberSetting var30 = var29.W(0.05F);
+        Setting var31 = this.addSetting(var30);
+        NumberSetting var32 = (NumberSetting)var31;
         this.X = var32;
         Ry var49 = Ry.GRADIENT;
         zS var33 = new zS(var49, -11559425, -5870593);
         nM var34 = this.bU(var33);
         zS var35 = (zS)var34;
         this.H = var35;
-        JL var36 = new JL("first_person", "In First Person", false);
-        xB var37 = this.vn(var36);
-        JL var38 = (JL)var37;
+        BooleanSetting var36 = new BooleanSetting("first_person", "In First Person", false);
+        Setting var37 = this.addSetting(var36);
+        BooleanSetting var38 = (BooleanSetting)var37;
         this.Pn = var38;
-        JL var39 = new JL("players", "Other Players", false);
-        xB var40 = this.vn(var39);
-        JL var41 = (JL)var40;
+        BooleanSetting var39 = new BooleanSetting("players", "Other Players", false);
+        Setting var40 = this.addSetting(var39);
+        BooleanSetting var41 = (BooleanSetting)var40;
         this.kl = var41;
-        JL var42 = new JL("gliders", "Elytra Fliers", true);
-        xB var43 = this.vn(var42);
-        JL var44 = (JL)var43;
+        BooleanSetting var42 = new BooleanSetting("gliders", "Elytra Fliers", true);
+        Setting var43 = this.addSetting(var42);
+        BooleanSetting var44 = (BooleanSetting)var43;
         this.Iu = var44;
         Int2ObjectOpenHashMap var45 = new Int2ObjectOpenHashMap();
         this.pn = var45;
         this.dy("A fading ribbon of light behind you as you move.");
-        wD<sE> var46 = (sE var1x) -> {
+        EventListener<TickEvent> var46 = (TickEvent var1x) -> {
             int var2x = p;
             var2x ^= 1977181550;
             int var3x = System.identityHashCode(this);
@@ -180,9 +181,9 @@ public final class trails extends Yn {
                 throw var13x;
             }
         };
-        this.iI(sE.class, var46);
-        wD<T> var47 = this::M;
-        this.iI(T.class, var47);
+        this.onEvent(TickEvent.class, var46);
+        EventListener<RenderEvent> var47 = this::M;
+        this.onEvent(RenderEvent.class, var47);
     }
 
     @Override
@@ -306,7 +307,7 @@ public final class trails extends Yn {
                                     yield var41 ^ 1499390890;
                                 }
                             };
-                            JL var98 = this.kl;
+                            BooleanSetting var98 = this.kl;
                               var97 = var98.vb() ? 1 : 0;
                             Integer var118 = var5;
                             if (var118 == null) {
@@ -365,7 +366,7 @@ public final class trails extends Yn {
                             break label158;
                         }
 
-                        JL var103 = this.Iu;
+                        BooleanSetting var103 = this.Iu;
                         int var104 = (var103.vb()) ? 1 : 0;
                         long var119 = var5;
                         var9 = var119 + 1L;
@@ -631,7 +632,7 @@ public final class trails extends Yn {
 
                         var5 = this.i;
                         this.i = ++var5;
-                        Uq var207 = this.c;
+                        NumberSetting var207 = this.c;
                           int var208 = var207.B();
                         long var232 = var3;
                         long var269 = var232 + 1L;
@@ -1092,7 +1093,7 @@ public final class trails extends Yn {
         throw var180;
     }
 
-    private void M(T var1) {
+    private void M(RenderEvent var1) {
         double var532 = 0.0;
         label580: {
             int var2 = p;
@@ -1257,7 +1258,7 @@ public final class trails extends Yn {
                                     };
                                     Canvas var500 = var1.canvas();
                                     Canvas var501 = var500;
-                                    Ud var518 = Ud.Z();
+                                    ClientRuntime var518 = ClientRuntime.Z();
                                     AuraPipeline var519 = var518.Ul();
                                     WorldDraw var520 = var519.world();
                                     WorldDraw var521 = var520;
@@ -1302,15 +1303,15 @@ public final class trails extends Yn {
                                         float var551;
                                         double var531 = var530.time();
                                         var532 = var531;
-                                        Uq var10 = this.c;
+                                        NumberSetting var10 = this.c;
                                         var537 = var10.WM();
                                         var537 = var537;
-                                        Uq var11 = this.Ax;
+                                        NumberSetting var11 = this.Ax;
                                         var539 = var11.WM();
-                                        JL var12 = this.CF;
+                                        BooleanSetting var12 = this.CF;
                                         var546 = var12.vb();
                                         var546 = var546;
-                                        r_2 var13 = this.l;
+                                        ModeSetting var13 = this.l;
                                         Enum var548 = var13.A();
                                         Qq var549 = (Qq)var548;
                                         int var550 = var549.ordinal();
@@ -1572,7 +1573,7 @@ public final class trails extends Yn {
                                         }
 
                                         var500.save();
-                                        Uq var541 = this.X;
+                                        NumberSetting var541 = this.X;
                                         var539 = var541.WM();
                                         var500.additive(var539);
                                         Iterable var543 = i_2.S();
@@ -1796,7 +1797,7 @@ public final class trails extends Yn {
                                                                     break label580;
                                                                 }
 
-                                                                JL var642 = this.Pn;
+                                                                BooleanSetting var642 = this.Pn;
                                                                 int var678 = var3 + 1;
                                                                 int var679 = var3 * var678;
                                                                 int var699 = var3 + 2;
@@ -1873,7 +1874,7 @@ public final class trails extends Yn {
                                                         }
 
                                                         float var647 = var566.getHeight();
-                                                        Uq var687 = this.n;
+                                                        NumberSetting var687 = this.n;
                                                         float var688 = var687.WM();
                                                         float var648 = var647 * var688;
                                                         int var689 = var3 + 1;
@@ -2390,7 +2391,7 @@ public final class trails extends Yn {
                                                                                     break label580;
                                                                                 }
 
-                                                                                Uq var853 = this.Lx;
+                                                                                NumberSetting var853 = this.Lx;
                                                                                 Integer var861 = var3;
                                                                                 if (var861 == null) {
                                                                                     switch (var2) {
@@ -2615,7 +2616,7 @@ public final class trails extends Yn {
         Lookup var0 = MethodHandles.lookup();
         Class var3 = var0.lookupClass();
         int var1 = -314032318;
-        int var2 = Yn.C;
+        int var2 = Module.C;
         int var4 = of_2.ro(var3, var1, var2);
         p = var4;
     }

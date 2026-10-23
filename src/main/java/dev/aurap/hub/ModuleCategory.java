@@ -3,7 +3,7 @@ package dev.aurap.hub;
 import java.lang.invoke.MethodHandles;
 import java.lang.invoke.MethodHandles.Lookup;
 
-public enum AJ {
+public enum ModuleCategory {
     COMBAT("Combat", "Hit feedback, kill effects, damage numbers"),
     HUD("HUD", "Target HUD, indicators, overlays"),
     ANIMATIONS("Animations", "Swing, item and camera animations"),
@@ -15,7 +15,7 @@ public enum AJ {
     private final String F;
     public static final int JY;
 
-    private AJ(String var3, String var4) {
+    private ModuleCategory(String var3, String var4) {
         this.J = var3;
         this.F = var4;
     }

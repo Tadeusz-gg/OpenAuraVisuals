@@ -6,11 +6,11 @@ import java.lang.invoke.MethodHandles;
 import java.lang.invoke.MethodHandles.Lookup;
 
 public final class Mz extends XR {
-    private final JL r;
+    private final BooleanSetting r;
     private final XF Kg;
     public static final int ig;
 
-    public Mz(JL var1) {
+    public Mz(BooleanSetting var1) {
         this.r = var1;
         XF var2;
         boolean var3 = var1.vb();
@@ -27,7 +27,7 @@ public final class Mz extends XR {
     }
 
     @Override
-    public xB W() {
+    public Setting W() {
         int var1 = ig;
         var1 ^= 1133760002;
         int var2 = System.identityHashCode(this);
@@ -87,7 +87,7 @@ public final class Mz extends XR {
             var2 ^= -716848713;
             int var3 = System.identityHashCode(this);
             XF var4 = this.Kg;
-            JL var5 = this.r;
+            BooleanSetting var5 = this.r;
             Integer var6 = var3;
             if (var6 == null) {
                 var2 ^= -1097660058;
@@ -230,7 +230,7 @@ public final class Mz extends XR {
                 case 1350850662 -> var4 ^ 616253316;
             };
             if (var25 != null) {
-                JL var27 = this.r;
+                BooleanSetting var27 = this.r;
                 String var28 = var27.Tp();
                 float var6 = this.U;
                 float var39 = this.fb;
@@ -323,9 +323,9 @@ public final class Mz extends XR {
                     break label52;
                 }
 
-                JL var67 = this.r;
+                BooleanSetting var67 = this.r;
                 var67.lK();
-                JL var68 = this.r;
+                BooleanSetting var68 = this.r;
                 boolean var69 = var68.vb();
                 Integer var57 = var7;
                 if (var57 != null) {

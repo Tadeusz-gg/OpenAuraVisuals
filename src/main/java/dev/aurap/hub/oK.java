@@ -4,10 +4,10 @@ import java.lang.invoke.MethodHandles;
 import java.lang.invoke.MethodHandles.Lookup;
 import java.lang.runtime.ObjectMethods;
 
-public record oK(Class B, int a, wD OK) {
+public record oK(Class B, int a, EventListener OK) {
     public static final int Bs;
 
-    public kf subscribe(PH var1) {
+    public EventSubscription subscribe(EventBus var1) {
         int var2 = Bs;
         var2 ^= 476892081;
         int var3 = System.identityHashCode(this);
@@ -57,7 +57,7 @@ public record oK(Class B, int a, wD OK) {
             var3 *= var2;
             var2 = var3 & 7;
             if (var2 == 0) {
-                wD var24 = this.OK;
+                EventListener var24 = this.OK;
                 return var1.DP(var4, var5, var24);
             }
         }
@@ -140,7 +140,7 @@ public record oK(Class B, int a, wD OK) {
         }
     }
 
-    public wD listener() {
+    public EventListener listener() {
         int var1 = Bs;
         var1 ^= -983195373;
         int var2 = System.identityHashCode(this);

@@ -3,11 +3,11 @@ package dev.aurap.hub;
 import java.lang.invoke.MethodHandles;
 import java.lang.invoke.MethodHandles.Lookup;
 
-public final class sE {
-    public static final sE B;
+public final class TickEvent {
+    public static final TickEvent B;
     public static final int qg;
 
-    private sE() {
+    private TickEvent() {
     }
 
     static {
@@ -17,7 +17,7 @@ public final class sE {
         byte var2 = 0;
         int var4 = of_2.kj(var3, var1, var2);
         qg = var4;
-        sE var5 = new sE();
+        TickEvent var5 = new TickEvent();
         B = var5;
     }
 }

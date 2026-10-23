@@ -13,7 +13,7 @@ public final class UN {
     private UN() {
     }
 
-    public static void tN(r_2 var0, nv var1) {
+    public static void tN(ModeSetting var0, nv var1) {
         int var2 = KY;
         var2 ^= -747715013;
         int var3 = System.identityHashCode(var0);
@@ -66,7 +66,7 @@ public final class UN {
         throw var25;
     }
 
-    public static nv p(r_2 var0) {
+    public static nv p(ModeSetting var0) {
         int var1 = KY;
         var1 ^= -618187972;
         int var2 = System.identityHashCode(var0);

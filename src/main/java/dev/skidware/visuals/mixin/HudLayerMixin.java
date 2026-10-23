@@ -2,7 +2,7 @@ package dev.skidware.visuals.mixin;
 
 import mvggs.modules.hud.crosshair;
 import mvggs.modules.combat.deatheffect;
-import dev.aurap.hub.Ud;
+import dev.aurap.hub.ClientRuntime;
 import mvggs.modules.hud.potions;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.hud.InGameHud;
@@ -23,7 +23,7 @@ public abstract class HudLayerMixin {
         cancellable = true
     )
     private void aura$hideVanillaEffects(CallbackInfo ci) {
-        if (Ud.y() && ((potions)Ud.Z().sP().tG(potions.class)).jC()) {
+        if (ClientRuntime.y() && ((potions)ClientRuntime.Z().sP().tG(potions.class)).jC()) {
             ci.cancel();
         }
     }
@@ -44,8 +44,8 @@ public abstract class HudLayerMixin {
         at = {@At("TAIL")}
     )
     private void aura$itemLayer(DrawContext graphics, RenderTickCounter delta, CallbackInfo ci) {
-        if (Ud.y()) {
-            Ud.Z().Kx().px(graphics);
+        if (ClientRuntime.y()) {
+            ClientRuntime.Z().Kx().px(graphics);
         }
     }
 }

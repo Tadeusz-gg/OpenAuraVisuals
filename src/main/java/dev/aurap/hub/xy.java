@@ -5,12 +5,12 @@ import java.util.concurrent.CompletableFuture;
 
 public final class xy {
     public static final int JN = 0;
-    private final Ud client;
+    private final ClientRuntime client;
     private KP state;
     private boolean started;
     private boolean lastValid;
 
-    public xy(Ud ud) {
+    public xy(ClientRuntime ud) {
         this.client = ud;
         this.lastValid = OfflineProfile.valid();
         this.state = makeState(this.lastValid);

@@ -4,7 +4,7 @@ import java.lang.invoke.MethodHandles;
 import java.lang.invoke.MethodHandles.Lookup;
 import java.lang.runtime.ObjectMethods;
 
-public record CL(int priority, wD listener) {
+public record CL(int priority, EventListener listener) {
     public static final int fN;
 
 
@@ -48,7 +48,7 @@ public record CL(int priority, wD listener) {
         throw var15;
     }
 
-    public wD listener() {
+    public EventListener listener() {
         int var1 = fN;
         var1 ^= 1801497996;
         int var2 = System.identityHashCode(this);

@@ -9,13 +9,13 @@ import java.lang.invoke.MethodHandles.Lookup;
 public final class qJ extends XR {
     private static final float QW = 15.0F;
     private static final float X = 12.0F;
-    private final r_2 CF;
+    private final ModeSetting CF;
     private final XF bZ;
     private final XF[] dL;
     private boolean w;
     public static final int Oa;
 
-    public qJ(r_2 var1) {
+    public qJ(ModeSetting var1) {
         kE_2 var3 = kE_2.uY(0.3F, 0.95F);
         XF var2 = new XF(0.0F, var3);
         this.bZ = var2;
@@ -53,7 +53,7 @@ public final class qJ extends XR {
     }
 
     @Override
-    public xB W() {
+    public Setting W() {
         int var1 = Oa;
         var1 ^= -286178631;
         int var2 = System.identityHashCode(this);
@@ -314,7 +314,7 @@ public final class qJ extends XR {
                             }
                             default -> var2 ^ -212626968;
                         };
-                        r_2 var131 = this.CF;
+                        ModeSetting var131 = this.CF;
                         int var132 = var131.g();
                         float var133;
                         if (var97 == var132) {
@@ -389,7 +389,7 @@ public final class qJ extends XR {
             int var4 = Oa;
             var4 ^= -523369156;
             int var5 = System.identityHashCode(this);
-            r_2 var6 = this.CF;
+            ModeSetting var6 = this.CF;
             Integer var7 = var5;
             if (var7 == null) {
                 switch (var4) {
@@ -423,7 +423,7 @@ public final class qJ extends XR {
                     float var120 = var1.text(var119, var144, var8, var9);
                     var6 = this.CF;
                     Enum var122 = var6.A();
-                    String var123 = r_2.R(var122);
+                    String var123 = ModeSetting.R(var122);
                     float var145 = this.U;
                     var8 = this.pP;
                     float var146 = var145 + var8;
@@ -436,12 +436,12 @@ public final class qJ extends XR {
                     int var224 = DP.nq(var223, var3);
                     var9 = var9.color(var224);
                     float var124 = var1.textRight(var123, var147, var8, var9);
-                    r_2 var148 = this.CF;
+                    ModeSetting var148 = this.CF;
                     boolean var149 = var148.m();
                     if (var149) {
                         var4 &= 1532100085;
                         var4 ^= -114643830;
-                        r_2 var150 = this.CF;
+                        ModeSetting var150 = this.CF;
                         int var151 = var150.g();
                         var8 = this.U;
                         float var199 = this.pP;
@@ -581,7 +581,7 @@ public final class qJ extends XR {
                             float var230 = this.v();
                             float var231 = var230 - 15.0F;
                             var1.clip(var164, var8, var206, var231, 0.0F);
-                            r_2 var165 = this.CF;
+                            ModeSetting var165 = this.CF;
                             Enum[] var166 = var165.M();
                             Enum[] var167 = var166;
                             byte var194 = 0;
@@ -684,7 +684,7 @@ public final class qJ extends XR {
                                 int var249 = DP.Z(-2130706433, -1, var243);
                                 float var263 = this.U;
                                 float var264 = var263 + 2.0F;
-                                r_2 var272 = this.CF;
+                                ModeSetting var272 = this.CF;
                                 boolean var273 = var272.m();
                                 Integer var279 = var5;
                                 if (var279 == null) {
@@ -787,7 +787,7 @@ public final class qJ extends XR {
                                 }
 
                                 Enum var268 = var167[var195];
-                                String var269 = r_2.R(var268);
+                                String var269 = ModeSetting.R(var268);
                                 float var288 = var217 + 2.0F;
                                 long var289 = var5;
                                 long var17 = var289 + 1L;
@@ -868,7 +868,7 @@ public final class qJ extends XR {
     private void C(Canvas var1, int var2, float var3, float var4, float var5, int var6) {
         int var9 = System.identityHashCode(this);
         float var10 = 2.7F;
-        r_2 var11 = this.CF;
+        ModeSetting var11 = this.CF;
         long var12 = var9;
         long var14 = var12 + 1L;
         var14 = var12 * var14;
@@ -895,7 +895,7 @@ public final class qJ extends XR {
             if (var29 == 0) {
                 int var31 = var11.u(var2, 0);
                 int var32 = DP.nq(var31, var5);
-                r_2 var38 = this.CF;
+                ModeSetting var38 = this.CF;
                 var9 = var38.u(var2, 1);
                 var9 = DP.nq(var9, var5);
                 Paint var33 = Paint.linear(var32, var9, (float) (Math.PI / 4));
@@ -1117,7 +1117,7 @@ public final class qJ extends XR {
                                     break label189;
                                 }
 
-                                r_2 var171 = this.CF;
+                                ModeSetting var171 = this.CF;
                                 var171.p(1);
                                 Integer var172 = var7;
                                 if (var172 == null) {
@@ -1372,7 +1372,7 @@ public final class qJ extends XR {
 
     private void Q(int var1, int var2) {
         int var5 = System.identityHashCode(this);
-        r_2 var6 = this.CF;
+        ModeSetting var6 = this.CF;
         long var7 = var5;
         long var9 = var7 + 1L;
         var9 = var7 * var9;
@@ -1417,7 +1417,7 @@ public final class qJ extends XR {
             if (var22 == 0) {
                 Enum[] var24 = var6.M();
                 Enum var25 = var24[var1];
-                r_2 var4 = this.CF;
+                ModeSetting var4 = this.CF;
                 var4.UY(var25);
                 return;
             }

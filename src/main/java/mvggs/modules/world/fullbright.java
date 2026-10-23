@@ -1,21 +1,22 @@
 package mvggs.modules.world;
 
 import dev.aurap.hub.*;
+import dev.aurap.hub.Module;
 
 import java.lang.invoke.MethodHandles;
 import java.lang.invoke.MethodHandles.Lookup;
 
-public final class fullbright extends Yn {
-    private final Uq M;
+public final class fullbright extends Module {
+    private final NumberSetting M;
     public static final int x;
 
     public fullbright() {
-        super("fullbright", "Fullbright", AJ.WORLD);
-        Uq var2 = new Uq("strength", "Strength", 100.0F, 0.0F, 100.0F);
-        Uq var3 = var2.W(1.0F);
-        Uq var4 = var3.L("%");
-        xB var5 = this.vn(var4);
-        Uq var6 = (Uq)var5;
+        super("fullbright", "Fullbright", ModuleCategory.WORLD);
+        NumberSetting var2 = new NumberSetting("strength", "Strength", 100.0F, 0.0F, 100.0F);
+        NumberSetting var3 = var2.W(1.0F);
+        NumberSetting var4 = var3.L("%");
+        Setting var5 = this.addSetting(var4);
+        NumberSetting var6 = (NumberSetting)var5;
         this.M = var6;
         this.dy("Clear, steady lighting in caves and at night, with adjustable strength.");
     }
@@ -23,7 +24,7 @@ public final class fullbright extends Yn {
     public static float g() {
         int var0 = x;
         var0 ^= 872163388;
-        int var1 = (Ud.y()) ? 1 : 0;
+        int var1 = (ClientRuntime.y()) ? 1 : 0;
         var0 += 100031475;
         var0 >>>= 13;
         var0 &= -1056442138;
@@ -60,9 +61,9 @@ public final class fullbright extends Yn {
                 var0 ^= 299372049;
                 Integer var48 = var0;
                 if (var48 != null) {
-                    Ud var49 = Ud.Z();
-                    NW var50 = var49.sP();
-                    Yn var51 = var50.tG(fullbright.class);
+                    ClientRuntime var49 = ClientRuntime.Z();
+                    ModuleManager var50 = var49.sP();
+                    Module var51 = var50.tG(fullbright.class);
                     var0 += -430680614;
                     var0 ^= 1323140968;
                     var0 |= 212549327;
@@ -78,7 +79,7 @@ public final class fullbright extends Yn {
                             var0 &= 1812522065;
                             var0 -= 174334718;
                             var0 ^= 1186222744;
-                            Uq var53 = var52.M;
+                            NumberSetting var53 = var52.M;
                             float var54 = var53.WM();
                             float var55 = var54 / 100.0F;
 
@@ -161,7 +162,7 @@ public final class fullbright extends Yn {
         Lookup var0 = MethodHandles.lookup();
         Class var3 = var0.lookupClass();
         int var1 = 2004325522;
-        int var2 = Yn.C;
+        int var2 = Module.C;
         int var4 = of_2.xF(var3, var1, var2);
         x = var4;
     }

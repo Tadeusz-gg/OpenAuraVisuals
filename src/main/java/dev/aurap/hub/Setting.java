@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.function.BooleanSupplier;
 
-public abstract sealed class xB permits JL, Uq, r_2, Fk, ia, cS {
+public abstract sealed class Setting<T> permits BooleanSetting, NumberSetting, ModeSetting, ColorSetting, KeybindSetting, ActionSetting {
     private final String If;
     private final String os;
     private String A = "";
@@ -16,7 +16,7 @@ public abstract sealed class xB permits JL, Uq, r_2, Fk, ia, cS {
     private final List W;
     public static final int nu;
 
-    protected xB(String var1, String var2) {
+    protected Setting(String var1, String var2) {
         BooleanSupplier var3 = () -> true;
         this.e = var3;
         this.Me = true;
@@ -33,7 +33,7 @@ public abstract sealed class xB permits JL, Uq, r_2, Fk, ia, cS {
         }
     }
 
-    public final String oQ() {
+    public final String getId() {
         int var1 = nu;
         var1 ^= 1379963413;
         int var2 = System.identityHashCode(this);
@@ -75,7 +75,9 @@ public abstract sealed class xB permits JL, Uq, r_2, Fk, ia, cS {
         }
     }
 
-    public final String Tp() {
+    public final String oQ() { return this.getId(); }
+
+    public final String getName() {
         int var1 = nu;
         var1 ^= 1240992593;
         int var2 = System.identityHashCode(this);
@@ -108,7 +110,9 @@ public abstract sealed class xB permits JL, Uq, r_2, Fk, ia, cS {
         }
     }
 
-    public final String ZE() {
+    public final String Tp() { return this.getName(); }
+
+    public final String getDescription() {
         int var1 = nu;
         var1 ^= -846441772;
         int var2 = System.identityHashCode(this);
@@ -131,11 +135,17 @@ public abstract sealed class xB permits JL, Uq, r_2, Fk, ia, cS {
         }
     }
 
+    public final String ZE() { return this.getDescription(); }
+
     public abstract Object cQ();
 
     public abstract void t(Object var1);
 
     public abstract Object a();
+
+    public final Object getDefaultValue() { return this.cQ(); }
+    public final void setValue(Object value) { this.t(value); }
+    public final Object getValue() { return this.a(); }
 
     public final void s() {
         int var1 = nu;
@@ -256,7 +266,7 @@ public abstract sealed class xB permits JL, Uq, r_2, Fk, ia, cS {
         throw var18;
     }
 
-    public final xB q(String var1) {
+    public final Setting q(String var1) {
         int var2 = nu;
         var2 ^= 1054447483;
         int var3 = System.identityHashCode(this);
@@ -276,7 +286,7 @@ public abstract sealed class xB permits JL, Uq, r_2, Fk, ia, cS {
         }
     }
 
-    public final xB Pt(BooleanSupplier var1) {
+    public final Setting Pt(BooleanSupplier var1) {
         int var2 = nu;
         var2 ^= -1442950845;
         int var3 = System.identityHashCode(this);
@@ -328,7 +338,7 @@ public abstract sealed class xB permits JL, Uq, r_2, Fk, ia, cS {
         }
     }
 
-    public final xB K() {
+    public final Setting K() {
         int var1 = nu;
         var1 ^= -1249754145;
         int var2 = System.identityHashCode(this);

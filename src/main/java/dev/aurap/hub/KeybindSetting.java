@@ -3,14 +3,14 @@ package dev.aurap.hub;
 import java.lang.invoke.MethodHandles;
 import java.lang.invoke.MethodHandles.Lookup;
 
-public final class ia extends xB {
+public final class KeybindSetting extends Setting {
     public static final int KY = -1;
     private static volatile sx MP;
     private final int Y;
     private int P;
     public static final int mf;
 
-    public ia(String var1, String var2, int var3) {
+    public KeybindSetting(String var1, String var2, int var3) {
         super(var1, var2);
         this.Y = var3;
         this.P = var3;
@@ -876,7 +876,7 @@ public final class ia extends xB {
         Lookup var0 = MethodHandles.lookup();
         Class var3 = var0.lookupClass();
         int var1 = -1332599848;
-        int var2 = xB.nu;
+        int var2 = Setting.nu;
         int var4 = of_2.xF(var3, var1, var2);
         mf = var4;
         qV var5 = new qV();

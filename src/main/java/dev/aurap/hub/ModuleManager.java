@@ -13,14 +13,14 @@ import java.util.Optional;
 import java.util.Set;
 import java.util.concurrent.CopyOnWriteArrayList;
 
-public final class NW {
-    private final PH cI;
+public final class ModuleManager {
+    private final EventBus cI;
     private final Map L;
     private final Map k;
     private final List N;
     public static final int wU;
 
-    public NW(PH var1) {
+    public ModuleManager(EventBus var1) {
         LinkedHashMap var2 = new LinkedHashMap();
         this.L = var2;
         var2 = new LinkedHashMap();
@@ -30,7 +30,7 @@ public final class NW {
         this.cI = var1;
     }
 
-    public Yn v(Yn var1) {
+    public Module register(Module var1) {
         label40: {
             int var2 = wU;
             var2 ^= -625807790;
@@ -100,7 +100,7 @@ public final class NW {
                 Map var46 = this.k;
                 Class var60 = var1.getClass();
                 var46.put(var60, var1);
-                PH var49 = this.cI;
+                EventBus var49 = this.cI;
                 Runnable var61 = this::T;
                 var6 = var3 + 1;
                 var6 = var3 * var6;
@@ -144,7 +144,9 @@ public final class NW {
         throw var34;
     }
 
-    public Optional p(String var1) {
+    public Module v(Module module) { return this.register(module); }
+
+    public Optional<Module> getById(String var1) {
         int var2 = wU;
         var2 ^= 1726348728;
         int var3 = System.identityHashCode(this);
@@ -170,7 +172,7 @@ public final class NW {
             if (var3 == 0) {
                 Map var27 = this.L;
                 Object var28 = var27.get(var1);
-                Yn var29 = (Yn)var28;
+                Module var29 = (Module)var28;
                 return Optional.ofNullable(var29);
             }
         } else {
@@ -195,14 +197,16 @@ public final class NW {
         throw var18;
     }
 
-    public Yn tG(Class var1) {
+    public Optional p(String id) { return this.getById(id); }
+
+    public Module getByClass(Class<? extends Module> var1) {
         label45: {
             int var2 = wU;
             var2 ^= 1201571379;
             int var3 = System.identityHashCode(this);
             Map var4 = this.k;
             Object var44 = var4.get(var1);
-            var44 = (Yn)var44;
+            var44 = (Module)var44;
             Integer var5 = var3;
             int var6 = of_2.qA;
             var2 ^= var6;
@@ -281,7 +285,7 @@ public final class NW {
                             var2 ^= -778065519;
                     }
 
-                    return (Yn)var44;
+                    return (Module)var44;
                 }
 
                 var2 |= 173788776;
@@ -301,7 +305,9 @@ public final class NW {
         throw var43;
     }
 
-    public List dG() {
+    public Module tG(Class moduleClass) { return this.getByClass(moduleClass); }
+
+    public List<Module> getModules() {
         int var1 = wU;
         var1 ^= -1447778283;
         int var2 = System.identityHashCode(this);
@@ -345,7 +351,9 @@ public final class NW {
         }
     }
 
-    public List h(AJ var1) {
+    public List dG() { return this.getModules(); }
+
+    public List<Module> getByCategory(ModuleCategory var1) {
         label102: {
             int var2 = wU;
             var2 ^= 623043455;
@@ -448,8 +456,8 @@ public final class NW {
                     }
 
                     Object var83 = var69.next();
-                    Yn var84 = (Yn)var83;
-                    AJ var87 = var84.bZ();
+                    Module var84 = (Module)var83;
+                    ModuleCategory var87 = var84.bZ();
                     int var98 = var3 + 1;
                     int var99 = var3 * var98;
                     int var100 = var99 & 1;
@@ -562,6 +570,8 @@ public final class NW {
         throw var61;
     }
 
+    public List h(ModuleCategory category) { return this.getByCategory(category); }
+
     public void VY(Set var1) {
         boolean var107 = false;
         int var2 = wU;
@@ -624,7 +634,7 @@ public final class NW {
                             label74:
                             if (var88 != null) {
                                 Object var89 = var85.next();
-                                Yn var90 = (Yn)var89;
+                                Module var90 = (Module)var89;
                                 Integer var100 = var3;
                                 if (var100 == null) {
                                     var2 -= 1579178698;

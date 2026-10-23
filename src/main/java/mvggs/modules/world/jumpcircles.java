@@ -1,6 +1,7 @@
 package mvggs.modules.world;
 
 import dev.aurap.hub.*;
+import dev.aurap.hub.Module;
 
 import dev.skidware.visuals.client.render.AuraPipeline;
 import dev.skidware.visuals.client.render.FrameContext;
@@ -17,15 +18,15 @@ import net.minecraft.entity.Entity;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 
-public final class jumpcircles extends Yn {
+public final class jumpcircles extends Module {
     private static final int s = 16;
     private static final String W = "AURA VISUALS  •  AURA VISUALS  •  ";
     private static final String[] CH;
-    private final r_2 Sf;
-    private final Uq U;
-    private final Uq o;
-    private final Uq m;
-    private final Uq n;
+    private final ModeSetting Sf;
+    private final NumberSetting U;
+    private final NumberSetting o;
+    private final NumberSetting m;
+    private final NumberSetting n;
     private final zS N;
     private final double[] Zk;
     private final double[] B;
@@ -41,35 +42,35 @@ public final class jumpcircles extends Yn {
     public static final int Wo;
 
     public jumpcircles() {
-        super("jump_circles", "Jump Circles", AJ.WORLD);
-        AJ var1 = AJ.WORLD;
+        super("jump_circles", "Jump Circles", ModuleCategory.WORLD);
+        ModuleCategory var1 = ModuleCategory.WORLD;
 
         Ll var2 = Ll.BADGE;
-        r_2 var3 = new r_2("style", "Style", var2);
-        xB var4 = this.vn(var3);
-        r_2 var5 = (r_2)var4;
+        ModeSetting var3 = new ModeSetting("style", "Style", var2);
+        Setting var4 = this.addSetting(var3);
+        ModeSetting var5 = (ModeSetting)var4;
         this.Sf = var5;
-        Uq var6 = new Uq("radius", "Radius", 0.9F, 0.4F, 2.0F);
-        Uq var7 = var6.W(0.05F);
-        Uq var8 = var7.L("m");
-        xB var9 = this.vn(var8);
-        Uq var10 = (Uq)var9;
+        NumberSetting var6 = new NumberSetting("radius", "Radius", 0.9F, 0.4F, 2.0F);
+        NumberSetting var7 = var6.W(0.05F);
+        NumberSetting var8 = var7.L("m");
+        Setting var9 = this.addSetting(var8);
+        NumberSetting var10 = (NumberSetting)var9;
         this.U = var10;
-        Uq var11 = new Uq("spin", "Spin", 1.2F, 0.0F, 4.0F);
-        Uq var12 = var11.W(0.1F);
-        xB var13 = this.vn(var12);
-        Uq var14 = (Uq)var13;
+        NumberSetting var11 = new NumberSetting("spin", "Spin", 1.2F, 0.0F, 4.0F);
+        NumberSetting var12 = var11.W(0.1F);
+        Setting var13 = this.addSetting(var12);
+        NumberSetting var14 = (NumberSetting)var13;
         this.o = var14;
-        Uq var15 = new Uq("duration", "Duration", 1.6F, 0.6F, 4.0F);
-        Uq var16 = var15.W(0.1F);
-        Uq var17 = var16.L("s");
-        xB var18 = this.vn(var17);
-        Uq var19 = (Uq)var18;
+        NumberSetting var15 = new NumberSetting("duration", "Duration", 1.6F, 0.6F, 4.0F);
+        NumberSetting var16 = var15.W(0.1F);
+        NumberSetting var17 = var16.L("s");
+        Setting var18 = this.addSetting(var17);
+        NumberSetting var19 = (NumberSetting)var18;
         this.m = var19;
-        Uq var20 = new Uq("glow", "Glow", 0.7F, 0.0F, 1.0F);
-        Uq var21 = var20.W(0.05F);
-        xB var22 = this.vn(var21);
-        Uq var23 = (Uq)var22;
+        NumberSetting var20 = new NumberSetting("glow", "Glow", 0.7F, 0.0F, 1.0F);
+        NumberSetting var21 = var20.W(0.05F);
+        Setting var22 = this.addSetting(var21);
+        NumberSetting var23 = (NumberSetting)var22;
         this.n = var23;
         zS var24 = new zS();
         nM var25 = this.bU(var24);
@@ -92,7 +93,7 @@ public final class jumpcircles extends Yn {
         this.DB = true;
         this.dy("A ring of light spreading over the ground where you jump.");
         this.fJ(true);
-        wD<sE> var34 = (sE var1x) -> {
+        EventListener<TickEvent> var34 = (TickEvent var1x) -> {
             int var2x = Wo;
             var2x ^= -816462828;
             int var3x = System.identityHashCode(this);
@@ -132,9 +133,9 @@ public final class jumpcircles extends Yn {
             IllegalStateException var17x = new IllegalStateException();
             throw var17x;
         };
-        this.iI(sE.class, var34);
-        wD<T> var35 = this::mq;
-        this.iI(T.class, var35);
+        this.onEvent(TickEvent.class, var34);
+        EventListener<RenderEvent> var35 = this::mq;
+        this.onEvent(RenderEvent.class, var35);
     }
 
     public void N() {
@@ -812,7 +813,7 @@ public final class jumpcircles extends Yn {
         throw var56;
     }
 
-    private void mq(T var1) {
+    private void mq(RenderEvent var1) {
         label307: {
             int var2 = Wo;
             var2 ^= -1493609068;
@@ -969,7 +970,7 @@ public final class jumpcircles extends Yn {
                         float var242 = var241.dt();
                         float var243 = Math.min(var242, 0.1F);
                         float var244 = var243;
-                        Uq var260 = this.m;
+                        NumberSetting var260 = this.m;
                         float var261 = var260.WM();
                         float var262 = var261;
                         float var277 = var261 * 0.28F;
@@ -981,12 +982,12 @@ public final class jumpcircles extends Yn {
                         double var291 = var290;
                         Canvas var10 = var1.canvas();
                         Canvas var292 = var10;
-                        Ud var11 = Ud.Z();
+                        ClientRuntime var11 = ClientRuntime.Z();
                         AuraPipeline var293 = var11.Ul();
                         WorldDraw var294 = var293.world();
                         WorldDraw var295 = var294;
                         var10.save();
-                        Uq var12 = this.n;
+                        NumberSetting var12 = this.n;
                         float var296 = var12.WM();
                         var10.additive(var296);
                         long var297 = var3;
@@ -1352,7 +1353,7 @@ public final class jumpcircles extends Yn {
 
                                         float[] var395 = this.Oo;
                                         float var437 = var395[var301];
-                                        Uq var448 = this.o;
+                                        NumberSetting var448 = this.o;
                                         float var449 = var448.WM();
                                         float var450 = var449 * var244;
                                         float var460 = 0.6F * var394;
@@ -1406,7 +1407,7 @@ public final class jumpcircles extends Yn {
                                             var2 |= -1663082731;
                                             var2 ^= 1891231419;
                                             var2 ^= -610230794;
-                                            Uq var399 = this.U;
+                                            NumberSetting var399 = this.U;
                                             float var400 = var399.WM();
                                             float var354 = Math.max(0.05F, var353);
                                             float var355 = var400 * var354;
@@ -1595,7 +1596,7 @@ public final class jumpcircles extends Yn {
                 if (var143 == 0) {
                     int var136 = DP.Z(var131, var135, 0.2F);
                     float var144 = 0.7692308F;
-                    r_2 var13 = this.Sf;
+                    ModeSetting var13 = this.Sf;
                     Enum var146 = var13.A();
                     Ll var147 = (Ll)var146;
                     int var148 = var147.ordinal();
@@ -2128,7 +2129,7 @@ public final class jumpcircles extends Yn {
         Lookup var0 = MethodHandles.lookup();
         Class var3 = var0.lookupClass();
         int var1 = -2078520400;
-        int var2 = Yn.C;
+        int var2 = Module.C;
         int var4 = of_2.kj(var3, var1, var2);
         Wo = var4;
         String[] var5 = "AURA VISUALS  •  AURA VISUALS  •  ".split("");

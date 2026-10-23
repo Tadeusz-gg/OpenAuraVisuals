@@ -4,7 +4,7 @@ import java.lang.invoke.MethodHandles;
 import java.lang.invoke.MethodHandles.Lookup;
 import java.util.Locale;
 
-public final class Uq extends xB {
+public final class NumberSetting extends Setting {
     private final float Z;
     private final float Q;
     private final float X;
@@ -13,7 +13,7 @@ public final class Uq extends xB {
     private float l;
     public static final int kW;
 
-    public Uq(String var1, String var2, float var3, float var4, float var5) {
+    public NumberSetting(String var1, String var2, float var3, float var4, float var5) {
         super(var1, var2);
         float var10;
         int var6 = (var10 = var4 - var5) == 0.0F ? 0 : (var10 < 0.0F ? -1 : 1);
@@ -31,7 +31,7 @@ public final class Uq extends xB {
         }
     }
 
-    public Uq W(float var1) {
+    public NumberSetting W(float var1) {
         int var2 = kW;
         var2 ^= 568267881;
         int var3 = System.identityHashCode(this);
@@ -92,7 +92,7 @@ public final class Uq extends xB {
         throw var23;
     }
 
-    public Uq L(String var1) {
+    public NumberSetting L(String var1) {
         int var2 = kW;
         var2 ^= 1680927193;
         int var3 = System.identityHashCode(this);
@@ -1143,7 +1143,7 @@ public final class Uq extends xB {
         Lookup var0 = MethodHandles.lookup();
         Class var3 = var0.lookupClass();
         int var1 = -434647654;
-        int var2 = xB.nu;
+        int var2 = Setting.nu;
         int var4 = of_2.ro(var3, var1, var2);
         kW = var4;
     }

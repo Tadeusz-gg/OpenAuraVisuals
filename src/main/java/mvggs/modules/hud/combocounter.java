@@ -1,6 +1,7 @@
 package mvggs.modules.hud;
 
 import dev.aurap.hub.*;
+import dev.aurap.hub.Module;
 
 import dev.skidware.visuals.client.render.FrameContext;
 import dev.skidware.visuals.client.render.RenderPhase;
@@ -9,9 +10,9 @@ import dev.skidware.visuals.render.canvas.TextStyle;
 import java.lang.invoke.MethodHandles;
 import java.lang.invoke.MethodHandles.Lookup;
 
-public final class combocounter extends Yn {
-    private final Uq zh;
-    private final Uq d;
+public final class combocounter extends Module {
+    private final NumberSetting zh;
+    private final NumberSetting d;
     private final XF Ru;
     private final XF x;
     private int Qp;
@@ -19,19 +20,19 @@ public final class combocounter extends Yn {
     public static final int Y;
 
     public combocounter() {
-        super("combo_counter", "Combo Counter", AJ.HUD);
-        AJ var1 = AJ.HUD;
+        super("combo_counter", "Combo Counter", ModuleCategory.HUD);
+        ModuleCategory var1 = ModuleCategory.HUD;
 
-        Uq var3 = new Uq("min_combo", "Show From", 2.0F, 1.0F, 10.0F);
-        Uq var4 = var3.W(1.0F);
-        xB var5 = this.vn(var4);
-        Uq var6 = (Uq)var5;
+        NumberSetting var3 = new NumberSetting("min_combo", "Show From", 2.0F, 1.0F, 10.0F);
+        NumberSetting var4 = var3.W(1.0F);
+        Setting var5 = this.addSetting(var4);
+        NumberSetting var6 = (NumberSetting)var5;
         this.zh = var6;
-        Uq var7 = new Uq("hold", "Hold Time", 1.6F, 0.5F, 4.0F);
-        Uq var8 = var7.W(0.1F);
-        Uq var9 = var8.L("s");
-        xB var10 = this.vn(var9);
-        Uq var11 = (Uq)var10;
+        NumberSetting var7 = new NumberSetting("hold", "Hold Time", 1.6F, 0.5F, 4.0F);
+        NumberSetting var8 = var7.W(0.1F);
+        NumberSetting var9 = var8.L("s");
+        Setting var10 = this.addSetting(var9);
+        NumberSetting var11 = (NumberSetting)var10;
         this.d = var11;
         kE_2 var2 = kE_2.uY(0.32F, 0.4F);
         XF var12 = new XF(1.0F, var2);
@@ -42,7 +43,7 @@ public final class combocounter extends Yn {
         this.H = Float.MAX_VALUE;
         this.dy("Shows your current hit combo next to the crosshair.");
         this.fJ(true);
-        wD<Hm> var14 = (Hm var1x) -> {
+        EventListener<HitEvent> var14 = (HitEvent var1x) -> {
             label68: {
                 int var2x = Y;
                 var2x ^= 872880460;
@@ -86,7 +87,7 @@ public final class combocounter extends Yn {
                         this.Qp = var4x;
                         this.H = 0.0F;
                         var4x = this.Qp;
-                        Uq var5x = this.zh;
+                        NumberSetting var5x = this.zh;
                           int var61 = var5x.B();
                         if (var4x >= var61) {
                             var2x -= -743494666;
@@ -189,12 +190,12 @@ public final class combocounter extends Yn {
             UnsupportedOperationException var37 = new UnsupportedOperationException();
             throw var37;
         };
-        this.iI(Hm.class, var14);
-        wD<T> var15 = this::As;
-        this.iI(T.class, var15);
+        this.onEvent(HitEvent.class, var14);
+        EventListener<RenderEvent> var15 = this::As;
+        this.onEvent(RenderEvent.class, var15);
     }
 
-    private void As(T var1) {
+    private void As(RenderEvent var1) {
         boolean var205 = false;
         label235: {
             int var2 = Y;
@@ -292,7 +293,7 @@ public final class combocounter extends Yn {
 
                         label229: {
                             int var197 = this.Qp;
-                            Uq var219 = this.zh;
+                            NumberSetting var219 = this.zh;
                               int var220 = var219.B();
                             if (var197 >= var220) {
                                 var2 |= 774794379;
@@ -316,7 +317,7 @@ public final class combocounter extends Yn {
                                 var2 &= 662912416;
                                 var2 |= -1077191065;
                                 var2 ^= -321700675;
-                                Uq var224 = this.d;
+                                NumberSetting var224 = this.d;
                                 float var225 = var224.WM();
                                 float var365;
                                 int var199 = (var365 = var198 - var225) == 0.0F ? 0 : (var365 < 0.0F ? -1 : 1);
@@ -824,7 +825,7 @@ public final class combocounter extends Yn {
         Lookup var0 = MethodHandles.lookup();
         Class var3 = var0.lookupClass();
         int var1 = -874710304;
-        int var2 = Yn.C;
+        int var2 = Module.C;
         int var4 = of_2.xF(var3, var1, var2);
         Y = var4;
     }

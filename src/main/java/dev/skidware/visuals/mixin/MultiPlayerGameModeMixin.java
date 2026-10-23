@@ -1,6 +1,6 @@
 package dev.skidware.visuals.mixin;
 
-import dev.aurap.hub.Ud;
+import dev.aurap.hub.ClientRuntime;
 import dev.aurap.hub.o_2;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.network.ClientPlayerInteractionManager;
@@ -26,7 +26,7 @@ public abstract class MultiPlayerGameModeMixin {
         cancellable = true
     )
     private void aura$interact(PlayerEntity player, Entity target, Hand hand, CallbackInfoReturnable cir) {
-        if (Ud.y() && Ud.Z().M().owns(target)) {
+        if (ClientRuntime.y() && ClientRuntime.Z().M().owns(target)) {
             cir.setReturnValue(ActionResult.PASS);
         }
     }
@@ -37,7 +37,7 @@ public abstract class MultiPlayerGameModeMixin {
         cancellable = true
     )
     private void aura$interactAt(PlayerEntity player, Entity target, EntityHitResult hit, Hand hand, CallbackInfoReturnable cir) {
-        if (Ud.y() && Ud.Z().M().owns(target)) {
+        if (ClientRuntime.y() && ClientRuntime.Z().M().owns(target)) {
             cir.setReturnValue(ActionResult.PASS);
         }
     }
@@ -48,11 +48,11 @@ public abstract class MultiPlayerGameModeMixin {
         cancellable = true
     )
     private void aura$attack(PlayerEntity player, Entity target, CallbackInfo ci) {
-        if (Ud.y() && player == MinecraftClient.getInstance().player) {
+        if (ClientRuntime.y() && player == MinecraftClient.getInstance().player) {
             float strength = player.getAttackCooldownProgress(0.5F);
-            Ud.Z().ZM().A(new o_2(target, strength));
-            if (Ud.Z().M().owns(target)) {
-                Ud.Z().M().attack(player, strength);
+            ClientRuntime.Z().ZM().A(new o_2(target, strength));
+            if (ClientRuntime.Z().M().owns(target)) {
+                ClientRuntime.Z().M().attack(player, strength);
                 player.resetTicksSince();
                 ci.cancel();
             }

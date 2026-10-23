@@ -11,7 +11,7 @@ import java.lang.invoke.MethodHandles.Lookup;
 import java.util.Objects;
 import java.util.function.BooleanSupplier;
 
-public final class watermark extends tR_2 {
+public final class watermark extends HudModule {
     private static final String KR = "aura-visuals.pl";
     private static final float oK = 15.0F;
     private static final float aZ = 8.0F;
@@ -22,11 +22,11 @@ public final class watermark extends tR_2 {
     private static final TextStyle xh;
     private static final TextStyle Vu;
     private static final TextStyle u;
-    private final r_2 tw;
-    private final JL fq;
-    private final JL B;
-    private final JL D;
-    private final Uq Lf;
+    private final ModeSetting tw;
+    private final BooleanSetting fq;
+    private final BooleanSetting B;
+    private final BooleanSetting D;
+    private final NumberSetting Lf;
     private TextStyle Lh;
     private TextStyle uY;
     private TextStyle Pi;
@@ -47,32 +47,32 @@ public final class watermark extends tR_2 {
         Cl_2 var1 = Cl_2.TOP_LEFT;
 
         cK var2 = cK.SLASH;
-        r_2 var4 = new r_2("separator", "Separator", var2);
-        xB var5 = this.vn(var4);
-        r_2 var6 = (r_2)var5;
+        ModeSetting var4 = new ModeSetting("separator", "Separator", var2);
+        Setting var5 = this.addSetting(var4);
+        ModeSetting var6 = (ModeSetting)var5;
         this.tw = var6;
-        JL var7 = new JL("ping", "Ping", true);
-        xB var8 = this.vn(var7);
-        JL var9 = (JL)var8;
+        BooleanSetting var7 = new BooleanSetting("ping", "Ping", true);
+        Setting var8 = this.addSetting(var7);
+        BooleanSetting var9 = (BooleanSetting)var8;
         this.fq = var9;
-        JL var10 = new JL("fps", "FPS", true);
-        xB var11 = this.vn(var10);
-        JL var12 = (JL)var11;
+        BooleanSetting var10 = new BooleanSetting("fps", "FPS", true);
+        Setting var11 = this.addSetting(var10);
+        BooleanSetting var12 = (BooleanSetting)var11;
         this.B = var12;
-        JL var13 = new JL("shimmer", "Shimmer", true);
-        xB var14 = this.vn(var13);
-        JL var15 = (JL)var14;
+        BooleanSetting var13 = new BooleanSetting("shimmer", "Shimmer", true);
+        Setting var14 = this.addSetting(var13);
+        BooleanSetting var15 = (BooleanSetting)var14;
         this.D = var15;
-        Uq var16 = new Uq("shimmer_every", "Shimmer Every", 4.0F, 1.5F, 15.0F);
-        Uq var17 = var16.W(0.5F);
-        Uq var18 = var17.L("s");
-        JL var30 = this.D;
+        NumberSetting var16 = new NumberSetting("shimmer_every", "Shimmer Every", 4.0F, 1.5F, 15.0F);
+        NumberSetting var17 = var16.W(0.5F);
+        NumberSetting var18 = var17.L("s");
+        BooleanSetting var30 = this.D;
         Object var3 = Objects.requireNonNull(var30);
         BooleanSupplier var31 = var30::vb;
-        xB var19 = var18.Pt(var31);
-        Uq var20 = (Uq)var19;
-        xB var21 = this.vn(var20);
-        Uq var22 = (Uq)var21;
+        Setting var19 = var18.Pt(var31);
+        NumberSetting var20 = (NumberSetting)var19;
+        Setting var21 = this.addSetting(var20);
+        NumberSetting var22 = (NumberSetting)var21;
         this.Lf = var22;
         TextStyle var23 = xh;
         this.Lh = var23;
@@ -281,14 +281,14 @@ public final class watermark extends tR_2 {
                     var4 = var4.append(" FPS");
                     TextStyle var167 = this.Lh;
                     float var168 = var1.me("aura-visuals.pl", var167);
-                    r_2 var218 = this.tw;
+                    ModeSetting var218 = this.tw;
                     Enum var219 = var218.A();
                     cK var220 = (cK)var219;
                     String var221 = var220.glyph;
                     TextStyle var6 = this.Pi;
                     float var222 = var1.me(var221, var6);
                     float var223 = var222 + 9.0F;
-                    JL var271 = this.fq;
+                    BooleanSetting var271 = this.fq;
                     boolean var272 = var271.vb();
                     float var280;
                     if (var272) {
@@ -368,7 +368,7 @@ public final class watermark extends tR_2 {
                         break label223;
                     }
 
-                    JL var172 = this.B;
+                    BooleanSetting var172 = this.B;
                     boolean var173 = var172.vb();
                     Integer var295 = var3;
                     label213:
@@ -599,7 +599,7 @@ public final class watermark extends tR_2 {
                                         float var254 = var1.l();
                                         float var191 = var190 + var254;
                                         this.HT = var191;
-                                        JL var192 = this.D;
+                                        BooleanSetting var192 = this.D;
                                         boolean var193 = var192.vb();
                                         if (var193) {
                                             var2 ^= -1037765636;
@@ -611,7 +611,7 @@ public final class watermark extends tR_2 {
                                             }
 
                                             float var195 = this.HT;
-                                            Uq var255 = this.Lf;
+                                            NumberSetting var255 = this.Lf;
                                             Integer var282 = var3;
                                             if (var282 == null) {
                                                 var2 &= -1455612127;
@@ -921,7 +921,7 @@ public final class watermark extends tR_2 {
                                 break label215;
                             }
 
-                            JL var167 = this.D;
+                            BooleanSetting var167 = this.D;
                             long var7 = var4;
                             long var9 = var7 + 1L;
                             var9 = var7 * var9;
@@ -1161,7 +1161,7 @@ public final class watermark extends tR_2 {
                             TextStyle var215 = this.Lh;
                             float var216 = var1.text("aura-visuals.pl", var155, var207, var215, var177);
                             float var156 = var155 + var216;
-                            JL var217 = this.fq;
+                            BooleanSetting var217 = this.fq;
                             boolean var218 = var217.vb();
                             float var221;
                             if (var218) {
@@ -1256,7 +1256,7 @@ public final class watermark extends tR_2 {
                                 break label215;
                             }
 
-                            JL var158 = this.B;
+                            BooleanSetting var158 = this.B;
                             boolean var159 = var158.vb();
                             Integer var245 = var4;
                             if (var245 != null) {
@@ -1417,7 +1417,7 @@ public final class watermark extends tR_2 {
             var7 += 1666277475;
             var7 *= -1646439629;
             var7 ^= -1533558939;
-            r_2 var16 = this.tw;
+            ModeSetting var16 = this.tw;
             Enum var17 = var16.A();
             cK var18 = (cK)var17;
             String var19 = var18.glyph;
@@ -1621,7 +1621,7 @@ public final class watermark extends tR_2 {
         Lookup var0 = MethodHandles.lookup();
         Class var3 = var0.lookupClass();
         int var1 = -1965041161;
-        int var2 = tR_2.qG;
+        int var2 = HudModule.qG;
         int var4 = of_2.xF(var3, var1, var2);
         gm = var4;
         TextStyle var5 = TextStyle.of(7.0F, -1);

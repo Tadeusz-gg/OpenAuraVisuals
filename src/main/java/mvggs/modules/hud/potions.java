@@ -13,19 +13,19 @@ import java.util.List;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.registry.entry.RegistryEntry;
 
-public final class potions extends tR_2 {
+public final class potions extends HudModule {
     private static final float aW = 7.0F;
     private static final float E = 19.0F;
     private static final float T = 14.0F;
     private static final float Eo = 5.0F;
-    private static final float Kl = 112.0F;
+    private static final float SoundPlaybackEvent = 112.0F;
     private static final float l = 9.0F;
     private static final float Ks = 10.0F;
     public static final String[] ROMAN;
     private static final TextStyle LJ;
     private static final TextStyle u;
     private static final TextStyle Q;
-    private final JL Ff;
+    private final BooleanSetting Ff;
     private TextStyle G;
     private TextStyle ku;
     private TextStyle HM;
@@ -41,9 +41,9 @@ public final class potions extends tR_2 {
         super("potions_hud", "Potions", Cl_2.CENTER_LEFT, 4.0F, -24.0F, 2.0F);
         Cl_2 var1 = Cl_2.CENTER_LEFT;
 
-        JL var2 = new JL("hide_vanilla", "Hide Vanilla Icons", true);
-        xB var3 = this.vn(var2);
-        JL var4 = (JL)var3;
+        BooleanSetting var2 = new BooleanSetting("hide_vanilla", "Hide Vanilla Icons", true);
+        Setting var3 = this.addSetting(var2);
+        BooleanSetting var4 = (BooleanSetting)var3;
         this.Ff = var4;
         TextStyle var5 = LJ;
         this.G = var5;
@@ -107,7 +107,7 @@ public final class potions extends tR_2 {
                                 break label65;
                             }
 
-                            JL var53 = this.Ff;
+                            BooleanSetting var53 = this.Ff;
                             boolean var54 = var53.vb();
                             long var4 = var2;
                             long var6 = var4 + 1L;
@@ -3144,7 +3144,7 @@ public final class potions extends tR_2 {
         Lookup var0 = MethodHandles.lookup();
         Class var3 = var0.lookupClass();
         int var1 = -93472538;
-        int var2 = tR_2.qG;
+        int var2 = HudModule.qG;
         int var4 = of_2.kj(var3, var1, var2);
         YO = var4;
         String[] var5 = new String[]{"I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X"};

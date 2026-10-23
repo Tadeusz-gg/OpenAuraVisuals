@@ -20,7 +20,7 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.text.Text;
 
-public final class targethud extends tR_2 {
+public final class targethud extends HudModule {
     private static final int GQ = 64;
     private static final SpriteShape[] p;
     private static final float C = 148.0F;
@@ -44,12 +44,12 @@ public final class targethud extends tR_2 {
     private static final TextStyle h;
     private static final TextStyle Kz;
     private static final TextStyle hA;
-    private final r_2 Z;
-    private final r_2 LS;
-    private final Uq P;
-    private final JL dv;
-    private final JL OG;
-    private final JL bp;
+    private final ModeSetting Z;
+    private final ModeSetting LS;
+    private final NumberSetting P;
+    private final BooleanSetting dv;
+    private final BooleanSetting OG;
+    private final BooleanSetting bp;
     private final XF UA;
     private final Re Qy;
     private final Re F;
@@ -107,18 +107,18 @@ public final class targethud extends tR_2 {
         Cl_2 var1 = Cl_2.CENTER;
 
         Nb var2 = Nb.MODERN;
-        r_2 var3 = new r_2("style", "Style", var2);
-        xB var4 = this.vn(var3);
-        r_2 var5 = (r_2)var4;
+        ModeSetting var3 = new ModeSetting("style", "Style", var2);
+        Setting var4 = this.addSetting(var3);
+        ModeSetting var5 = (ModeSetting)var4;
         this.Z = var5;
         b_2 var61 = b_2.FIXED;
-        r_2 var6 = new r_2("placement", "Placement", var61);
-        xB var7 = this.vn(var6);
-        r_2 var8 = (r_2)var7;
+        ModeSetting var6 = new ModeSetting("placement", "Placement", var61);
+        Setting var7 = this.addSetting(var6);
+        ModeSetting var8 = (ModeSetting)var7;
         this.LS = var8;
-        Uq var9 = new Uq("follow_scale", "Follow Size", 0.75F, 0.4F, 1.2F);
-        Uq var10 = var9.W(0.05F);
-        Uq var11 = var10.L("x");
+        NumberSetting var9 = new NumberSetting("follow_scale", "Follow Size", 0.75F, 0.4F, 1.2F);
+        NumberSetting var10 = var9.W(0.05F);
+        NumberSetting var11 = var10.L("x");
         BooleanSupplier var62 = () -> {
             int var1x = QL;
             var1x ^= -1293254013;
@@ -162,22 +162,22 @@ public final class targethud extends tR_2 {
                         var1x ^= 1473989299;
                 }
 
-                r_2 var14x = this.LS;
+                ModeSetting var14x = this.LS;
                 b_2 var18x = b_2.FOLLOW;
                 return var14x.TJ(var18x);
             }
         };
-        xB var12 = var11.Pt(var62);
-        Uq var13 = (Uq)var12;
-        xB var14 = this.vn(var13);
-        Uq var15 = (Uq)var14;
+        Setting var12 = var11.Pt(var62);
+        NumberSetting var13 = (NumberSetting)var12;
+        Setting var14 = this.addSetting(var13);
+        NumberSetting var15 = (NumberSetting)var14;
         this.P = var15;
-        JL var16 = new JL("equipment", "Equipment", true);
+        BooleanSetting var16 = new BooleanSetting("equipment", "Equipment", true);
         BooleanSupplier var63 = () -> {
             int var1x = QL;
             var1x ^= 104632475;
             int var2x = System.identityHashCode(this);
-            r_2 var3x = this.Z;
+            ModeSetting var3x = this.Z;
             long var4x = var2x;
             long var6x = var4x + 1L;
             var6x = var4x * var6x;
@@ -217,18 +217,18 @@ public final class targethud extends tR_2 {
             UnsupportedOperationException var19x = new UnsupportedOperationException();
             throw var19x;
         };
-        xB var17 = var16.Pt(var63);
-        JL var18 = (JL)var17;
-        xB var19 = this.vn(var18);
-        JL var20 = (JL)var19;
+        Setting var17 = var16.Pt(var63);
+        BooleanSetting var18 = (BooleanSetting)var17;
+        Setting var19 = this.addSetting(var18);
+        BooleanSetting var20 = (BooleanSetting)var19;
         this.dv = var20;
-        JL var21 = new JL("particles", "Hit Particles", true);
-        xB var22 = this.vn(var21);
-        JL var23 = (JL)var22;
+        BooleanSetting var21 = new BooleanSetting("particles", "Hit Particles", true);
+        Setting var22 = this.addSetting(var21);
+        BooleanSetting var23 = (BooleanSetting)var22;
         this.OG = var23;
-        JL var24 = new JL("on_look", "Show On Look", false);
-        xB var25 = this.vn(var24);
-        JL var26 = (JL)var25;
+        BooleanSetting var24 = new BooleanSetting("on_look", "Show On Look", false);
+        Setting var25 = this.addSetting(var24);
+        BooleanSetting var26 = (BooleanSetting)var25;
         this.bp = var26;
         kE_2 var64 = kE_2.uY(0.28F, 0.42F);
         XF var27 = new XF(0.0F, var64);
@@ -300,7 +300,7 @@ public final class targethud extends tR_2 {
         this.o = var59;
         this.dy("Card for your current target: face, health with damage trail, equipment. Open chat to move it.");
         this.fJ(true);
-        wD<Hm> var60 = (Hm var1x) -> {
+        EventListener<HitEvent> var60 = (HitEvent var1x) -> {
             label83: {
                 int var51x;
                 label82: {
@@ -344,7 +344,7 @@ public final class targethud extends tR_2 {
                         XF var75 = this.UA;
                         var75.v(3.0F);
                         this.bF = 0.35F;
-                        JL var76 = this.OG;
+                        BooleanSetting var76 = this.OG;
                         boolean var77 = var76.vb();
                         var5x = var3x;
                         var7x = var5x + 1L;
@@ -502,7 +502,7 @@ public final class targethud extends tR_2 {
             IllegalArgumentException var63x = new IllegalArgumentException();
             throw var63x;
         };
-        this.iI(Hm.class, var60);
+        this.onEvent(HitEvent.class, var60);
     }
 
     public void x(LivingEntity var1, float var2) {
@@ -673,7 +673,7 @@ public final class targethud extends tR_2 {
 
                     this.tP = 1.0F;
                     Re var47 = this.Lu;
-                    r_2 var4 = this.LS;
+                    ModeSetting var4 = this.LS;
                     b_2 var64 = b_2.FOLLOW;
                     boolean var48 = var4.TJ(var64);
                     float var40;
@@ -696,7 +696,7 @@ public final class targethud extends tR_2 {
                             break label86;
                         }
 
-                        Uq var52 = this.P;
+                        NumberSetting var52 = this.P;
                         Integer var37 = var2;
                         if (var37 == null) {
                             var1 &= 1625513056;
@@ -796,7 +796,7 @@ public final class targethud extends tR_2 {
         int var1 = QL;
         var1 ^= 561434944;
         int var2 = System.identityHashCode(this);
-        r_2 var3 = this.LS;
+        ModeSetting var3 = this.LS;
         b_2 var4 = b_2.FIXED;
         long var5 = var2;
         long var7 = var5 + 1L;
@@ -992,7 +992,7 @@ public final class targethud extends tR_2 {
                         break label299;
                     }
 
-                    Ud var178 = Ud.Z();
+                    ClientRuntime var178 = ClientRuntime.Z();
                     var6 = var4 + 1;
                     var6 = var4 * var6;
                     int var227 = var4 + 2;
@@ -1026,7 +1026,7 @@ public final class targethud extends tR_2 {
                                 }
                                 case -122489460 -> var135 ^ -1801602948;
                             };
-                            JL var199 = this.bp;
+                            BooleanSetting var199 = this.bp;
                             int var229 = var4 + 1;
                             int var230 = var4 * var229;
                             int var266 = var4 + 2;
@@ -2166,7 +2166,7 @@ public final class targethud extends tR_2 {
                         float var796 = var795 + var938;
                         float var797 = Math.min(1.0F, var796);
                         this.tP = var797;
-                        r_2 var798 = this.Z;
+                        ModeSetting var798 = this.Z;
                         Nb var939 = Nb.MODERN;
                         boolean var799 = var798.TJ(var939);
                         float var803;
@@ -2699,7 +2699,7 @@ public final class targethud extends tR_2 {
                                                                     if (var799) {
                                                                         var2 += -143909591;
                                                                         var2 ^= -1872445192;
-                                                                        JL var612 = this.dv;
+                                                                        BooleanSetting var612 = this.dv;
                                                                         long var716 = var3;
                                                                         long var988 = var716 + 1L;
                                                                         long var989 = var716 * var988;
@@ -3347,7 +3347,7 @@ public final class targethud extends tR_2 {
                                                                                                     break label672;
                                                                                                 }
 
-                                                                                                Ud var1018 = Ud.Z();
+                                                                                                ClientRuntime var1018 = ClientRuntime.Z();
                                                                                                 AuraPipeline var1019 = var1018.Ul();
                                                                                                 Projection var1020 = var1019.projection();
                                                                                                 float var1100 = var1.fV();
@@ -3402,7 +3402,7 @@ public final class targethud extends tR_2 {
                                                                                                 double var1025 = Math.max(1.0, var1024);
                                                                                                 double var1026 = var1131 / var1025;
                                                                                                 double var1027 = Math.pow(var1026, 0.55);
-                                                                                                Uq var1132 = this.P;
+                                                                                                NumberSetting var1132 = this.P;
                                                                                                 float var1133 = var1132.WM();
                                                                                                 double var1134 = var1133;
                                                                                                 double var1028 = var1134 * var1027;
@@ -3645,7 +3645,7 @@ public final class targethud extends tR_2 {
                     throw var36;
                 }
 
-                r_2 var49 = this.LS;
+                ModeSetting var49 = this.LS;
                 b_2 var54 = b_2.FOLLOW;
                 boolean var50 = var49.TJ(var54);
                 if (var50) {
@@ -3716,7 +3716,7 @@ public final class targethud extends tR_2 {
     private boolean ov(lH_3 var1, int var2) {
         label95: {
             int var4 = System.identityHashCode(this);
-            Ud var5 = Ud.Z();
+            ClientRuntime var5 = ClientRuntime.Z();
             AuraPipeline var74 = var5.Ul();
             int var6 = var4 + 1;
             var6 = var4 * var6;
@@ -4198,7 +4198,7 @@ public final class targethud extends tR_2 {
                         break label130;
                     }
 
-                    Uq var81 = this.cm;
+                    NumberSetting var81 = this.cm;
                     float var82 = var81.WM();
                     int var5 = var3 + 1;
                     var5 = var3 * var5;
@@ -4438,7 +4438,7 @@ public final class targethud extends tR_2 {
             int var3 = QL;
             var3 ^= 969896396;
             int var4 = System.identityHashCode(this);
-            r_2 var5 = this.Z;
+            ModeSetting var5 = this.Z;
             Nb var6 = Nb.MODERN;
             long var7 = var4;
             long var9 = var7 + 1L;
@@ -4606,7 +4606,7 @@ public final class targethud extends tR_2 {
                     break label136;
                 }
 
-                r_2 var100 = this.Z;
+                ModeSetting var100 = this.Z;
                 var6 = var4;
                 if (var6 == null) {
                     var3 >>>= 14;
@@ -4934,7 +4934,7 @@ public final class targethud extends tR_2 {
                             break label162;
                         }
 
-                        r_2 var108 = this.Z;
+                        ModeSetting var108 = this.Z;
                         long var123 = var4;
                         long var8 = var123 + 1L;
                         var8 = var123 * var8;
@@ -7290,7 +7290,7 @@ public final class targethud extends tR_2 {
 
                 ThreadLocalRandom var88 = ThreadLocalRandom.current();
                 ThreadLocalRandom var89 = var88;
-                r_2 var7 = this.Z;
+                ModeSetting var7 = this.Z;
                 Nb var8 = Nb.MODERN;
                 boolean var90 = var7.TJ(var8);
                 float var96;
@@ -8156,7 +8156,7 @@ public final class targethud extends tR_2 {
                 var3 &= -1506234529;
                 var3 += -1950248442;
                 var3 ^= 867637559;
-                Ud var86 = Ud.Z();
+                ClientRuntime var86 = ClientRuntime.Z();
                 AuraRenderer var87 = var86.ZP();
                 var109 = this.rt;
                 int[] var7 = this.qb;
@@ -8458,7 +8458,7 @@ public final class targethud extends tR_2 {
         Lookup var0 = MethodHandles.lookup();
         Class var3 = var0.lookupClass();
         int var1 = -1466061175;
-        int var2 = tR_2.qG;
+        int var2 = HudModule.qG;
         int var4 = of_2.kj(var3, var1, var2);
         QL = var4;
         SpriteShape[] var5 = new SpriteShape[3];

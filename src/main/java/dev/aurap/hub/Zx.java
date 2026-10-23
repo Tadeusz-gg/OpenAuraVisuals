@@ -26,13 +26,13 @@ public final class Zx {
     private static final Gson Ov;
     private static final Gson f;
     private final Path QC;
-    private final NW h;
+    private final ModuleManager h;
     private volatile boolean dt;
     private volatile long wI;
     private boolean Tb;
     public static final int qs;
 
-    public Zx(Path var1, NW var2) {
+    public Zx(Path var1, ModuleManager var2) {
         this.QC = var1;
         this.h = var2;
         Runnable var3 = this::s;
@@ -492,7 +492,7 @@ public final class Zx {
             }
 
             JsonObject var148 = var147;
-            NW var155 = this.h;
+            ModuleManager var155 = this.h;
             List var156 = var155.dG();
             Iterator var157 = var156.iterator();
             var4 += -1166232215;
@@ -518,7 +518,7 @@ public final class Zx {
                 var4 |= 1865244344;
                 var4 ^= -1100764340;
                 Object var166 = var158.next();
-                Yn var167 = (Yn)var166;
+                Module var167 = (Module)var166;
                 var4 |= 1806676076;
                 var4 >>>= 25;
                 var4 |= 189713571;
@@ -529,7 +529,7 @@ public final class Zx {
                     break;
                 }
 
-                Yn var168 = var167;
+                Module var168 = var167;
                 var4 &= -1548045509;
                 var4 &= 1370112633;
                 var4 &= 837064625;
@@ -785,7 +785,7 @@ public final class Zx {
         throw var20;
     }
 
-    private static void Yl(Yn var0, JsonElement var1, int var2) {
+    private static void Yl(Module var0, JsonElement var1, int var2) {
         int var4 = System.identityHashCode(var0);
         int var5 = var4 + 1;
         var5 = var4 * var5;
@@ -833,7 +833,7 @@ public final class Zx {
         }
     }
 
-    private static void sc(Yn var0, JsonElement var1, boolean var2, int var3) {
+    private static void sc(Module var0, JsonElement var1, boolean var2, int var3) {
         JsonObject var256 = null;
         JsonObject var258 = null;
         boolean var283 = false;
@@ -1470,7 +1470,7 @@ public final class Zx {
                                         var20 += -1148922248;
                                         var20 ^= 745418160;
                                         var364 = var313.next();
-                                        xB var367 = (xB)var364;
+                                        Setting var367 = (Setting)var364;
                                         int var411 = var5 + 1;
                                         int var412 = var5 * var411;
                                         int var445 = var5 + 2;
@@ -1858,7 +1858,7 @@ public final class Zx {
 
                 JsonObject var216 = new JsonObject();
                 JsonObject var217 = var216;
-                NW var219 = this.h;
+                ModuleManager var219 = this.h;
                 List var220 = var219.dG();
                 Iterator var221 = var220.iterator();
                 Iterator var222 = var221;
@@ -1960,7 +1960,7 @@ public final class Zx {
                         break label341;
                     }
 
-                    Yn var233 = (Yn)var232;
+                    Module var233 = (Module)var232;
                     if (var1) {
                         var2 >>>= 29;
                         var2 *= 1201599717;
@@ -2362,7 +2362,7 @@ public final class Zx {
                         var2 &= 1974944415;
                         var2 |= 99666324;
                         var2 ^= -669487563;
-                        xB var295 = (xB)var294;
+                        Setting var295 = (Setting)var294;
                         if (var1) {
                             var2 = switch (var2) {
                                 case -34625630 -> {
@@ -2573,7 +2573,7 @@ public final class Zx {
     for (var entry : copy.entrySet()) {
         String name = entry.getKey();
         com.google.gson.JsonElement elem = entry.getValue();
-        Yn module = (Yn)this.h.p(name).orElse(null);
+        Module module = (Module)this.h.p(name).orElse(null);
         if (module != null) {
             try {
                 Yl(module, elem, 0);
@@ -2625,7 +2625,7 @@ public final class Zx {
         throw var16;
     }
 
-    private static String w(Yn var0, int var1) {
+    private static String w(Module var0, int var1) {
         label112: {
             int var3 = System.identityHashCode(var0);
             int var4 = var3 + 1;
@@ -2796,7 +2796,7 @@ public final class Zx {
                         }
 
                         Object var109 = var97.next();
-                        xB var110 = (xB)var109;
+                        Setting var110 = (Setting)var109;
                         String var130 = var110.oQ();
                         var8 = var3;
                         long var10 = var8 + 1L;
@@ -3240,7 +3240,7 @@ public final class Zx {
             var27 = var4 * var27;
             var27 &= 1;
             if (var27 == 0) {
-                NW var30 = this.h;
+                ModuleManager var30 = this.h;
                 List var31 = var30.dG();
                 var4 *= -872024203;
                 var4 &= -298389040;
@@ -3298,7 +3298,7 @@ public final class Zx {
                         var4 -= 392678262;
                         var4 += -2081452709;
                         var4 ^= 187081396;
-                        Yn var141 = (Yn)var5;
+                        Module var141 = (Module)var5;
                         int var160 = var4 | -648176422;
                         int var161 = var160 * -703055963;
                         int var162 = var161 ^ -353312919;
@@ -3316,12 +3316,12 @@ public final class Zx {
         throw var35;
     }
 
-    private static void C(Yn var0, int var1) {
+    private static void C(Module var0, int var1) {
         List var136 = null;
         Iterator var138 = null;
         Object var168 = null;
-        xB var172 = null;
-        xB var176 = null;
+        Setting var172 = null;
+        Setting var176 = null;
         label167: {
             int var72;
             label185: {
@@ -3551,7 +3551,7 @@ public final class Zx {
                         }
 
                         try {
-                            var172 = (xB)var168;
+                            var172 = (Setting)var168;
                         } catch (Throwable var15) {
                             var2 = var15;
                             int var89 = qs;
@@ -4135,7 +4135,7 @@ public final class Zx {
                 var1 &= 1258204903;
                 var1 ^= 1345764625;
                 var3 = var3;
-                NW var92 = this.h;
+                ModuleManager var92 = this.h;
                 List var93 = var92.dG();
                 Iterator var94 = var93.iterator();
                 Iterator var95 = var94;
@@ -4197,7 +4197,7 @@ public final class Zx {
                     }
 
                     Object var97 = var95.next();
-                    Yn var98 = (Yn)var97;
+                    Module var98 = (Module)var97;
                     String var110 = var98.F();
                     StringBuilder var111 = var3.append(var110);
                     int var7 = (var98.B()) ? 1 : 0;
@@ -4347,7 +4347,7 @@ public final class Zx {
                             case 1703946796 -> var1 ^ -1509599454;
                         };
                         Object var127 = var101.next();
-                        xB var128 = (xB)var127;
+                        Setting var128 = (Setting)var127;
                         StringBuilder var138 = var3.append(' ');
                         String var160 = var128.oQ();
                         StringBuilder var139 = var138.append(var160);

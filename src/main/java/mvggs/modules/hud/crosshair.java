@@ -3,6 +3,7 @@ package mvggs.modules.hud;
 import mvggs.modules.combat.deatheffect;
 
 import dev.aurap.hub.*;
+import dev.aurap.hub.Module;
 
 import dev.skidware.visuals.client.render.FrameContext;
 import dev.skidware.visuals.client.render.RenderPhase;
@@ -18,35 +19,35 @@ import java.util.function.IntSupplier;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 
-public final class crosshair extends Yn {
+public final class crosshair extends Module {
     private static final kP_2[] se;
-    private final r_2 oL;
-    private final cS a;
-    private final Fk bC;
-    private final Fk B;
-    private final Uq T;
-    private final Uq Cj;
-    private final Uq t;
-    private final Uq dJ;
-    private final JL XD;
-    public final Uq pixel;
-    private final Uq Z;
-    private final JL C;
-    private final Fk o;
-    private final Uq Ob;
-    private final Uq ED;
-    private final JL R;
-    private final r_2 u;
-    private final Uq vP;
-    private final JL P;
-    private final Fk pW;
-    private final r_2 Ek;
+    private final ModeSetting oL;
+    private final ActionSetting a;
+    private final ColorSetting bC;
+    private final ColorSetting B;
+    private final NumberSetting T;
+    private final NumberSetting Cj;
+    private final NumberSetting t;
+    private final NumberSetting dJ;
+    private final BooleanSetting XD;
+    public final NumberSetting pixel;
+    private final NumberSetting Z;
+    private final BooleanSetting C;
+    private final ColorSetting o;
+    private final NumberSetting Ob;
+    private final NumberSetting ED;
+    private final BooleanSetting R;
+    private final ModeSetting u;
+    private final NumberSetting vP;
+    private final BooleanSetting P;
+    private final ColorSetting pW;
+    private final ModeSetting Ek;
     private final P jo;
     private final P Y;
     private final P eB;
-    private final Uq i;
-    private final r_2 y;
-    private final Uq Co;
+    private final NumberSetting i;
+    private final ModeSetting y;
+    private final NumberSetting Co;
     private final vw_2 SJ;
     private final VA SS;
     private final XF oW;
@@ -61,108 +62,108 @@ public final class crosshair extends Yn {
     public static final int cm;
 
     public crosshair() {
-        super("crosshair", "Crosshair", AJ.HUD);
-        AJ var1 = AJ.HUD;
+        super("crosshair", "Crosshair", ModuleCategory.HUD);
+        ModuleCategory var1 = ModuleCategory.HUD;
 
         kP_2 var2 = kP_2.CLASSIC;
-        r_2 var5 = new r_2("style", "Style", var2);
+        ModeSetting var5 = new ModeSetting("style", "Style", var2);
         kP_2[] var129 = kP_2.A();
-        r_2 var6 = var5.FP(var129);
-        xB var7 = this.vn(var6);
-        r_2 var8 = (r_2)var7;
+        ModeSetting var6 = var5.FP(var129);
+        Setting var7 = this.addSetting(var6);
+        ModeSetting var8 = (ModeSetting)var7;
         this.oL = var8;
         String[] var130 = new String[]{"....#....", "....#....", ".........", "##..+..##", ".........", "....#....", "....#...."};
         du var131 = du.z(var130);
-        cS var9 = new cS("drawing", "Drawing", var131);
-        xB var10 = this.vn(var9);
-        cS var11 = (cS)var10;
+        ActionSetting var9 = new ActionSetting("drawing", "Drawing", var131);
+        Setting var10 = this.addSetting(var9);
+        ActionSetting var11 = (ActionSetting)var10;
         this.a = var11;
-        Fk var12 = new Fk("color", "Color", -1);
-        xB var13 = this.vn(var12);
-        Fk var14 = (Fk)var13;
+        ColorSetting var12 = new ColorSetting("color", "Color", -1);
+        Setting var13 = this.addSetting(var12);
+        ColorSetting var14 = (ColorSetting)var13;
         this.bC = var14;
-        Fk var15 = new Fk("accent", "Accent", -11559425);
-        xB var16 = this.vn(var15);
-        Fk var17 = (Fk)var16;
+        ColorSetting var15 = new ColorSetting("accent", "Accent", -11559425);
+        Setting var16 = this.addSetting(var15);
+        ColorSetting var17 = (ColorSetting)var16;
         this.B = var17;
-        Uq var18 = new Uq("scale", "Scale", 1.0F, 0.5F, 3.0F);
-        Uq var19 = var18.W(0.05F);
-        xB var20 = this.vn(var19);
-        Uq var21 = (Uq)var20;
+        NumberSetting var18 = new NumberSetting("scale", "Scale", 1.0F, 0.5F, 3.0F);
+        NumberSetting var19 = var18.W(0.05F);
+        Setting var20 = this.addSetting(var19);
+        NumberSetting var21 = (NumberSetting)var20;
         this.T = var21;
-        Uq var22 = new Uq("length", "Length", 4.0F, 0.5F, 12.0F);
-        Uq var23 = var22.W(0.5F);
-        xB var24 = this.vn(var23);
-        Uq var25 = (Uq)var24;
+        NumberSetting var22 = new NumberSetting("length", "Length", 4.0F, 0.5F, 12.0F);
+        NumberSetting var23 = var22.W(0.5F);
+        Setting var24 = this.addSetting(var23);
+        NumberSetting var25 = (NumberSetting)var24;
         this.Cj = var25;
-        Uq var26 = new Uq("gap", "Gap", 2.0F, 0.0F, 10.0F);
-        Uq var27 = var26.W(0.5F);
-        xB var28 = this.vn(var27);
-        Uq var29 = (Uq)var28;
+        NumberSetting var26 = new NumberSetting("gap", "Gap", 2.0F, 0.0F, 10.0F);
+        NumberSetting var27 = var26.W(0.5F);
+        Setting var28 = this.addSetting(var27);
+        NumberSetting var29 = (NumberSetting)var28;
         this.t = var29;
-        Uq var30 = new Uq("thickness", "Thickness", 1.0F, 0.5F, 4.0F);
-        Uq var31 = var30.W(0.25F);
-        xB var32 = this.vn(var31);
-        Uq var33 = (Uq)var32;
+        NumberSetting var30 = new NumberSetting("thickness", "Thickness", 1.0F, 0.5F, 4.0F);
+        NumberSetting var31 = var30.W(0.25F);
+        Setting var32 = this.addSetting(var31);
+        NumberSetting var33 = (NumberSetting)var32;
         this.dJ = var33;
-        JL var34 = new JL("dot", "Center Dot", false);
-        xB var35 = this.vn(var34);
-        JL var36 = (JL)var35;
+        BooleanSetting var34 = new BooleanSetting("dot", "Center Dot", false);
+        Setting var35 = this.addSetting(var34);
+        BooleanSetting var36 = (BooleanSetting)var35;
         this.XD = var36;
-        Uq var37 = new Uq("pixel_size", "Pixel Size", 1.0F, 0.25F, 3.0F);
-        Uq var38 = var37.W(0.25F);
-        xB var39 = this.vn(var38);
-        Uq var40 = (Uq)var39;
+        NumberSetting var37 = new NumberSetting("pixel_size", "Pixel Size", 1.0F, 0.25F, 3.0F);
+        NumberSetting var38 = var37.W(0.25F);
+        Setting var39 = this.addSetting(var38);
+        NumberSetting var40 = (NumberSetting)var39;
         this.pixel = var40;
-        Uq var41 = new Uq("speed", "Animation Speed", 1.0F, 0.25F, 3.0F);
-        Uq var42 = var41.W(0.05F);
-        xB var43 = this.vn(var42);
-        Uq var44 = (Uq)var43;
+        NumberSetting var41 = new NumberSetting("speed", "Animation Speed", 1.0F, 0.25F, 3.0F);
+        NumberSetting var42 = var41.W(0.05F);
+        Setting var43 = this.addSetting(var42);
+        NumberSetting var44 = (NumberSetting)var43;
         this.Z = var44;
-        JL var45 = new JL("outline", "Outline", true);
-        xB var46 = this.vn(var45);
-        JL var47 = (JL)var46;
+        BooleanSetting var45 = new BooleanSetting("outline", "Outline", true);
+        Setting var46 = this.addSetting(var45);
+        BooleanSetting var47 = (BooleanSetting)var46;
         this.C = var47;
-        Fk var48 = new Fk("outline_color", "Outline Color", -1342177280);
-        xB var49 = this.vn(var48);
-        Fk var50 = (Fk)var49;
+        ColorSetting var48 = new ColorSetting("outline_color", "Outline Color", -1342177280);
+        Setting var49 = this.addSetting(var48);
+        ColorSetting var50 = (ColorSetting)var49;
         this.o = var50;
-        Uq var51 = new Uq("outline_width", "Outline Width", 0.5F, 0.25F, 2.0F);
-        Uq var52 = var51.W(0.25F);
-        xB var53 = this.vn(var52);
-        Uq var54 = (Uq)var53;
+        NumberSetting var51 = new NumberSetting("outline_width", "Outline Width", 0.5F, 0.25F, 2.0F);
+        NumberSetting var52 = var51.W(0.25F);
+        Setting var53 = this.addSetting(var52);
+        NumberSetting var54 = (NumberSetting)var53;
         this.Ob = var54;
-        Uq var55 = new Uq("glow", "Glow", 0.0F, 0.0F, 1.0F);
-        Uq var56 = var55.W(0.05F);
-        xB var57 = this.vn(var56);
-        Uq var58 = (Uq)var57;
+        NumberSetting var55 = new NumberSetting("glow", "Glow", 0.0F, 0.0F, 1.0F);
+        NumberSetting var56 = var55.W(0.05F);
+        Setting var57 = this.addSetting(var56);
+        NumberSetting var58 = (NumberSetting)var57;
         this.ED = var58;
-        JL var59 = new JL("rounded", "Rounded", false);
-        xB var60 = this.vn(var59);
-        JL var61 = (JL)var60;
+        BooleanSetting var59 = new BooleanSetting("rounded", "Rounded", false);
+        Setting var60 = this.addSetting(var59);
+        BooleanSetting var61 = (BooleanSetting)var60;
         this.R = var61;
         Ek var132 = dev.aurap.hub.Ek.OFF;
-        r_2 var62 = new r_2("spread", "Dynamic Gap", var132);
-        xB var63 = this.vn(var62);
-        r_2 var64 = (r_2)var63;
+        ModeSetting var62 = new ModeSetting("spread", "Dynamic Gap", var132);
+        Setting var63 = this.addSetting(var62);
+        ModeSetting var64 = (ModeSetting)var63;
         this.u = var64;
-        Uq var65 = new Uq("spread_amount", "Gap Amount", 3.0F, 0.5F, 8.0F);
-        Uq var66 = var65.W(0.5F);
-        xB var67 = this.vn(var66);
-        Uq var68 = (Uq)var67;
+        NumberSetting var65 = new NumberSetting("spread_amount", "Gap Amount", 3.0F, 0.5F, 8.0F);
+        NumberSetting var66 = var65.W(0.5F);
+        Setting var67 = this.addSetting(var66);
+        NumberSetting var68 = (NumberSetting)var67;
         this.vP = var68;
-        JL var69 = new JL("enemy", "Enemy Color", false);
-        xB var70 = this.vn(var69);
-        JL var71 = (JL)var70;
+        BooleanSetting var69 = new BooleanSetting("enemy", "Enemy Color", false);
+        Setting var70 = this.addSetting(var69);
+        BooleanSetting var71 = (BooleanSetting)var70;
         this.P = var71;
-        Fk var72 = new Fk("enemy_color", "Enemy", -42406);
-        xB var73 = this.vn(var72);
-        Fk var74 = (Fk)var73;
+        ColorSetting var72 = new ColorSetting("enemy_color", "Enemy", -42406);
+        Setting var73 = this.addSetting(var72);
+        ColorSetting var74 = (ColorSetting)var73;
         this.pW = var74;
         v_2 var133 = v_2.BAR;
-        r_2 var75 = new r_2("indicator", "Cooldown", var133);
-        xB var76 = this.vn(var75);
-        r_2 var77 = (r_2)var76;
+        ModeSetting var75 = new ModeSetting("indicator", "Cooldown", var133);
+        Setting var76 = this.addSetting(var75);
+        ModeSetting var77 = (ModeSetting)var76;
         this.Ek = var77;
         var2 = kP_2.DIAGONAL;
         String[] var3 = new String[]{"##.....##", "###...###", ".##...##.", ".........", "....+....", ".........", ".##...##.", "###...###", "##.....##"};
@@ -202,21 +203,21 @@ public final class crosshair extends Yn {
         du var167 = du.z(var3);
         P var80 = new P(this, "kill", "Kill", 3, var2, -50354, var167);
         this.eB = var80;
-        Uq var81 = new Uq("swap_time", "Swap Time", 300.0F, 80.0F, 1000.0F);
-        Uq var82 = var81.W(10.0F);
-        Uq var83 = var82.L(" ms");
-        xB var84 = this.vn(var83);
-        Uq var85 = (Uq)var84;
+        NumberSetting var81 = new NumberSetting("swap_time", "Swap Time", 300.0F, 80.0F, 1000.0F);
+        NumberSetting var82 = var81.W(10.0F);
+        NumberSetting var83 = var82.L(" ms");
+        Setting var84 = this.addSetting(var83);
+        NumberSetting var85 = (NumberSetting)var84;
         this.i = var85;
         u_2 var137 = u_2.POP;
-        r_2 var86 = new r_2("transition", "Transition", var137);
-        xB var87 = this.vn(var86);
-        r_2 var88 = (r_2)var87;
+        ModeSetting var86 = new ModeSetting("transition", "Transition", var137);
+        Setting var87 = this.addSetting(var86);
+        ModeSetting var88 = (ModeSetting)var87;
         this.y = var88;
-        Uq var89 = new Uq("kick", "Hit Kick", 1.5F, 0.0F, 6.0F);
-        Uq var90 = var89.W(0.25F);
-        xB var91 = this.vn(var90);
-        Uq var92 = (Uq)var91;
+        NumberSetting var89 = new NumberSetting("kick", "Hit Kick", 1.5F, 0.0F, 6.0F);
+        NumberSetting var90 = var89.W(0.25F);
+        Setting var91 = this.addSetting(var90);
+        NumberSetting var92 = (NumberSetting)var91;
         this.Co = var92;
         vw_2 var93 = new vw_2();
         this.SJ = var93;
@@ -235,12 +236,12 @@ public final class crosshair extends Yn {
         VA var98 = new VA();
         this.fg = var98;
         this.dy("Your own crosshair: presets, animated presets or one you draw, and a different one for a moment after hits and crits.");
-        cS var99 = this.a;
+        ActionSetting var99 = this.a;
         BooleanSupplier var141 = () -> {
             int var1x = cm;
             var1x ^= -952706480;
             int var2x = System.identityHashCode(this);
-            r_2 var3x = this.oL;
+            ModeSetting var3x = this.oL;
             kP_2 var4x = kP_2.DRAWN;
             long var5x = var2x;
             long var7x = var5x + 1L;
@@ -281,14 +282,14 @@ public final class crosshair extends Yn {
             IllegalArgumentException var21x = new IllegalArgumentException();
             throw var21x;
         };
-        xB var100 = var99.Pt(var141);
-        xB var101 = var100.q("Left click paints, right click erases.");
-        cS var102 = this.a;
+        Setting var100 = var99.Pt(var141);
+        Setting var101 = var100.q("Left click paints, right click erases.");
+        ActionSetting var102 = this.a;
         Consumer var142 = var1x -> {
             int var2x = cm;
             var2x ^= -458216688;
             int var3x = System.identityHashCode(this);
-            Uq var4x = this.pixel;
+            NumberSetting var4x = this.pixel;
             int var5x = var3x + 1;
             var5x = var3x * var5x;
             var3x = var5x & 1;
@@ -336,19 +337,19 @@ public final class crosshair extends Yn {
             AssertionError var15x = new AssertionError();
             throw var15x;
         };
-        cS var103 = var102.tZ(var142);
-        Fk var143 = this.bC;
+        ActionSetting var103 = var102.tZ(var142);
+        ColorSetting var143 = this.bC;
         // removed dead duplicate capture (var3 unused later): var3 = Objects.requireNonNull(var143);
         IntSupplier var144 = var143::zz;
-        Fk var169 = this.B;
+        ColorSetting var169 = this.B;
         Object var4 = Objects.requireNonNull(var169);
         IntSupplier var170 = var169::zz;
-        cS var104 = var103.Z(var144, var170);
+        ActionSetting var104 = var103.Z(var144, var170);
         BooleanSupplier var105 = () -> {
             int var1x = cm;
             var1x ^= -1141196767;
             int var2x = System.identityHashCode(this);
-            r_2 var3x = this.oL;
+            ModeSetting var3x = this.oL;
             kP_2 var4x = kP_2.DRAWN;
             boolean var33x = var3x.TJ(var4x);
             Integer var28x = var2x;
@@ -430,20 +431,20 @@ public final class crosshair extends Yn {
             RuntimeException var26x = new RuntimeException();
             throw var26x;
         };
-        Uq var145 = this.Cj;
-        xB var146 = var145.Pt(var105);
-        Uq var147 = this.t;
-        xB var148 = var147.Pt(var105);
-        Uq var149 = this.dJ;
-        xB var106 = var149.Pt(var105);
-        JL var107 = this.XD;
+        NumberSetting var145 = this.Cj;
+        Setting var146 = var145.Pt(var105);
+        NumberSetting var147 = this.t;
+        Setting var148 = var147.Pt(var105);
+        NumberSetting var149 = this.dJ;
+        Setting var106 = var149.Pt(var105);
+        BooleanSetting var107 = this.XD;
         BooleanSupplier var150 = () -> {
             boolean var54x;
             int var1x = cm;
             var1x ^= 1635402816;
             int var2x = System.identityHashCode(this);
             int[] var3x = z_2.x;
-            r_2 var4x = this.oL;
+            ModeSetting var4x = this.oL;
             Enum var59x = var4x.A();
             kP_2 var60x = (kP_2)var59x;
             int var5x = var2x + 1;
@@ -622,15 +623,15 @@ public final class crosshair extends Yn {
             UnsupportedOperationException var43x = new UnsupportedOperationException();
             throw var43x;
         };
-        xB var108 = var107.Pt(var150);
-        Uq var109 = this.pixel;
+        Setting var108 = var107.Pt(var150);
+        NumberSetting var109 = this.pixel;
         BooleanSupplier var151 = () -> {
             label108: {
             boolean var78x = false;
                 int var1x = cm;
                 var1x ^= 1778265040;
                 int var2x = System.identityHashCode(this);
-                r_2 var3x = this.oL;
+                ModeSetting var3x = this.oL;
                 kP_2 var4x = kP_2.DRAWN;
                 long var5x = var2x;
                 long var7x = var5x + 1L;
@@ -877,8 +878,8 @@ public final class crosshair extends Yn {
             IllegalArgumentException var71x = new IllegalArgumentException();
             throw var71x;
         };
-        xB var110 = var109.Pt(var151);
-        Uq var111 = this.Z;
+        Setting var110 = var109.Pt(var151);
+        NumberSetting var111 = this.Z;
         BooleanSupplier var152 = () -> {
             label117: {
                 int var50x;
@@ -887,7 +888,7 @@ public final class crosshair extends Yn {
                     var50x = cm;
                     var50x ^= 1751375026;
                     var76x = System.identityHashCode(this);
-                    r_2 var3x = this.oL;
+                    ModeSetting var3x = this.oL;
                     int var4x = var76x + 1;
                     var4x = var76x * var4x;
                     int var5x = var76x + 2;
@@ -1142,23 +1143,23 @@ public final class crosshair extends Yn {
             IllegalArgumentException var72x = new IllegalArgumentException();
             throw var72x;
         };
-        xB var112 = var111.Pt(var152);
-        Fk var113 = this.o;
-        JL var153 = this.C;
+        Setting var112 = var111.Pt(var152);
+        ColorSetting var113 = this.o;
+        BooleanSetting var153 = this.C;
         // removed dead duplicate capture (var3 unused later): var3 = Objects.requireNonNull(var153);
         BooleanSupplier var154 = var153::vb;
-        xB var114 = var113.Pt(var154);
-        Uq var115 = this.Ob;
-        JL var155 = this.P;
+        Setting var114 = var113.Pt(var154);
+        NumberSetting var115 = this.Ob;
+        BooleanSetting var155 = this.P;
         // removed dead duplicate capture (var3 unused later): var3 = Objects.requireNonNull(var155);
         BooleanSupplier var156 = var155::vb;
-        xB var116 = var115.Pt(var156);
-        Uq var117 = this.vP;
+        Setting var116 = var115.Pt(var156);
+        NumberSetting var117 = this.vP;
         BooleanSupplier var157 = () -> {
             int var1x = cm;
             var1x ^= 883223809;
             int var2x = System.identityHashCode(this);
-            r_2 var3x = this.u;
+            ModeSetting var3x = this.u;
             Ek var4x = dev.aurap.hub.Ek.OFF;
             boolean var34x = var3x.TJ(var4x);
             Integer var29x = var2x;
@@ -1231,19 +1232,19 @@ public final class crosshair extends Yn {
             RuntimeException var28x = new RuntimeException();
             throw var28x;
         };
-        xB var118 = var117.Pt(var157);
-        Fk var119 = this.pW;
-        JL var158 = this.P;
+        Setting var118 = var117.Pt(var157);
+        ColorSetting var119 = this.pW;
+        BooleanSetting var158 = this.P;
         // removed dead duplicate capture (var3 unused later): var3 = Objects.requireNonNull(var158);
         BooleanSupplier var159 = var158::vb;
-        xB var120 = var119.Pt(var159);
-        Uq var121 = this.i;
+        Setting var120 = var119.Pt(var159);
+        NumberSetting var121 = this.i;
         BooleanSupplier var160 = this::OD;
-        xB var122 = var121.Pt(var160);
-        r_2 var123 = this.y;
+        Setting var122 = var121.Pt(var160);
+        ModeSetting var123 = this.y;
         BooleanSupplier var161 = this::OD;
-        xB var124 = var123.Pt(var161);
-        r_2 var125 = this.oL;
+        Setting var124 = var123.Pt(var161);
+        ModeSetting var125 = this.oL;
         nv var162 = (var1x, var2x, var3x, var4x, var5x, var6x, var7x) -> {
             int var8x = cm;
             var8x ^= 532443294;
@@ -1265,11 +1266,11 @@ public final class crosshair extends Yn {
                 var26x = var8x * var26x;
                 var26x &= 1;
                 if (var26x == 0) {
-                    cS var30x = this.a;
+                    ActionSetting var30x = this.a;
                     du var31x = var30x.lP();
-                    Fk var11x = this.bC;
+                    ColorSetting var11x = this.bC;
                     int var32x = var11x.zz();
-                    Fk var12x = this.B;
+                    ColorSetting var12x = this.B;
                     int var33x = var12x.zz();
                     int var13x = var8x & -1855995668;
                     var13x ^= 864703753;
@@ -1289,7 +1290,7 @@ public final class crosshair extends Yn {
             }
         };
         UN.tN(var125, var162);
-        wD<Hm> var126 = (Hm var1x) -> {
+        EventListener<HitEvent> var126 = (HitEvent var1x) -> {
             P var79x = null;
             label92: {
                 int var2x = cm;
@@ -1319,7 +1320,7 @@ public final class crosshair extends Yn {
                                 var2x *= 1383737015;
                                 var2x ^= 607949980;
                                 P var75x = this.Y;
-                                JL var76x = var75x.NR;
+                                BooleanSetting var76x = var75x.NR;
                                 boolean var77x = var76x.vb();
                                 long var5x = var3x;
                                 long var7x = var5x + 1L;
@@ -1483,8 +1484,8 @@ public final class crosshair extends Yn {
             UnsupportedOperationException var64x = new UnsupportedOperationException();
             throw var64x;
         };
-        this.iI(Hm.class, var126);
-        wD<I> var127 = (I var1x) -> {
+        this.onEvent(HitEvent.class, var126);
+        EventListener<KillEvent> var127 = (KillEvent var1x) -> {
             int var2x = cm;
             var2x ^= 1703580504;
             int var3x = System.identityHashCode(this);
@@ -1515,15 +1516,15 @@ public final class crosshair extends Yn {
                 this.tb(var4x, var2x);
             }
         };
-        this.iI(I.class, var127);
-        wD<T> var128 = this::C;
-        this.iI(T.class, var128);
+        this.onEvent(KillEvent.class, var127);
+        EventListener<RenderEvent> var128 = this::C;
+        this.onEvent(RenderEvent.class, var128);
     }
 
     public static boolean NS() {
         int var0 = cm;
         var0 ^= 161336067;
-        int var1 = (Ud.y()) ? 1 : 0;
+        int var1 = (ClientRuntime.y()) ? 1 : 0;
         var0 <<= 25;
         var0 ^= -563728387;
         int var2 = var0 + 1;
@@ -1560,9 +1561,9 @@ public final class crosshair extends Yn {
             var1 = (var72 = var47 - 0L) == 0L ? 0 : (var72 < 0L ? -1 : 1);
             label44:
             if (var1 == 0) {
-                Ud var49 = Ud.Z();
-                NW var50 = var49.sP();
-                Yn var51 = var50.tG(crosshair.class);
+                ClientRuntime var49 = ClientRuntime.Z();
+                ModuleManager var50 = var49.sP();
+                Module var51 = var50.tG(crosshair.class);
                 crosshair var52 = (crosshair)var51;
                 int var53 = (var52.IU()) ? 1 : 0;
                 var0 <<= 13;
@@ -1643,7 +1644,7 @@ public final class crosshair extends Yn {
             var1 ^= 1441624450;
             int var2 = System.identityHashCode(this);
             P var3 = this.jo;
-            JL var65 = var3.NR;
+            BooleanSetting var65 = var3.NR;
             long var4 = var2;
             long var6 = var4 + 1L;
             var6 = var4 * var6;
@@ -1689,7 +1690,7 @@ public final class crosshair extends Yn {
                             }
 
                             var3 = this.Y;
-                            JL var69 = var3.NR;
+                            BooleanSetting var69 = var3.NR;
                             boolean var70 = var69.vb();
                             var4 = var2;
                             var6 = var4 + 1L;
@@ -1731,7 +1732,7 @@ public final class crosshair extends Yn {
                                 }
 
                                 var3 = this.eB;
-                                JL var76 = var3.NR;
+                                BooleanSetting var76 = var3.NR;
                                 boolean var77 = var76.vb();
                                 Integer var61 = var2;
                                 if (var61 == null) {
@@ -1867,7 +1868,7 @@ public final class crosshair extends Yn {
     private void tb(P var1, int var2) {
         label115: {
             int var4 = System.identityHashCode(this);
-            JL var5 = var1.NR;
+            BooleanSetting var5 = var1.NR;
             boolean var86 = var5.vb();
             int var6 = var4 + 1;
             var6 = var4 * var6;
@@ -2181,7 +2182,7 @@ public final class crosshair extends Yn {
             long var35;
             int var20 = (var35 = var17 - 0L) == 0L ? 0 : (var35 < 0L ? -1 : 1);
             if (var20 == 0) {
-                Uq var22 = this.i;
+                NumberSetting var22 = this.i;
                 float var23 = var22.WM();
                 return var23 / 1000.0F;
             }
@@ -2191,7 +2192,7 @@ public final class crosshair extends Yn {
         throw var21;
     }
 
-    private void C(T var1) {
+    private void C(RenderEvent var1) {
         float var543 = 0.0F;
         XF var550 = null;
         float var562 = 0.0F;
@@ -2340,7 +2341,7 @@ public final class crosshair extends Yn {
                                 FrameContext var456 = var1.frame();
                                 float var457 = var456.dt();
                                 float var482 = this.E;
-                                Uq var511 = this.Z;
+                                NumberSetting var511 = this.Z;
                                 float var512 = var511.WM();
                                 float var513 = var457 * var512;
                                 float var483 = var482 + var513;
@@ -2454,7 +2455,7 @@ public final class crosshair extends Yn {
                                         var530.H(var492);
                                         XF var493 = this.oW;
                                         float var494 = var493.N(var457);
-                                        Uq var531 = this.vP;
+                                        NumberSetting var531 = this.vP;
                                         float var532 = var531.WM();
                                         float var495 = var494 * var532;
                                         int var533 = var3 + 1;
@@ -2478,7 +2479,7 @@ public final class crosshair extends Yn {
                                             label697: {
                                                 Entity var539 = i_2.aM();
                                                 var550 = this.kr;
-                                                JL var581 = this.P;
+                                                BooleanSetting var581 = this.P;
                                                 boolean var582 = var581.vb();
                                                 if (var582) {
                                                     var2 -= -286749264;
@@ -2628,9 +2629,9 @@ public final class crosshair extends Yn {
                                             }
 
                                             var550.H(var543);
-                                            Fk var544 = this.bC;
+                                            ColorSetting var544 = this.bC;
                                             int var545 = var544.zz();
-                                            Fk var551 = this.pW;
+                                            ColorSetting var551 = this.pW;
                                             int var552 = var551.zz();
                                             XF var599 = this.kr;
                                             float var600 = var599.N(var457);
@@ -2719,7 +2720,7 @@ public final class crosshair extends Yn {
                                                             break label767;
                                                         }
 
-                                                        r_2 var637 = this.y;
+                                                        ModeSetting var637 = this.y;
                                                         Integer var664 = var3;
                                                         if (var664 == null) {
                                                             var2 ^= -110296926;
@@ -2852,7 +2853,7 @@ public final class crosshair extends Yn {
                                                             break label767;
                                                         }
 
-                                                        r_2 var643 = this.y;
+                                                        ModeSetting var643 = this.y;
                                                         var665 = var3 + 1;
                                                         var665 = var3 * var665;
                                                         int var729 = var3 + 2;
@@ -2969,7 +2970,7 @@ public final class crosshair extends Yn {
                                                             break label767;
                                                         }
 
-                                                        Uq var691 = this.Co;
+                                                        NumberSetting var691 = this.Co;
                                                         float var692 = var691.WM();
                                                         float var733 = this.r;
                                                         float var734 = -var733;
@@ -3128,9 +3129,9 @@ public final class crosshair extends Yn {
                                                 }
 
                                                 float var618 = var617 * 0.5F;
-                                                Uq var751 = this.T;
+                                                NumberSetting var751 = this.T;
                                                 float var752 = var751.WM();
-                                                JL var764 = this.C;
+                                                BooleanSetting var764 = this.C;
                                                 boolean var765 = var764.vb();
                                                 int var769;
                                                 if (var765) {
@@ -3143,7 +3144,7 @@ public final class crosshair extends Yn {
                                                         break label767;
                                                     }
 
-                                                    Fk var767 = this.o;
+                                                    ColorSetting var767 = this.o;
                                                     int var768 = var767.zz();
                                                     var783 = var3;
                                                     long var884 = var783 + 1L;
@@ -3247,7 +3248,7 @@ public final class crosshair extends Yn {
                                                 }
 
                                                 vw_2 var800 = this.SJ;
-                                                JL var841 = this.C;
+                                                BooleanSetting var841 = this.C;
                                                 var894 = var3;
                                                 var966 = var894 + 1L;
                                                 var966 = var894 * var966;
@@ -3283,7 +3284,7 @@ public final class crosshair extends Yn {
                                                         var2 += 574630706;
                                                         var2 ^= -2066603405;
                                                         var2 ^= -1442121448;
-                                                        Uq var843 = this.Ob;
+                                                        NumberSetting var843 = this.Ob;
                                                         Integer var906 = var3;
                                                         if (var906 == null) {
                                                             switch (var2) {
@@ -3340,20 +3341,20 @@ public final class crosshair extends Yn {
                                                         break label767;
                                                     }
 
-                                                    Uq var914 = this.ED;
+                                                    NumberSetting var914 = this.ED;
                                                     float var915 = var914.WM();
-                                                    JL var949 = this.R;
+                                                    BooleanSetting var949 = this.R;
                                                     int var950 = (var949.vb()) ? 1 : 0;
                                                     vw_2 var801 = var800.c(var845, var915, (var950 != 0), true);
                                                     VA var802 = this.SS;
-                                                    Uq var846 = this.Cj;
+                                                    NumberSetting var846 = this.Cj;
                                                     float var847 = var846.WM();
-                                                    Uq var916 = this.t;
+                                                    NumberSetting var916 = this.t;
                                                     float var917 = var916.WM();
                                                     float var696 = var917 + var695;
-                                                    Uq var918 = this.dJ;
+                                                    NumberSetting var918 = this.dJ;
                                                     float var919 = var918.WM();
-                                                    JL var951 = this.XD;
+                                                    BooleanSetting var951 = this.XD;
                                                       var950 = var951.vb() ? 1 : 0;
                                                     float var973 = this.E;
                                                       VA var697 = var802.E(var847, var696, var919, (var950 != 0), var973);
@@ -3404,7 +3405,7 @@ public final class crosshair extends Yn {
                                                                 }
 
                                                                 P var703 = this.FS;
-                                                                r_2 var704 = var703.jN;
+                                                                ModeSetting var704 = var703.jN;
                                                                 int var805 = var3 + 1;
                                                                 int var806 = var3 * var805;
                                                                 int var807 = var806 & 1;
@@ -3531,7 +3532,7 @@ public final class crosshair extends Yn {
                                                                         }
 
                                                                         P var825 = this.FS;
-                                                                        Fk var826 = var825.Aj;
+                                                                        ColorSetting var826 = var825.Aj;
                                                                         int var827 = var826.zz();
                                                                         long var854 = var3;
                                                                         long var953 = var854 + 1L;
@@ -3708,11 +3709,11 @@ public final class crosshair extends Yn {
                                                                     break label767;
                                                                 }
 
-                                                                r_2 var937 = this.oL;
+                                                                ModeSetting var937 = this.oL;
                                                                 Enum var938 = var937.A();
                                                                 kP_2 var939 = (kP_2)var938;
-                                                                cS var959 = this.a;
-                                                                Fk var982 = this.B;
+                                                                ActionSetting var959 = this.a;
+                                                                ColorSetting var982 = this.B;
                                                                 int var985 = var3 + 1;
                                                                 var985 = var3 * var985;
                                                                 var985 &= 1;
@@ -3824,7 +3825,7 @@ public final class crosshair extends Yn {
                                                                             }
 
                                                                             P var711 = this.FS;
-                                                                            r_2 var712 = var711.jN;
+                                                                            ModeSetting var712 = var711.jN;
                                                                             Integer var835 = var3;
                                                                             if (var835 == null) {
                                                                                 var2 += -2103817146;
@@ -3850,10 +3851,10 @@ public final class crosshair extends Yn {
                                                                             Enum var713 = var712.A();
                                                                             kP_2 var714 = (kP_2)var713;
                                                                             P var839 = this.FS;
-                                                                            cS var840 = var839.Oq;
+                                                                            ActionSetting var840 = var839.Oq;
                                                                             float var655 = var752 * ++var653;
                                                                             P var877 = this.FS;
-                                                                            Fk var878 = var877.Aj;
+                                                                            ColorSetting var878 = var877.Aj;
                                                                             int var879 = var878.zz();
                                                                             P var946 = this.FS;
                                                                               int var947 = var946.B();
@@ -4057,7 +4058,7 @@ public final class crosshair extends Yn {
         throw var428;
     }
 
-    private void Fr(Canvas var1, kP_2 var2, cS var3, float var4, float var5, float var6, int var7, int var8, int var9, float var10, int var11) {
+    private void Fr(Canvas var1, kP_2 var2, ActionSetting var3, float var4, float var5, float var6, int var7, int var8, int var9, float var10, int var11) {
         label168: {
             label177: {
                 int var14 = System.identityHashCode(this);
@@ -4184,7 +4185,7 @@ public final class crosshair extends Yn {
                                 var26 >>>= 18;
                                 var26 *= 1264221155;
                                 var26 ^= 944456804;
-                                Uq var194 = this.pixel;
+                                NumberSetting var194 = this.pixel;
                                 var18 = var14;
                                 var20 = var18 + 1L;
                                 var20 = var18 * var20;
@@ -4233,7 +4234,7 @@ public final class crosshair extends Yn {
                                 var26 ^= -1948527827;
                                 var26 *= -1524564909;
                                 var26 ^= -1011366120;
-                                Uq var226 = this.dJ;
+                                NumberSetting var226 = this.dJ;
                                 long var241 = var14;
                                 long var21 = var241 + 1L;
                                 var21 = var241 * var21;
@@ -4318,7 +4319,7 @@ public final class crosshair extends Yn {
 
                                     vw_2 var154 = this.SJ;
                                     du var178 = var3.lP();
-                                    Uq var204 = this.pixel;
+                                    NumberSetting var204 = this.pixel;
                                     float var205 = var204.WM();
                                     int var228 = var14 + 1;
                                     int var229 = var14 * var228;
@@ -4505,7 +4506,7 @@ public final class crosshair extends Yn {
                     };
                     float var134 = 0.0F;
                     var6 = 0.0F;
-                    r_2 var144 = this.u;
+                    ModeSetting var144 = this.u;
                     Ek var8 = dev.aurap.hub.Ek.MOVEMENT;
                     boolean var145 = var144.TJ(var8);
                     if (!var145) {
@@ -4525,7 +4526,7 @@ public final class crosshair extends Yn {
                             break label191;
                         }
 
-                        r_2 var150 = this.u;
+                        ModeSetting var150 = this.u;
                         long var171 = var4;
                         long var10 = var171 + 1L;
                         var10 = var171 * var10;
@@ -4709,7 +4710,7 @@ public final class crosshair extends Yn {
                     var34 ^= -270953948;
                 }
 
-                r_2 var157 = this.u;
+                ModeSetting var157 = this.u;
                 Ek var187 = dev.aurap.hub.Ek.COOLDOWN;
                 boolean var158 = var157.TJ(var187);
                 long var188 = var4;
@@ -4755,7 +4756,7 @@ public final class crosshair extends Yn {
                                 break label191;
                             }
 
-                            r_2 var163 = this.u;
+                            ModeSetting var163 = this.u;
                             var187 = dev.aurap.hub.Ek.BOTH;
                             var210 = var4;
                             var235 = var210 + 1L;
@@ -4987,7 +4988,7 @@ public final class crosshair extends Yn {
                             var39 ^= 211084648;
                             var164 = i_2.bl(var2);
                             var13 = this.K;
-                            r_2 var14 = this.Ek;
+                            ModeSetting var14 = this.Ek;
                             v_2 var15 = v_2.OFF;
                             boolean var170 = var14.TJ(var15);
                             if (!var170) {
@@ -5143,7 +5144,7 @@ public final class crosshair extends Yn {
                                 break label219;
                             }
 
-                            r_2 var183 = this.oL;
+                            ModeSetting var183 = this.oL;
                             long var212 = var11;
                             long var17 = var212 + 1L;
                             var17 = var212 * var17;
@@ -5196,7 +5197,7 @@ public final class crosshair extends Yn {
                                         }
                                         default -> var39 ^ -1694264950;
                                     };
-                                    cS var185 = this.a;
+                                    ActionSetting var185 = this.a;
                                     du var186 = var185.lP();
                                     var207 = var39 << 27;
                                     var207 ^= -1403563120;
@@ -5216,7 +5217,7 @@ public final class crosshair extends Yn {
                                     var39 &= 1717361289;
                                     var39 ^= -602871758;
                                     var175 += 0.5F;
-                                    Uq var225 = this.pixel;
+                                    NumberSetting var225 = this.pixel;
                                     float var226 = var225.WM();
                                     var175 *= var226;
                                     var175 = var175;
@@ -5249,9 +5250,9 @@ public final class crosshair extends Yn {
                                         break label219;
                                     }
 
-                                    Uq var232 = this.t;
+                                    NumberSetting var232 = this.t;
                                     float var233 = var232.WM();
-                                    Uq var246 = this.Cj;
+                                    NumberSetting var246 = this.Cj;
                                     float var247 = var246.WM();
                                     int var260 = var11 + 1;
                                     int var261 = var11 * var260;
@@ -5298,7 +5299,7 @@ public final class crosshair extends Yn {
                                 var175 += 3.0F;
                                 int var236 = DP.nq(1610612736, var168);
                                 int var169 = DP.nq(var7, var168);
-                                r_2 var248 = this.Ek;
+                                ModeSetting var248 = this.Ek;
                                 var17 = var11;
                                 var19 = var17 + 1L;
                                 var19 = var17 * var19;
@@ -5806,11 +5807,11 @@ public final class crosshair extends Yn {
             var14 &= -583489711;
             var14 ^= -1761790861;
             VA var19 = new VA();
-            Uq var25 = this.Cj;
+            NumberSetting var25 = this.Cj;
             float var26 = var25.WM();
-            Uq var29 = this.t;
+            NumberSetting var29 = this.t;
             float var30 = var29.WM();
-            Uq var9 = this.dJ;
+            NumberSetting var9 = this.dJ;
             float var31 = var9.WM();
             VA var20 = var19.E(var26, var30, var31, true, 0.0F);
             pr.QD(var1, var21, var20, var2);
@@ -6046,7 +6047,7 @@ public final class crosshair extends Yn {
                                 }
 
                                 VA var127 = this.fg;
-                                JL var154 = this.XD;
+                                BooleanSetting var154 = this.XD;
                                 int var155 = (var154.vb()) ? 1 : 0;
                                 VA var128 = var127.E(4.0F, 2.0F, 1.0F, (var155 != 0), var9);
                                 float var129 = var8 * 0.4F;
@@ -6130,7 +6131,7 @@ public final class crosshair extends Yn {
         Lookup var0 = MethodHandles.lookup();
         Class var3 = var0.lookupClass();
         int var1 = 485195171;
-        int var2 = Yn.C;
+        int var2 = Module.C;
         int var4 = of_2.kj(var3, var1, var2);
         cm = var4;
         kP_2[] var5 = new kP_2[11];

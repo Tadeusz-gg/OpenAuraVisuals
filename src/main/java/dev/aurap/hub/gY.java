@@ -26,7 +26,7 @@ public final class gY {
         var0 ^= 401024929;
         FabricLoader var1 = FabricLoader.getInstance();
         Path var18 = var1.getConfigDir();
-        Ud var19 = Ud.kz(var18);
+        ClientRuntime var19 = ClientRuntime.kz(var18);
         UG.pE(var19);
         Event var2 = ClientTickEvents.END_CLIENT_TICK;
         EndTick var3 = var1x -> {
@@ -34,8 +34,8 @@ public final class gY {
             int var2x = eb;
             var2x ^= -194153196;
             int var3x = System.identityHashCode(var19);
-            PH var4 = var19.ZM();
-            sE var5x = sE.B;
+            EventBus var4 = var19.ZM();
+            TickEvent var5x = TickEvent.B;
             var4.A(var5x);
             Zx var19x = var19.YT();
             int var21x = var3x + 1;
@@ -110,7 +110,7 @@ public final class gY {
         long var27;
         var0 = (var27 = var25 - 0L) == 0L ? 0 : (var27 < 0L ? -1 : 1);
         if (var0 == 0) {
-            NW var14 = var19.sP();
+            ModuleManager var14 = var19.sP();
             List var15 = var14.dG();
             var0 = var15.size();
             Integer var17 = var0;

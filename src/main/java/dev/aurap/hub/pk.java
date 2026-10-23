@@ -11,7 +11,7 @@ import java.util.List;
 public final class pk {
     public static final float VH = 24.0F;
     private static final float bI = 7.0F;
-    private final Yn mr;
+    private final Module mr;
     private final List mm;
     private final zz cD;
     private final XF dJ;
@@ -24,7 +24,7 @@ public final class pk {
     private float sX;
     public static final int OB;
 
-    public pk(Yn var1) {
+    public pk(Module var1) {
         ArrayList var2 = new ArrayList();
         this.mm = var2;
         Object var3 = kE_2.SMOOTH;
@@ -59,14 +59,14 @@ public final class pk {
             }
 
             var3 = var9.next();
-            xB var15 = (xB)var3;
+            Setting var15 = (Setting)var3;
             List var4 = this.mm;
             XR var16 = XR.n(var15);
             boolean var17 = var4.add(var16);
         }
     }
 
-    public Yn JQ() {
+    public Module JQ() {
         int var1 = OB;
         var1 ^= 107328401;
         int var2 = System.identityHashCode(this);
@@ -328,7 +328,7 @@ public final class pk {
                     var16 >>= 22;
                     var16 &= 1517490866;
                     var16 ^= -826457044;
-                    xB var154 = var128.W();
+                    Setting var154 = var128.W();
                     boolean var155 = var154.gQ();
                     float var132;
                     if (var155) {
@@ -483,7 +483,7 @@ public final class pk {
             var3 ^= 948832451;
             int var4 = System.identityHashCode(this);
             zz var5 = this.cD;
-            Yn var6 = this.mr;
+            Module var6 = this.mr;
             boolean var218 = var6.B();
             Integer var7 = var4;
             if (var7 != null) {
@@ -1280,7 +1280,7 @@ public final class pk {
                         }
                     }
 
-                    Yn var282 = this.mr;
+                    Module var282 = this.mr;
                     int var283 = (var282.B()) ? 1 : 0;
                     var12 = var8;
                     long var449 = var12 + 1L;
@@ -1314,7 +1314,7 @@ public final class pk {
                                 break label347;
                             }
 
-                            Yn var287 = this.mr;
+                            Module var287 = this.mr;
                             int var288 = (var287.jp()) ? 1 : 0;
                             int var359 = var8 + 1;
                             int var360 = var8 * var359;
@@ -1411,7 +1411,7 @@ public final class pk {
                             break label347;
                         }
 
-                        Yn var298 = this.mr;
+                        Module var298 = this.mr;
                         int var299 = (var298.jp()) ? 1 : 0;
                         Integer var367 = var8;
                         if (var367 == null) {
@@ -1529,7 +1529,7 @@ public final class pk {
                         float var309 = TP.S(var308);
                         float var310 = 0.06F * var309;
                         TextStyle var255 = var254.weight(var310);
-                        Yn var311 = this.mr;
+                        Module var311 = this.mr;
                         String var312 = var311.UJ();
                         float var374 = var3 + 10.0F;
                         float var414 = var4 + 12.0F;
@@ -1562,7 +1562,7 @@ public final class pk {
 
                         var414 -= 5.2F;
                         float var256 = var1.text(var312, var374, var414, var255);
-                        Yn var257 = this.mr;
+                        Module var257 = this.mr;
                         int var258 = (var257.jp()) ? 1 : 0;
                         if (var258 != 0) {
                             var7 ^= -2058310412;
@@ -1920,7 +1920,7 @@ public final class pk {
                             };
                             Object var338 = var275.next();
                             XR var339 = (XR)var338;
-                            xB var392 = var339.W();
+                            Setting var392 = var339.W();
                             boolean var393 = var392.gQ();
                             int var436 = var8 + 1;
                             int var437 = var8 * var436;
@@ -2293,7 +2293,7 @@ public final class pk {
                                                     break label521;
                                                 }
 
-                                                Yn var416 = this.mr;
+                                                Module var416 = this.mr;
                                                 boolean var417 = var416.jp();
                                                 int var478 = var7 + 1;
                                                 int var479 = var7 * var478;
@@ -2558,7 +2558,7 @@ public final class pk {
                                         var5 ^= 1389739537;
                                         var5 &= 1906245355;
                                         var5 ^= -2011707918;
-                                        Yn var326 = this.mr;
+                                        Module var326 = this.mr;
                                         boolean var327 = var326.jp();
                                         long var418 = var7;
                                         long var510 = var418 + 1L;
@@ -2631,7 +2631,7 @@ public final class pk {
                                                 break label521;
                                             }
 
-                                            Yn var331 = this.mr;
+                                            Module var331 = this.mr;
                                             var331.bq();
                                             long var332 = var7;
                                             long var483 = var332 + 1L;
@@ -2662,7 +2662,7 @@ public final class pk {
                                                     break label521;
                                                 }
 
-                                                Yn var340 = this.mr;
+                                                Module var340 = this.mr;
                                                 boolean var341 = var340.B();
                                                 String var347;
                                                 if (var341) {
@@ -2907,7 +2907,7 @@ public final class pk {
 
                                         Object var389 = var309.next();
                                         XR var390 = (XR)var389;
-                                        xB var461 = var390.W();
+                                        Setting var461 = var390.W();
                                         long var501 = var7;
                                         long var13 = var501 + 1L;
                                         var13 = var501 * var13;
@@ -3322,7 +3322,7 @@ public final class pk {
                     if (var5 != null) {
                         var5 = var62.next();
                         XR var66 = (XR)var5;
-                        xB var73 = var66.W();
+                        Setting var73 = var66.W();
                         long var7 = var3;
                         long var9 = var7 + 1L;
                         var9 = var7 * var9;

@@ -9,7 +9,7 @@ import java.lang.invoke.MethodHandles.Lookup;
 public final class WE extends XR {
     private static final float m = 15.0F;
     private static final int s = 5;
-    private final r_2 D;
+    private final ModeSetting D;
     private final nv Ef;
     private final Enum[] KA;
     private final XF U;
@@ -20,7 +20,7 @@ public final class WE extends XR {
     private int M;
     public static final int Xd;
 
-    public WE(r_2 var1, nv var2) {
+    public WE(ModeSetting var1, nv var2) {
         kE_2 var4 = kE_2.uY(0.3F, 0.95F);
         XF var3 = new XF(0.0F, var4);
         this.U = var3;
@@ -70,7 +70,7 @@ public final class WE extends XR {
     }
 
     @Override
-    public xB W() {
+    public Setting W() {
         int var1 = Xd;
         var1 ^= 1051327092;
         int var2 = System.identityHashCode(this);
@@ -322,7 +322,7 @@ public final class WE extends XR {
                     }
 
                     var4 = var113.N(var1);
-                    r_2 var115 = this.D;
+                    ModeSetting var115 = this.D;
                     int var116 = var115.g();
                     int var117 = var116;
                     byte var128 = 0;
@@ -729,7 +729,7 @@ public final class WE extends XR {
                                     default -> var4 ^ -560060665;
                                     case 1903168223 -> var4 ^ -231416969;
                                 };
-                                r_2 var251 = this.D;
+                                ModeSetting var251 = this.D;
                                 Enum var252 = var251.A();
                                 long var288 = var5;
                                 long var11 = var288 + 1L;
@@ -773,7 +773,7 @@ public final class WE extends XR {
                                 break label313;
                             }
 
-                            r_2 var254 = this.D;
+                            ModeSetting var254 = this.D;
                             String var255 = var254.Tp();
                             float var295 = ((XR)this).U;
                             float var331 = this.fb;
@@ -863,7 +863,7 @@ public final class WE extends XR {
                                     var4 ^= 1019023161;
                                 }
 
-                                String var220 = r_2.R(var219);
+                                String var220 = ModeSetting.R(var219);
                                 var295 = ((XR)this).U;
                                 var331 = this.pP;
                                 var295 += var331;
@@ -910,7 +910,7 @@ public final class WE extends XR {
                                             var4 -= 977229501;
                                             var4 ^= 733323271;
                                             nv var263 = this.Ef;
-                                            r_2 var304 = this.D;
+                                            ModeSetting var304 = this.D;
                                             Enum var305 = var304.A();
                                             var331 = ((XR)this).U;
                                             float var372 = this.pP;
@@ -1820,7 +1820,7 @@ public final class WE extends XR {
                                 break label202;
                             }
 
-                            r_2 var167 = this.D;
+                            ModeSetting var167 = this.D;
                             Integer var189 = var7;
                             if (var189 != null) {
                                 var5 = switch (var5) {
@@ -2125,7 +2125,7 @@ public final class WE extends XR {
 
     private void gN(int var1, int var2) {
         int var5 = System.identityHashCode(this);
-        r_2 var6 = this.D;
+        ModeSetting var6 = this.D;
         Enum[] var7 = this.KA;
         long var8 = var5;
         long var10 = var8 + 1L;

@@ -681,7 +681,7 @@ public final class i_2 {
     public static bS js() {
         int var0 = h;
         var0 ^= -765126457;
-        Ud var1 = Ud.Z();
+        ClientRuntime var1 = ClientRuntime.Z();
         var0 >>>= 25;
         var0 &= -909908913;
         var0 -= 2116412404;
@@ -746,7 +746,7 @@ public final class i_2 {
             long var73;
             int var38 = (var73 = var37 - 0L) == 0L ? 0 : (var73 < 0L ? -1 : 1);
             if (var38 == 0) {
-                Ud var39 = Ud.Z();
+                ClientRuntime var39 = ClientRuntime.Z();
                 var0 ^= -1869975405;
                 var0 ^= 308169773;
                 var2 = var0;
@@ -10994,7 +10994,7 @@ public final class i_2 {
         }
     }
 
-    public static void NW(String var0) {
+    public static void ModuleManager(String var0) {
         label59: {
             int var1 = h;
             var1 ^= 1622490242;

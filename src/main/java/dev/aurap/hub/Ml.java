@@ -11,14 +11,14 @@ public final class Ml extends XR {
     private static final float W = 46.0F;
     private static final float q = 6.0F;
     private static final int[] OP;
-    private final Fk Tl;
+    private final ColorSetting Tl;
     private final XF y;
     private final float[] UL;
     private boolean H;
     private Vs mO;
     public static final int Y;
 
-    public Ml(Fk var1) {
+    public Ml(ColorSetting var1) {
         kE_2 var3 = kE_2.uY(0.32F, 0.95F);
         XF var2 = new XF(0.0F, var3);
         this.y = var2;
@@ -33,7 +33,7 @@ public final class Ml extends XR {
     }
 
     @Override
-    public xB W() {
+    public Setting W() {
         int var1 = Y;
         var1 ^= -298843836;
         int var2 = System.identityHashCode(this);
@@ -81,7 +81,7 @@ public final class Ml extends XR {
     private float wB(int var1) {
         label69: {
             int var3 = System.identityHashCode(this);
-            Fk var4 = this.Tl;
+            ColorSetting var4 = this.Tl;
             boolean var43 = var4.hO();
             int var5 = var3 + 1;
             var5 = var3 * var5;
@@ -390,9 +390,9 @@ public final class Ml extends XR {
             int var4 = Y;
             var4 ^= 751715387;
             int var5 = System.identityHashCode(this);
-            Fk var6 = this.Tl;
+            ColorSetting var6 = this.Tl;
             int var124 = var6.zz();
-            Fk var7 = this.Tl;
+            ColorSetting var7 = this.Tl;
             String var128 = var7.Tp();
             float var8 = this.U;
             float var9 = this.fb;
@@ -696,7 +696,7 @@ public final class Ml extends XR {
                                 Paint var270 = Paint.solid(-1);
                                 Paint var271 = var270.stroke(1.3F);
                                 var1.circle(var8, var9, 3.4F, var271);
-                                Fk var178 = this.Tl;
+                                ColorSetting var178 = this.Tl;
                                 long var219 = var5;
                                 long var305 = var219 + 1L;
                                 long var306 = var219 * var305;
@@ -1102,7 +1102,7 @@ public final class Ml extends XR {
                                         break label339;
                                     }
 
-                                    Fk var248 = this.Tl;
+                                    ColorSetting var248 = this.Tl;
                                     int var291 = var7 + 1;
                                     var291 = var7 * var291;
                                     int var306 = var7 + 2;
@@ -1400,7 +1400,7 @@ public final class Ml extends XR {
                                                 break label339;
                                             }
 
-                                            Fk var217 = this.Tl;
+                                            ColorSetting var217 = this.Tl;
                                             var11 = var7;
                                             var13 = var11 + 1L;
                                             var13 = var11 * var13;
@@ -1617,7 +1617,7 @@ public final class Ml extends XR {
                     var4 <<= 21;
                     var4 -= -1944359473;
                     var4 ^= -1335759363;
-                    Fk var110 = this.Tl;
+                    ColorSetting var110 = this.Tl;
                     int var111 = var110.zz();
                     int var112 = DP.R(var111);
                     Vs var9 = this.mO;
@@ -1821,7 +1821,7 @@ public final class Ml extends XR {
                             var4 ^= -1979225413;
                     }
 
-                    Fk var98 = this.Tl;
+                    ColorSetting var98 = this.Tl;
                     float[] var103 = this.UL;
                     var7 = var103[0];
                     float[] var113 = this.UL;

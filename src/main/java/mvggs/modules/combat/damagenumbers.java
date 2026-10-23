@@ -1,6 +1,7 @@
 package mvggs.modules.combat;
 
 import dev.aurap.hub.*;
+import dev.aurap.hub.Module;
 
 import dev.skidware.visuals.client.render.AuraPipeline;
 import dev.skidware.visuals.client.render.FrameContext;
@@ -17,19 +18,19 @@ import java.util.concurrent.ThreadLocalRandom;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 
-public final class damagenumbers extends Yn {
+public final class damagenumbers extends Module {
     private static final int HV = 48;
     private static final LH s;
     private static final LH yZ;
-    private final Uq x;
-    private final Uq rC;
-    private final r_2 Jo;
-    private final r_2 A;
-    private final JL e;
-    private final JL vC;
-    private final Fk c;
-    private final Fk W;
-    private final Fk rT;
+    private final NumberSetting x;
+    private final NumberSetting rC;
+    private final ModeSetting Jo;
+    private final ModeSetting A;
+    private final BooleanSetting e;
+    private final BooleanSetting vC;
+    private final ColorSetting c;
+    private final ColorSetting W;
+    private final ColorSetting rT;
     private final ArrayDeque SO;
     private final float[] uI;
     private int q;
@@ -42,50 +43,50 @@ public final class damagenumbers extends Yn {
     public static final int l;
 
     public damagenumbers() {
-        super("damage_numbers", "Damage Numbers", AJ.COMBAT);
-        AJ var1 = AJ.COMBAT;
+        super("damage_numbers", "Damage Numbers", ModuleCategory.COMBAT);
+        ModuleCategory var1 = ModuleCategory.COMBAT;
 
-        Uq var3 = new Uq("duration", "Duration", 0.9F, 0.4F, 3.0F);
-        Uq var4 = var3.W(0.1F);
-        Uq var5 = var4.L("s");
-        xB var6 = this.vn(var5);
-        Uq var7 = (Uq)var6;
+        NumberSetting var3 = new NumberSetting("duration", "Duration", 0.9F, 0.4F, 3.0F);
+        NumberSetting var4 = var3.W(0.1F);
+        NumberSetting var5 = var4.L("s");
+        Setting var6 = this.addSetting(var5);
+        NumberSetting var7 = (NumberSetting)var6;
         this.x = var7;
-        Uq var8 = new Uq("scale", "Scale", 1.0F, 0.5F, 2.5F);
-        Uq var9 = var8.W(0.05F);
-        Uq var10 = var9.L("x");
-        xB var11 = this.vn(var10);
-        Uq var12 = (Uq)var11;
+        NumberSetting var8 = new NumberSetting("scale", "Scale", 1.0F, 0.5F, 2.5F);
+        NumberSetting var9 = var8.W(0.05F);
+        NumberSetting var10 = var9.L("x");
+        Setting var11 = this.addSetting(var10);
+        NumberSetting var12 = (NumberSetting)var11;
         this.rC = var12;
         fA var2 = fA.HEALTH;
-        r_2 var13 = new r_2("unit", "Unit", var2);
-        xB var14 = this.vn(var13);
-        r_2 var15 = (r_2)var14;
+        ModeSetting var13 = new ModeSetting("unit", "Unit", var2);
+        Setting var14 = this.addSetting(var13);
+        ModeSetting var15 = (ModeSetting)var14;
         this.Jo = var15;
         Hl var39 = Hl.RISE;
-        r_2 var16 = new r_2("motion", "Motion", var39);
-        xB var17 = this.vn(var16);
-        r_2 var18 = (r_2)var17;
+        ModeSetting var16 = new ModeSetting("motion", "Motion", var39);
+        Setting var17 = this.addSetting(var16);
+        ModeSetting var18 = (ModeSetting)var17;
         this.A = var18;
-        JL var19 = new JL("heals", "Show Heals", true);
-        xB var20 = this.vn(var19);
-        JL var21 = (JL)var20;
+        BooleanSetting var19 = new BooleanSetting("heals", "Show Heals", true);
+        Setting var20 = this.addSetting(var19);
+        BooleanSetting var21 = (BooleanSetting)var20;
         this.e = var21;
-        JL var22 = new JL("only_mine", "Only My Hits", true);
-        xB var23 = this.vn(var22);
-        JL var24 = (JL)var23;
+        BooleanSetting var22 = new BooleanSetting("only_mine", "Only My Hits", true);
+        Setting var23 = this.addSetting(var22);
+        BooleanSetting var24 = (BooleanSetting)var23;
         this.vC = var24;
-        Fk var25 = new Fk("damage_color", "Damage Color", -1);
-        xB var26 = this.vn(var25);
-        Fk var27 = (Fk)var26;
+        ColorSetting var25 = new ColorSetting("damage_color", "Damage Color", -1);
+        Setting var26 = this.addSetting(var25);
+        ColorSetting var27 = (ColorSetting)var26;
         this.c = var27;
-        Fk var28 = new Fk("crit_color", "Crit Color", -1850997);
-        xB var29 = this.vn(var28);
-        Fk var30 = (Fk)var29;
+        ColorSetting var28 = new ColorSetting("crit_color", "Crit Color", -1850997);
+        Setting var29 = this.addSetting(var28);
+        ColorSetting var30 = (ColorSetting)var29;
         this.W = var30;
-        Fk var31 = new Fk("heal_color", "Heal Color", -6889784);
-        xB var32 = this.vn(var31);
-        Fk var33 = (Fk)var32;
+        ColorSetting var31 = new ColorSetting("heal_color", "Heal Color", -6889784);
+        Setting var32 = this.addSetting(var31);
+        ColorSetting var33 = (ColorSetting)var32;
         this.rT = var33;
         ArrayDeque var34 = new ArrayDeque();
         this.SO = var34;
@@ -96,7 +97,7 @@ public final class damagenumbers extends Yn {
         this.H = -1;
         this.dy("Floating numbers for damage dealt and health regained.");
         this.fJ(true);
-        wD<Hm> var36 = (Hm var1x) -> {
+        EventListener<HitEvent> var36 = (HitEvent var1x) -> {
             label42: {
                 int var2x = l;
                 var2x ^= 337358091;
@@ -192,11 +193,11 @@ public final class damagenumbers extends Yn {
             IllegalStateException var33x = new IllegalStateException();
             throw var33x;
         };
-        this.iI(Hm.class, var36);
-        wD<tZ> var37 = this::O;
-        this.iI(tZ.class, var37);
-        wD<T> var38 = this::G;
-        this.iI(T.class, var38);
+        this.onEvent(HitEvent.class, var36);
+        EventListener<tZ> var37 = this::O;
+        this.onEvent(tZ.class, var37);
+        EventListener<RenderEvent> var38 = this::G;
+        this.onEvent(RenderEvent.class, var38);
     }
 
     @Override
@@ -342,7 +343,7 @@ public final class damagenumbers extends Yn {
                             break label553;
                         }
 
-                        JL var365 = this.e;
+                        BooleanSetting var365 = this.e;
                         boolean var366 = var365.vb();
                         Integer var387 = var3;
                         if (var387 == null) {
@@ -567,7 +568,7 @@ public final class damagenumbers extends Yn {
                                     break label553;
                                 }
 
-                                JL var470 = this.vC;
+                                BooleanSetting var470 = this.vC;
                                 boolean var471 = var470.vb();
                                 Integer var499 = var3;
                                 if (var499 == null) {
@@ -968,7 +969,7 @@ public final class damagenumbers extends Yn {
                                         var15 *= var17;
                                         double var584 = var583 + var15;
                                         float var398 = Math.abs(var349);
-                                        r_2 var587 = this.Jo;
+                                        ModeSetting var587 = this.Jo;
                                         Integer var16 = var3;
                                         if (var16 == null) {
                                             var2 *= 619532547;
@@ -1163,7 +1164,7 @@ public final class damagenumbers extends Yn {
                                                         if (var350 > 0) {
                                                             var2 *= -309816445;
                                                             var2 ^= -444009865;
-                                                            Fk var351 = this.rT;
+                                                            ColorSetting var351 = this.rT;
                                                             Integer var613 = var3;
                                                             if (var613 == null) {
                                                                 var2 |= 934735661;
@@ -1197,7 +1198,7 @@ public final class damagenumbers extends Yn {
                                                                     case -1863166708 -> var2 ^ -881553216;
                                                                     default -> var2 ^ -1093785777;
                                                                 };
-                                                                Fk var615 = this.W;
+                                                                ColorSetting var615 = this.W;
                                                                 int var616 = var615.zz();
                                                                 long var655 = var3;
                                                                 long var692 = var655 + 1L;
@@ -1255,7 +1256,7 @@ public final class damagenumbers extends Yn {
                                                                     break label553;
                                                                 }
 
-                                                                Fk var618 = this.c;
+                                                                ColorSetting var618 = this.c;
                                                                 Integer var664 = var3;
                                                                 if (var664 == null) {
                                                                     var2 ^= 1128145686;
@@ -1369,7 +1370,7 @@ public final class damagenumbers extends Yn {
                                                             }
 
                                                             s_2 var635 = new s_2(var521, var569, var584, var401, var353, var448);
-                                                            r_2 var402 = this.A;
+                                                            ModeSetting var402 = this.A;
                                                             Hl var449 = Hl.PHYSICS;
                                                             int var522 = var3 + 1;
                                                             int var523 = var3 * var522;
@@ -2424,7 +2425,7 @@ public final class damagenumbers extends Yn {
         throw var51;
     }
 
-    private void G(T var1) {
+    private void G(RenderEvent var1) {
         label396: {
             int var2 = l;
             var2 ^= 410850646;
@@ -2496,13 +2497,13 @@ public final class damagenumbers extends Yn {
                             var2 &= -1046775960;
                             var2 += 1440997175;
                             var2 ^= -693938163;
-                            Ud var249 = Ud.Z();
+                            ClientRuntime var249 = ClientRuntime.Z();
                             AuraPipeline var250 = var249.Ul();
                             Projection var251 = var250.projection();
                             Projection var252 = var251;
                             Canvas var261 = var1.canvas();
                             Canvas var262 = var261;
-                            Uq var267 = this.x;
+                            NumberSetting var267 = this.x;
                             long var7 = var3;
                             long var9 = var7 + 1L;
                             var9 = var7 * var9;
@@ -3011,7 +3012,7 @@ public final class damagenumbers extends Yn {
                                                 LH var347 = s;
                                                 float var386 = var290.N;
                                                 float var348 = var347.u(var386);
-                                                Uq var387 = this.rC;
+                                                NumberSetting var387 = this.rC;
                                                 float var388 = var387.WM();
                                                 float var349 = var348 * var388;
                                                 Integer var389 = var3;
@@ -3351,7 +3352,7 @@ public final class damagenumbers extends Yn {
         Lookup var0 = MethodHandles.lookup();
         Class var3 = var0.lookupClass();
         int var1 = 1722664257;
-        int var2 = Yn.C;
+        int var2 = Module.C;
         int var4 = of_2.xF(var3, var1, var2);
         l = var4;
         GQ var5 = LH.ve();

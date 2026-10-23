@@ -1,6 +1,6 @@
 package dev.skidware.visuals.mixin;
 
-import dev.aurap.hub.Ud;
+import dev.aurap.hub.ClientRuntime;
 import dev.aurap.hub.i_2;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.hud.BossBarHud;
@@ -36,7 +36,7 @@ public abstract class BossHealthOverlayMixin {
 
     @Unique
     private void aura$push(Object graphics) {
-        float inset = Ud.y() ? Ud.Z().Kx().rb() : 0.0F;
+        float inset = ClientRuntime.y() ? ClientRuntime.Z().Kx().rb() : 0.0F;
         this.aura$shifted = inset > 0.25F;
         if (this.aura$shifted) {
             i_2.Sf(graphics, 0.0F, inset);

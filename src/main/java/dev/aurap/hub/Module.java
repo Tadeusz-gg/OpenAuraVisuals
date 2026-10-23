@@ -9,11 +9,11 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public abstract class Yn {
+public abstract class Module {
     private static final Logger o;
     private final String vJ;
     private final String Jg;
-    private final AJ T;
+    private final ModuleCategory T;
     private String Gq = "";
     private boolean E;
     private boolean B;
@@ -26,11 +26,11 @@ public abstract class Yn {
     private final List V;
     private final List LQ;
     private boolean eC;
-    private PH F;
+    private EventBus F;
     private Runnable e;
     public static final int C;
 
-    protected Yn(String var1, String var2, AJ var3) {
+    protected Module(String var1, String var2, ModuleCategory var3) {
         ArrayList var4 = new ArrayList();
         this.A = var4;
         var4 = new ArrayList();
@@ -51,7 +51,7 @@ public abstract class Yn {
         }
     }
 
-    public final String F() {
+    public final String getId() {
         int var1 = C;
         var1 ^= 818793751;
         int var2 = System.identityHashCode(this);
@@ -105,7 +105,9 @@ public abstract class Yn {
         throw var23;
     }
 
-    public final String UJ() {
+    public final String F() { return this.getId(); }
+
+    public final String getName() {
         int var1 = C;
         var1 ^= 864825837;
         int var2 = System.identityHashCode(this);
@@ -152,7 +154,9 @@ public abstract class Yn {
         throw var18;
     }
 
-    public final AJ bZ() {
+    public final String UJ() { return this.getName(); }
+
+    public final ModuleCategory getCategory() {
         int var1 = C;
         var1 ^= 1619217452;
         int var2 = System.identityHashCode(this);
@@ -190,7 +194,9 @@ public abstract class Yn {
         throw var13;
     }
 
-    public final String Rm() {
+    public final ModuleCategory bZ() { return this.getCategory(); }
+
+    public final String getDescription() {
         int var1 = C;
         var1 ^= -155603381;
         int var2 = System.identityHashCode(this);
@@ -229,7 +235,9 @@ public abstract class Yn {
         }
     }
 
-    public final List GS() {
+    public final String Rm() { return this.getDescription(); }
+
+    public final List<Setting<?>> getSettings() {
         int var1 = C;
         var1 ^= -774387102;
         int var2 = System.identityHashCode(this);
@@ -263,6 +271,8 @@ public abstract class Yn {
         AssertionError var16 = new AssertionError();
         throw var16;
     }
+
+    public final List GS() { return this.getSettings(); }
 
     public final boolean B() {
         int var1 = C;
@@ -1191,7 +1201,7 @@ public abstract class Yn {
         }
     }
 
-    public final void Ze(String var1) {
+    public final void setKeybind(String var1) {
         int var2 = C;
         var2 ^= 198727481;
         int var3 = System.identityHashCode(this);
@@ -1231,7 +1241,9 @@ public abstract class Yn {
         }
     }
 
-    protected final xB vn(xB var1) {
+    public final void Ze(String value) { this.setKeybind(value); }
+
+    protected final <T extends Setting<?>> T addSetting(T var1) {
         label103: {
             int var2 = C;
             var2 ^= -999327865;
@@ -1393,7 +1405,7 @@ public abstract class Yn {
                     }
 
                     Object var83 = var74.next();
-                    xB var84 = (xB)var83;
+                    Setting var84 = (Setting)var83;
                     String var85 = var84.oQ();
                     String var104 = var1.oQ();
                     long var7 = var3;
@@ -1499,6 +1511,8 @@ public abstract class Yn {
         throw var57;
     }
 
+    protected final Setting vn(Setting setting) { return this.addSetting(setting); }
+
     protected final nM bU(nM var1) {
         label63: {
             int var2 = C;
@@ -1583,7 +1597,7 @@ public abstract class Yn {
                     }
 
                     Object var69 = var51.next();
-                    xB var70 = (xB)var69;
+                    Setting var70 = (Setting)var69;
                     long var77 = var3;
                     long var8 = var77 + 1L;
                     var8 = var77 * var8;
@@ -1621,7 +1635,7 @@ public abstract class Yn {
                         break label63;
                     }
 
-                    xB var71 = this.vn(var70);
+                    Setting var71 = this.vn(var70);
                     var2 *= -1654289965;
                     var2 &= -829003528;
                     var2 *= 1782746841;
@@ -1652,7 +1666,7 @@ public abstract class Yn {
         throw var48;
     }
 
-    protected final <E> void iI(Class<E> var1, wD<E> var2) {
+    protected final <E> void onEvent(Class<E> var1, EventListener<E> var2) {
         int var3 = C;
         var3 ^= -1490760066;
         int var4 = System.identityHashCode(this);
@@ -1668,11 +1682,11 @@ public abstract class Yn {
             var3 ^= -260535738;
             var3 |= 360194253;
             var3 ^= 1442642160;
-            this.vw(var1, 0, var2);
+            this.onEventAtPriority(var1, 0, var2);
         }
     }
 
-    protected final <E> void vw(Class<E> var1, int var2, wD<E> var3) {
+    protected final <E> void onEventAtPriority(Class<E> var1, int var2, EventListener<E> var3) {
         int var4 = C;
         var4 ^= 1212076778;
         int var6 = System.identityHashCode(this);
@@ -1727,12 +1741,12 @@ public abstract class Yn {
         int var1 = System.identityHashCode(this);
     }
 
-    public final void Xc(PH var1, Runnable var2) {
+    public final void Xc(EventBus var1, Runnable var2) {
         label51: {
             int var3 = C;
             var3 ^= 975208115;
             int var4 = System.identityHashCode(this);
-            PH var5 = this.F;
+            EventBus var5 = this.F;
             Integer var6 = var4;
             if (var6 == null) {
                 switch (var3) {
@@ -1875,7 +1889,7 @@ public abstract class Yn {
                     break label93;
                 }
 
-                PH var76 = this.F;
+                EventBus var76 = this.F;
                 if (var76 == null) {
                     var2 = switch (var2) {
                         case -1252391226 -> var2 ^ -2032291617;
@@ -2254,8 +2268,8 @@ public abstract class Yn {
                 // next
                 oK var100 = (oK)var79.next();
                 List var115 = this.LQ;
-                PH var8 = this.F;
-                kf var101 = var100.subscribe(var8);
+                EventBus var8 = this.F;
+                EventSubscription var101 = var100.subscribe(var8);
 
                 var3 = switch (var3) {
                     case -433475422 -> {
@@ -2285,7 +2299,7 @@ public abstract class Yn {
 
     private void tA(int param1) {
     for (Object subObj : this.LQ) {
-        kf sub = (kf)subObj;
+        EventSubscription sub = (EventSubscription)subObj;
         if (sub != null) {
             sub.unsubscribe();
         }

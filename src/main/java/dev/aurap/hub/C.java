@@ -24,7 +24,7 @@ public final class C {
     public static final Logger LOG;
     private static final long RH = 20000L;
     private static final long R = 600000L;
-    private final Ud v;
+    private final ClientRuntime v;
     private final Queue F;
     private final ExecutorService vy;
     private final Lh_2 k;
@@ -32,7 +32,7 @@ public final class C {
     long lastFailureNotice;
     public static final int B;
 
-    public C(Ud var1, Path var2) {
+    public C(ClientRuntime var1, Path var2) {
         ConcurrentLinkedQueue var3 = new ConcurrentLinkedQueue();
         this.F = var3;
         ThreadFactory var11 = var0 -> {

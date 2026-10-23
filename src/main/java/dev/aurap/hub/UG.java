@@ -47,7 +47,7 @@ public final class UG {
     private UG() {
     }
 
-    public static void fe(Ud var0) {
+    public static void fe(ClientRuntime var0) {
         boolean var201 = false;
         motionblur var210 = null;
         label291: {
@@ -153,8 +153,8 @@ public final class UG {
                                         break label291;
                                     }
 
-                                    NW var191 = var0.sP();
-                                    Yn var192 = var191.tG(clickgui.class);
+                                    ModuleManager var191 = var0.sP();
+                                    Module var192 = var191.tG(clickgui.class);
                                     long var214 = var2;
                                     long var7 = var214 + 1L;
                                     var7 = var214 * var7;
@@ -400,8 +400,8 @@ public final class UG {
                                     }
 
                                     label303: {
-                                        NW var208 = var0.sP();
-                                        Yn var209 = var208.tG(motionblur.class);
+                                        ModuleManager var208 = var0.sP();
+                                        Module var209 = var208.tG(motionblur.class);
                                         var210 = (motionblur)var209;
                                         if (var174 != 0) {
                                             var136 &= 1060488901;
@@ -690,7 +690,7 @@ public final class UG {
         throw var154;
     }
 
-    public static void pE(Ud var0) {
+    public static void pE(ClientRuntime var0) {
         int var1 = W;
         var1 ^= -250529583;
         int var2 = System.identityHashCode(var0);
@@ -801,7 +801,7 @@ public final class UG {
                                             break label71;
                                         }
 
-                                        var49x = ia.WW(var59x);
+                                        var49x = KeybindSetting.WW(var59x);
                                         if (var49x == -1) {
                                             var35x &= -1131822440;
                                             var35x ^= -157489391;
@@ -895,10 +895,10 @@ public final class UG {
                     };
                     Stream var150 = var149.filter(var174);
                     List var151 = var150.toList();
-                    NW var175 = var0.sP();
+                    ModuleManager var175 = var0.sP();
                     List var176 = var175.dG();
                     Stream var177 = var176.stream();
-                    Predicate<Yn> var7x = var0xx -> {
+                    Predicate<Module> var7x = var0xx -> {
                         boolean var54x;
                         label82: {
                             int var1xx = W;
@@ -1074,7 +1074,7 @@ public final class UG {
                         throw var42x;
                     };
                     Stream var178 = var177.filter(var7x);
-                    Function<Yn, String> var186 = Yn::F;
+                    Function<Module, String> var186 = Module::F;
                     Stream var179 = var178.map(var186);
                     List var180 = var179.toList();
                     LiteralArgumentBuilder var187 = ClientCommandManager.literal("swing");
@@ -1271,8 +1271,8 @@ public final class UG {
                             int var3xx = W;
                             var3xx ^= -724533369;
                             int var4xx = System.identityHashCode(var0);
-                            NW var5xx = var0.sP();
-                            Yn var29xx = var5xx.tG(swinganimations.class);
+                            ModuleManager var5xx = var0.sP();
+                            Module var29xx = var5xx.tG(swinganimations.class);
                             swinganimations var30xx = (swinganimations)var29xx;
                             int var6x = var4xx + 1;
                             var6x = var4xx * var6x;
@@ -1302,7 +1302,7 @@ public final class UG {
                                     var30xx.xt(true);
                                     Object var27xx = var2xx.getSource();
                                     FabricClientCommandSource var28xx = (FabricClientCommandSource)var27xx;
-                                    String var31xx = r_2.R(var225);
+                                    String var31xx = ModeSetting.R(var225);
                                     String var32xx = "§7Swing §f" + var31xx;
                                     MutableText var33xx = Text.literal(var32xx);
                                     var28xx.sendFeedback(var33xx);
@@ -1355,11 +1355,11 @@ public final class UG {
                             int var3xx = System.identityHashCode(var0);
                             FabricClientCommandSource var4xx = (FabricClientCommandSource)var1xx.getSource();
                             var4xx = var4xx;
-                            NW var5xx = var0.sP();
-                            Yn var26xx = var5xx.tG(killeffect.class);
+                            ModuleManager var5xx = var0.sP();
+                            Module var26xx = var5xx.tG(killeffect.class);
                             killeffect var27xx = (killeffect)var26xx;
                             ws var28xx = var27xx.cm();
-                            String var29xx = r_2.R(var28xx);
+                            String var29xx = ModeSetting.R(var28xx);
                             String var30xx = "§7Kill Effect §f" + var29xx + "§7 · opcje: §flight, sahur";
                             MutableText var31xx = Text.literal(var30xx);
                             long var6x = var3xx;
@@ -1475,11 +1475,11 @@ public final class UG {
                                         var3xx = var2xx * var3xx;
                                         var2xx = var3xx & 1;
                                         if (var2xx == 0) {
-                                            NW var21x = var0.sP();
-                                            Yn var22xx = var21x.tG(deatheffect.class);
+                                            ModuleManager var21x = var0.sP();
+                                            Module var22xx = var21x.tG(deatheffect.class);
                                             deatheffect var23xx = (deatheffect)var22xx;
                                             d_2 var24xx = var23xx.O();
-                                            String var25xx = r_2.R(var24xx);
+                                            String var25xx = ModeSetting.R(var24xx);
                                             d_2[] var35x = d_2.values();
                                             Stream var36x = Arrays.stream(var35x);
                                             Function var43x = var0xxx -> {
@@ -1629,8 +1629,8 @@ public final class UG {
                                                 Collector var30xx = Collectors.joining(", ");
                                                 String var29xx = (String)var27xx.collect(var30xx);
                                                 FabricClientCommandSource var32xx = (FabricClientCommandSource)var1xx.getSource();
-                                                NW var6x = var0.sP();
-                                                Yn var33xx = var6x.tG(hudstyle.class);
+                                                ModuleManager var6x = var0.sP();
+                                                Module var33xx = var6x.tG(hudstyle.class);
                                                 hudstyle var34x = (hudstyle)var33xx;
                                                 int var7xx = var3xx + 1;
                                                 var7xx = var3xx * var7xx;
@@ -1653,7 +1653,7 @@ public final class UG {
                                                     Integer var17xx = var2xx;
                                                     if (var17xx != null) {
                                                         eG var19xx = var34x.zf();
-                                                        String var20xx = r_2.R(var19xx);
+                                                        String var20xx = ModeSetting.R(var19xx);
                                                         String var21x = "§7HUD theme §f" + var20xx + "§7 · options: §f" + var29xx;
                                                         MutableText var22xx = Text.literal(var21x);
                                                         var32xx.sendFeedback(var22xx);
@@ -1755,13 +1755,13 @@ public final class UG {
                                                         int var3xx = W;
                                                         var3xx ^= 1506692546;
                                                         int var4xx = System.identityHashCode(var0);
-                                                        NW var5xx = var0.sP();
-                                                        Yn var26xx = var5xx.tG(hudstyle.class);
+                                                        ModuleManager var5xx = var0.sP();
+                                                        Module var26xx = var5xx.tG(hudstyle.class);
                                                         hudstyle var27xx = (hudstyle)var26xx;
                                                         var27xx.Wf(var343);
                                                         FabricClientCommandSource var28xx = (FabricClientCommandSource)var2xx.getSource();
                                                         var28xx = var28xx;
-                                                        String var6x = r_2.R(var343);
+                                                        String var6x = ModeSetting.R(var343);
                                                         var6x = "§7HUD theme §f" + var6x;
                                                         MutableText var31xx = Text.literal(var6x);
                                                         int var7xx = var4xx + 1;
@@ -1853,10 +1853,10 @@ public final class UG {
                                                             int var53x = var52x & 1;
                                                             label57:
                                                             if (var53x == 0) {
-                                                                NW var54x = var0.sP();
-                                                                Yn var55x = var54x.tG(clickgui.class);
+                                                                ModuleManager var54x = var0.sP();
+                                                                Module var55x = var54x.tG(clickgui.class);
                                                                 clickgui var56x = (clickgui)var55x;
-                                                                ia var57x = var56x.fA();
+                                                                KeybindSetting var57x = var56x.fA();
                                                                 FabricClientCommandSource var5xx = (FabricClientCommandSource)var1xx.getSource();
                                                                 var5xx = var5xx;
                                                                 int var65x = (var57x.r()) ? 1 : 0;
@@ -2197,8 +2197,8 @@ public final class UG {
                                                     int var2xx = W;
                                                     var2xx ^= 2090609228;
                                                     int var3xx = System.identityHashCode(var0);
-                                                    NW var4xx = var0.sP();
-                                                    Yn var32xx = var4xx.tG(motionblur.class);
+                                                    ModuleManager var4xx = var0.sP();
+                                                    Module var32xx = var4xx.tG(motionblur.class);
                                                     motionblur var33xx = (motionblur)var32xx;
                                                     var33xx.bq();
                                                     FabricClientCommandSource var5xx = (FabricClientCommandSource)var1xx.getSource();
@@ -2258,8 +2258,8 @@ public final class UG {
                                                     int var2xx = W;
                                                     var2xx ^= -1495120688;
                                                     int var3xx = System.identityHashCode(var0);
-                                                    NW var4xx = var0.sP();
-                                                    Yn var27xx = var4xx.tG(motionblur.class);
+                                                    ModuleManager var4xx = var0.sP();
+                                                    Module var27xx = var4xx.tG(motionblur.class);
                                                     motionblur var28xx = (motionblur)var27xx;
                                                     int var5xx = var3xx + 1;
                                                     var5xx = var3xx * var5xx;
@@ -2908,8 +2908,8 @@ public final class UG {
                                                 long var46x;
                                                 int var28xx = (var46x = var27xx - 0L) == 0L ? 0 : (var46x < 0L ? -1 : 1);
                                                 if (var28xx == 0) {
-                                                    NW var29xx = var0.sP();
-                                                    Yn var30xx = var29xx.tG(deatheffect.class);
+                                                    ModuleManager var29xx = var0.sP();
+                                                    Module var30xx = var29xx.tG(deatheffect.class);
                                                     deatheffect var31xx = (deatheffect)var30xx;
                                                     var31xx.PA(var307);
                                                     var31xx.xt(true);
@@ -2919,7 +2919,7 @@ public final class UG {
                                                     var5xx.Zl(50L, var32xx);
                                                     Object var33xx = var2xx.getSource();
                                                     FabricClientCommandSource var34x = (FabricClientCommandSource)var33xx;
-                                                    String var35x = r_2.R(var307);
+                                                    String var35x = ModeSetting.R(var307);
                                                     String var36x = "§7Death Effect §f" + var35x;
                                                     MutableText var37x = Text.literal(var36x);
                                                     var34x.sendFeedback(var37x);
@@ -3052,14 +3052,14 @@ public final class UG {
                                 int var3xx = W;
                                 var3xx ^= -61899371;
                                 int var4xx = System.identityHashCode(var0);
-                                NW var5xx = var0.sP();
-                                Yn var25xx = var5xx.tG(killeffect.class);
+                                ModuleManager var5xx = var0.sP();
+                                Module var25xx = var5xx.tG(killeffect.class);
                                 killeffect var26xx = (killeffect)var25xx;
                                 var26xx.z(var257);
                                 var26xx.xt(true);
                                 FabricClientCommandSource var27xx = (FabricClientCommandSource)var2xx.getSource();
                                 var27xx = var27xx;
-                                String var6x = r_2.R(var257);
+                                String var6x = ModeSetting.R(var257);
                                 var6x = "§7Kill Effect §f" + var6x;
                                 MutableText var30xx = Text.literal(var6x);
                                 int var7xx = var4xx + 1;
@@ -3193,13 +3193,13 @@ public final class UG {
         throw var21;
     }
 
-    private static int H(Ud var0, FabricClientCommandSource var1, String var2, int var3) {
+    private static int H(ClientRuntime var0, FabricClientCommandSource var1, String var2, int var3) {
         label185: {
             int var5 = System.identityHashCode(var0);
-            NW var6 = var0.sP();
-            Yn var126 = var6.tG(clickgui.class);
+            ModuleManager var6 = var0.sP();
+            Module var126 = var6.tG(clickgui.class);
             clickgui var127 = (clickgui)var126;
-            ia var128 = var127.fA();
+            KeybindSetting var128 = var127.fA();
             Integer var7 = var5;
             int var16;
             if (var7 == null) {
@@ -3294,7 +3294,7 @@ public final class UG {
                                 break label185;
                             }
 
-                            var136 = ia.WW(var137);
+                            var136 = KeybindSetting.WW(var137);
                             int var188 = var5 + 1;
                             int var189 = var5 * var188;
                             int var10 = var5 + 2;
@@ -3619,14 +3619,14 @@ public final class UG {
         throw var123;
     }
 
-    private static List G(Ud var0, ia var1, int var2, int var3) {
+    private static List G(ClientRuntime var0, KeybindSetting var1, int var2, int var3) {
         label182: {
             int var5 = var2;
             int var6 = System.identityHashCode(var0);
             List var8 = i_2.Hw(var2);
             ArrayList var7 = new ArrayList(var8);
             var7 = var7;
-            NW var119 = var0.sP();
+            ModuleManager var119 = var0.sP();
             Integer var9 = var6;
             if (var9 == null) {
                 int var116 = var3 | -302928567;
@@ -3734,8 +3734,8 @@ public final class UG {
                         break label182;
                     }
 
-                    Yn var126 = (Yn)var9Module;
-                    Yn var127 = var126;
+                    Module var126 = (Module)var9Module;
+                    Module var127 = var126;
                     List var141 = var126.GS();
                     Iterator var142 = var141.iterator();
                     Iterator var143 = var142;
@@ -3823,7 +3823,7 @@ public final class UG {
                         var4 &= -986027448;
                         var4 <<= 14;
                         var4 ^= 832854012;
-                        xB var150 = (xB)var149;
+                        Setting var150 = (Setting)var149;
                         if (var150 != var1) {
                             var4 &= -390233590;
                             var4 ^= -123845532;
@@ -3838,7 +3838,7 @@ public final class UG {
                                 break label182;
                             }
 
-                            boolean var176 = var150 instanceof ia;
+                            boolean var176 = var150 instanceof KeybindSetting;
                             long var192 = var6;
                             long var15 = var192 + 1L;
                             var15 = var192 * var15;
@@ -3904,7 +3904,7 @@ public final class UG {
                                     break label182;
                                 }
 
-                                ia var151 = (ia)var150;
+                                KeybindSetting var151 = (KeybindSetting)var150;
                                 Integer var181 = var6;
                                 if (var181 == null) {
                                     var4 += -146400328;
@@ -3996,7 +3996,7 @@ public final class UG {
         throw var115;
     }
 
-    private static int Z(Ud var0, FabricClientCommandSource var1, String var2, int var3) {
+    private static int Z(ClientRuntime var0, FabricClientCommandSource var1, String var2, int var3) {
         label113: {
             int var5 = System.identityHashCode(var0);
             long var6 = var5;
@@ -4031,10 +4031,10 @@ public final class UG {
                         break label113;
                     }
 
-                    NW var84 = var0.sP();
+                    ModuleManager var84 = var0.sP();
                     Optional var85 = var84.p(var2);
                     Object var86 = var85.orElse(null);
-                    Yn var87 = (Yn)var86;
+                    Module var87 = (Module)var86;
                     if (var87 != null) {
                         var17 |= -1132814993;
                         var17 *= -762832433;
@@ -4283,7 +4283,7 @@ public final class UG {
         throw var72;
     }
 
-    private static String ep(Yn var0, int var1) {
+    private static String ep(Module var0, int var1) {
         int var3 = System.identityHashCode(var0);
         int var4 = var3 + 1;
         var4 = var3 * var4;
@@ -4524,7 +4524,7 @@ public final class UG {
         throw var57;
     }
 
-    private static int HC(Ud var0, int var1) {
+    private static int HC(ClientRuntime var0, int var1) {
         label77: {
             int var3 = System.identityHashCode(var0);
             Y var4 = var0.M();

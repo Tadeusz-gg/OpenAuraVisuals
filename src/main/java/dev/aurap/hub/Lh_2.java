@@ -31,7 +31,7 @@ public final class Lh_2 {
     private final Path I;
     private final Executor ek;
     private final Executor rH;
-    private final LongSupplier Fk;
+    private final LongSupplier ColorSetting;
     private final hs be;
     private long HO;
     private String q = "";
@@ -54,7 +54,7 @@ public final class Lh_2 {
         this.I = var3;
         this.ek = var4;
         this.rH = var5;
-        this.Fk = var6;
+        this.ColorSetting = var6;
         this.be = var7;
         this.cF(1404687622);
     }
@@ -420,7 +420,7 @@ public final class Lh_2 {
                                     };
                                     var113 = var1;
                                     if (var113 != null) {
-                                        LongSupplier var121 = this.Fk;
+                                        LongSupplier var121 = this.ColorSetting;
                                         long var144 = var2;
                                         var6 = var144 + 1L;
                                         var6 = var144 * var6;
@@ -1189,7 +1189,7 @@ public final class Lh_2 {
                                         var2 -= -2109731970;
                                         var2 *= 949140387;
                                         var2 ^= -255322157;
-                                        var261 = this.Fk;
+                                        var261 = this.ColorSetting;
                                         var2 <<= 27;
                                         var2 *= -1012870711;
                                         var2 &= 1304487037;
@@ -2634,7 +2634,7 @@ public final class Lh_2 {
                     long var98 = var1.Kx;
                     this.HO = var98;
                     this.q = var2;
-                    LongSupplier var99 = this.Fk;
+                    LongSupplier var99 = this.ColorSetting;
                     var7 = var5;
                     var9 = var7 + 1L;
                     var9 = var7 * var9;
@@ -3093,7 +3093,7 @@ public final class Lh_2 {
                         int var102 = var101 ^ 125961306;
                         String var103 = this.mZ(var102);
                         this.q = var103;
-                        LongSupplier var104 = this.Fk;
+                        LongSupplier var104 = this.ColorSetting;
                         var97 = var104.getAsLong();
                         this.p = var97;
                         int var106 = var34 | -72299671;
@@ -3175,7 +3175,7 @@ public final class Lh_2 {
             this.j = false;
             String var5 = var1.getMessage();
             this.s = var5;
-            LongSupplier var60 = this.Fk;
+            LongSupplier var60 = this.ColorSetting;
             int var6 = var4 + 1;
             var6 = var4 * var6;
             int var7 = var4 + 2;
@@ -8809,7 +8809,7 @@ public final class Lh_2 {
                     }
 
                     Object var58 = var49.next();
-                    Yn var59 = (Yn)var58;
+                    Module var59 = (Module)var58;
                     var64 = var2 + 1;
                     var64 = var2 * var64;
                     int var72 = var2 + 2;

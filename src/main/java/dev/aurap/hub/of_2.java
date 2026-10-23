@@ -2405,45 +2405,7 @@ public final class of_2 {
     }
 
     private static String originalName(Class<?> type) {
-        return switch (type.getName()) {
-            case "mvggs.modules.combat.hitmarker" -> "dev.aurap.hub.wQ";
-            case "mvggs.modules.combat.damagenumbers" -> "dev.aurap.hub.Qt";
-            case "mvggs.modules.combat.hitparticles" -> "dev.aurap.hub.hd";
-            case "mvggs.modules.combat.hitbubbles" -> "dev.aurap.hub.ss";
-            case "mvggs.modules.combat.targetesp" -> "dev.aurap.hub.eU";
-            case "mvggs.modules.combat.killeffect" -> "dev.aurap.hub.n";
-            case "mvggs.modules.combat.deatheffect" -> "dev.aurap.hub.U";
-            case "mvggs.modules.combat.totempop" -> "dev.aurap.hub.L";
-            case "mvggs.modules.combat.hitcolor" -> "dev.aurap.hub.tn";
-            case "mvggs.modules.combat.hitboxcustomizer" -> "dev.aurap.hub.a";
-            case "mvggs.modules.hud.hudstyle" -> "dev.aurap.hub.E";
-            case "mvggs.modules.hud.targethud" -> "dev.aurap.hub.Td";
-            case "mvggs.modules.hud.watermark" -> "dev.aurap.hub.fm";
-            case "mvggs.modules.hud.dynamicisland" -> "dev.aurap.hub.Hv";
-            case "mvggs.modules.hud.potions" -> "dev.aurap.hub.y";
-            case "mvggs.modules.hud.cooldowns" -> "dev.aurap.hub.Ld";
-            case "mvggs.modules.hud.combocounter" -> "dev.aurap.hub.G";
-            case "mvggs.modules.hud.cooldownring" -> "dev.aurap.hub.hZ";
-            case "mvggs.modules.hud.crosshair" -> "dev.aurap.hub.F";
-            case "mvggs.modules.animations.swinganimations" -> "dev.aurap.hub.VZ";
-            case "mvggs.modules.animations.knife" -> "dev.aurap.hub.M";
-            case "mvggs.modules.animations.hurtcam" -> "dev.aurap.hub.ya";
-            case "mvggs.modules.sound.hitsounds" -> "dev.aurap.hub.PO";
-            case "mvggs.modules.world.jumpcircles" -> "dev.aurap.hub.is";
-            case "mvggs.modules.world.jumpparticles" -> "dev.aurap.hub.k";
-            case "mvggs.modules.world.ambientparticles" -> "dev.aurap.hub.W";
-            case "mvggs.modules.world.trails" -> "dev.aurap.hub.cA";
-            case "mvggs.modules.world.halo" -> "dev.aurap.hub.ek";
-            case "mvggs.modules.world.chinahat" -> "dev.aurap.hub.Ko";
-            case "mvggs.modules.world.atmosphere" -> "dev.aurap.hub.iY";
-            case "mvggs.modules.world.motionblur" -> "dev.aurap.hub.A";
-            case "mvggs.modules.world.colorsaturation" -> "dev.aurap.hub.qh";
-            case "mvggs.modules.world.aspectratio" -> "dev.aurap.hub.Cy";
-            case "mvggs.modules.world.fullbright" -> "dev.aurap.hub.cC";
-            case "mvggs.modules.client.clickgui" -> "dev.aurap.hub.ZW";
-            case "mvggs.modules.client.performance" -> "dev.aurap.hub.JT";
-            default -> type.getName().replaceFirst("_[0-9]+$", "");
-        };
+        return LegacyClassCompatibility.originalName(type);
     }
 
     static {

@@ -9,21 +9,21 @@ import java.util.function.BiFunction;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public final class PH {
+public final class EventBus {
     private static final Logger HQ;
     private static final CL[] bE;
     private final Map Kf;
     private final Map Jt;
     public static final int kQ;
 
-    public PH() {
+    public EventBus() {
         ConcurrentHashMap var1 = new ConcurrentHashMap();
         this.Kf = var1;
         var1 = new ConcurrentHashMap();
         this.Jt = var1;
     }
 
-    public <E> kf o(Class<E> var1, wD<E> var2) {
+    public <E> EventSubscription o(Class<E> var1, EventListener<E> var2) {
         int var3 = kQ;
         var3 ^= -1048269259;
         int var4 = System.identityHashCode(this);
@@ -67,7 +67,7 @@ public final class PH {
         throw var22;
     }
 
-    public <E> kf DP(Class<E> var1, int var2, wD<E> var3) {
+    public <E> EventSubscription DP(Class<E> var1, int var2, EventListener<E> var3) {
         int var4 = kQ;
         var4 ^= 423397452;
         int var6 = System.identityHashCode(this);
@@ -906,7 +906,7 @@ public final class PH {
 
     public Object A(Object var1) {
         Throwable var141 = null;
-        wD var142 = null;
+        EventListener var142 = null;
         int var2 = kQ;
         var2 ^= -634130979;
         Object var3 = null;
@@ -1078,7 +1078,7 @@ public final class PH {
                                                     }
 
                                                     try {
-                                                        var142.r(var1);
+                                                        var142.onEvent(var1);
                                                         break label170;
                                                     } catch (Throwable var14) {
                                                         var2 = kQ;
@@ -1151,7 +1151,7 @@ public final class PH {
                                         break label161;
                                     }
 
-                                    wD var131 = var129.listener();
+                                    EventListener var131 = var129.listener();
                                     var2 |= -1148810527;
                                     var2 ^= -333329031;
                                     var2 &= 297508078;
@@ -1356,7 +1356,7 @@ public final class PH {
         throw var40;
     }
 
-    private void GU(wD var1, Object var2, Throwable var3, int var4) {
+    private void GU(EventListener var1, Object var2, Throwable var3, int var4) {
         label49: {
             int var37;
             int var6 = System.identityHashCode(this);
@@ -1465,6 +1465,20 @@ public final class PH {
         IllegalArgumentException var48 = new IllegalArgumentException();
         throw var48;
     }
+
+    public <E> EventSubscription subscribe(Class<E> eventType, EventListener<E> listener) {
+        return this.o(eventType, listener);
+    }
+
+    public <E> EventSubscription subscribePriority(Class<E> eventType, int priority, EventListener<E> listener) {
+        return this.DP(eventType, priority, listener);
+    }
+
+    public boolean hasListeners(Class<?> eventType) { return this.l(eventType); }
+
+    public Object post(Object event) { return this.A(event); }
+
+    public int listenerCount(Class<?> eventType) { return this.YG(eventType); }
 
     static {
         Lookup var0 = MethodHandles.lookup();

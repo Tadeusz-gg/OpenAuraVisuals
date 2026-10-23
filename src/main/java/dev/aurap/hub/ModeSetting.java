@@ -4,7 +4,7 @@ import java.lang.invoke.MethodHandles;
 import java.lang.invoke.MethodHandles.Lookup;
 import java.util.Locale;
 
-public final class r_2 extends xB {
+public final class ModeSetting extends Setting {
     private final Enum[] Pd;
     private Enum[] w;
     private final Enum Zv;
@@ -12,7 +12,7 @@ public final class r_2 extends xB {
     private El N;
     public static final int q;
 
-    public r_2(String var1, String var2, Enum var3) {
+    public ModeSetting(String var1, String var2, Enum var3) {
         super(var1, var2);
         this.Zv = var3;
         this.Y = var3;
@@ -24,7 +24,7 @@ public final class r_2 extends xB {
         this.w = var7;
     }
 
-    public r_2 FP(Enum[] var1) {
+    public ModeSetting FP(Enum[] var1) {
         label101: {
             int var2 = q;
             var2 ^= -1517164227;
@@ -604,7 +604,7 @@ public final class r_2 extends xB {
         throw var33;
     }
 
-    public r_2 w(El var1) {
+    public ModeSetting w(El var1) {
         int var2 = q;
         var2 ^= -382457721;
         int var3 = System.identityHashCode(this);
@@ -1721,7 +1721,7 @@ public final class r_2 extends xB {
         Lookup var0 = MethodHandles.lookup();
         Class var3 = var0.lookupClass();
         int var1 = 733314846;
-        int var2 = xB.nu;
+        int var2 = Setting.nu;
         int var4 = of_2.ro(var3, var1, var2);
         q = var4;
     }

@@ -12,7 +12,7 @@ import java.util.Iterator;
 import java.util.List;
 import net.minecraft.item.ItemStack;
 
-public final class cooldowns extends tR_2 {
+public final class cooldowns extends HudModule {
     private static final float su = 7.0F;
     private static final float aQ = 19.0F;
     private static final float ot = 14.0F;
@@ -2487,7 +2487,7 @@ public final class cooldowns extends tR_2 {
         Lookup var0 = MethodHandles.lookup();
         Class var3 = var0.lookupClass();
         int var1 = 1094776786;
-        int var2 = tR_2.qG;
+        int var2 = HudModule.qG;
         int var4 = of_2.kj(var3, var1, var2);
         o = var4;
         TextStyle var5 = TextStyle.of(8.2F, -1);

@@ -1,6 +1,7 @@
 package mvggs.modules.combat;
 
 import dev.aurap.hub.*;
+import dev.aurap.hub.Module;
 
 import dev.skidware.visuals.client.render.AuraPipeline;
 import dev.skidware.visuals.client.render.FrameContext;
@@ -14,98 +15,98 @@ import java.util.concurrent.ThreadLocalRandom;
 import net.minecraft.entity.Entity;
 import net.minecraft.world.World;
 
-public final class hitparticles extends Yn {
+public final class hitparticles extends Module {
     private static final float bz = 0.065F;
     private final RZ zk;
-    private final r_2 y;
-    private final r_2 BK;
-    private final Uq t;
-    private final Uq j;
-    private final Uq ro;
-    private final Uq rC;
-    private final Uq mp;
-    private final r_2 S;
-    private final JL l;
-    private final Uq a;
+    private final ModeSetting y;
+    private final ModeSetting BK;
+    private final NumberSetting t;
+    private final NumberSetting j;
+    private final NumberSetting ro;
+    private final NumberSetting rC;
+    private final NumberSetting mp;
+    private final ModeSetting S;
+    private final BooleanSetting l;
+    private final NumberSetting a;
     private final zS O;
-    private final JL IG;
-    private final JL vr;
+    private final BooleanSetting IG;
+    private final BooleanSetting vr;
     private final mN Ip;
     private final double[] M;
     private Object aq;
     public static final int yY;
 
     public hitparticles() {
-        super("hit_particles", "Hit Particles", AJ.COMBAT);
-        AJ var1 = AJ.COMBAT;
+        super("hit_particles", "Hit Particles", ModuleCategory.COMBAT);
+        ModuleCategory var1 = ModuleCategory.COMBAT;
 
         RZ var3 = new RZ();
         nM var4 = this.bU(var3);
         RZ var5 = (RZ)var4;
         this.zk = var5;
         bA_2 var2 = bA_2.FLY;
-        r_2 var6 = new r_2("motion", "Motion", var2);
-        xB var7 = this.vn(var6);
-        r_2 var8 = (r_2)var7;
+        ModeSetting var6 = new ModeSetting("motion", "Motion", var2);
+        Setting var7 = this.addSetting(var6);
+        ModeSetting var8 = (ModeSetting)var7;
         this.y = var8;
         YJ var59 = YJ.IMPACT;
-        r_2 var9 = new r_2("spawn", "Spawn", var59);
-        xB var10 = this.vn(var9);
-        r_2 var11 = (r_2)var10;
+        ModeSetting var9 = new ModeSetting("spawn", "Spawn", var59);
+        Setting var10 = this.addSetting(var9);
+        ModeSetting var11 = (ModeSetting)var10;
         this.BK = var11;
-        Uq var12 = new Uq("amount", "Amount", 6.0F, 1.0F, 24.0F);
-        Uq var13 = var12.W(1.0F);
-        xB var14 = this.vn(var13);
-        Uq var15 = (Uq)var14;
+        NumberSetting var12 = new NumberSetting("amount", "Amount", 6.0F, 1.0F, 24.0F);
+        NumberSetting var13 = var12.W(1.0F);
+        Setting var14 = this.addSetting(var13);
+        NumberSetting var15 = (NumberSetting)var14;
         this.t = var15;
-        Uq var16 = new Uq("crit_bonus", "Crit Bonus", 4.0F, 0.0F, 16.0F);
-        Uq var17 = var16.W(1.0F);
-        xB var18 = this.vn(var17);
-        Uq var19 = (Uq)var18;
+        NumberSetting var16 = new NumberSetting("crit_bonus", "Crit Bonus", 4.0F, 0.0F, 16.0F);
+        NumberSetting var17 = var16.W(1.0F);
+        Setting var18 = this.addSetting(var17);
+        NumberSetting var19 = (NumberSetting)var18;
         this.j = var19;
-        Uq var20 = new Uq("size", "Size", 1.0F, 0.4F, 3.0F);
-        Uq var21 = var20.W(0.05F);
-        Uq var22 = var21.L("x");
-        xB var23 = this.vn(var22);
-        Uq var24 = (Uq)var23;
+        NumberSetting var20 = new NumberSetting("size", "Size", 1.0F, 0.4F, 3.0F);
+        NumberSetting var21 = var20.W(0.05F);
+        NumberSetting var22 = var21.L("x");
+        Setting var23 = this.addSetting(var22);
+        NumberSetting var24 = (NumberSetting)var23;
         this.ro = var24;
-        Uq var25 = new Uq("lifetime", "Lifetime", 2.0F, 0.4F, 10.0F);
-        Uq var26 = var25.W(0.1F);
-        Uq var27 = var26.L("s");
-        xB var28 = this.vn(var27);
-        Uq var29 = (Uq)var28;
+        NumberSetting var25 = new NumberSetting("lifetime", "Lifetime", 2.0F, 0.4F, 10.0F);
+        NumberSetting var26 = var25.W(0.1F);
+        NumberSetting var27 = var26.L("s");
+        Setting var28 = this.addSetting(var27);
+        NumberSetting var29 = (NumberSetting)var28;
         this.rC = var29;
-        Uq var30 = new Uq("speed", "Speed", 1.0F, 0.2F, 3.0F);
-        Uq var31 = var30.W(0.05F);
-        Uq var32 = var31.L("x");
-        xB var33 = this.vn(var32);
-        Uq var34 = (Uq)var33;
+        NumberSetting var30 = new NumberSetting("speed", "Speed", 1.0F, 0.2F, 3.0F);
+        NumberSetting var31 = var30.W(0.05F);
+        NumberSetting var32 = var31.L("x");
+        Setting var33 = this.addSetting(var32);
+        NumberSetting var34 = (NumberSetting)var33;
         this.mp = var34;
         ka var60 = ka.ALPHA;
-        r_2 var35 = new r_2("fade", "Fade", var60);
-        xB var36 = this.vn(var35);
-        r_2 var37 = (r_2)var36;
+        ModeSetting var35 = new ModeSetting("fade", "Fade", var60);
+        Setting var36 = this.addSetting(var35);
+        ModeSetting var37 = (ModeSetting)var36;
         this.S = var37;
-        JL var38 = new JL("collisions", "Block Collisions", true);
-        xB var39 = this.vn(var38);
-        JL var40 = (JL)var39;
+        BooleanSetting var38 = new BooleanSetting("collisions", "Block Collisions", true);
+        Setting var39 = this.addSetting(var38);
+        BooleanSetting var40 = (BooleanSetting)var39;
         this.l = var40;
-        Uq var41 = new Uq("glow", "Glow", 0.7F, 0.0F, 1.0F);
-        Uq var42 = var41.W(0.05F);
-        xB var43 = this.vn(var42);
-        Uq var44 = (Uq)var43;
+        NumberSetting var41 = new NumberSetting("glow", "Glow", 0.7F, 0.0F, 1.0F);
+        NumberSetting var42 = var41.W(0.05F);
+        Setting var43 = this.addSetting(var42);
+        NumberSetting var44 = (NumberSetting)var43;
         this.a = var44;
         zS var45 = new zS();
         nM var46 = this.bU(var45);
         zS var47 = (zS)var46;
         this.O = var47;
-        JL var48 = new JL("crit_only", "Crits Only", false);
-        xB var49 = this.vn(var48);
-        JL var50 = (JL)var49;
+        BooleanSetting var48 = new BooleanSetting("crit_only", "Crits Only", false);
+        Setting var49 = this.addSetting(var48);
+        BooleanSetting var50 = (BooleanSetting)var49;
         this.IG = var50;
-        JL var51 = new JL("self", "On Self", false);
-        xB var52 = this.vn(var51);
-        JL var53 = (JL)var52;
+        BooleanSetting var51 = new BooleanSetting("self", "On Self", false);
+        Setting var52 = this.addSetting(var51);
+        BooleanSetting var53 = (BooleanSetting)var52;
         this.vr = var53;
         mN var54 = new mN(512);
         this.Ip = var54;
@@ -113,12 +114,12 @@ public final class hitparticles extends Yn {
         this.M = var55;
         this.dy("Glowing stars, hearts, snowflakes or glyphs bursting from the spot you hit.");
         this.fJ(true);
-        wD<Hm> var56 = (Hm var1x) -> {
+        EventListener<HitEvent> var56 = (HitEvent var1x) -> {
             label78: {
                 int var2x = yY;
                 var2x ^= -1908929315;
                 int var3x = System.identityHashCode(this);
-                JL var4x = this.IG;
+                BooleanSetting var4x = this.IG;
                 int var5x = var3x + 1;
                 var5x = var3x * var5x;
                 int var6x = var3x + 2;
@@ -203,7 +204,7 @@ public final class hitparticles extends Yn {
 
                             Entity var67 = var1x.target();
                             boolean var77 = var1x.crit();
-                            r_2 var81 = this.BK;
+                            ModeSetting var81 = this.BK;
                             Integer var52x = var3x;
                             if (var52x == null) {
                                 var2x >>>= 6;
@@ -269,13 +270,13 @@ public final class hitparticles extends Yn {
             UnsupportedOperationException var46x = new UnsupportedOperationException();
             throw var46x;
         };
-        this.iI(Hm.class, var56);
-        wD<GN> var57 = (GN var1x) -> {
+        this.onEvent(HitEvent.class, var56);
+        EventListener<GN> var57 = (GN var1x) -> {
             label69: {
                 int var2x = yY;
                 var2x ^= 44238064;
                 int var3x = System.identityHashCode(this);
-                JL var4x = this.vr;
+                BooleanSetting var4x = this.vr;
                 long var5x = var3x;
                 long var7x = var5x + 1L;
                 var7x = var5x * var7x;
@@ -425,8 +426,8 @@ public final class hitparticles extends Yn {
             UnsupportedOperationException var55x = new UnsupportedOperationException();
             throw var55x;
         };
-        this.iI(GN.class, var57);
-        wD<T> var58 = (T var1x) -> {
+        this.onEvent(GN.class, var57);
+        EventListener<RenderEvent> var58 = (RenderEvent var1x) -> {
             label104: {
                 int var50x;
                 label112: {
@@ -583,10 +584,10 @@ public final class hitparticles extends Yn {
                                     }
 
                                     mN var91 = this.Ip;
-                                    r_2 var105 = this.S;
+                                    ModeSetting var105 = this.S;
                                     Enum var106 = var105.A();
                                     ka var107 = (ka)var106;
-                                    JL var118 = this.l;
+                                    BooleanSetting var118 = this.l;
                                     long var7x = var3x;
                                     long var9x = var7x + 1L;
                                     var9x = var7x * var9x;
@@ -611,7 +612,7 @@ public final class hitparticles extends Yn {
                                             var91.Vs(var107, 0.0F, var81);
                                             mN var82 = this.Ip;
                                             Canvas var92 = var1x.canvas();
-                                            Ud var108 = Ud.Z();
+                                            ClientRuntime var108 = ClientRuntime.Z();
                                             AuraPipeline var109 = var108.Ul();
                                             WorldDraw var110 = var109.world();
                                             FrameContext var119 = var1x.frame();
@@ -620,7 +621,7 @@ public final class hitparticles extends Yn {
                                             FrameContext var126 = var1x.frame();
                                             double var127 = var126.time();
                                             zS var132 = this.O;
-                                            Uq var10x = this.a;
+                                            NumberSetting var10x = this.a;
                                             float var133 = var10x.WM();
                                             var82.h(var92, var110, var121, var127, var132, var133);
                                             return;
@@ -665,7 +666,7 @@ public final class hitparticles extends Yn {
             UnsupportedOperationException var75 = new UnsupportedOperationException();
             throw var75;
         };
-        this.iI(T.class, var58);
+        this.onEvent(RenderEvent.class, var58);
     }
 
     public int O() {
@@ -885,7 +886,7 @@ public final class hitparticles extends Yn {
 
                 World var334 = var1.getEntityWorld();
                 this.aq = var334;
-                Ud var335 = Ud.Z();
+                ClientRuntime var335 = ClientRuntime.Z();
                 int var343 = var6 + 1;
                 var343 = var6 * var343;
                 var343 &= 1;
@@ -914,14 +915,14 @@ public final class hitparticles extends Yn {
                     ht.xN(var1, var338, var350);
                     ThreadLocalRandom var339 = ThreadLocalRandom.current();
                     ThreadLocalRandom var340 = var339;
-                    Uq var351 = this.t;
+                    NumberSetting var351 = this.t;
                     var343 = var351.B();
                     int var371;
                     if (var2) {
                         var56 >>= 1;
                         var56 &= -1365734826;
                         var56 ^= 1604422577;
-                        Uq var369 = this.j;
+                        NumberSetting var369 = this.j;
                         var371 = var369.B();
                         int var380 = var6 + 1;
                         int var381 = var6 * var380;
@@ -972,10 +973,10 @@ public final class hitparticles extends Yn {
 
                     var343 += var371;
                     var343 = var343;
-                    Uq var372 = this.mp;
+                    NumberSetting var372 = this.mp;
                     float var373 = var372.WM();
                     float var374 = var373;
-                    r_2 var388 = this.y;
+                    ModeSetting var388 = this.y;
                     Enum var389 = var388.A();
                     bA_2 var390 = (bA_2)var389;
                     bA_2 var391 = var390;
@@ -1916,12 +1917,12 @@ public final class hitparticles extends Yn {
                             var18 = var622 * var374;
                             float var417 = var414 * var374;
                             var622 = var624 * var374;
-                            Uq var625 = this.rC;
+                            NumberSetting var625 = this.rC;
                             var624 = var625.WM();
                             double var647 = var340.nextDouble(1.0, 1.45);
                             float var648 = (float)var647;
                             var624 *= var648;
-                            Uq var649 = this.ro;
+                            NumberSetting var649 = this.ro;
                             float var650 = var649.WM();
                             float var651 = 0.065F * var650;
                             double var29 = var340.nextDouble(0.75, 1.25);
@@ -2021,7 +2022,7 @@ public final class hitparticles extends Yn {
         Lookup var0 = MethodHandles.lookup();
         Class var3 = var0.lookupClass();
         int var1 = -301332394;
-        int var2 = Yn.C;
+        int var2 = Module.C;
         int var4 = of_2.kj(var3, var1, var2);
         yY = var4;
     }

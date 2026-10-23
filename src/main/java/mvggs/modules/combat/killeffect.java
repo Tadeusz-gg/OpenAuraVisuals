@@ -1,6 +1,7 @@
 package mvggs.modules.combat;
 
 import dev.aurap.hub.*;
+import dev.aurap.hub.Module;
 
 import dev.skidware.visuals.client.render.AuraPipeline;
 import dev.skidware.visuals.client.render.FrameContext;
@@ -20,24 +21,24 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.world.World;
 
-public final class killeffect extends Yn {
+public final class killeffect extends Module {
     private static final SpriteShape[] EJ;
     private static final int jO = 5;
     private static final int m = 33;
     private static final int MI = 3;
     private static final int T = 9;
-    private final r_2 A;
-    private final JL D;
-    private final Uq RN;
-    private final JL o;
-    private final Uq L;
-    private final Uq ma;
-    private final JL s;
-    private final JL b;
-    private final Uq d;
-    private final JL UB;
-    private final Uq y;
-    private final Uq J;
+    private final ModeSetting A;
+    private final BooleanSetting D;
+    private final NumberSetting RN;
+    private final BooleanSetting o;
+    private final NumberSetting L;
+    private final NumberSetting ma;
+    private final BooleanSetting s;
+    private final BooleanSetting b;
+    private final NumberSetting d;
+    private final BooleanSetting UB;
+    private final NumberSetting y;
+    private final NumberSetting J;
     private final zS M;
     private final mN w;
     private final oL z;
@@ -63,22 +64,22 @@ public final class killeffect extends Yn {
     public static final int j;
 
     public killeffect() {
-        super("kill_effect", "Kill Effect", AJ.COMBAT);
-        AJ var1 = AJ.COMBAT;
+        super("kill_effect", "Kill Effect", ModuleCategory.COMBAT);
+        ModuleCategory var1 = ModuleCategory.COMBAT;
 
         ws var2 = ws.LIGHT;
-        r_2 var4 = new r_2("style", "Style", var2);
-        xB var5 = var4.q("Sahur replays a player's skin without equipment, then knocks it away with a bat. Mob kills use Light.");
-        r_2 var6 = (r_2)var5;
-        xB var7 = this.vn(var6);
-        r_2 var8 = (r_2)var7;
+        ModeSetting var4 = new ModeSetting("style", "Style", var2);
+        Setting var5 = var4.q("Sahur replays a player's skin without equipment, then knocks it away with a bat. Mob kills use Light.");
+        ModeSetting var6 = (ModeSetting)var5;
+        Setting var7 = this.addSetting(var6);
+        ModeSetting var8 = (ModeSetting)var7;
         this.A = var8;
-        JL var9 = new JL("bonk", "Bat Sound", true);
+        BooleanSetting var9 = new BooleanSetting("bonk", "Bat Sound", true);
         BooleanSupplier var72 = () -> {
             int var1x = j;
             var1x ^= -669510743;
             int var2x = System.identityHashCode(this);
-            r_2 var3x = this.A;
+            ModeSetting var3x = this.A;
             int var4x = var2x + 1;
             var4x = var2x * var4x;
             var2x = var4x & 1;
@@ -104,13 +105,13 @@ public final class killeffect extends Yn {
                 return var3x.TJ(var11x);
             }
         };
-        xB var10 = var9.Pt(var72);
-        JL var11 = (JL)var10;
-        xB var12 = this.vn(var11);
-        JL var13 = (JL)var12;
+        Setting var10 = var9.Pt(var72);
+        BooleanSetting var11 = (BooleanSetting)var10;
+        Setting var12 = this.addSetting(var11);
+        BooleanSetting var13 = (BooleanSetting)var12;
         this.D = var13;
-        Uq var14 = new Uq("bonk_volume", "Bat Volume", 0.8F, 0.0F, 1.0F);
-        Uq var15 = var14.W(0.05F);
+        NumberSetting var14 = new NumberSetting("bonk_volume", "Bat Volume", 0.8F, 0.0F, 1.0F);
+        NumberSetting var15 = var14.W(0.05F);
         BooleanSupplier var73 = () -> {
             int var1x = j;
             var1x ^= 387959805;
@@ -142,7 +143,7 @@ public final class killeffect extends Yn {
                     var3x = (var84 = var58x - 0L) == 0L ? 0 : (var84 < 0L ? -1 : 1);
                     label50:
                     if (var3x == 0) {
-                        r_2 var60x = this.A;
+                        ModeSetting var60x = this.A;
                         ws var4x = ws.SAHUR;
                         int var61x = (var60x.TJ(var4x)) ? 1 : 0;
                         if (var61x != 0) {
@@ -168,7 +169,7 @@ public final class killeffect extends Yn {
                                 break label50;
                             }
 
-                            JL var66x = this.D;
+                            BooleanSetting var66x = this.D;
                             boolean var67x = var66x.vb();
                             long var68x = var2x;
                             long var6x = var68x + 1L;
@@ -249,62 +250,62 @@ public final class killeffect extends Yn {
             IllegalArgumentException var46x = new IllegalArgumentException();
             throw var46x;
         };
-        xB var16 = var15.Pt(var73);
-        Uq var17 = (Uq)var16;
-        xB var18 = this.vn(var17);
-        Uq var19 = (Uq)var18;
+        Setting var16 = var15.Pt(var73);
+        NumberSetting var17 = (NumberSetting)var16;
+        Setting var18 = this.addSetting(var17);
+        NumberSetting var19 = (NumberSetting)var18;
         this.RN = var19;
-        JL var20 = new JL("particles", "Particles", true);
-        xB var21 = this.vn(var20);
-        JL var22 = (JL)var21;
+        BooleanSetting var20 = new BooleanSetting("particles", "Particles", true);
+        Setting var21 = this.addSetting(var20);
+        BooleanSetting var22 = (BooleanSetting)var21;
         this.o = var22;
-        Uq var23 = new Uq("duration", "Duration", 4.0F, 2.0F, 8.0F);
-        Uq var24 = var23.W(0.25F);
-        Uq var25 = var24.L("s");
-        xB var26 = this.vn(var25);
-        Uq var27 = (Uq)var26;
+        NumberSetting var23 = new NumberSetting("duration", "Duration", 4.0F, 2.0F, 8.0F);
+        NumberSetting var24 = var23.W(0.25F);
+        NumberSetting var25 = var24.L("s");
+        Setting var26 = this.addSetting(var25);
+        NumberSetting var27 = (NumberSetting)var26;
         this.L = var27;
-        Uq var28 = new Uq("amount", "Amount", 30.0F, 8.0F, 70.0F);
-        Uq var29 = var28.W(1.0F);
-        JL var74 = this.o;
+        NumberSetting var28 = new NumberSetting("amount", "Amount", 30.0F, 8.0F, 70.0F);
+        NumberSetting var29 = var28.W(1.0F);
+        BooleanSetting var74 = this.o;
         Object var3 = Objects.requireNonNull(var74);
         BooleanSupplier var75 = var74::vb;
-        xB var30 = var29.Pt(var75);
-        Uq var31 = (Uq)var30;
-        xB var32 = this.vn(var31);
-        Uq var33 = (Uq)var32;
+        Setting var30 = var29.Pt(var75);
+        NumberSetting var31 = (NumberSetting)var30;
+        Setting var32 = this.addSetting(var31);
+        NumberSetting var33 = (NumberSetting)var32;
         this.ma = var33;
-        JL var34 = new JL("lightning", "Lightning", true);
-        xB var35 = this.vn(var34);
-        JL var36 = (JL)var35;
+        BooleanSetting var34 = new BooleanSetting("lightning", "Lightning", true);
+        Setting var35 = this.addSetting(var34);
+        BooleanSetting var36 = (BooleanSetting)var35;
         this.s = var36;
-        JL var37 = new JL("thunder", "Thunder Sound", false);
-        xB var38 = this.vn(var37);
-        JL var39 = (JL)var38;
+        BooleanSetting var37 = new BooleanSetting("thunder", "Thunder Sound", false);
+        Setting var38 = this.addSetting(var37);
+        BooleanSetting var39 = (BooleanSetting)var38;
         this.b = var39;
-        Uq var40 = new Uq("thunder_volume", "Thunder Volume", 0.8F, 0.0F, 1.0F);
-        Uq var41 = var40.W(0.05F);
-        JL var76 = this.b;
+        NumberSetting var40 = new NumberSetting("thunder_volume", "Thunder Volume", 0.8F, 0.0F, 1.0F);
+        NumberSetting var41 = var40.W(0.05F);
+        BooleanSetting var76 = this.b;
         var3 = Objects.requireNonNull(var76);
         BooleanSupplier var77 = var76::vb;
-        xB var42 = var41.Pt(var77);
-        Uq var43 = (Uq)var42;
-        xB var44 = this.vn(var43);
-        Uq var45 = (Uq)var44;
+        Setting var42 = var41.Pt(var77);
+        NumberSetting var43 = (NumberSetting)var42;
+        Setting var44 = this.addSetting(var43);
+        NumberSetting var45 = (NumberSetting)var44;
         this.d = var45;
-        JL var46 = new JL("shockwave", "Shockwave", true);
-        xB var47 = this.vn(var46);
-        JL var48 = (JL)var47;
+        BooleanSetting var46 = new BooleanSetting("shockwave", "Shockwave", true);
+        Setting var47 = this.addSetting(var46);
+        BooleanSetting var48 = (BooleanSetting)var47;
         this.UB = var48;
-        Uq var49 = new Uq("flash", "Screen Flash", 0.0F, 0.0F, 0.3F);
-        Uq var50 = var49.W(0.02F);
-        xB var51 = this.vn(var50);
-        Uq var52 = (Uq)var51;
+        NumberSetting var49 = new NumberSetting("flash", "Screen Flash", 0.0F, 0.0F, 0.3F);
+        NumberSetting var50 = var49.W(0.02F);
+        Setting var51 = this.addSetting(var50);
+        NumberSetting var52 = (NumberSetting)var51;
         this.y = var52;
-        Uq var53 = new Uq("glow", "Glow", 0.7F, 0.0F, 1.0F);
-        Uq var54 = var53.W(0.05F);
-        xB var55 = this.vn(var54);
-        Uq var56 = (Uq)var55;
+        NumberSetting var53 = new NumberSetting("glow", "Glow", 0.7F, 0.0F, 1.0F);
+        NumberSetting var54 = var53.W(0.05F);
+        Setting var55 = this.addSetting(var54);
+        NumberSetting var56 = (NumberSetting)var55;
         this.J = var56;
         zS var57 = new zS();
         nM var58 = this.bU(var57);
@@ -334,18 +335,18 @@ public final class killeffect extends Yn {
         this.G = -1;
         this.dy("Light and lightning, or Tung Tung Tung Sahur knocking your defeated opponent away with a bat.");
         this.fJ(true);
-        r_2 var68 = this.A;
+        ModeSetting var68 = this.A;
         Runnable var78 = this::J;
         var68.k(var78);
-        wD<I> var69 = this::S;
-        this.iI(I.class, var69);
-        wD<p_2> var70 = (p_2 var1x) -> {
+        EventListener<KillEvent> var69 = this::S;
+        this.onEvent(KillEvent.class, var69);
+        EventListener<p_2> var70 = (p_2 var1x) -> {
             int var2x = j;
             var2x ^= 488849832;
             int var3x = System.identityHashCode(this);
             FrameContext var4x = var1x.frame();
             float var152 = var4x.dt();
-            r_2 var5x = this.A;
+            ModeSetting var5x = this.A;
             ws var6x = ws.SAHUR;
             int var7x = var3x + 1;
             var7x = var3x * var7x;
@@ -427,9 +428,9 @@ public final class killeffect extends Yn {
                         }
 
                         oL var180 = this.z;
-                        JL var225 = this.D;
+                        BooleanSetting var225 = this.D;
                         boolean var226 = var225.vb();
-                        Uq var265 = this.RN;
+                        NumberSetting var265 = this.RN;
                         float var266 = var265.WM();
                         var8x = var3x + 1;
                         var8x = var3x * var8x;
@@ -455,7 +456,7 @@ public final class killeffect extends Yn {
                         float var185 = this.t;
                         float var153 = var185 + var152;
                         this.t = var153;
-                        JL var154 = this.o;
+                        BooleanSetting var154 = this.o;
                         boolean var155 = var154.vb();
                         if (var155) {
                             var2x = switch (var2x) {
@@ -613,7 +614,7 @@ public final class killeffect extends Yn {
                                             }
 
                                             double var170 = this.xV;
-                                            Uq var245 = this.ma;
+                                            NumberSetting var245 = this.ma;
                                             int var246 = var245.B();
                                             long var275 = var3x;
                                             long var9x = var275 + 1L;
@@ -694,7 +695,7 @@ public final class killeffect extends Yn {
 
                         Integer var173 = var2x;
                         if (var173 != null) {
-                            Uq var174 = this.y;
+                            NumberSetting var174 = this.y;
                             float var175 = var174.WM();
                             long var199 = var3x;
                             long var284 = var199 + 1L;
@@ -772,7 +773,7 @@ public final class killeffect extends Yn {
                                             break label156;
                                         }
 
-                                        Ud var213 = Ud.Z();
+                                        ClientRuntime var213 = ClientRuntime.Z();
                                         int var254 = var3x + 1;
                                         int var255 = var3x * var254;
                                         var3x = var255 & 1;
@@ -844,9 +845,9 @@ public final class killeffect extends Yn {
             UnsupportedOperationException var146 = new UnsupportedOperationException();
             throw var146;
         };
-        this.iI(p_2.class, var70);
-        wD<T> var71 = this::ZL;
-        this.iI(T.class, var71);
+        this.onEvent(p_2.class, var70);
+        EventListener<RenderEvent> var71 = this::ZL;
+        this.onEvent(RenderEvent.class, var71);
     }
 
     @Override
@@ -920,7 +921,7 @@ public final class killeffect extends Yn {
         throw var26;
     }
 
-    private void S(I var1) {
+    private void S(KillEvent var1) {
         label271: {
             int var2 = j;
             var2 ^= -206446310;
@@ -947,7 +948,7 @@ public final class killeffect extends Yn {
                     var2 >>= 27;
                     var2 ^= -667162306;
                     LivingEntity var173 = var1.victim();
-        Object var5 = (r_2)this.Ex;
+        Object var5 = (ModeSetting)this.Ex;
                     if (var5 != null) {
                         var2 += 544083381;
                         var2 |= 2108272534;
@@ -1028,7 +1029,7 @@ public final class killeffect extends Yn {
                         var2 ^= 2129668822;
                         var5 = this.A;
                         ws var262 = ws.SAHUR;
-        boolean var227 = ((r_2)var5).TJ(var262);
+        boolean var227 = ((ModeSetting)var5).TJ(var262);
                         if (var227) {
                             var2 |= -1247858443;
                             var2 |= -415399756;
@@ -1068,7 +1069,7 @@ public final class killeffect extends Yn {
                                 break label271;
                             }
 
-                            Uq var271 = this.L;
+                            NumberSetting var271 = this.L;
                             float var272 = var271.WM();
                             boolean var232 = var231.SZ(var173, var272);
                             if (var232) {
@@ -1132,7 +1133,7 @@ public final class killeffect extends Yn {
                             double var175 = var237 + var310;
                             this.xV = var175;
                             this.t = 0.0F;
-                            Uq var176 = this.L;
+                            NumberSetting var176 = this.L;
                             float var177 = var176.WM();
                             this.hz = var177;
                             float var178 = this.hz;
@@ -1141,7 +1142,7 @@ public final class killeffect extends Yn {
                             float var180 = this.hz;
                             float var181 = var180 * 0.55F;
                             this.oy = var181;
-                            JL var182 = this.o;
+                            BooleanSetting var182 = this.o;
                             int var183 = (var182.vb()) ? 1 : 0;
                             float var186;
                             if (var183 != 0) {
@@ -1210,7 +1211,7 @@ public final class killeffect extends Yn {
                                     break label271;
                                 }
 
-                                JL var193 = this.o;
+                                BooleanSetting var193 = this.o;
                                 int var194 = (var193.vb()) ? 1 : 0;
                                 if (var194 != 0) {
                                     var2 += -1009005209;
@@ -1242,7 +1243,7 @@ public final class killeffect extends Yn {
                                     var2 |= -132572718;
                                     var2 &= 1887873212;
                                     var2 ^= -444027379;
-                                    Uq var276 = this.ma;
+                                    NumberSetting var276 = this.ma;
                                     int var277 = var276.B();
                                     var300 = var2 ^ 692725369;
                                     var300 ^= 1748892014;
@@ -1260,7 +1261,7 @@ public final class killeffect extends Yn {
                                     break label271;
                                 }
 
-                                JL var200 = this.b;
+                                BooleanSetting var200 = this.b;
                                 int var242 = var3 + 1;
                                 int var243 = var3 * var242;
                                 int var278 = var3 + 2;
@@ -1313,7 +1314,7 @@ public final class killeffect extends Yn {
                                                 break label271;
                                             }
 
-                                            Uq var206 = this.d;
+                                            NumberSetting var206 = this.d;
                                             float var207 = var206.WM();
                                             HP var247 = HP.Aa();
                                             long var284 = var3;
@@ -1404,7 +1405,7 @@ public final class killeffect extends Yn {
                                             break label271;
                                         }
 
-                                        JL var212 = this.s;
+                                        BooleanSetting var212 = this.s;
                                         int var213 = (var212.vb()) ? 1 : 0;
                                         long var248 = var3;
                                         long var317 = var248 + 1L;
@@ -1486,7 +1487,7 @@ public final class killeffect extends Yn {
                                                     var2 ^= 1763954031;
                                                 }
 
-                                                JL var218 = this.UB;
+                                                BooleanSetting var218 = this.UB;
                                                 int var256 = var3 + 1;
                                                 int var257 = var3 * var256;
                                                 var3 = var257 & 1;
@@ -1627,7 +1628,7 @@ public final class killeffect extends Yn {
             var1 |= 1115323670;
             var1 *= 1665825731;
             var1 ^= 921146073;
-            r_2 var21 = this.A;
+            ModeSetting var21 = this.A;
             Enum var22 = var21.A();
             return (ws)var22;
         } else {
@@ -1662,7 +1663,7 @@ public final class killeffect extends Yn {
             var2 >>= 29;
             var2 -= 1913916418;
             var2 ^= -338261857;
-            r_2 var15 = this.A;
+            ModeSetting var15 = this.A;
             var15.UY(var1);
         } else {
             var2 -= -592626271;
@@ -2158,7 +2159,7 @@ public final class killeffect extends Yn {
         throw var81;
     }
 
-    private void ZL(T var1) {
+    private void ZL(RenderEvent var1) {
         label150: {
             label159: {
                 int var2 = j;
@@ -2326,14 +2327,14 @@ public final class killeffect extends Yn {
                             }
 
                             Canvas var126 = var1.canvas();
-                            Ud var138 = Ud.Z();
+                            ClientRuntime var138 = ClientRuntime.Z();
                             AuraPipeline var139 = var138.Ul();
                             WorldDraw var140 = var139.world();
                             oL var156 = this.z;
                             var156.gP(var126, var140);
                             FrameContext var157 = var1.frame();
                             double var158 = var157.time();
-                            Uq var163 = this.J;
+                            NumberSetting var163 = this.J;
                             float var164 = var163.WM();
                             int var9 = var3 + 1;
                             var9 = var3 * var9;
@@ -4971,7 +4972,7 @@ public final class killeffect extends Yn {
         Lookup var0 = MethodHandles.lookup();
         Class var3 = var0.lookupClass();
         int var1 = 317221022;
-        int var2 = Yn.C;
+        int var2 = Module.C;
         int var4 = of_2.kj(var3, var1, var2);
         j = var4;
         SpriteShape[] var5 = new SpriteShape[3];

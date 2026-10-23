@@ -8,10 +8,10 @@ import java.lang.invoke.MethodHandles.Lookup;
 
 public final class wY extends XR {
     private static final float y = 15.0F;
-    private static final float Hm = 12.0F;
+    private static final float HitEvent = 12.0F;
     private static final float u = 3.0F;
     private static final String[] O;
-    private final cS S;
+    private final ActionSetting S;
     private final XF J;
     private boolean tS;
     private qr U;
@@ -21,7 +21,7 @@ public final class wY extends XR {
     private int Fr;
     public static final int LP;
 
-    public wY(cS var1) {
+    public wY(ActionSetting var1) {
         kE_2 var3 = kE_2.uY(0.32F, 0.95F);
         XF var2 = new XF(0.0F, var3);
         this.J = var2;
@@ -35,7 +35,7 @@ public final class wY extends XR {
     }
 
     @Override
-    public xB W() {
+    public Setting W() {
         int var1 = LP;
         var1 ^= 1613315223;
         int var2 = System.identityHashCode(this);
@@ -277,13 +277,13 @@ public final class wY extends XR {
                 int var4 = LP;
                 var4 ^= -1403949842;
                 int var5 = System.identityHashCode(this);
-                cS var6 = this.S;
+                ActionSetting var6 = this.S;
                 du var266 = var6.lP();
-                cS var7 = this.S;
+                ActionSetting var7 = this.S;
                 int var272 = var7.b();
-                cS var8 = this.S;
+                ActionSetting var8 = this.S;
                 int var285 = var8.U();
-                cS var9 = this.S;
+                ActionSetting var9 = this.S;
                 String var291 = var9.Tp();
                 float var10 = super.U;
                 float var11 = this.y;
@@ -3052,7 +3052,7 @@ public final class wY extends XR {
 
                                                             var8 = var2 - var8;
                                                             var8 /= var450;
-                                                            cS var429 = this.S;
+                                                            ActionSetting var429 = this.S;
                                                             boolean var430 = var429.H();
                                                             float var452;
                                                             if (var430) {
@@ -3254,7 +3254,7 @@ public final class wY extends XR {
                                                                                 break label557;
                                                                             }
 
-                                                                            cS var379 = this.S;
+                                                                            ActionSetting var379 = this.S;
                                                                             int var468 = var7 + 1;
                                                                             var468 = var7 * var468;
                                                                             var468 &= 1;
@@ -3321,7 +3321,7 @@ public final class wY extends XR {
                                                                         break label557;
                                                                     }
 
-                                                                    cS var383 = this.S;
+                                                                    ActionSetting var383 = this.S;
                                                                     var10 = var7 + 1;
                                                                     var10 = var7 * var10;
                                                                     var10 &= 1;
@@ -3675,7 +3675,7 @@ public final class wY extends XR {
                                                         }
 
                                                         this.Qv = (byte)var504;
-                                                        cS var505 = this.S;
+                                                        ActionSetting var505 = this.S;
                                                         byte var581 = this.Qv;
                                                         Integer var344 = var7;
                                                         if (var344 != null) {
@@ -4030,7 +4030,7 @@ public final class wY extends XR {
                                                 break;
                                             }
 
-                                            cS var302 = this.S;
+                                            ActionSetting var302 = this.S;
                                             int var16 = this.Qv;
                                             Be var346 = this.T;
                                             var302.pJ(var252, var261, (byte)var16, var346);

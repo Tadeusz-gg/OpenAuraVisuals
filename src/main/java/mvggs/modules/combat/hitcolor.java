@@ -3,34 +3,35 @@ package mvggs.modules.combat;
 import mvggs.modules.hud.hudstyle;
 
 import dev.aurap.hub.*;
+import dev.aurap.hub.Module;
 
 import java.lang.invoke.MethodHandles;
 import java.lang.invoke.MethodHandles.Lookup;
 import java.util.function.BooleanSupplier;
 
-public final class hitcolor extends Yn {
-    private final r_2 un;
-    private final Fk C;
-    private final Uq N;
+public final class hitcolor extends Module {
+    private final ModeSetting un;
+    private final ColorSetting C;
+    private final NumberSetting N;
     private int V;
     private boolean wf;
     public static final int iJ;
 
     public hitcolor() {
-        super("hit_color", "Hit Color", AJ.COMBAT);
-        AJ var1 = AJ.COMBAT;
+        super("hit_color", "Hit Color", ModuleCategory.COMBAT);
+        ModuleCategory var1 = ModuleCategory.COMBAT;
 
         Fb var2 = Fb.THEME;
-        r_2 var3 = new r_2("source", "Color", var2);
-        xB var4 = this.vn(var3);
-        r_2 var5 = (r_2)var4;
+        ModeSetting var3 = new ModeSetting("source", "Color", var2);
+        Setting var4 = this.addSetting(var3);
+        ModeSetting var5 = (ModeSetting)var4;
         this.un = var5;
-        Fk var6 = new Fk("color", "Custom Color", -50340, false);
+        ColorSetting var6 = new ColorSetting("color", "Custom Color", -50340, false);
         BooleanSupplier var16 = () -> {
             int var1x = iJ;
             var1x ^= 1990171061;
             int var2x = System.identityHashCode(this);
-            r_2 var3x = this.un;
+            ModeSetting var3x = this.un;
             Fb var4x = Fb.CUSTOM;
             int var5x = var2x + 1;
             var5x = var2x * var5x;
@@ -67,18 +68,18 @@ public final class hitcolor extends Yn {
             RuntimeException var16x = new RuntimeException();
             throw var16x;
         };
-        xB var7 = var6.Pt(var16);
-        Fk var8 = (Fk)var7;
-        xB var9 = this.vn(var8);
-        Fk var10 = (Fk)var9;
+        Setting var7 = var6.Pt(var16);
+        ColorSetting var8 = (ColorSetting)var7;
+        Setting var9 = this.addSetting(var8);
+        ColorSetting var10 = (ColorSetting)var9;
         this.C = var10;
-        Uq var11 = new Uq("strength", "Strength", 0.6F, 0.1F, 1.0F);
-        Uq var12 = var11.W(0.05F);
-        xB var13 = this.vn(var12);
-        Uq var14 = (Uq)var13;
+        NumberSetting var11 = new NumberSetting("strength", "Strength", 0.6F, 0.1F, 1.0F);
+        NumberSetting var12 = var11.W(0.05F);
+        Setting var13 = this.addSetting(var12);
+        NumberSetting var14 = (NumberSetting)var13;
         this.N = var14;
         this.dy("Hurt entities flash in your theme color instead of vanilla red.");
-        wD<sE> var15 = (sE var1x) -> {
+        EventListener<TickEvent> var15 = (TickEvent var1x) -> {
             int var2x = iJ;
             var2x ^= -507335416;
             int var3x = System.identityHashCode(this);
@@ -111,7 +112,7 @@ public final class hitcolor extends Yn {
                 }
             }
         };
-        this.iI(sE.class, var15);
+        this.onEvent(TickEvent.class, var15);
     }
 
     @Override
@@ -296,7 +297,7 @@ public final class hitcolor extends Yn {
             int var1 = iJ;
             var1 ^= 2072765506;
             int var2 = System.identityHashCode(this);
-            r_2 var3 = this.un;
+            ModeSetting var3 = this.un;
             Fb var4 = Fb.CUSTOM;
             long var5 = var2;
             long var7 = var5 + 1L;
@@ -363,7 +364,7 @@ public final class hitcolor extends Yn {
                             break label85;
                         }
 
-                        Fk var72 = this.C;
+                        ColorSetting var72 = this.C;
                         int var77 = var2 + 1;
                         int var78 = var2 * var77;
                         int var79 = var78 & 1;
@@ -413,7 +414,7 @@ public final class hitcolor extends Yn {
                             break label85;
                         }
 
-                        Ud var84 = Ud.Z();
+                        ClientRuntime var84 = ClientRuntime.Z();
                         var5 = var2;
                         var7 = var5 + 1L;
                         var7 = var5 * var7;
@@ -456,8 +457,8 @@ public final class hitcolor extends Yn {
                             break label85;
                         }
 
-                        NW var85 = var84.sP();
-                        Yn var86 = var85.tG(hudstyle.class);
+                        ModuleManager var85 = var84.sP();
+                        Module var86 = var85.tG(hudstyle.class);
                         hudstyle var87 = (hudstyle)var86;
                         Oo var88 = var87.eo();
                         int var89 = var88.K();
@@ -476,7 +477,7 @@ public final class hitcolor extends Yn {
                         break label85;
                     }
 
-                    Uq var93 = this.N;
+                    NumberSetting var93 = this.N;
                     var5 = var2;
                     var7 = var5 + 1L;
                     var7 = var5 * var7;
@@ -683,7 +684,7 @@ public final class hitcolor extends Yn {
         Lookup var0 = MethodHandles.lookup();
         Class var3 = var0.lookupClass();
         int var1 = 769411573;
-        int var2 = Yn.C;
+        int var2 = Module.C;
         int var4 = of_2.xF(var3, var1, var2);
         iJ = var4;
     }

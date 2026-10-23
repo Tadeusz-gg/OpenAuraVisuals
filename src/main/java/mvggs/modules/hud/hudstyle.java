@@ -1,29 +1,30 @@
 package mvggs.modules.hud;
 
 import dev.aurap.hub.*;
+import dev.aurap.hub.Module;
 
 import java.lang.invoke.MethodHandles;
 import java.lang.invoke.MethodHandles.Lookup;
 import java.util.function.BooleanSupplier;
 
-public final class hudstyle extends Yn {
-    private final r_2 kO;
-    private final Fk u;
-    private final Fk kR;
-    private final r_2 g;
-    private final Uq nR;
-    private final JL as;
-    private final JL TI;
-    private final JL W;
+public final class hudstyle extends Module {
+    private final ModeSetting kO;
+    private final ColorSetting u;
+    private final ColorSetting kR;
+    private final ModeSetting g;
+    private final NumberSetting nR;
+    private final BooleanSetting as;
+    private final BooleanSetting TI;
+    private final BooleanSetting W;
     private Oo R;
     public static final int Rw;
 
     public hudstyle() {
-        super("hud_style", "HUD Style", AJ.HUD);
-        AJ var1 = AJ.HUD;
+        super("hud_style", "HUD Style", ModuleCategory.HUD);
+        ModuleCategory var1 = ModuleCategory.HUD;
 
         eG var2 = eG.CLASSIC;
-        r_2 var3 = new r_2("theme", "Theme", var2);
+        ModeSetting var3 = new ModeSetting("theme", "Theme", var2);
         El var42 = (var1x, var2x) -> {
             label62: {
                 int var3x = Rw;
@@ -149,42 +150,42 @@ public final class hudstyle extends Yn {
             AssertionError var53x = new AssertionError();
             throw var53x;
         };
-        r_2 var4 = var3.w(var42);
-        xB var5 = var4.q("Colors and material of every HUD panel. Classic matches the menu.");
-        r_2 var6 = (r_2)var5;
-        xB var7 = this.vn(var6);
-        r_2 var8 = (r_2)var7;
+        ModeSetting var4 = var3.w(var42);
+        Setting var5 = var4.q("Colors and material of every HUD panel. Classic matches the menu.");
+        ModeSetting var6 = (ModeSetting)var5;
+        Setting var7 = this.addSetting(var6);
+        ModeSetting var8 = (ModeSetting)var7;
         this.kO = var8;
         var2 = eG.PURPLE;
         Oo var44 = var2.palette();
         int var45 = var44.E();
-        Fk var9 = new Fk("accent", "Accent", var45, false);
+        ColorSetting var9 = new ColorSetting("accent", "Accent", var45, false);
         BooleanSupplier var46 = this::nE;
-        xB var10 = var9.Pt(var46);
-        Fk var11 = (Fk)var10;
-        xB var12 = this.vn(var11);
-        Fk var13 = (Fk)var12;
+        Setting var10 = var9.Pt(var46);
+        ColorSetting var11 = (ColorSetting)var10;
+        Setting var12 = this.addSetting(var11);
+        ColorSetting var13 = (ColorSetting)var12;
         this.u = var13;
         var2 = eG.PURPLE;
         Oo var48 = var2.palette();
         int var49 = var48.P();
-        Fk var14 = new Fk("accent_2", "Accent 2", var49, false);
+        ColorSetting var14 = new ColorSetting("accent_2", "Accent 2", var49, false);
         BooleanSupplier var50 = this::nE;
-        xB var15 = var14.Pt(var50);
-        Fk var16 = (Fk)var15;
-        xB var17 = this.vn(var16);
-        Fk var18 = (Fk)var17;
+        Setting var15 = var14.Pt(var50);
+        ColorSetting var16 = (ColorSetting)var15;
+        Setting var17 = this.addSetting(var16);
+        ColorSetting var18 = (ColorSetting)var17;
         this.kR = var18;
         t_2 var51 = t_2.DARK;
-        r_2 var19 = new r_2("material", "Background", var51);
+        ModeSetting var19 = new ModeSetting("material", "Background", var51);
         BooleanSupplier var52 = this::nE;
-        xB var20 = var19.Pt(var52);
-        r_2 var21 = (r_2)var20;
-        xB var22 = this.vn(var21);
-        r_2 var23 = (r_2)var22;
+        Setting var20 = var19.Pt(var52);
+        ModeSetting var21 = (ModeSetting)var20;
+        Setting var22 = this.addSetting(var21);
+        ModeSetting var23 = (ModeSetting)var22;
         this.g = var23;
-        Uq var24 = new Uq("opacity", "Opacity", 0.9F, 0.4F, 1.0F);
-        Uq var25 = var24.W(0.05F);
+        NumberSetting var24 = new NumberSetting("opacity", "Opacity", 0.9F, 0.4F, 1.0F);
+        NumberSetting var25 = var24.W(0.05F);
         BooleanSupplier var53 = () -> {
             int var1x = Rw;
             var1x ^= -454671786;
@@ -259,24 +260,24 @@ public final class hudstyle extends Yn {
             UnsupportedOperationException var31x = new UnsupportedOperationException();
             throw var31x;
         };
-        xB var26 = var25.Pt(var53);
-        Uq var27 = (Uq)var26;
-        xB var28 = this.vn(var27);
-        Uq var29 = (Uq)var28;
+        Setting var26 = var25.Pt(var53);
+        NumberSetting var27 = (NumberSetting)var26;
+        Setting var28 = this.addSetting(var27);
+        NumberSetting var29 = (NumberSetting)var28;
         this.nR = var29;
-        JL var30 = new JL("blur", "Backdrop Blur", true);
-        xB var31 = this.vn(var30);
-        JL var32 = (JL)var31;
+        BooleanSetting var30 = new BooleanSetting("blur", "Backdrop Blur", true);
+        Setting var31 = this.addSetting(var30);
+        BooleanSetting var32 = (BooleanSetting)var31;
         this.as = var32;
-        JL var33 = new JL("chat_editor", "Edit In Chat", true);
-        xB var34 = var33.q("Open chat to drag HUD elements, scroll to resize, right-click to reset.");
-        JL var35 = (JL)var34;
-        xB var36 = this.vn(var35);
-        JL var37 = (JL)var36;
+        BooleanSetting var33 = new BooleanSetting("chat_editor", "Edit In Chat", true);
+        Setting var34 = var33.q("Open chat to drag HUD elements, scroll to resize, right-click to reset.");
+        BooleanSetting var35 = (BooleanSetting)var34;
+        Setting var36 = this.addSetting(var35);
+        BooleanSetting var37 = (BooleanSetting)var36;
         this.TI = var37;
-        JL var38 = new JL("snap", "Snap To Guides", true);
-        xB var39 = this.vn(var38);
-        JL var40 = (JL)var39;
+        BooleanSetting var38 = new BooleanSetting("snap", "Snap To Guides", true);
+        Setting var39 = this.addSetting(var38);
+        BooleanSetting var40 = (BooleanSetting)var39;
         this.W = var40;
         this.dy("Theme, background and the in-chat editor shared by every HUD panel.");
         this.ao();
@@ -321,11 +322,11 @@ public final class hudstyle extends Yn {
                 }
             }
         };
-        Fk var54 = this.u;
+        ColorSetting var54 = this.u;
         var54.k(var41);
-        Fk var55 = this.kR;
+        ColorSetting var55 = this.kR;
         var55.k(var41);
-        r_2 var56 = this.g;
+        ModeSetting var56 = this.g;
         var56.k(var41);
     }
 
@@ -355,7 +356,7 @@ public final class hudstyle extends Yn {
             var1 *= 971308071;
             var1 >>>= 2;
             var1 ^= 573864961;
-            r_2 var8 = this.kO;
+            ModeSetting var8 = this.kO;
             Enum var9 = var8.A();
             return (eG)var9;
         }
@@ -397,7 +398,7 @@ public final class hudstyle extends Yn {
             var2 ^= 199660296;
             Integer var18 = var2;
             if (var18 != null) {
-                r_2 var20 = this.kO;
+                ModeSetting var20 = this.kO;
                 var20.UY(var1);
                 return;
             }
@@ -411,7 +412,7 @@ public final class hudstyle extends Yn {
         int var1 = Rw;
         var1 ^= -642748599;
         int var2 = System.identityHashCode(this);
-        r_2 var3 = this.kO;
+        ModeSetting var3 = this.kO;
         Enum var19 = var3.A();
         eG var20 = (eG)var19;
         Integer var13 = var2;
@@ -532,7 +533,7 @@ public final class hudstyle extends Yn {
                         default -> var43 ^ -639746775;
                         case 1469865562 -> var43 ^ -499629744;
                     };
-                    r_2 var106 = this.g;
+                    ModeSetting var106 = this.g;
                     t_2 var7 = t_2.GLASS;
                     boolean var107 = var106.TJ(var7);
                     long var116 = var4;
@@ -691,9 +692,9 @@ public final class hudstyle extends Yn {
                         }
 
                         Oo var113 = var112.palette();
-                        Fk var128 = this.u;
+                        ColorSetting var128 = this.u;
                         int var129 = var128.zz();
-                        Fk var144 = this.kR;
+                        ColorSetting var144 = this.kR;
                         var142 = var144.zz();
                         Oo var114 = var113.Y(var129, var142);
                         long var130 = var4;
@@ -773,7 +774,7 @@ public final class hudstyle extends Yn {
         int var1 = Rw;
         var1 ^= -1750481850;
         int var2 = System.identityHashCode(this);
-        r_2 var3 = this.kO;
+        ModeSetting var3 = this.kO;
         eG var4 = eG.CUSTOM;
         int var5 = var2 + 1;
         var5 = var2 * var5;
@@ -839,7 +840,7 @@ public final class hudstyle extends Yn {
             var3 &= 1;
             if (var3 == 0) {
                 var3 = var1.CU();
-                Uq var4 = this.nR;
+                NumberSetting var4 = this.nR;
                 float var26 = var4.WM();
                 return DP.Y(var3, var26);
             }
@@ -872,7 +873,7 @@ public final class hudstyle extends Yn {
         if (var2 == 0) {
             var1 -= -449277748;
             var1 ^= 201650902;
-            JL var21 = this.as;
+            BooleanSetting var21 = this.as;
             return var21.vb();
         } else {
             var1 |= 1216371521;
@@ -901,7 +902,7 @@ public final class hudstyle extends Yn {
         int var1 = Rw;
         var1 ^= -669625948;
         int var2 = System.identityHashCode(this);
-        JL var3 = this.TI;
+        BooleanSetting var3 = this.TI;
         int var4 = var2 + 1;
         var4 = var2 * var4;
         int var5 = var2 + 2;
@@ -976,7 +977,7 @@ public final class hudstyle extends Yn {
                 UnsupportedOperationException var13 = new UnsupportedOperationException();
                 throw var13;
             } else {
-                JL var12 = this.W;
+                BooleanSetting var12 = this.W;
                 return var12.vb();
             }
         }
@@ -986,7 +987,7 @@ public final class hudstyle extends Yn {
         Lookup var0 = MethodHandles.lookup();
         Class var3 = var0.lookupClass();
         int var1 = -228349769;
-        int var2 = Yn.C;
+        int var2 = Module.C;
         int var4 = of_2.ro(var3, var1, var2);
         Rw = var4;
     }

@@ -13,15 +13,15 @@ import java.util.random.RandomGenerator;
 public final class RZ implements nM {
     public static final SpriteShape[] AP;
     private static final SpriteShape[] p;
-    private final r_2 hv;
-    private final JL q;
-    private final JL Z;
-    private final JL lf;
-    private final JL l;
-    private final JL L;
-    private final JL li;
-    private final JL EX;
-    private final JL S;
+    private final ModeSetting hv;
+    private final BooleanSetting q;
+    private final BooleanSetting Z;
+    private final BooleanSetting lf;
+    private final BooleanSetting l;
+    private final BooleanSetting L;
+    private final BooleanSetting li;
+    private final BooleanSetting EX;
+    private final BooleanSetting S;
     private SpriteShape[] f;
     public static final int Q;
 
@@ -30,23 +30,23 @@ public final class RZ implements nM {
     }
 
     public RZ(Ru var1) {
-        r_2 var2 = new r_2("shape", "Shape", var1);
+        ModeSetting var2 = new ModeSetting("shape", "Shape", var1);
         this.hv = var2;
-        JL var5 = this.T("with_stars", "Stars", true, 1303866027);
+        BooleanSetting var5 = this.T("with_stars", "Stars", true, 1303866027);
         this.q = var5;
-        JL var6 = this.T("with_hearts", "Hearts", true, 1303866027);
+        BooleanSetting var6 = this.T("with_hearts", "Hearts", true, 1303866027);
         this.Z = var6;
-        JL var7 = this.T("with_bloom", "Bloom", false, 1303866027);
+        BooleanSetting var7 = this.T("with_bloom", "Bloom", false, 1303866027);
         this.lf = var7;
-        JL var8 = this.T("with_snowflakes", "Snowflakes", false, 1303866027);
+        BooleanSetting var8 = this.T("with_snowflakes", "Snowflakes", false, 1303866027);
         this.l = var8;
-        JL var9 = this.T("with_dollars", "Dollars", false, 1303866027);
+        BooleanSetting var9 = this.T("with_dollars", "Dollars", false, 1303866027);
         this.L = var9;
-        JL var10 = this.T("with_crowns", "Crowns", false, 1303866027);
+        BooleanSetting var10 = this.T("with_crowns", "Crowns", false, 1303866027);
         this.li = var10;
-        JL var11 = this.T("with_fireflies", "Fireflies", false, 1303866027);
+        BooleanSetting var11 = this.T("with_fireflies", "Fireflies", false, 1303866027);
         this.EX = var11;
-        JL var12 = this.T("with_glyphs", "Glyphs", false, 1303866027);
+        BooleanSetting var12 = this.T("with_glyphs", "Glyphs", false, 1303866027);
         this.S = var12;
         List var13 = this.o();
         Iterator var14 = var13.iterator();
@@ -59,7 +59,7 @@ public final class RZ implements nM {
             }
 
             Object var16 = var15.next();
-            xB var17 = (xB)var16;
+            Setting var17 = (Setting)var16;
             Runnable var4 = () -> {
                 int var1x = Q;
                 var1x ^= -564377345;
@@ -109,14 +109,14 @@ public final class RZ implements nM {
         }
     }
 
-    private JL T(String var1, String var2, boolean var3, int var4) {
+    private BooleanSetting T(String var1, String var2, boolean var3, int var4) {
         int var6 = System.identityHashCode(this);
-        JL var7 = new JL(var1, var2, var3);
+        BooleanSetting var7 = new BooleanSetting(var1, var2, var3);
         BooleanSupplier var8 = () -> {
             int var1x = Q;
             var1x ^= -2102361038;
             int var2x = System.identityHashCode(this);
-            r_2 var3x = this.hv;
+            ModeSetting var3x = this.hv;
             int var4x = var2x + 1;
             var4x = var2x * var4x;
             var2x = var4x & 1;
@@ -166,8 +166,8 @@ public final class RZ implements nM {
         if (var6 == 0) {
             int var14 = var4 >> 25;
             var14 ^= -1508243516;
-            xB var17 = var7.Pt(var8);
-            return (JL)var17;
+            Setting var17 = var7.Pt(var8);
+            return (BooleanSetting)var17;
         } else {
             int var5 = var4 * -1415365173;
             var5 *= -1083590959;
@@ -183,8 +183,8 @@ public final class RZ implements nM {
         int var1 = Q;
         var1 ^= 2075824730;
         int var2 = System.identityHashCode(this);
-        r_2 var3 = this.hv;
-        JL var4 = this.q;
+        ModeSetting var3 = this.hv;
+        BooleanSetting var4 = this.q;
         Integer var25 = var2;
         if (var25 == null) {
             var1 += 876935782;
@@ -212,13 +212,13 @@ public final class RZ implements nM {
             long var34;
             var1 = (var34 = var21 - 0L) == 0L ? 0 : (var34 < 0L ? -1 : 1);
             if (var1 == 0) {
-                JL var24 = this.Z;
-                JL var28 = this.lf;
-                JL var32 = this.l;
-                JL var6 = this.L;
-                JL var33 = this.li;
-                JL var8 = this.EX;
-                JL var9 = this.S;
+                BooleanSetting var24 = this.Z;
+                BooleanSetting var28 = this.lf;
+                BooleanSetting var32 = this.l;
+                BooleanSetting var6 = this.L;
+                BooleanSetting var33 = this.li;
+                BooleanSetting var8 = this.EX;
+                BooleanSetting var9 = this.S;
                 return List.of(var3, var4, var24, var28, var32, var6, var33, var8, var9);
             }
         }
@@ -495,7 +495,7 @@ public final class RZ implements nM {
     private SpriteShape[] nD(int var1) {
         label259: {
             int var3 = System.identityHashCode(this);
-            r_2 var4 = this.hv;
+            ModeSetting var4 = this.hv;
             long var5 = var3;
             long var7 = var5 + 1L;
             var7 = var5 * var7;
@@ -1172,7 +1172,7 @@ public final class RZ implements nM {
                         }
                     };
                     int var216 = var230.length;
-                    JL var234 = this.q;
+                    BooleanSetting var234 = this.q;
                     boolean var235 = var234.vb();
                     if (var235) {
                         var175 *= 669029839;
@@ -1249,7 +1249,7 @@ public final class RZ implements nM {
                         break label380;
                     }
 
-                    JL var240 = this.Z;
+                    BooleanSetting var240 = this.Z;
                     Integer var332 = var3;
                     if (var332 == null) {
                         switch (var175) {
@@ -1355,7 +1355,7 @@ public final class RZ implements nM {
                                 break label380;
                             }
 
-                            JL var251 = this.lf;
+                            BooleanSetting var251 = this.lf;
                             boolean var252 = var251.vb();
                             Integer var343 = var3;
                             if (var343 == null) {
@@ -1455,7 +1455,7 @@ public final class RZ implements nM {
                                         break label380;
                                     }
 
-                                    JL var263 = this.l;
+                                    BooleanSetting var263 = this.l;
                                     boolean var264 = var263.vb();
                                     Integer var359 = var3;
                                     if (var359 == null) {
@@ -1521,7 +1521,7 @@ public final class RZ implements nM {
                                                 var175 ^= 1910345640;
                                             }
 
-                                            JL var269 = this.L;
+                                            BooleanSetting var269 = this.L;
                                             boolean var270 = var269.vb();
                                             long var367 = var3;
                                             var430 = var367 + 1L;
@@ -1608,7 +1608,7 @@ public final class RZ implements nM {
                                                         break label380;
                                                     }
 
-                                                    JL var280 = this.li;
+                                                    BooleanSetting var280 = this.li;
                                                     boolean var281 = var280.vb();
                                                     var370 = var3;
                                                     if (var370 == null) {
@@ -1686,7 +1686,7 @@ public final class RZ implements nM {
                                                                 break label380;
                                                             }
 
-                                                            JL var288 = this.EX;
+                                                            BooleanSetting var288 = this.EX;
                                                             boolean var289 = var288.vb();
                                                             Integer var393 = var3;
                                                             label327:
@@ -1734,7 +1734,7 @@ public final class RZ implements nM {
                                                                     break label380;
                                                                 }
 
-                                                                JL var218 = this.S;
+                                                                BooleanSetting var218 = this.S;
                                                                 var6 = var3;
                                                                 var8 = var6 + 1L;
                                                                 var8 = var6 * var8;

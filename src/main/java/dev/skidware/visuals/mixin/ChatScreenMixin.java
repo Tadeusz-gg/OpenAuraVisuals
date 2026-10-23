@@ -1,6 +1,6 @@
 package dev.skidware.visuals.mixin;
 
-import dev.aurap.hub.Ud;
+import dev.aurap.hub.ClientRuntime;
 import dev.aurap.hub.i_2;
 import net.minecraft.client.gui.Click;
 import net.minecraft.client.gui.screen.ChatScreen;
@@ -20,7 +20,7 @@ public abstract class ChatScreenMixin {
         cancellable = true
     )
     private void aura$hudEditorClick(Click event, boolean doubleClick, CallbackInfoReturnable cir) {
-        if (Ud.y() && Ud.Z().Kx().Z().Wy(i_2.Tr(event.button()))) {
+        if (ClientRuntime.y() && ClientRuntime.Z().Kx().Z().Wy(i_2.Tr(event.button()))) {
             cir.setReturnValue(true);
         }
     }
@@ -31,7 +31,7 @@ public abstract class ChatScreenMixin {
         cancellable = true
     )
     private void aura$hudEditorScroll(double x, double y, double scrollX, double scrollY, CallbackInfoReturnable cir) {
-        if (Ud.y() && Ud.Z().Kx().Z().I(scrollY)) {
+        if (ClientRuntime.y() && ClientRuntime.Z().Kx().Z().I(scrollY)) {
             cir.setReturnValue(true);
         }
     }

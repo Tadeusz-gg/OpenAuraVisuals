@@ -14,11 +14,11 @@ import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
 
 public final class Na extends Screen {
-    private final Ud cl;
+    private final ClientRuntime cl;
     private Uo GG;
     public static final int Fc;
 
-    public Na(Ud var1) {
+    public Na(ClientRuntime var1) {
         super(Text.literal("Aura Visuals - Licencja"));
         this.cl = var1;
     }
@@ -27,7 +27,7 @@ public final class Na extends Screen {
         int var1 = Fc;
         var1 ^= -582766300;
         int var2 = System.identityHashCode(this);
-        Ud var3 = this.cl;
+        ClientRuntime var3 = this.cl;
         xy var47 = var3.nT();
         KP var48 = var47.UJ();
         Uo var4 = var48.b();
@@ -109,7 +109,7 @@ public final class Na extends Screen {
                 int var2x = Fc;
                 var2x ^= 1569753934;
                 int var3x = System.identityHashCode(this);
-                Ud var4x = this.cl;
+                ClientRuntime var4x = this.cl;
                 xy var26x = var4x.nT();
                 int var5x = var3x + 1;
                 var5x = var3x * var5x;
@@ -204,7 +204,7 @@ public final class Na extends Screen {
         int var1 = Fc;
         var1 ^= 1475940468;
         int var2 = System.identityHashCode(this);
-        Ud var3 = this.cl;
+        ClientRuntime var3 = this.cl;
         xy var48 = var3.nT();
         KP var49 = var48.UJ();
         long var4 = var2;

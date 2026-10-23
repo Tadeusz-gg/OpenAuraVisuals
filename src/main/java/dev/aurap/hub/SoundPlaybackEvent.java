@@ -3,11 +3,11 @@ package dev.aurap.hub;
 import java.lang.invoke.MethodHandles;
 import java.lang.invoke.MethodHandles.Lookup;
 
-public final class Kl extends zB {
+public final class SoundPlaybackEvent extends CancellableEvent {
     private final String my;
     public static final int J;
 
-    public Kl(String var1) {
+    public SoundPlaybackEvent(String var1) {
         this.my = var1;
     }
 
@@ -47,7 +47,7 @@ public final class Kl extends zB {
         Lookup var0 = MethodHandles.lookup();
         Class var3 = var0.lookupClass();
         int var1 = 940888462;
-        int var2 = zB.E;
+        int var2 = CancellableEvent.E;
         int var4 = of_2.ro(var3, var1, var2);
         J = var4;
     }

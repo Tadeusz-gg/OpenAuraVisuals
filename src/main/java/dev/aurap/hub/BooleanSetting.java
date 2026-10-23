@@ -3,12 +3,12 @@ package dev.aurap.hub;
 import java.lang.invoke.MethodHandles;
 import java.lang.invoke.MethodHandles.Lookup;
 
-public final class JL extends xB {
+public final class BooleanSetting extends Setting {
     private final boolean Bd;
     private boolean L;
     public static final int U;
 
-    public JL(String var1, String var2, boolean var3) {
+    public BooleanSetting(String var1, String var2, boolean var3) {
         super(var1, var2);
         this.Bd = var3;
         this.L = var3;
@@ -587,7 +587,7 @@ public final class JL extends xB {
         Lookup var0 = MethodHandles.lookup();
         Class var3 = var0.lookupClass();
         int var1 = 636670862;
-        int var2 = xB.nu;
+        int var2 = Setting.nu;
         int var4 = of_2.ro(var3, var1, var2);
         U = var4;
     }

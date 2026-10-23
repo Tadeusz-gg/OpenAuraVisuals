@@ -1,7 +1,7 @@
 package dev.aurap.hub;
 
 @FunctionalInterface
-public interface kf extends AutoCloseable {
+public interface EventSubscription extends AutoCloseable {
     void unsubscribe();
 
     @Override

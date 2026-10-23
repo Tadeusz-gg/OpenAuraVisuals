@@ -1,6 +1,7 @@
 package mvggs.modules.combat;
 
 import dev.aurap.hub.*;
+import dev.aurap.hub.Module;
 
 import dev.skidware.visuals.client.render.AuraPipeline;
 import dev.skidware.visuals.client.render.FrameContext;
@@ -15,24 +16,24 @@ import java.util.function.Predicate;
 import net.minecraft.entity.Entity;
 import net.minecraft.world.World;
 
-public final class totempop extends Yn {
+public final class totempop extends Module {
     private static final int Z = 30;
     private static final int yf = 8;
     private static final float S = 0.06F;
     private final RZ XZ;
-    private final r_2 Ch;
-    private final Uq Yp;
-    private final Uq cN;
-    private final Uq Ye;
-    private final Uq ke;
-    private final Uq c;
-    private final r_2 Gu;
-    private final Uq e;
-    private final JL y;
+    private final ModeSetting Ch;
+    private final NumberSetting Yp;
+    private final NumberSetting cN;
+    private final NumberSetting Ye;
+    private final NumberSetting ke;
+    private final NumberSetting c;
+    private final ModeSetting Gu;
+    private final NumberSetting e;
+    private final BooleanSetting y;
     private final zS WW;
-    private final JL V;
-    private final JL GT;
-    private final Uq jN;
+    private final BooleanSetting V;
+    private final BooleanSetting GT;
+    private final NumberSetting jN;
     private final mN k;
     private final Pc_2 Q;
     private final Predicate a;
@@ -41,8 +42,8 @@ public final class totempop extends Yn {
     public static final int t;
 
     public totempop() {
-        super("totem_pop", "Totem Pop", AJ.COMBAT);
-        AJ var1 = AJ.COMBAT;
+        super("totem_pop", "Totem Pop", ModuleCategory.COMBAT);
+        ModuleCategory var1 = ModuleCategory.COMBAT;
 
         Ru var2 = Ru.STARS;
         RZ var3 = new RZ(var2);
@@ -50,69 +51,69 @@ public final class totempop extends Yn {
         RZ var5 = (RZ)var4;
         this.XZ = var5;
         bA_2 var62 = bA_2.GLIDE;
-        r_2 var6 = new r_2("motion", "Motion", var62);
-        xB var7 = this.vn(var6);
-        r_2 var8 = (r_2)var7;
+        ModeSetting var6 = new ModeSetting("motion", "Motion", var62);
+        Setting var7 = this.addSetting(var6);
+        ModeSetting var8 = (ModeSetting)var7;
         this.Ch = var8;
-        Uq var9 = new Uq("burst", "Burst", 10.0F, 0.0F, 40.0F);
-        Uq var10 = var9.W(1.0F);
-        xB var11 = this.vn(var10);
-        Uq var12 = (Uq)var11;
+        NumberSetting var9 = new NumberSetting("burst", "Burst", 10.0F, 0.0F, 40.0F);
+        NumberSetting var10 = var9.W(1.0F);
+        Setting var11 = this.addSetting(var10);
+        NumberSetting var12 = (NumberSetting)var11;
         this.Yp = var12;
-        Uq var13 = new Uq("rate", "Per Tick", 2.0F, 0.0F, 8.0F);
-        Uq var14 = var13.W(1.0F);
-        xB var15 = this.vn(var14);
-        Uq var16 = (Uq)var15;
+        NumberSetting var13 = new NumberSetting("rate", "Per Tick", 2.0F, 0.0F, 8.0F);
+        NumberSetting var14 = var13.W(1.0F);
+        Setting var15 = this.addSetting(var14);
+        NumberSetting var16 = (NumberSetting)var15;
         this.cN = var16;
-        Uq var17 = new Uq("speed", "Speed", 1.0F, 0.2F, 3.0F);
-        Uq var18 = var17.W(0.05F);
-        Uq var19 = var18.L("x");
-        xB var20 = this.vn(var19);
-        Uq var21 = (Uq)var20;
+        NumberSetting var17 = new NumberSetting("speed", "Speed", 1.0F, 0.2F, 3.0F);
+        NumberSetting var18 = var17.W(0.05F);
+        NumberSetting var19 = var18.L("x");
+        Setting var20 = this.addSetting(var19);
+        NumberSetting var21 = (NumberSetting)var20;
         this.Ye = var21;
-        Uq var22 = new Uq("lifetime", "Lifetime", 2.0F, 0.5F, 10.0F);
-        Uq var23 = var22.W(0.1F);
-        Uq var24 = var23.L("s");
-        xB var25 = this.vn(var24);
-        Uq var26 = (Uq)var25;
+        NumberSetting var22 = new NumberSetting("lifetime", "Lifetime", 2.0F, 0.5F, 10.0F);
+        NumberSetting var23 = var22.W(0.1F);
+        NumberSetting var24 = var23.L("s");
+        Setting var25 = this.addSetting(var24);
+        NumberSetting var26 = (NumberSetting)var25;
         this.ke = var26;
-        Uq var27 = new Uq("size", "Size", 1.0F, 0.4F, 3.0F);
-        Uq var28 = var27.W(0.05F);
-        Uq var29 = var28.L("x");
-        xB var30 = this.vn(var29);
-        Uq var31 = (Uq)var30;
+        NumberSetting var27 = new NumberSetting("size", "Size", 1.0F, 0.4F, 3.0F);
+        NumberSetting var28 = var27.W(0.05F);
+        NumberSetting var29 = var28.L("x");
+        Setting var30 = this.addSetting(var29);
+        NumberSetting var31 = (NumberSetting)var30;
         this.c = var31;
         ka var63 = ka.ALPHA;
-        r_2 var32 = new r_2("fade", "Fade", var63);
-        xB var33 = this.vn(var32);
-        r_2 var34 = (r_2)var33;
+        ModeSetting var32 = new ModeSetting("fade", "Fade", var63);
+        Setting var33 = this.addSetting(var32);
+        ModeSetting var34 = (ModeSetting)var33;
         this.Gu = var34;
-        Uq var35 = new Uq("glow", "Glow", 0.7F, 0.0F, 1.0F);
-        Uq var36 = var35.W(0.05F);
-        xB var37 = this.vn(var36);
-        Uq var38 = (Uq)var37;
+        NumberSetting var35 = new NumberSetting("glow", "Glow", 0.7F, 0.0F, 1.0F);
+        NumberSetting var36 = var35.W(0.05F);
+        Setting var37 = this.addSetting(var36);
+        NumberSetting var38 = (NumberSetting)var37;
         this.e = var38;
-        JL var39 = new JL("totem_colors", "Totem Colors", true);
-        xB var40 = this.vn(var39);
-        JL var41 = (JL)var40;
+        BooleanSetting var39 = new BooleanSetting("totem_colors", "Totem Colors", true);
+        Setting var40 = this.addSetting(var39);
+        BooleanSetting var41 = (BooleanSetting)var40;
         this.y = var41;
         zS var42 = new zS();
         nM var43 = this.bU(var42);
         zS var44 = (zS)var43;
         this.WW = var44;
-        JL var45 = new JL("replace_vanilla", "Hide Vanilla Particles", true);
-        xB var46 = this.vn(var45);
-        JL var47 = (JL)var46;
+        BooleanSetting var45 = new BooleanSetting("replace_vanilla", "Hide Vanilla Particles", true);
+        Setting var46 = this.addSetting(var45);
+        BooleanSetting var47 = (BooleanSetting)var46;
         this.V = var47;
-        JL var48 = new JL("tint_item", "Tint Totem", false);
-        xB var49 = this.vn(var48);
-        JL var50 = (JL)var49;
+        BooleanSetting var48 = new BooleanSetting("tint_item", "Tint Totem", false);
+        Setting var49 = this.addSetting(var48);
+        BooleanSetting var50 = (BooleanSetting)var49;
         this.GT = var50;
-        Uq var51 = new Uq("item_scale", "Totem Size", 1.0F, 0.1F, 1.0F);
-        Uq var52 = var51.W(0.05F);
-        Uq var53 = var52.L("x");
-        xB var54 = this.vn(var53);
-        Uq var55 = (Uq)var54;
+        NumberSetting var51 = new NumberSetting("item_scale", "Totem Size", 1.0F, 0.1F, 1.0F);
+        NumberSetting var52 = var51.W(0.05F);
+        NumberSetting var53 = var52.L("x");
+        Setting var54 = this.addSetting(var53);
+        NumberSetting var55 = (NumberSetting)var54;
         this.jN = var55;
         mN var56 = new mN(768);
         this.k = var56;
@@ -122,7 +123,7 @@ public final class totempop extends Yn {
         this.a = var58;
         this.dy("Totem pops pour light particles out of the player, in totem colors or yours.");
         this.fJ(true);
-        wD<Vt> var59 = (Vt var1x) -> {
+        EventListener<TotemPopEvent> var59 = (TotemPopEvent var1x) -> {
             int var2x = t;
             var2x ^= 1347035599;
             int var3x = System.identityHashCode(this);
@@ -162,8 +163,8 @@ public final class totempop extends Yn {
             IllegalStateException var14x = new IllegalStateException();
             throw var14x;
         };
-        this.iI(Vt.class, var59);
-        wD<sE> var60 = (sE var1x) -> {
+        this.onEvent(TotemPopEvent.class, var59);
+        EventListener<TickEvent> var60 = (TickEvent var1x) -> {
             int var2x = t;
             var2x ^= -503918643;
             int var3x = System.identityHashCode(this);
@@ -196,8 +197,8 @@ public final class totempop extends Yn {
                 }
             }
         };
-        this.iI(sE.class, var60);
-        wD<T> var61 = (T var1x) -> {
+        this.onEvent(TickEvent.class, var60);
+        EventListener<RenderEvent> var61 = (RenderEvent var1x) -> {
             label110: {
                 int var52x;
                 label116: {
@@ -355,7 +356,7 @@ public final class totempop extends Yn {
                                 }
 
                                 mN var83 = this.k;
-                                r_2 var97 = this.Gu;
+                                ModeSetting var97 = this.Gu;
                                 Enum var98 = var97.A();
                                 ka var99 = (ka)var98;
                                 var83.Vs(var99, 0.0F, true);
@@ -369,7 +370,7 @@ public final class totempop extends Yn {
                                     var52x -= -1145591920;
                                     var52x |= 1398729518;
                                     var52x ^= 663641564;
-                                    Ud var73 = Ud.Z();
+                                    ClientRuntime var73 = ClientRuntime.Z();
                                     AuraPipeline var74 = var73.Ul();
                                     WorldDraw var75 = var74.world();
                                     FrameContext var119 = var1x.frame();
@@ -378,7 +379,7 @@ public final class totempop extends Yn {
                                     FrameContext var129 = var1x.frame();
                                     double var130 = var129.time();
                                     zS var137 = this.WW;
-                                    Uq var138 = this.e;
+                                    NumberSetting var138 = this.e;
                                     float var139 = var138.WM();
                                     var84.h(var100, var75, var121, var130, var137, var139);
                                     return;
@@ -445,14 +446,14 @@ public final class totempop extends Yn {
             IllegalStateException var71 = new IllegalStateException();
             throw var71;
         };
-        this.iI(T.class, var61);
+        this.onEvent(RenderEvent.class, var61);
     }
 
     public static boolean HP() {
         boolean var71 = false;
         int var0 = t;
         var0 ^= -281255966;
-        int var1 = (Ud.y()) ? 1 : 0;
+        int var1 = (ClientRuntime.y()) ? 1 : 0;
         var0 >>>= 21;
         var0 *= -479859379;
         var0 ^= -625491425;
@@ -483,9 +484,9 @@ public final class totempop extends Yn {
             var0 ^= -680818343;
             Integer var59 = var0;
             if (var59 != null) {
-                Ud var60 = Ud.Z();
-                NW var61 = var60.sP();
-                Yn var62 = var61.tG(totempop.class);
+                ClientRuntime var60 = ClientRuntime.Z();
+                ModuleManager var61 = var60.sP();
+                Module var62 = var61.tG(totempop.class);
                 var0 -= -571322620;
                 var0 ^= -971916526;
                 var0 ^= -1348579018;
@@ -517,7 +518,7 @@ public final class totempop extends Yn {
                                 break label68;
                             }
 
-                            JL var64 = var63.V;
+                            BooleanSetting var64 = var63.V;
                             boolean var65 = var64.vb();
 
                             var0 = switch (var0) {
@@ -613,7 +614,7 @@ public final class totempop extends Yn {
     public static float O() {
         int var0 = t;
         var0 ^= -1119745522;
-        int var1 = (Ud.y()) ? 1 : 0;
+        int var1 = (ClientRuntime.y()) ? 1 : 0;
         var0 >>= 15;
         var0 |= 172925377;
         var0 ^= 216545274;
@@ -636,9 +637,9 @@ public final class totempop extends Yn {
             var1 = var0 * var1;
             var1 &= 1;
             if (var1 == 0) {
-                Ud var44 = Ud.Z();
-                NW var45 = var44.sP();
-                Yn var46 = var45.tG(totempop.class);
+                ClientRuntime var44 = ClientRuntime.Z();
+                ModuleManager var45 = var44.sP();
+                Module var46 = var45.tG(totempop.class);
                 totempop var47 = (totempop)var46;
 
                 var0 = switch (var0) {
@@ -665,7 +666,7 @@ public final class totempop extends Yn {
                             break label56;
                         }
 
-                        Uq var48 = var47.jN;
+                        NumberSetting var48 = var47.jN;
                         float var49 = var48.WM();
 
                         var0 = switch (var0) {
@@ -731,7 +732,7 @@ public final class totempop extends Yn {
     public static int BM() {
         int var0 = t;
         var0 ^= 2091773038;
-        int var1 = (Ud.y()) ? 1 : 0;
+        int var1 = (ClientRuntime.y()) ? 1 : 0;
         var0 >>>= 8;
         var0 &= -102037721;
         var0 ^= 79171471;
@@ -760,11 +761,11 @@ public final class totempop extends Yn {
                 Integer var45 = var0;
                 label53:
                 if (var45 != null) {
-                    Ud var46 = Ud.Z();
+                    ClientRuntime var46 = ClientRuntime.Z();
                     var0 -= 16971765;
                     var0 ^= -1405685033;
-                    NW var47 = var46.sP();
-                    Yn var48 = var47.tG(totempop.class);
+                    ModuleManager var47 = var46.sP();
+                    Module var48 = var47.tG(totempop.class);
                     totempop var49 = (totempop)var48;
                     int var59 = (var49.IU()) ? 1 : 0;
                     if (var59 != 0) {
@@ -776,7 +777,7 @@ public final class totempop extends Yn {
                             break label53;
                         }
 
-                        JL var61 = var49.GT;
+                        BooleanSetting var61 = var49.GT;
           var59 = var61.vb() ? 1 : 0;
                         var0 |= -1458720586;
                         var0 ^= 607424819;
@@ -800,7 +801,7 @@ public final class totempop extends Yn {
                             var59 = (var84 = var64 - 0L) == 0L ? 0 : (var84 < 0L ? -1 : 1);
                             if (var59 == 0) {
                                 zS var50 = var49.WW;
-                                Ud var66 = Ud.Z();
+                                ClientRuntime var66 = ClientRuntime.Z();
                                 var0 += -2027692762;
                                 var0 *= -1894472935;
                                 var0 ^= 1736112795;
@@ -1435,7 +1436,7 @@ public final class totempop extends Yn {
                 var5 = var1.getEntityWorld();
                 this.g = var5;
                 byte var85 = 0;
-                Uq var100 = this.Yp;
+                NumberSetting var100 = this.Yp;
                 var6 = var100.B();
                 var6 = var6;
                 Integer var117 = var4;
@@ -1693,7 +1694,7 @@ public final class totempop extends Yn {
                 }
 
                 int var67 = 0;
-                Uq var72 = this.cN;
+                NumberSetting var72 = this.cN;
                 long var6 = var3;
                 long var8 = var6 + 1L;
                 var8 = var6 * var8;
@@ -1823,7 +1824,7 @@ public final class totempop extends Yn {
         bA_2 var202 = null;
         int var4 = System.identityHashCode(this);
         ThreadLocalRandom var5 = ThreadLocalRandom.current();
-        Uq var6 = this.Ye;
+        NumberSetting var6 = this.Ye;
         float var195 = var6.WM();
         float var196 = 1.6F * var195;
         int var7 = var4 + 1;
@@ -1846,7 +1847,7 @@ public final class totempop extends Yn {
                         }
                         default -> var2 ^ 9802761;
                     };
-                    r_2 var200 = this.Ch;
+                    ModeSetting var200 = this.Ch;
                     Enum var201 = var200.A();
                     var202 = (bA_2)var201;
                     bA_2 var8 = bA_2.BOUNCE;
@@ -1967,7 +1968,7 @@ public final class totempop extends Yn {
 
                     double var224 = var5.nextDouble(1.6, 4.0);
                     float var225 = (float)var224;
-                    Uq var238 = this.Ye;
+                    NumberSetting var238 = this.Ye;
                     float var239 = var238.WM();
                     float var226 = var225 * var239;
                     long var240 = var4;
@@ -2290,7 +2291,7 @@ public final class totempop extends Yn {
                             double var284 = var196;
                             double var263 = var5.nextDouble(var262, var284);
                             float var197 = (float)var263;
-                            Uq var264 = this.ke;
+                            NumberSetting var264 = this.ke;
                             long var271 = var4;
                             long var14 = var271 + 1L;
                             var14 = var271 * var14;
@@ -2315,7 +2316,7 @@ public final class totempop extends Yn {
                             float var276 = (float)var270;
                             float var266 = var265 * var276;
                             float var277 = 0.06F * var355;
-                            Uq var285 = this.c;
+                            NumberSetting var285 = this.c;
                             var280 = var285.WM();
                             float var278 = var277 * var280;
                             double var287 = var5.nextDouble(0.8, 1.2);
@@ -2397,7 +2398,7 @@ public final class totempop extends Yn {
                             RZ var297 = this.XZ;
                             SpriteShape var298 = var297.xZ(var5);
                             var355 = var5.nextFloat();
-                            JL var376 = this.y;
+                            BooleanSetting var376 = this.y;
                             boolean var377 = var376.vb();
                             if (var377) {
                                 var51 = switch (var51) {
@@ -2645,7 +2646,7 @@ public final class totempop extends Yn {
         Lookup var0 = MethodHandles.lookup();
         Class var3 = var0.lookupClass();
         int var1 = -1762987602;
-        int var2 = Yn.C;
+        int var2 = Module.C;
         int var4 = of_2.xF(var3, var1, var2);
         t = var4;
     }

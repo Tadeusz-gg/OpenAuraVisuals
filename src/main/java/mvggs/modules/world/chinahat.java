@@ -1,6 +1,7 @@
 package mvggs.modules.world;
 
 import dev.aurap.hub.*;
+import dev.aurap.hub.Module;
 
 import dev.skidware.visuals.client.render.AuraPipeline;
 import dev.skidware.visuals.client.render.FrameContext;
@@ -14,18 +15,18 @@ import java.lang.invoke.MethodHandles.Lookup;
 import java.util.Iterator;
 import net.minecraft.entity.Entity;
 
-public final class chinahat extends Yn {
+public final class chinahat extends Module {
     private static final int TG = 48;
-    private final Uq Oc;
-    private final Uq yQ;
-    private final Uq f;
-    private final Uq iZ;
-    private final JL n;
-    private final JL T;
-    private final Uq fC;
-    private final Uq r;
+    private final NumberSetting Oc;
+    private final NumberSetting yQ;
+    private final NumberSetting f;
+    private final NumberSetting iZ;
+    private final BooleanSetting n;
+    private final BooleanSetting T;
+    private final NumberSetting fC;
+    private final NumberSetting r;
     private final zS c;
-    private final JL o;
+    private final BooleanSetting o;
     private final double[] i;
     private final double[] U;
     private final double[] TJ;
@@ -33,58 +34,58 @@ public final class chinahat extends Yn {
     public static final int p;
 
     public chinahat() {
-        super("china_hat", "China Hat", AJ.WORLD);
-        AJ var1 = AJ.WORLD;
+        super("china_hat", "China Hat", ModuleCategory.WORLD);
+        ModuleCategory var1 = ModuleCategory.WORLD;
 
-        Uq var3 = new Uq("radius", "Brim Radius", 0.65F, 0.3F, 1.0F);
-        Uq var4 = var3.W(0.01F);
-        Uq var5 = var4.L("m");
-        xB var6 = this.vn(var5);
-        Uq var7 = (Uq)var6;
+        NumberSetting var3 = new NumberSetting("radius", "Brim Radius", 0.65F, 0.3F, 1.0F);
+        NumberSetting var4 = var3.W(0.01F);
+        NumberSetting var5 = var4.L("m");
+        Setting var6 = this.addSetting(var5);
+        NumberSetting var7 = (NumberSetting)var6;
         this.Oc = var7;
-        Uq var8 = new Uq("tip", "Tip Height", 0.35F, 0.1F, 1.0F);
-        Uq var9 = var8.W(0.01F);
-        Uq var10 = var9.L("m");
-        xB var11 = this.vn(var10);
-        Uq var12 = (Uq)var11;
+        NumberSetting var8 = new NumberSetting("tip", "Tip Height", 0.35F, 0.1F, 1.0F);
+        NumberSetting var9 = var8.W(0.01F);
+        NumberSetting var10 = var9.L("m");
+        Setting var11 = this.addSetting(var10);
+        NumberSetting var12 = (NumberSetting)var11;
         this.yQ = var12;
-        Uq var13 = new Uq("lift", "Height", 0.0F, -0.3F, 0.3F);
-        Uq var14 = var13.W(0.01F);
-        Uq var15 = var14.L("m");
-        xB var16 = this.vn(var15);
-        Uq var17 = (Uq)var16;
+        NumberSetting var13 = new NumberSetting("lift", "Height", 0.0F, -0.3F, 0.3F);
+        NumberSetting var14 = var13.W(0.01F);
+        NumberSetting var15 = var14.L("m");
+        Setting var16 = this.addSetting(var15);
+        NumberSetting var17 = (NumberSetting)var16;
         this.f = var17;
-        Uq var18 = new Uq("opacity", "Opacity", 0.55F, 0.1F, 1.0F);
-        Uq var19 = var18.W(0.05F);
-        xB var20 = this.vn(var19);
-        Uq var21 = (Uq)var20;
+        NumberSetting var18 = new NumberSetting("opacity", "Opacity", 0.55F, 0.1F, 1.0F);
+        NumberSetting var19 = var18.W(0.05F);
+        Setting var20 = this.addSetting(var19);
+        NumberSetting var21 = (NumberSetting)var20;
         this.iZ = var21;
-        JL var22 = new JL("fade_brim", "Fade Toward Brim", false);
-        xB var23 = this.vn(var22);
-        JL var24 = (JL)var23;
+        BooleanSetting var22 = new BooleanSetting("fade_brim", "Fade Toward Brim", false);
+        Setting var23 = this.addSetting(var22);
+        BooleanSetting var24 = (BooleanSetting)var23;
         this.n = var24;
-        JL var25 = new JL("rim", "Glowing Rim", true);
-        xB var26 = this.vn(var25);
-        JL var27 = (JL)var26;
+        BooleanSetting var25 = new BooleanSetting("rim", "Glowing Rim", true);
+        Setting var26 = this.addSetting(var25);
+        BooleanSetting var27 = (BooleanSetting)var26;
         this.T = var27;
-        Uq var28 = new Uq("spin", "Color Spin", 1.0F, 0.0F, 3.0F);
-        Uq var29 = var28.W(0.1F);
-        xB var30 = this.vn(var29);
-        Uq var31 = (Uq)var30;
+        NumberSetting var28 = new NumberSetting("spin", "Color Spin", 1.0F, 0.0F, 3.0F);
+        NumberSetting var29 = var28.W(0.1F);
+        Setting var30 = this.addSetting(var29);
+        NumberSetting var31 = (NumberSetting)var30;
         this.fC = var31;
-        Uq var32 = new Uq("glow", "Glow", 0.35F, 0.0F, 1.0F);
-        Uq var33 = var32.W(0.05F);
-        xB var34 = this.vn(var33);
-        Uq var35 = (Uq)var34;
+        NumberSetting var32 = new NumberSetting("glow", "Glow", 0.35F, 0.0F, 1.0F);
+        NumberSetting var33 = var32.W(0.05F);
+        Setting var34 = this.addSetting(var33);
+        NumberSetting var35 = (NumberSetting)var34;
         this.r = var35;
         Ry var2 = Ry.GRADIENT;
         zS var36 = new zS(var2, -11559425, -5870593);
         nM var37 = this.bU(var36);
         zS var38 = (zS)var37;
         this.c = var38;
-        JL var39 = new JL("players", "Other Players", false);
-        xB var40 = this.vn(var39);
-        JL var41 = (JL)var40;
+        BooleanSetting var39 = new BooleanSetting("players", "Other Players", false);
+        Setting var40 = this.addSetting(var39);
+        BooleanSetting var41 = (BooleanSetting)var40;
         this.o = var41;
         double[] var42 = new double[49];
         this.i = var42;
@@ -95,11 +96,11 @@ public final class chinahat extends Yn {
         int[] var45 = new int[49];
         this.V = var45;
         this.dy("A glowing conical hat that sits on the head and tilts with it.");
-        wD<T> var46 = this::W;
-        this.iI(T.class, var46);
+        EventListener<RenderEvent> var46 = this::W;
+        this.onEvent(RenderEvent.class, var46);
     }
 
-    private void W(T var1) {
+    private void W(RenderEvent var1) {
         label315: {
             int var2 = p;
             var2 ^= 1417243035;
@@ -211,7 +212,7 @@ public final class chinahat extends Yn {
                         }
 
                         Canvas var194 = var193;
-                        Ud var202 = Ud.Z();
+                        ClientRuntime var202 = ClientRuntime.Z();
                         AuraPipeline var203 = var202.Ul();
                         WorldDraw var204 = var203.world();
                         WorldDraw var205 = var204;
@@ -222,7 +223,7 @@ public final class chinahat extends Yn {
                         double var217 = var216.time();
                         double var218 = var217;
                         var193.save();
-                        Uq var220 = this.r;
+                        NumberSetting var220 = this.r;
                         float var221 = var220.WM();
                         var193.additive(var221);
                         Iterable var222 = i_2.S();
@@ -488,7 +489,7 @@ public final class chinahat extends Yn {
                                     break label315;
                                 }
 
-                                JL var264 = this.o;
+                                BooleanSetting var264 = this.o;
                                 long var310 = var3;
                                 var15 = var310 + 1L;
                                 var15 = var310 * var15;
@@ -809,15 +810,15 @@ public final class chinahat extends Yn {
                     var18 = var18;
                     var16 *= var26;
                     var16 = var16;
-                    Uq var417 = this.f;
+                    NumberSetting var417 = this.f;
                     float var418 = var417.WM();
                     double var419 = var418;
                     double var420 = 0.24 + var419;
-                    Uq var34 = this.yQ;
+                    NumberSetting var34 = this.yQ;
                     float var459 = var34.WM();
                     double var460 = var459;
                     double var461 = var420 + var460;
-                    Uq var36 = this.Oc;
+                    NumberSetting var36 = this.Oc;
                     float var465 = var36.WM();
                     double var466 = var465;
                     double var467 = var466;
@@ -840,13 +841,13 @@ public final class chinahat extends Yn {
                     var12 += var26;
                     var12 = var12;
                     var26 = var5 * 0.28;
-                    Uq var473 = this.fC;
+                    NumberSetting var473 = this.fC;
                     float var474 = var473.WM();
                     var42 = var474;
                     var26 *= var42;
                     float var424 = (float)var26;
                     float var425 = var424;
-                    Uq var27 = this.iZ;
+                    NumberSetting var27 = this.iZ;
                     float var454 = var27.WM();
                     float var455 = var454;
                     byte var476 = 0;
@@ -1011,7 +1012,7 @@ public final class chinahat extends Yn {
 
                             double var223 = var11.cameraZ();
                             double var520 = var223;
-                            Uq var224 = this.yQ;
+                            NumberSetting var224 = this.yQ;
                             float var225 = var224.WM();
                             double var226 = var225;
                             double var227 = var226;
@@ -1115,7 +1116,7 @@ public final class chinahat extends Yn {
                                 int var481 = var13 + 1;
                                 int var433 = var432[var481];
                                 var15 = DP.Z(var15, var433, 0.5F);
-                                JL var434 = this.n;
+                                BooleanSetting var434 = this.n;
                                 boolean var435 = var434.vb();
                                 long var546 = var9;
                                 long var572 = var546 + 1L;
@@ -1295,7 +1296,7 @@ public final class chinahat extends Yn {
                                 break label280;
                             }
 
-                            JL var212 = this.T;
+                            BooleanSetting var212 = this.T;
                             boolean var213 = var212.vb();
                             int var228 = var9 + 1;
                             int var229 = var9 * var228;
@@ -1598,7 +1599,7 @@ public final class chinahat extends Yn {
         Lookup var0 = MethodHandles.lookup();
         Class var3 = var0.lookupClass();
         int var1 = 458407706;
-        int var2 = Yn.C;
+        int var2 = Module.C;
         int var4 = of_2.ro(var3, var1, var2);
         p = var4;
     }

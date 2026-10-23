@@ -43,70 +43,70 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
-public final class l_2 {
+public final class ModuleRegistry {
     public static final int a;
 
-    private l_2() {
+    private ModuleRegistry() {
     }
 
-    public static void D(Ud var0) {
+    public static void registerModules(ClientRuntime var0) {
         label92: {
             int var1 = a;
             var1 ^= -546080992;
             int var2 = System.identityHashCode(var0);
-            NW var3 = var0.sP();
+            ModuleManager var3 = var0.sP();
             hitmarker var4 = new hitmarker();
-            Yn var59 = var3.v(var4);
+            Module var59 = var3.register(var4);
             damagenumbers var60 = new damagenumbers();
-            Yn var61 = var3.v(var60);
+            Module var61 = var3.register(var60);
             hitparticles var62 = new hitparticles();
-            Yn var63 = var3.v(var62);
+            Module var63 = var3.register(var62);
             hitbubbles var64 = new hitbubbles();
-            Yn var65 = var3.v(var64);
+            Module var65 = var3.register(var64);
             targetesp var66 = new targetesp();
-            Yn var67 = var3.v(var66);
+            Module var67 = var3.register(var66);
             killeffect var68 = new killeffect();
-            Yn var69 = var3.v(var68);
+            Module var69 = var3.register(var68);
             deatheffect var70 = new deatheffect();
-            Yn var71 = var3.v(var70);
+            Module var71 = var3.register(var70);
             totempop var72 = new totempop();
-            Yn var73 = var3.v(var72);
+            Module var73 = var3.register(var72);
             hitcolor var74 = new hitcolor();
-            Yn var75 = var3.v(var74);
+            Module var75 = var3.register(var74);
             hitboxcustomizer var76 = new hitboxcustomizer();
-            Yn var77 = var3.v(var76);
+            Module var77 = var3.register(var76);
             hudstyle var78 = new hudstyle();
-            Yn var79 = var3.v(var78);
+            Module var79 = var3.register(var78);
             targethud var80 = new targethud();
-            Yn var81 = var3.v(var80);
+            Module var81 = var3.register(var80);
             watermark var82 = new watermark();
-            Yn var83 = var3.v(var82);
+            Module var83 = var3.register(var82);
             dynamicisland var84 = new dynamicisland();
-            Yn var85 = var3.v(var84);
+            Module var85 = var3.register(var84);
             potions var86 = new potions();
-            Yn var87 = var3.v(var86);
+            Module var87 = var3.register(var86);
             cooldowns var88 = new cooldowns();
-            Yn var89 = var3.v(var88);
+            Module var89 = var3.register(var88);
             combocounter var90 = new combocounter();
-            Yn var91 = var3.v(var90);
+            Module var91 = var3.register(var90);
             cooldownring var92 = new cooldownring();
-            Yn var93 = var3.v(var92);
+            Module var93 = var3.register(var92);
             crosshair var94 = new crosshair();
-            Yn var95 = var3.v(var94);
+            Module var95 = var3.register(var94);
             swinganimations var96 = new swinganimations();
-            Yn var97 = var3.v(var96);
+            Module var97 = var3.register(var96);
             knife var98 = new knife();
-            Yn var99 = var3.v(var98);
+            Module var99 = var3.register(var98);
             hurtcam var100 = new hurtcam();
-            Yn var101 = var3.v(var100);
+            Module var101 = var3.register(var100);
             hitsounds var102 = new hitsounds();
-            Yn var103 = var3.v(var102);
+            Module var103 = var3.register(var102);
             jumpcircles var104 = new jumpcircles();
-            Yn var105 = var3.v(var104);
+            Module var105 = var3.register(var104);
             jumpparticles var106 = new jumpparticles();
-            Yn var107 = var3.v(var106);
+            Module var107 = var3.register(var106);
             ambientparticles var108 = new ambientparticles();
-            Yn var109 = var3.v(var108);
+            Module var109 = var3.register(var108);
             trails var110 = new trails();
             int var5 = var2 + 1;
             var5 = var2 * var5;
@@ -118,25 +118,25 @@ public final class l_2 {
                 var1 &= -553144234;
                 var1 |= -1128950101;
                 var1 ^= 850486973;
-                Yn var111 = var3.v(var110);
+                Module var111 = var3.register(var110);
                 halo var112 = new halo();
-                Yn var113 = var3.v(var112);
+                Module var113 = var3.register(var112);
                 chinahat var114 = new chinahat();
-                Yn var115 = var3.v(var114);
+                Module var115 = var3.register(var114);
                 atmosphere var116 = new atmosphere();
-                Yn var117 = var3.v(var116);
+                Module var117 = var3.register(var116);
                 motionblur var118 = new motionblur();
-                Yn var119 = var3.v(var118);
+                Module var119 = var3.register(var118);
                 colorsaturation var120 = new colorsaturation();
-                Yn var121 = var3.v(var120);
+                Module var121 = var3.register(var120);
                 aspectratio var122 = new aspectratio();
-                Yn var123 = var3.v(var122);
+                Module var123 = var3.register(var122);
                 fullbright var124 = new fullbright();
-                Yn var125 = var3.v(var124);
+                Module var125 = var3.register(var124);
                 clickgui var126 = new clickgui();
-                Yn var127 = var3.v(var126);
+                Module var127 = var3.register(var126);
                 performance var128 = new performance();
-                Yn var129 = var3.v(var128);
+                Module var129 = var3.register(var128);
                 var4 = null;
                 Set var131 = Set.of("click_gui", "performance", "discord_presence");
                 Set var132 = var131;
@@ -219,7 +219,7 @@ public final class l_2 {
                     }
 
                     Object var145 = var58.next();
-                    Yn var146 = (Yn)var145;
+                    Module var146 = (Module)var145;
                     String var157 = var146.F();
                     int var165 = var2 + 1;
                     int var166 = var2 * var165;

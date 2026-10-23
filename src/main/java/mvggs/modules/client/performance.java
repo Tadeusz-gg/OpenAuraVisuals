@@ -10,7 +10,7 @@ import java.lang.invoke.MethodHandles;
 import java.lang.invoke.MethodHandles.Lookup;
 import java.util.Locale;
 
-public final class performance extends tR_2 {
+public final class performance extends HudModule {
     private static final float NE = 7.0F;
     private static final float C = 9.5F;
     private static final TextStyle VA;
@@ -22,7 +22,7 @@ public final class performance extends tR_2 {
     public static final int GN;
 
     public performance() {
-        super("performance_overlay", "Performance", AJ.CLIENT, Cl_2.TOP_LEFT, 4.0F, 23.0F, 2.0F);
+        super("performance_overlay", "Performance", ModuleCategory.CLIENT, Cl_2.TOP_LEFT, 4.0F, 23.0F, 2.0F);
         TextStyle var3 = VA;
         this.V = var3;
         TextStyle var4 = T;
@@ -77,7 +77,7 @@ public final class performance extends tR_2 {
         int var1 = GN;
         var1 ^= 653920415;
         int var2 = System.identityHashCode(this);
-        Ud var3 = Ud.Z();
+        ClientRuntime var3 = ClientRuntime.Z();
         int var4 = var2 + 1;
         var4 = var2 * var4;
         var2 = var4 & 1;
@@ -122,7 +122,7 @@ public final class performance extends tR_2 {
         int var1 = GN;
         var1 ^= -441110387;
         int var2 = System.identityHashCode(this);
-        Ud var3 = Ud.Z();
+        ClientRuntime var3 = ClientRuntime.Z();
         AuraRenderer var24 = var3.ZP();
         long var4 = var2;
         long var6 = var4 + 1L;
@@ -252,7 +252,7 @@ public final class performance extends tR_2 {
                         }
 
                         this.w = 0.0F;
-                        Ud var112 = Ud.Z();
+                        ClientRuntime var112 = ClientRuntime.Z();
                         AuraRenderer var113 = var112.ZP();
                         RenderStats var114 = var113.stats();
                         String[] var133 = this.Yf;
@@ -726,7 +726,7 @@ public final class performance extends tR_2 {
         Lookup var0 = MethodHandles.lookup();
         Class var3 = var0.lookupClass();
         int var1 = -162092723;
-        int var2 = tR_2.qG;
+        int var2 = HudModule.qG;
         int var4 = of_2.xF(var3, var1, var2);
         GN = var4;
         TextStyle var5 = TextStyle.of(9.0F, -1);

@@ -1,6 +1,7 @@
 package mvggs.modules.hud;
 
 import dev.aurap.hub.*;
+import dev.aurap.hub.Module;
 
 import dev.skidware.visuals.client.render.FrameContext;
 import dev.skidware.visuals.client.render.RenderPhase;
@@ -9,45 +10,45 @@ import dev.skidware.visuals.render.canvas.Paint;
 import java.lang.invoke.MethodHandles;
 import java.lang.invoke.MethodHandles.Lookup;
 
-public final class cooldownring extends Yn {
-    private final Uq M;
-    private final Uq Uw;
-    private final Fk l;
-    private final Fk yL;
+public final class cooldownring extends Module {
+    private final NumberSetting M;
+    private final NumberSetting Uw;
+    private final ColorSetting l;
+    private final ColorSetting yL;
     private final XF HW;
     public static final int b;
 
     public cooldownring() {
-        super("cooldown_ring", "Cooldown Ring", AJ.HUD);
-        AJ var1 = AJ.HUD;
+        super("cooldown_ring", "Cooldown Ring", ModuleCategory.HUD);
+        ModuleCategory var1 = ModuleCategory.HUD;
 
-        Uq var3 = new Uq("radius", "Radius", 8.0F, 5.0F, 20.0F);
-        Uq var4 = var3.W(0.5F);
-        xB var5 = this.vn(var4);
-        Uq var6 = (Uq)var5;
+        NumberSetting var3 = new NumberSetting("radius", "Radius", 8.0F, 5.0F, 20.0F);
+        NumberSetting var4 = var3.W(0.5F);
+        Setting var5 = this.addSetting(var4);
+        NumberSetting var6 = (NumberSetting)var5;
         this.M = var6;
-        Uq var7 = new Uq("thickness", "Thickness", 0.8F, 0.5F, 4.0F);
-        Uq var8 = var7.W(0.1F);
-        xB var9 = this.vn(var8);
-        Uq var10 = (Uq)var9;
+        NumberSetting var7 = new NumberSetting("thickness", "Thickness", 0.8F, 0.5F, 4.0F);
+        NumberSetting var8 = var7.W(0.1F);
+        Setting var9 = this.addSetting(var8);
+        NumberSetting var10 = (NumberSetting)var9;
         this.Uw = var10;
-        Fk var11 = new Fk("from", "Start Color", -7687452);
-        xB var12 = this.vn(var11);
-        Fk var13 = (Fk)var12;
+        ColorSetting var11 = new ColorSetting("from", "Start Color", -7687452);
+        Setting var12 = this.addSetting(var11);
+        ColorSetting var13 = (ColorSetting)var12;
         this.l = var13;
-        Fk var14 = new Fk("to", "End Color", -4859649);
-        xB var15 = this.vn(var14);
-        Fk var16 = (Fk)var15;
+        ColorSetting var14 = new ColorSetting("to", "End Color", -4859649);
+        Setting var15 = this.addSetting(var14);
+        ColorSetting var16 = (ColorSetting)var15;
         this.yL = var16;
         kE_2 var2 = kE_2.SMOOTH;
         XF var17 = new XF(0.0F, var2);
         this.HW = var17;
         this.dy("Attack cooldown ring around the crosshair.");
-        wD<T> var18 = this::tn;
-        this.iI(T.class, var18);
+        EventListener<RenderEvent> var18 = this::tn;
+        this.onEvent(RenderEvent.class, var18);
     }
 
-    private void tn(T var1) {
+    private void tn(RenderEvent var1) {
         int var2 = b;
         var2 ^= -899155721;
         int var3 = System.identityHashCode(this);
@@ -281,7 +282,7 @@ public final class cooldownring extends Yn {
                                                 float var171 = var170 * 0.5F;
                                                 float var180 = var152.height();
                                                 float var181 = var180 * 0.5F;
-                                                Uq var186 = this.M;
+                                                NumberSetting var186 = this.M;
                                                 var10 = var3;
                                                 long var12 = var10 + 1L;
                                                 var12 = var10 * var12;
@@ -292,7 +293,7 @@ public final class cooldownring extends Yn {
                                                     var2 <<= 5;
                                                     var2 ^= 1530291965;
                                                     float var93 = var186.WM();
-                                                    Uq var187 = this.Uw;
+                                                    NumberSetting var187 = this.Uw;
                                                     float var188 = var187.WM();
                                                     float var192 = (float) (-Math.PI / 2);
                                                     int var193 = DP.nq(1073741824, var119);
@@ -300,10 +301,10 @@ public final class cooldownring extends Yn {
                                                     var152.arc(var171, var181, var93, var188, 0.0F, (float) (Math.PI * 2), var194);
                                                     float var103 = TP.S(var102);
                                                     float var104 = (float) (Math.PI * 2) * var103;
-                                                    Fk var195 = this.l;
+                                                    ColorSetting var195 = this.l;
                                                     int var196 = var195.zz();
                                                     int var197 = DP.nq(var196, var119);
-                                                    Fk var199 = this.yL;
+                                                    ColorSetting var199 = this.yL;
                                                     int var200 = var199.zz();
                                                     var5 = DP.nq(var200, var119);
                                                     Paint var121 = Paint.conic(var197, var5, 0.0F);
@@ -380,7 +381,7 @@ public final class cooldownring extends Yn {
         Lookup var0 = MethodHandles.lookup();
         Class var3 = var0.lookupClass();
         int var1 = 1947698709;
-        int var2 = Yn.C;
+        int var2 = Module.C;
         int var4 = of_2.ro(var3, var1, var2);
         b = var4;
     }

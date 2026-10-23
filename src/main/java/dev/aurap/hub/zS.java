@@ -9,9 +9,9 @@ import java.util.function.BooleanSupplier;
 
 public final class zS implements nM {
     private static final int u = 64;
-    private final r_2 Y;
-    private final Fk Kb;
-    private final Fk Yr;
+    private final ModeSetting Y;
+    private final ColorSetting Kb;
+    private final ColorSetting Yr;
     private final int[] BG;
     private int yC;
     private int j;
@@ -26,16 +26,16 @@ public final class zS implements nM {
     public zS(Ry var1, int var2, int var3) {
         int[] var4 = new int[64];
         this.BG = var4;
-        r_2 var6 = new r_2("color_mode", "Color", var1);
+        ModeSetting var6 = new ModeSetting("color_mode", "Color", var1);
         this.Y = var6;
-        Fk var7 = new Fk("color", "Primary", var2, false);
+        ColorSetting var7 = new ColorSetting("color", "Primary", var2, false);
         BooleanSupplier var5 = () -> {
             boolean var50;
             label75: {
                 int var1x = Z;
                 var1x ^= -2009690302;
                 int var2x = System.identityHashCode(this);
-                r_2 var3x = this.Y;
+                ModeSetting var3x = this.Y;
                 Integer var4x = var2x;
                 if (var4x == null) {
                     var1x -= -491132422;
@@ -176,15 +176,15 @@ public final class zS implements nM {
             RuntimeException var44 = new RuntimeException();
             throw var44;
         };
-        xB var8 = var7.Pt(var5);
-        Fk var9 = (Fk)var8;
+        Setting var8 = var7.Pt(var5);
+        ColorSetting var9 = (ColorSetting)var8;
         this.Kb = var9;
-        Fk var10 = new Fk("color_2", "Secondary", var3, false);
+        ColorSetting var10 = new ColorSetting("color_2", "Secondary", var3, false);
         var5 = () -> {
             int var1x = Z;
             var1x ^= 18969199;
             int var2x = System.identityHashCode(this);
-            r_2 var3x = this.Y;
+            ModeSetting var3x = this.Y;
             long var4x = var2x;
             long var6x = var4x + 1L;
             var6x = var4x * var6x;
@@ -228,8 +228,8 @@ public final class zS implements nM {
             IllegalArgumentException var18 = new IllegalArgumentException();
             throw var18;
         };
-        xB var11 = var10.Pt(var5);
-        Fk var12 = (Fk)var11;
+        Setting var11 = var10.Pt(var5);
+        ColorSetting var12 = (ColorSetting)var11;
         this.Yr = var12;
     }
 
@@ -238,9 +238,9 @@ public final class zS implements nM {
         int var1 = Z;
         var1 ^= -2035483257;
         int var2 = System.identityHashCode(this);
-        r_2 var3 = this.Y;
-        Fk var4 = this.Kb;
-        Fk var5 = this.Yr;
+        ModeSetting var3 = this.Y;
+        ColorSetting var4 = this.Kb;
+        ColorSetting var5 = this.Yr;
         long var6 = var2;
         long var8 = var6 + 1L;
         var8 = var6 * var8;
@@ -285,7 +285,7 @@ public final class zS implements nM {
             int var4 = Z;
             var4 ^= 1726329841;
             int var5 = System.identityHashCode(this);
-            r_2 var6 = this.Y;
+            ModeSetting var6 = this.Y;
             Enum var98 = var6.A();
             Ry var99 = (Ry)var98;
             long var7 = var5;
@@ -368,7 +368,7 @@ public final class zS implements nM {
                             }
                             case 1343172052 -> var4 ^ -1650486085;
                         };
-                        Fk var120 = this.Kb;
+                        ColorSetting var120 = this.Kb;
                         Integer var141 = var5;
                         if (var141 != null) {
                             var4 -= 2058839007;
@@ -683,8 +683,8 @@ public final class zS implements nM {
                         break label62;
                     }
 
-                    Ud var48 = Ud.Z();
-                    NW var49 = var48.sP();
+                    ClientRuntime var48 = ClientRuntime.Z();
+                    ModuleManager var49 = var48.sP();
                     Integer var6 = var3;
                     if (var6 == null) {
                         switch (var25) {
@@ -721,7 +721,7 @@ public final class zS implements nM {
                         break label62;
                     }
 
-                    Yn var50 = var49.tG(hudstyle.class);
+                    Module var50 = var49.tG(hudstyle.class);
                     var52 = (hudstyle)var50;
                     this.QX = var52;
                     var52 = var52;
@@ -810,10 +810,10 @@ public final class zS implements nM {
                 }
 
                 label195: {
-                    Fk var102 = this.Kb;
+                    ColorSetting var102 = this.Kb;
                     var5 = var102.zz();
                     var5 = var5;
-                    Fk var118 = this.Yr;
+                    ColorSetting var118 = this.Yr;
                     var6 = var118.zz();
                     var6 = var6;
                     int var7 = (this.p ? 1 : 0);

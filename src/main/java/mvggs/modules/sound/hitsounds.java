@@ -1,6 +1,7 @@
 package mvggs.modules.sound;
 
 import dev.aurap.hub.*;
+import dev.aurap.hub.Module;
 
 import java.lang.invoke.MethodHandles;
 import java.lang.invoke.MethodHandles.Lookup;
@@ -13,120 +14,120 @@ import net.minecraft.client.sound.SoundInstance;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 
-public final class hitsounds extends Yn {
+public final class hitsounds extends Module {
     private static final String[] c;
     private static final Set K;
     private static Object[] a;
-    private final r_2 S;
-    private final r_2 Zd;
-    private final r_2 b;
-    private final Uq I;
-    private final Uq iA;
-    private final Uq dv;
-    private final Uq EC;
-    private final JL bM;
-    private final JL HT;
-    private final JL Cv;
-    private final JL ms;
-    private final JL Ub;
-    private final JL N;
-    private final JL E;
-    private final Uq[] Wf;
+    private final ModeSetting S;
+    private final ModeSetting Zd;
+    private final ModeSetting b;
+    private final NumberSetting I;
+    private final NumberSetting iA;
+    private final NumberSetting dv;
+    private final NumberSetting EC;
+    private final BooleanSetting bM;
+    private final BooleanSetting HT;
+    private final BooleanSetting Cv;
+    private final BooleanSetting ms;
+    private final BooleanSetting Ub;
+    private final BooleanSetting N;
+    private final BooleanSetting E;
+    private final NumberSetting[] Wf;
     private boolean EU;
     public static final int zb;
 
     public hitsounds() {
-        super("hit_sounds", "Hit Sounds", AJ.SOUND);
-        AJ var1 = AJ.SOUND;
+        super("hit_sounds", "Hit Sounds", ModuleCategory.SOUND);
+        ModuleCategory var1 = ModuleCategory.SOUND;
 
         c_2 var2 = c_2.AURA;
-        r_2 var4 = new r_2("sound", "Normal Sound", var2);
-        xB var5 = this.vn(var4);
-        r_2 var6 = (r_2)var5;
+        ModeSetting var4 = new ModeSetting("sound", "Normal Sound", var2);
+        Setting var5 = this.addSetting(var4);
+        ModeSetting var6 = (ModeSetting)var5;
         this.S = var6;
         var2 = c_2.AURA;
-        r_2 var7 = new r_2("crit_sound", "Critical Sound", var2);
-        xB var8 = this.vn(var7);
-        r_2 var9 = (r_2)var8;
+        ModeSetting var7 = new ModeSetting("crit_sound", "Critical Sound", var2);
+        Setting var8 = this.addSetting(var7);
+        ModeSetting var9 = (ModeSetting)var8;
         this.Zd = var9;
         var2 = c_2.AURA;
-        r_2 var10 = new r_2("sweep_sound", "Sweep / Spam Sound", var2);
-        xB var11 = var10.q("Hits below 90% attack charge use this channel.");
-        r_2 var12 = (r_2)var11;
-        xB var13 = this.vn(var12);
-        r_2 var14 = (r_2)var13;
+        ModeSetting var10 = new ModeSetting("sweep_sound", "Sweep / Spam Sound", var2);
+        Setting var11 = var10.q("Hits below 90% attack charge use this channel.");
+        ModeSetting var12 = (ModeSetting)var11;
+        Setting var13 = this.addSetting(var12);
+        ModeSetting var14 = (ModeSetting)var13;
         this.b = var14;
-        Uq var15 = new Uq("normal_volume", "Normal Volume", 100.0F, 0.0F, 200.0F);
-        Uq var16 = var15.W(5.0F);
-        Uq var17 = var16.L("%");
-        xB var18 = this.vn(var17);
-        Uq var19 = (Uq)var18;
+        NumberSetting var15 = new NumberSetting("normal_volume", "Normal Volume", 100.0F, 0.0F, 200.0F);
+        NumberSetting var16 = var15.W(5.0F);
+        NumberSetting var17 = var16.L("%");
+        Setting var18 = this.addSetting(var17);
+        NumberSetting var19 = (NumberSetting)var18;
         this.I = var19;
-        Uq var20 = new Uq("crit_volume", "Critical Volume", 100.0F, 0.0F, 200.0F);
-        Uq var21 = var20.W(5.0F);
-        Uq var22 = var21.L("%");
-        xB var23 = this.vn(var22);
-        Uq var24 = (Uq)var23;
+        NumberSetting var20 = new NumberSetting("crit_volume", "Critical Volume", 100.0F, 0.0F, 200.0F);
+        NumberSetting var21 = var20.W(5.0F);
+        NumberSetting var22 = var21.L("%");
+        Setting var23 = this.addSetting(var22);
+        NumberSetting var24 = (NumberSetting)var23;
         this.iA = var24;
-        Uq var25 = new Uq("sweep_volume", "Sweep Volume", 75.0F, 0.0F, 200.0F);
-        Uq var26 = var25.W(5.0F);
-        Uq var27 = var26.L("%");
-        xB var28 = this.vn(var27);
-        Uq var29 = (Uq)var28;
+        NumberSetting var25 = new NumberSetting("sweep_volume", "Sweep Volume", 75.0F, 0.0F, 200.0F);
+        NumberSetting var26 = var25.W(5.0F);
+        NumberSetting var27 = var26.L("%");
+        Setting var28 = this.addSetting(var27);
+        NumberSetting var29 = (NumberSetting)var28;
         this.dv = var29;
-        Uq var30 = new Uq("volume", "Volume", 1.0F, 0.0F, 2.0F);
-        Uq var31 = var30.W(0.05F);
-        Uq var32 = var31.L("x");
-        xB var33 = this.vn(var32);
-        Uq var34 = (Uq)var33;
+        NumberSetting var30 = new NumberSetting("volume", "Volume", 1.0F, 0.0F, 2.0F);
+        NumberSetting var31 = var30.W(0.05F);
+        NumberSetting var32 = var31.L("x");
+        Setting var33 = this.addSetting(var32);
+        NumberSetting var34 = (NumberSetting)var33;
         this.EC = var34;
-        JL var35 = new JL("positional", "Positional", false);
-        xB var36 = this.vn(var35);
-        JL var37 = (JL)var36;
+        BooleanSetting var35 = new BooleanSetting("positional", "Positional", false);
+        Setting var36 = this.addSetting(var35);
+        BooleanSetting var37 = (BooleanSetting)var36;
         this.bM = var37;
-        JL var38 = new JL("combo_pitch", "Combo Pitch", true);
-        xB var39 = this.vn(var38);
-        JL var40 = (JL)var39;
+        BooleanSetting var38 = new BooleanSetting("combo_pitch", "Combo Pitch", true);
+        Setting var39 = this.addSetting(var38);
+        BooleanSetting var40 = (BooleanSetting)var39;
         this.HT = var40;
-        JL var41 = new JL("random_pitch", "Random Pitch", false);
-        xB var42 = this.vn(var41);
-        JL var43 = (JL)var42;
+        BooleanSetting var41 = new BooleanSetting("random_pitch", "Random Pitch", false);
+        Setting var42 = this.addSetting(var41);
+        BooleanSetting var43 = (BooleanSetting)var42;
         this.Cv = var43;
-        JL var44 = new JL("crit_only", "Crits Only", false);
-        xB var45 = this.vn(var44);
-        JL var46 = (JL)var45;
+        BooleanSetting var44 = new BooleanSetting("crit_only", "Crits Only", false);
+        Setting var45 = this.addSetting(var44);
+        BooleanSetting var46 = (BooleanSetting)var45;
         this.ms = var46;
-        JL var47 = new JL("kill", "Kill Sound", true);
-        xB var48 = this.vn(var47);
-        JL var49 = (JL)var48;
+        BooleanSetting var47 = new BooleanSetting("kill", "Kill Sound", true);
+        Setting var48 = this.addSetting(var47);
+        BooleanSetting var49 = (BooleanSetting)var48;
         this.Ub = var49;
-        JL var50 = new JL("totem", "Totem Sound", true);
-        xB var51 = this.vn(var50);
-        JL var52 = (JL)var51;
+        BooleanSetting var50 = new BooleanSetting("totem", "Totem Sound", true);
+        Setting var51 = this.addSetting(var50);
+        BooleanSetting var52 = (BooleanSetting)var51;
         this.N = var52;
-        JL var53 = new JL("mute_vanilla", "Mute Vanilla Hits", true);
-        xB var54 = this.vn(var53);
-        JL var55 = (JL)var54;
+        BooleanSetting var53 = new BooleanSetting("mute_vanilla", "Mute Vanilla Hits", true);
+        Setting var54 = this.addSetting(var53);
+        BooleanSetting var55 = (BooleanSetting)var54;
         this.E = var55;
-        Uq[] var56 = new Uq[6];
-        Uq var67 = this.m("vanilla_crit", "Vanilla Crit", -1470036949);
+        NumberSetting[] var56 = new NumberSetting[6];
+        NumberSetting var67 = this.m("vanilla_crit", "Vanilla Crit", -1470036949);
         var56[0] = var67;
-        Uq var68 = this.m("vanilla_sweep", "Vanilla Sweep", -1470036949);
+        NumberSetting var68 = this.m("vanilla_sweep", "Vanilla Sweep", -1470036949);
         var56[1] = var68;
-        Uq var69 = this.m("vanilla_nodamage", "Vanilla No Damage", -1470036949);
+        NumberSetting var69 = this.m("vanilla_nodamage", "Vanilla No Damage", -1470036949);
         var56[2] = var69;
-        Uq var70 = this.m("vanilla_knockback", "Vanilla Knockback", -1470036949);
+        NumberSetting var70 = this.m("vanilla_knockback", "Vanilla Knockback", -1470036949);
         var56[3] = var70;
-        Uq var71 = this.m("vanilla_strong", "Vanilla Strong", -1470036949);
+        NumberSetting var71 = this.m("vanilla_strong", "Vanilla Strong", -1470036949);
         var56[4] = var71;
-        Uq var72 = this.m("vanilla_weak", "Vanilla Weak", -1470036949);
+        NumberSetting var72 = this.m("vanilla_weak", "Vanilla Weak", -1470036949);
         var56[5] = var72;
         this.Wf = var56;
         this.dy("Separate voices and volume for normal hits, criticals and low-cooldown sweep / spam hits.");
         this.fJ(true);
-        r_2 var57 = this.S;
-        r_2 var73 = this.Zd;
-        r_2 var3 = this.b;
+        ModeSetting var57 = this.S;
+        ModeSetting var73 = this.Zd;
+        ModeSetting var3 = this.b;
         List var58 = List.of(var57, var73, var3);
         Iterator var59 = var58.iterator();
         Iterator var60 = var59;
@@ -134,13 +135,13 @@ public final class hitsounds extends Yn {
         while (true) {
             boolean var74 = var60.hasNext();
             if (!var74) {
-                wD<Hm> var61 = (Hm var1x) -> {
+                EventListener<HitEvent> var61 = (HitEvent var1x) -> {
                     label69: {
                         int var14x;
                         var14x = zb;
                         var14x ^= 800164219;
                         int var3x = System.identityHashCode(this);
-                        JL var4x = this.ms;
+                        BooleanSetting var4x = this.ms;
                         boolean var56x = var4x.vb();
                         int var5x = var3x + 1;
                         var5x = var3x * var5x;
@@ -276,13 +277,13 @@ public final class hitsounds extends Yn {
                     IllegalArgumentException var49x = new IllegalArgumentException();
                     throw var49x;
                 };
-                this.iI(Hm.class, var61);
-                wD<I> var62 = (I var1x) -> {
+                this.onEvent(HitEvent.class, var61);
+                EventListener<KillEvent> var62 = (KillEvent var1x) -> {
                     label55: {
                         int var2x = zb;
                         var2x ^= 1582558401;
                         int var3x = System.identityHashCode(this);
-                        JL var4x = this.Ub;
+                        BooleanSetting var4x = this.Ub;
                         long var5x = var3x;
                         long var7x = var5x + 1L;
                         var7x = var5x * var7x;
@@ -401,12 +402,12 @@ public final class hitsounds extends Yn {
                     UnsupportedOperationException var39x = new UnsupportedOperationException();
                     throw var39x;
                 };
-                this.iI(I.class, var62);
-                wD<Vt> var63 = (Vt var1x) -> {
+                this.onEvent(KillEvent.class, var62);
+                EventListener<TotemPopEvent> var63 = (TotemPopEvent var1x) -> {
                     int var2x = zb;
                     var2x ^= -947318787;
                     int var3x = System.identityHashCode(this);
-                    JL var4x = this.N;
+                    BooleanSetting var4x = this.N;
                     boolean var44x = var4x.vb();
                     int var5x = var3x + 1;
                     var5x = var3x * var5x;
@@ -484,13 +485,13 @@ public final class hitsounds extends Yn {
                     UnsupportedOperationException var32x = new UnsupportedOperationException();
                     throw var32x;
                 };
-                this.iI(Vt.class, var63);
-                wD<Kl> var64 = (Kl var1x) -> {
+                this.onEvent(TotemPopEvent.class, var63);
+                EventListener<SoundPlaybackEvent> var64 = (SoundPlaybackEvent var1x) -> {
                     label72: {
                         int var2x = zb;
                         var2x ^= 832711039;
                         int var3x = System.identityHashCode(this);
-                        JL var4x = this.E;
+                        BooleanSetting var4x = this.E;
                         long var5x = var3x;
                         long var7x = var5x + 1L;
                         var7x = var5x * var7x;
@@ -616,13 +617,13 @@ public final class hitsounds extends Yn {
                     IllegalStateException var38x = new IllegalStateException();
                     throw var38x;
                 };
-                this.iI(Kl.class, var64);
+                this.onEvent(SoundPlaybackEvent.class, var64);
                 return;
             }
 
         Object var2q = (Object)var60.next();
             Object var2y = var2q;
-            r_2 var76 = (r_2)var2y;
+            ModeSetting var76 = (ModeSetting)var2y;
             Runnable var77 = () -> {
                 int var1x = zb;
                 var1x ^= 1196224085;
@@ -714,9 +715,9 @@ public final class hitsounds extends Yn {
         }
     }
 
-    private Uq m(String var1, String var2, int var3) {
+    private NumberSetting m(String var1, String var2, int var3) {
         int var5 = System.identityHashCode(this);
-        Uq var6 = new Uq(var1, var2, 1.0F, 0.0F, 1.0F);
+        NumberSetting var6 = new NumberSetting(var1, var2, 1.0F, 0.0F, 1.0F);
         var6 = var6.W(0.05F);
         BooleanSupplier var7 = () -> {
             int var1x = zb;
@@ -743,7 +744,7 @@ public final class hitsounds extends Yn {
                 Integer var38 = var1x;
                 label38:
                 if (var38 != null) {
-                    JL var39 = this.E;
+                    BooleanSetting var39 = this.E;
                     boolean var40 = var39.vb();
                     boolean var42;
                     if (!var40) {
@@ -807,9 +808,9 @@ public final class hitsounds extends Yn {
                 throw var29x;
             }
         };
-        xB var29 = var6.Pt(var7);
-        var6 = (Uq)var29;
-        xB var31 = this.vn(var6);
+        Setting var29 = var6.Pt(var7);
+        var6 = (NumberSetting)var29;
+        Setting var31 = this.addSetting(var6);
         int var32 = var5 + 1;
         int var33 = var5 * var32;
         var5 = var33 & 1;
@@ -853,7 +854,7 @@ public final class hitsounds extends Yn {
             var5 *= var12;
             var12 = var5 & 7;
             if (var12 == 0) {
-                return (Uq)var31;
+                return (NumberSetting)var31;
             }
         }
 
@@ -879,7 +880,7 @@ public final class hitsounds extends Yn {
                 var3 = var1;
                 label220:
                 if (var3 != null) {
-                    boolean var181 = Ud.y();
+                    boolean var181 = ClientRuntime.y();
                     if (!var181) {
                         switch (var1) {
                             case -1998762587:
@@ -901,9 +902,9 @@ public final class hitsounds extends Yn {
                     var1 ^= -657922662;
                     var1 |= -2105590990;
                     var1 ^= -474044669;
-                    Ud var182 = Ud.Z();
-                    NW var183 = var182.sP();
-                    Yn var184 = var183.tG(hitsounds.class);
+                    ClientRuntime var182 = ClientRuntime.Z();
+                    ModuleManager var183 = var182.sP();
+                    Module var184 = var183.tG(hitsounds.class);
                     hitsounds var185 = (hitsounds)var184;
                     int var4 = (var185.IU()) ? 1 : 0;
                     Integer var5 = var2;
@@ -933,7 +934,7 @@ public final class hitsounds extends Yn {
                         var1 *= 479790183;
                         var1 *= 631793185;
                         var1 ^= -138736741;
-                        JL var186 = var185.E;
+                        BooleanSetting var186 = var185.E;
                         int var199 = var2 + 1;
                         var199 = var2 * var199;
                         int var6 = var2 + 2;
@@ -1283,7 +1284,7 @@ public final class hitsounds extends Yn {
                                     var1 ^= -1936268679;
                                     Integer var250 = var1;
                                     if (var250 != null) {
-                                        Uq[] var251 = var185.Wf;
+                                        NumberSetting[] var251 = var185.Wf;
                                         int var278 = var2 + 1;
                                         int var279 = var2 * var278;
                                         int var280 = var279 & 1;
@@ -1302,7 +1303,7 @@ public final class hitsounds extends Yn {
                                         long var304;
                                         int var283 = (var304 = var261 - 0L) == 0L ? 0 : (var304 < 0L ? -1 : 1);
                                         if (var283 == 0) {
-                                            Uq var252 = var251[var227];
+                                            NumberSetting var252 = var251[var227];
                                             return var252.WM();
                                         }
                                     }
@@ -1378,7 +1379,7 @@ public final class hitsounds extends Yn {
         throw var175;
     }
 
-    private void eA(Hm var1, int var2) {
+    private void eA(HitEvent var1, int var2) {
         boolean var476 = false;
         float var687 = 0.0F;
         label748: {
@@ -1403,7 +1404,7 @@ public final class hitsounds extends Yn {
                         case 1899203735 -> var2 ^ -1046650270;
                     };
                     boolean var478 = var1.crit();
-                    r_2 var484;
+                    ModeSetting var484;
                     if (var478) {
                         var3 >>>= 13;
                         var3 ^= 100787584;
@@ -1421,7 +1422,7 @@ public final class hitsounds extends Yn {
                             break label748;
                         }
 
-                        r_2 var483 = this.Zd;
+                        ModeSetting var483 = this.Zd;
                         long var6 = var4;
                         long var8 = var6 + 1L;
                         var8 = var6 * var8;
@@ -1515,7 +1516,7 @@ public final class hitsounds extends Yn {
                                 break label748;
                             }
 
-                            r_2 var505 = this.b;
+                            ModeSetting var505 = this.b;
                             long var524 = var4;
                             long var688 = var524 + 1L;
                             var688 = var524 * var688;
@@ -1557,7 +1558,7 @@ public final class hitsounds extends Yn {
                                 break label748;
                             }
 
-                            r_2 var511 = this.S;
+                            ModeSetting var511 = this.S;
                             long var530 = var4;
                             long var692 = var530 + 1L;
                             var692 = var530 * var692;
@@ -1633,7 +1634,7 @@ public final class hitsounds extends Yn {
                                 break label748;
                             }
 
-                            Uq var515;
+                            NumberSetting var515;
                             if (var512) {
                                 var3 *= -893339377;
                                 var3 -= -2008512853;
@@ -1645,7 +1646,7 @@ public final class hitsounds extends Yn {
                                     break label748;
                                 }
 
-                                Uq var514 = this.iA;
+                                NumberSetting var514 = this.iA;
                                 var536 = var4 + 1;
                                 var536 = var4 * var536;
                                 var609 = var4 + 2;
@@ -1737,7 +1738,7 @@ public final class hitsounds extends Yn {
                                     var3 |= -228911055;
                                     var3 &= 139780633;
                                     var3 ^= 858352909;
-                                    Uq var556 = this.dv;
+                                    NumberSetting var556 = this.dv;
                                     Integer var617 = var4;
                                     if (var617 == null) {
                                         switch (var3) {
@@ -1809,7 +1810,7 @@ public final class hitsounds extends Yn {
                                         break label748;
                                     }
 
-                                    Uq var561 = this.I;
+                                    NumberSetting var561 = this.I;
                                     Integer var622 = var4;
                                     if (var622 == null) {
                                         var3 <<= 17;
@@ -2728,7 +2729,7 @@ public final class hitsounds extends Yn {
                                                     var3 *= -1562463049;
                                                     var3 *= 1109423101;
                                                     var3 ^= 247245275;
-                                                    JL var679 = this.Cv;
+                                                    BooleanSetting var679 = this.Cv;
                                                     int var680 = (var679.vb()) ? 1 : 0;
                                                     var694 = var4;
                                                     var834 = var694 + 1L;
@@ -2884,7 +2885,7 @@ public final class hitsounds extends Yn {
                                                     var3 >>>= 26;
                                                     var3 += 466428413;
                                                     var3 ^= -2039993418;
-                                                    JL var487 = this.HT;
+                                                    BooleanSetting var487 = this.HT;
                                                     int var828 = var4 + 1;
                                                     int var829 = var4 * var828;
                                                     int var869 = var4 + 2;
@@ -3061,7 +3062,7 @@ public final class hitsounds extends Yn {
             label114: {
                 int var39;
                 int var8 = System.identityHashCode(this);
-                Ud var9 = Ud.Z();
+                ClientRuntime var9 = ClientRuntime.Z();
                 Integer var10 = var8;
                 label113:
                 if (var10 != null) {
@@ -3075,7 +3076,7 @@ public final class hitsounds extends Yn {
                             default -> var6 ^ -1618632578;
                             case 466776322 -> var6 ^ -237602503;
                         };
-                        JL var87 = this.bM;
+                        BooleanSetting var87 = this.bM;
                         boolean var88 = var87.vb();
                         if (var88) {
                             var39 = switch (var39) {
@@ -3210,7 +3211,7 @@ public final class hitsounds extends Yn {
                         }
                     }
 
-                    Uq var98 = this.EC;
+                    NumberSetting var98 = this.EC;
                     float var99 = var98.WM();
                     Integer var119 = var8;
                     if (var119 != null) {
@@ -3316,7 +3317,7 @@ public final class hitsounds extends Yn {
         Lookup var0 = MethodHandles.lookup();
         Class var3 = var0.lookupClass();
         int var1 = 1694940857;
-        int var2 = Yn.C;
+        int var2 = Module.C;
         int var4 = of_2.ro(var3, var1, var2);
         zb = var4;
         String[] var5 = new String[]{

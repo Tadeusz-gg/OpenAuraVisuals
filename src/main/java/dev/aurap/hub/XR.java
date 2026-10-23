@@ -19,7 +19,7 @@ public abstract sealed class XR permits Mz, DZ, qJ, Ml, Nx, WE, wY {
     public XR() {
     }
 
-    public static XR n(xB var0) {
+    public static XR n(Setting var0) {
         label197: {
             int var34;
             Object var141;
@@ -36,7 +36,7 @@ public abstract sealed class XR permits Mz, DZ, qJ, Ml, Nx, WE, wY {
                     var34 ^= 865634914;
                     Objects.requireNonNull(var0);
                     byte var4 = 0;
-                    int var138 = ((var0 instanceof JL) ? 0 : (var0 instanceof Uq) ? 1 : (var0 instanceof r_2) ? 2 : (var0 instanceof Fk) ? 3 : (var0 instanceof ia) ? 4 : (var0 instanceof cS) ? 5 : -1);
+                    int var138 = ((var0 instanceof BooleanSetting) ? 0 : (var0 instanceof NumberSetting) ? 1 : (var0 instanceof ModeSetting) ? 2 : (var0 instanceof ColorSetting) ? 3 : (var0 instanceof KeybindSetting) ? 4 : (var0 instanceof ActionSetting) ? 5 : -1);
                     label194:
                     switch (var138) {
                         case 0:
@@ -54,7 +54,7 @@ public abstract sealed class XR permits Mz, DZ, qJ, Ml, Nx, WE, wY {
                                 break label197;
                             }
 
-                            JL var133 = (JL)var0;
+                            BooleanSetting var133 = (BooleanSetting)var0;
                             int var166 = var2 + 1;
                             int var167 = var2 * var166;
                             var2 = var167 & 1;
@@ -118,7 +118,7 @@ public abstract sealed class XR permits Mz, DZ, qJ, Ml, Nx, WE, wY {
                                 break label197;
                             }
 
-                            Uq var162 = (Uq)var0;
+                            NumberSetting var162 = (NumberSetting)var0;
                             long var185 = var2;
                             long var215 = var185 + 1L;
                             var215 = var185 * var215;
@@ -174,7 +174,7 @@ public abstract sealed class XR permits Mz, DZ, qJ, Ml, Nx, WE, wY {
                                 break label197;
                             }
 
-                            r_2 var154 = (r_2)var0;
+                            ModeSetting var154 = (ModeSetting)var0;
                             int var173 = var2 + 1;
                             var173 = var2 * var173;
                             int var198 = var2 + 2;
@@ -305,7 +305,7 @@ public abstract sealed class XR permits Mz, DZ, qJ, Ml, Nx, WE, wY {
                                     yield var34 ^ -1485945353;
                                 }
                             };
-                            Fk var148 = (Fk)var0;
+                            ColorSetting var148 = (ColorSetting)var0;
                             Ml var172 = new Ml(var148);
                             long var7 = var2;
                             long var9 = var7 + 1L;
@@ -359,7 +359,7 @@ public abstract sealed class XR permits Mz, DZ, qJ, Ml, Nx, WE, wY {
                                 break label197;
                             }
 
-                            ia var147 = (ia)var0;
+                            KeybindSetting var147 = (KeybindSetting)var0;
                             Integer var6 = var2;
                             if (var6 != null) {
                                 var34 = switch (var34) {
@@ -415,7 +415,7 @@ public abstract sealed class XR permits Mz, DZ, qJ, Ml, Nx, WE, wY {
                                 break label197;
                             }
 
-                            var141 = (cS)var0;
+                            var141 = (ActionSetting)var0;
                             int var5 = var2 + 1;
                             var5 = var2 * var5;
                             var5 &= 1;
@@ -429,7 +429,7 @@ public abstract sealed class XR permits Mz, DZ, qJ, Ml, Nx, WE, wY {
                                     break label197;
                                 }
 
-                                wY var145 = new wY((cS)var141);
+                                wY var145 = new wY((ActionSetting)var141);
                                 var141 = var145;
                                 var34 |= -686573786;
                                 var34 ^= -1404336304;
@@ -496,7 +496,7 @@ public abstract sealed class XR permits Mz, DZ, qJ, Ml, Nx, WE, wY {
         throw var120;
     }
 
-    public abstract xB W();
+    public abstract Setting W();
 
     public abstract float v();
 

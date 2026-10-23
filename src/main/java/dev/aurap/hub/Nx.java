@@ -6,16 +6,16 @@ import java.lang.invoke.MethodHandles;
 import java.lang.invoke.MethodHandles.Lookup;
 
 public final class Nx extends XR {
-    private final ia qu;
+    private final KeybindSetting qu;
     private float x;
     public static final int hr;
 
-    public Nx(ia var1) {
+    public Nx(KeybindSetting var1) {
         this.qu = var1;
     }
 
     @Override
-    public xB W() {
+    public Setting W() {
         int var1 = hr;
         var1 ^= 387540127;
         int var2 = System.identityHashCode(this);
@@ -120,7 +120,7 @@ public final class Nx extends XR {
                     break label192;
                 }
 
-                ia var155 = this.qu;
+                KeybindSetting var155 = this.qu;
                 String var156 = var155.Tp();
                 float var7 = this.x;
                 float var192 = this.fb;
@@ -224,7 +224,7 @@ public final class Nx extends XR {
                                 }
                                 default -> var4 ^ 219046792;
                             };
-                            ia var194 = this.qu;
+                            KeybindSetting var194 = this.qu;
                             boolean var195 = var194.r();
                             Integer var217 = var5;
                             if (var217 == null) {
@@ -260,7 +260,7 @@ public final class Nx extends XR {
                                 var4 *= 1634605699;
                                 var4 <<= 11;
                                 var4 ^= 956385516;
-                                ia var196 = this.qu;
+                                KeybindSetting var196 = this.qu;
                                 int var197 = var196.JQ();
                                 String var198 = i_2.Q(var197);
                                 int var221 = var5 + 1;
@@ -807,7 +807,7 @@ public final class Nx extends XR {
                                         break label102;
                                     }
 
-                                    ia var100 = this.qu;
+                                    KeybindSetting var100 = this.qu;
                                     var7 = var5 + 1;
                                     var7 = var5 * var7;
                                     var7 &= 1;
@@ -853,7 +853,7 @@ public final class Nx extends XR {
                             break label102;
                         }
 
-                        ia var102 = this.qu;
+                        KeybindSetting var102 = this.qu;
                         int var115 = var5 + 1;
                         var115 = var5 * var115;
                         var115 &= 1;

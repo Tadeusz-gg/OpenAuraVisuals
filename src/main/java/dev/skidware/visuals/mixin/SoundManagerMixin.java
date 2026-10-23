@@ -1,7 +1,7 @@
 package dev.skidware.visuals.mixin;
 
-import dev.aurap.hub.Kl;
-import dev.aurap.hub.Ud;
+import dev.aurap.hub.SoundPlaybackEvent;
+import dev.aurap.hub.ClientRuntime;
 import dev.aurap.hub.i_2;
 import net.minecraft.client.sound.SoundInstance;
 import net.minecraft.client.sound.SoundManager;
@@ -17,7 +17,7 @@ public abstract class SoundManagerMixin {
     }
 
     private static boolean aura$cancelled(SoundInstance sound) {
-        return Ud.y() && Ud.Z().ZM().l(Kl.class) ? ((Kl)Ud.Z().ZM().A(new Kl(i_2.tS(sound)))).v() : false;
+        return ClientRuntime.y() && ClientRuntime.Z().ZM().l(SoundPlaybackEvent.class) ? ((SoundPlaybackEvent)ClientRuntime.Z().ZM().A(new SoundPlaybackEvent(i_2.tS(sound)))).v() : false;
     }
 
     @Inject(
